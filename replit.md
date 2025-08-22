@@ -6,6 +6,19 @@ Passport to Fluency is a bilingual language learning platform that connects stud
 
 Preferred communication style: Simple, everyday language.
 
+# Recent Changes
+
+## Landing Page Redesign (August 2025)
+- **Fixed flag confusion**: Spanish flag (🇪🇸) now represents learning Spanish, US flag (🇺🇸) represents learning English
+- **Modern design improvements**:
+  - Dark gradient background with animated floating elements
+  - Browser language detection with user-friendly notification
+  - Real-time stats display (students, rating, class duration)
+  - Enhanced card design with country flag gradients
+  - Improved visual hierarchy and typography
+  - Added hover effects and smooth animations
+- **Better UX**: Clear visual separation between language options with statistical proof points
+
 # System Architecture
 
 ## Frontend Architecture
