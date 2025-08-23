@@ -37,10 +37,10 @@ export default function HighLevelCalendar({ language, type, className = "" }: Hi
 
   const t = texts[language];
 
-  // HighLevel calendar URLs - Kids Spanish provided, others pending
+  // HighLevel calendar URLs - Kids and Adult Spanish provided, others pending
   const calendarUrls = {
     adult: {
-      en: "https://api.appointmentcore.com/calendar/adults-spanish", // TODO: Replace with adult Spanish calendar
+      en: "https://api.leadconnectorhq.com/widget/booking/g27wbcMQU9YvigMrJfVK", // Adult Spanish calendar (provided)
       es: "https://api.appointmentcore.com/calendar/adults-english"  // TODO: Replace with adult English calendar
     },
     child: {
@@ -116,16 +116,16 @@ export default function HighLevelCalendar({ language, type, className = "" }: Hi
       ) : (
         <div className="calendar-container">
           <div className="min-h-[500px]">
-            {/* Show real HighLevel calendar for kids Spanish, fallback for others */}
-            {type === 'child' && language === 'en' ? (
+            {/* Show real HighLevel calendars for Spanish learning, fallback for English learning */}
+            {language === 'en' ? (
               <div 
                 dangerouslySetInnerHTML={{
                   __html: `
                     <iframe 
-                      src="https://api.leadconnectorhq.com/widget/booking/DplznTj4YrOGaYJ12ufO" 
+                      src="${type === 'adult' ? 'https://api.leadconnectorhq.com/widget/booking/g27wbcMQU9YvigMrJfVK' : 'https://api.leadconnectorhq.com/widget/booking/DplznTj4YrOGaYJ12ufO'}" 
                       style="width: 100%;border:none;overflow: hidden;min-height:500px;" 
                       scrolling="no" 
-                      id="DplznTj4YrOGaYJ12ufO_${Date.now()}"
+                      id="${type === 'adult' ? 'g27wbcMQU9YvigMrJfVK' : 'DplznTj4YrOGaYJ12ufO'}_${Date.now()}"
                     ></iframe>
                     <script src="https://link.msgsndr.com/js/form_embed.js" type="text/javascript"></script>
                   `
