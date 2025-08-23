@@ -37,10 +37,19 @@ export default function HighLevelCalendar({ language, type, className = "" }: Hi
 
   const t = texts[language];
 
-  // TODO: Replace with actual HighLevel calendar URL
-  const calendarUrl = type === 'adult' 
-    ? "https://api.appointmentcore.com/calendar/adults" // Replace with real URL
-    : "https://api.appointmentcore.com/calendar/children"; // Replace with real URL
+  // HighLevel calendar URLs - Kids Spanish provided, others pending
+  const calendarUrls = {
+    adult: {
+      en: "https://api.appointmentcore.com/calendar/adults-spanish", // TODO: Replace with adult Spanish calendar
+      es: "https://api.appointmentcore.com/calendar/adults-english"  // TODO: Replace with adult English calendar
+    },
+    child: {
+      en: "https://api.leadconnectorhq.com/widget/booking/DplznTj4YrOGaYJ12ufO", // Kids Spanish calendar (provided)
+      es: "https://api.appointmentcore.com/calendar/children-english"  // TODO: Replace with kids English calendar
+    }
+  };
+
+  const calendarUrl = calendarUrls[type][language];
 
   useEffect(() => {
     // Simulate calendar loading
@@ -106,17 +115,25 @@ export default function HighLevelCalendar({ language, type, className = "" }: Hi
         </div>
       ) : (
         <div className="calendar-container">
-          {/* TODO: Replace this with actual HighLevel calendar embed when URL is provided */}
-          <div className="aspect-video">
-            <CalendarFallback />
-            {/* 
-            When you provide the HighLevel calendar URL, replace the CalendarFallback with:
-            <iframe 
-              src={calendarUrl}
-              className="w-full h-full border rounded-lg"
-              title="HighLevel Calendar"
-            />
-            */}
+          <div className="min-h-[500px]">
+            {/* Show real HighLevel calendar for kids Spanish, fallback for others */}
+            {type === 'child' && language === 'en' ? (
+              <div 
+                dangerouslySetInnerHTML={{
+                  __html: `
+                    <iframe 
+                      src="https://api.leadconnectorhq.com/widget/booking/DplznTj4YrOGaYJ12ufO" 
+                      style="width: 100%;border:none;overflow: hidden;min-height:500px;" 
+                      scrolling="no" 
+                      id="DplznTj4YrOGaYJ12ufO_${Date.now()}"
+                    ></iframe>
+                    <script src="https://link.msgsndr.com/js/form_embed.js" type="text/javascript"></script>
+                  `
+                }}
+              />
+            ) : (
+              <CalendarFallback />
+            )}
           </div>
         </div>
       )}
