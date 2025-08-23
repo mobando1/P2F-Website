@@ -8,6 +8,21 @@ Preferred communication style: Simple, everyday language.
 
 # Recent Changes
 
+## Separate Adult/Children Calendars Implementation (August 2025)
+- **Calendar separation**: Created separate booking flows for adult vs children classes
+  - Same pricing structure but specialized teaching preparation for instructors
+  - Clear visual distinction in CTA sections with separate buttons
+  - Modal titles dynamically update to indicate "Adult Classes" or "Kids Classes"
+  - HighLevel calendar component properly receives booking type parameter
+- **Testimonials correction**: Fixed testimonial content alignment
+  - Spanish site (/en) now shows real Spanish learning testimonials from Passport to Fluency
+  - English site (/es) features invented English learning testimonials (María González, Ana Rodríguez, Carlos Mendoza)
+  - Realistic scenarios covering career advancement, parenting support, and business growth
+- **User experience improvements**:
+  - Intuitive button design with icons (Users for adults, Star for children)
+  - Responsive layout working on mobile and desktop
+  - Clear messaging about "same pricing, specialized approach"
+
 ## Landing Page Complete Redesign (August 2025)
 - **Fixed flag confusion**: Spanish flag (🇪🇸) now represents learning Spanish, US flag (🇺🇸) represents learning English
 - **Complete transformation to clean, modern design inspired by BaseLang**:

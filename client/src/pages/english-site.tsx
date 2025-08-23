@@ -462,10 +462,10 @@ export default function EnglishSite() {
                   <Star className="w-5 h-5 fill-current" />
                 </div>
                 <p className="text-gray-700 mb-4">
-                  "Decidí aprender inglés porque muchos de mis amigos son de Sudamérica y cuando salimos a bailar salsa, todos hablan inglés. ¡Passport2Fluency personaliza las lecciones para mis necesidades específicas!"
+                  "Necesitaba mejorar mi inglés para avanzar en mi carrera. Con Passport2Fluency, mi confianza al hablar inglés mejoró increíblemente en solo 3 meses. ¡Ahora puedo participar en reuniones internacionales sin problemas!"
                 </p>
-                <div className="font-semibold text-gray-900">Carlos Martínez</div>
-                <div className="text-sm text-gray-600">Profesional, Miami</div>
+                <div className="font-semibold text-gray-900">María González</div>
+                <div className="text-sm text-gray-600">Ingeniera, Ciudad de México</div>
               </CardContent>
             </Card>
 
@@ -479,10 +479,10 @@ export default function EnglishSite() {
                   <Star className="w-5 h-5 fill-current" />
                 </div>
                 <p className="text-gray-700 mb-4">
-                  "Necesitaba mejorar mi inglés para comunicarme mejor con mi familia y por mis viajes. Elegí Passport2fluency porque necesitaba algo virtual. ¡Mi instructora Valentina es maravillosa!"
+                  "Mis hijos estudian en una escuela bilingüe y yo no podía ayudarlos con sus tareas en inglés. Después de 6 meses con Passport2Fluency, ahora puedo ayudarlos y hasta leer cuentos en inglés. ¡Es increíble!"
                 </p>
-                <div className="font-semibold text-gray-900">Lucía Fernández</div>
-                <div className="text-sm text-gray-600">Empresaria, Texas</div>
+                <div className="font-semibold text-gray-900">Ana Rodríguez</div>
+                <div className="text-sm text-gray-600">Madre, Los Angeles</div>
               </CardContent>
             </Card>
 
@@ -496,10 +496,10 @@ export default function EnglishSite() {
                   <Star className="w-5 h-5 fill-current" />
                 </div>
                 <p className="text-gray-700 mb-4">
-                  "Como madre con herencia argentina y cubana, era importante que mis hijos mantuvieran conexión con su patrimonio. El programa ha sido un cambio total - contenido culturalmente relevante que realmente cautiva su interés."
+                  "Tengo un restaurante y muchos clientes hablan inglés. Antes perdía ventas porque no podía comunicarme bien. Ahora, después de estudiar con Passport2Fluency, mis ventas han aumentado 40% ¡y tengo más confianza!"
                 </p>
-                <div className="font-semibold text-gray-900">Rebecca Santos</div>
-                <div className="text-sm text-gray-600">Madre, Nueva Jersey</div>
+                <div className="font-semibold text-gray-900">Carlos Mendoza</div>
+                <div className="text-sm text-gray-600">Empresario, Phoenix</div>
               </CardContent>
             </Card>
           </div>
@@ -513,7 +513,7 @@ export default function EnglishSite() {
         </div>
       </section>
 
-      {/* CTA Section */}
+      {/* Free Trial Section */}
       <section className="py-20 bg-passport-blue">
         <div className="container mx-auto px-4 text-center">
           <h2 className="text-4xl font-bold text-white mb-6">
@@ -522,14 +522,27 @@ export default function EnglishSite() {
           <p className="text-xl text-blue-100 mb-8 max-w-2xl mx-auto">
             Únete a más de 1,000 latinos que ya están mejorando su inglés con nosotros
           </p>
-          <Button 
-            onClick={() => handleBookingClick('adult')}
-            className="bg-white text-passport-blue hover:bg-gray-100 px-8 py-4 text-lg font-semibold"
-            size="lg"
-          >
-            Reservar Clase Gratuita
-            <ArrowRight className="w-5 h-5 ml-2" />
-          </Button>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center max-w-lg mx-auto">
+            <Button 
+              onClick={() => handleBookingClick('adult')}
+              className="bg-white text-passport-blue hover:bg-gray-100 px-8 py-4 text-lg font-semibold w-full sm:w-auto"
+              size="lg"
+            >
+              <Users className="w-5 h-5 mr-2" />
+              Clases para Adultos
+            </Button>
+            <Button 
+              onClick={() => handleBookingClick('child')}
+              className="bg-white text-passport-blue hover:bg-gray-100 px-8 py-4 text-lg font-semibold w-full sm:w-auto"
+              size="lg"
+            >
+              <Star className="w-5 h-5 mr-2" />
+              Clases para Niños
+            </Button>
+          </div>
+          <p className="text-blue-100 mt-4 text-sm">
+            Mismo precio excelente, enfoque de enseñanza especializada
+          </p>
         </div>
       </section>
 
@@ -586,7 +599,9 @@ export default function EnglishSite() {
           <div className="bg-white rounded-lg max-w-2xl w-full max-h-[90vh] overflow-y-auto">
             <div className="p-6">
               <div className="flex justify-between items-center mb-4">
-                <h2 className="text-2xl font-bold text-gray-900">Reservar Clase Gratuita</h2>
+                <h2 className="text-2xl font-bold text-gray-900">
+                  {bookingType === 'adult' ? 'Reservar Clase Gratuita - Adultos' : 'Reservar Clase Gratuita - Niños'}
+                </h2>
                 <button 
                   onClick={() => setShowBookingForm(false)}
                   className="text-gray-400 hover:text-gray-600"

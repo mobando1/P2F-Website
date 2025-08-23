@@ -513,7 +513,7 @@ export default function SpanishSite() {
         </div>
       </section>
 
-      {/* CTA Section */}
+      {/* Free Trial Section */}
       <section className="py-20 bg-passport-orange">
         <div className="container mx-auto px-4 text-center">
           <h2 className="text-4xl font-bold text-white mb-6">
@@ -522,14 +522,27 @@ export default function SpanishSite() {
           <p className="text-xl text-orange-100 mb-8 max-w-2xl mx-auto">
             Join over 1,000 English speakers who are already improving their Spanish with us
           </p>
-          <Button 
-            onClick={() => handleBookingClick('adult')}
-            className="bg-white text-passport-orange hover:bg-gray-100 px-8 py-4 text-lg font-semibold"
-            size="lg"
-          >
-            Book Free Class
-            <ArrowRight className="w-5 h-5 ml-2" />
-          </Button>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center max-w-lg mx-auto">
+            <Button 
+              onClick={() => handleBookingClick('adult')}
+              className="bg-white text-passport-orange hover:bg-gray-100 px-8 py-4 text-lg font-semibold w-full sm:w-auto"
+              size="lg"
+            >
+              <Users className="w-5 h-5 mr-2" />
+              Adult Classes
+            </Button>
+            <Button 
+              onClick={() => handleBookingClick('child')}
+              className="bg-white text-passport-orange hover:bg-gray-100 px-8 py-4 text-lg font-semibold w-full sm:w-auto"
+              size="lg"
+            >
+              <Star className="w-5 h-5 mr-2" />
+              Kids Classes
+            </Button>
+          </div>
+          <p className="text-orange-100 mt-4 text-sm">
+            Same great pricing, specialized teaching approach
+          </p>
         </div>
       </section>
 
@@ -586,7 +599,9 @@ export default function SpanishSite() {
           <div className="bg-white rounded-lg max-w-2xl w-full max-h-[90vh] overflow-y-auto">
             <div className="p-6">
               <div className="flex justify-between items-center mb-4">
-                <h2 className="text-2xl font-bold text-gray-900">Book Free Class</h2>
+                <h2 className="text-2xl font-bold text-gray-900">
+                  {bookingType === 'adult' ? 'Book Free Trial - Adult Classes' : 'Book Free Trial - Kids Classes'}
+                </h2>
                 <button 
                   onClick={() => setShowBookingForm(false)}
                   className="text-gray-400 hover:text-gray-600"
