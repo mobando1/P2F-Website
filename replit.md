@@ -26,6 +26,22 @@ Preferred communication style: Simple, everyday language.
   - Professional typography hierarchy for better readability
 - **Better conversion focus**: Clean, trustworthy design that feels professional yet approachable, removing barriers to user action while maintaining brand identity
 
+## Complete Site Architecture Implementation (August 2025)
+- **Full trilingual site structure**:
+  - Landing page (/) with language selection - clean BaseLang-inspired design
+  - English learning site (/es) - specifically for Spanish speakers learning English
+  - Spanish learning site (/en) - specifically for English speakers learning Spanish
+- **Audience-specific content optimization**:
+  - Localized messaging and cultural references for each target audience
+  - Language-appropriate testimonials and social proof
+  - Customized pricing presentation and call-to-action buttons
+  - Navigation and UI elements adapted to user expectations
+- **Seamless user journey**:
+  - Direct routing from landing page selections to appropriate audience sites
+  - Language toggle functionality between sites
+  - Integrated booking system with modal forms
+  - Consistent branding while optimizing for conversion per audience
+
 # System Architecture
 
 ## Frontend Architecture

@@ -1,22 +1,18 @@
 import { useState } from "react";
-import { useTranslation } from "@/lib/translations";
-import LanguageToggle from "@/components/language-toggle";
-import Navigation from "@/components/navigation";
-import HeroSection from "@/components/hero-section";
-import FeaturesSection from "@/components/features-section";
-import PricingSection from "@/components/pricing-section";
-import TestimonialsSection from "@/components/testimonials-section";
-import BookingForm from "@/components/booking-form";
 import { Button } from "@/components/ui/button";
+import { Card, CardContent } from "@/components/ui/card";
+import BookingForm from "@/components/booking-form";
 import passportLogo from "@assets/a1c5a1_9514ede9e3124d7a9adf78f5dcf07f28~mv2_1755803448396.png";
 import { useLocation } from "wouter";
-import { Facebook, Instagram, Linkedin, Youtube, Mail, Phone, Clock } from "lucide-react";
+import { 
+  Globe, Star, Users, Clock, ArrowRight, Calendar, 
+  Headphones, VideoIcon, CheckCircle, MessageCircle,
+  Facebook, Instagram, Linkedin, Youtube, Mail, Phone 
+} from "lucide-react";
 
 export default function EnglishSite() {
-  const [language, setLanguage] = useState<'en'>('en');
   const [showBookingForm, setShowBookingForm] = useState(false);
   const [bookingType, setBookingType] = useState<'adult' | 'child'>('adult');
-  const { t } = useTranslation(language);
   const [, navigate] = useLocation();
 
   const scrollToSection = (sectionId: string) => {
@@ -31,82 +27,243 @@ export default function EnglishSite() {
     setShowBookingForm(true);
   };
 
-  const handlePlanSelect = (planId: string) => {
-    // In a real app, this would redirect to payment processing
-    console.log('Plan selected:', planId);
-    alert('Redirecting to payment system...');
-  };
-
   const goToSpanishSite = () => {
     navigate('/es');
   };
 
+  const goToLanding = () => {
+    navigate('/');
+  };
+
   return (
-    <div className="min-h-screen bg-white font-inter">
-      <LanguageToggle 
-        currentLanguage={language} 
-        onLanguageChange={() => goToSpanishSite()}
-      />
-
-      <Navigation 
-        t={t} 
-        onSectionClick={scrollToSection}
-        onBookingClick={() => handleBookingClick('adult')}
-      />
-
-      <HeroSection 
-        t={t}
-        language={language}
-        onBookingClick={() => handleBookingClick('adult')}
-        onPlansClick={() => scrollToSection('planes')}
-      />
-
-      <FeaturesSection t={t} />
-
-      {/* Program Options */}
-      <section className="py-20 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold font-poppins text-passport-gray mb-4 animate-fade-in">
-              {t('programs.title')}
-            </h2>
-          </div>
-          
-          <div className="grid md:grid-cols-2 gap-12 items-center">
-            <div className="relative animate-fade-in">
+    <div className="min-h-screen bg-white">
+      {/* Header */}
+      <header className="border-b border-gray-100 sticky top-0 bg-white z-50">
+        <div className="container mx-auto px-4 py-4">
+          <div className="flex justify-between items-center">
+            <div className="flex items-center space-x-4">
               <img 
-                src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600"
-                alt="Adult learning Spanish online" 
-                className="rounded-2xl shadow-lg w-full"
+                src={passportLogo} 
+                alt="Passport to Fluency" 
+                className="h-10 cursor-pointer" 
+                onClick={goToLanding}
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-passport-blue to-transparent opacity-30 rounded-2xl"></div>
-              <div className="absolute bottom-6 left-6 text-white">
-                <h3 className="text-2xl font-bold mb-2">{t('programs.adults.title')}</h3>
-                <p className="mb-4">{t('programs.adults.description')}</p>
-                <Button 
-                  onClick={() => scrollToSection('planes')}
-                  className="passport-orange text-white hover:bg-orange-600"
+            </div>
+            <div className="flex items-center space-x-6">
+              <nav className="hidden md:flex space-x-6">
+                <button 
+                  onClick={() => scrollToSection('como-funciona')}
+                  className="text-gray-700 hover:text-passport-blue transition-colors"
                 >
-                  {t('programs.adults.cta')}
-                </Button>
+                  Cómo Funciona
+                </button>
+                <button 
+                  onClick={() => scrollToSection('precios')}
+                  className="text-gray-700 hover:text-passport-blue transition-colors"
+                >
+                  Precios
+                </button>
+                <button 
+                  onClick={() => scrollToSection('testimonios')}
+                  className="text-gray-700 hover:text-passport-blue transition-colors"
+                >
+                  Testimonios
+                </button>
+              </nav>
+              <Button 
+                onClick={goToSpanishSite}
+                variant="outline" 
+                size="sm"
+                className="border-passport-orange text-passport-orange hover:bg-passport-orange hover:text-white"
+              >
+                🇪🇸 Español
+              </Button>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      {/* Hero Section */}
+      <section className="py-20 bg-gradient-to-b from-blue-50 to-white">
+        <div className="container mx-auto px-4">
+          <div className="max-w-4xl mx-auto text-center">
+            <div className="mb-8">
+              <div className="inline-flex items-center bg-blue-100 text-blue-800 rounded-full px-4 py-2 text-sm mb-6">
+                <Globe className="w-4 h-4 mr-2" />
+                Para hispanohablantes que quieren dominar el inglés
               </div>
             </div>
             
-            <div className="relative animate-fade-in">
-              <img 
-                src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600"
-                alt="Children learning Spanish online" 
-                className="rounded-2xl shadow-lg w-full"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-passport-orange to-transparent opacity-30 rounded-2xl"></div>
-              <div className="absolute bottom-6 left-6 text-white">
-                <h3 className="text-2xl font-bold mb-2">{t('programs.children.title')}</h3>
-                <p className="mb-4">{t('programs.children.description')}</p>
+            <h1 className="text-5xl md:text-7xl font-bold text-gray-900 mb-6">
+              <span className="text-passport-blue">Speak English</span><br />
+              <span className="italic text-passport-orange">like a native</span>
+            </h1>
+            
+            <p className="text-xl md:text-2xl text-gray-700 mb-8 max-w-3xl mx-auto">
+              Clases personalizadas 1-a-1 con instructores nativos americanos. 
+              <span className="font-semibold"> Disponible 24/7, desde cualquier lugar.</span>
+            </p>
+
+            <div className="flex flex-wrap justify-center gap-6 mb-12 text-sm text-gray-600">
+              <div className="flex items-center">
+                <Users className="w-4 h-4 mr-1 text-passport-blue" />
+                <strong className="text-gray-900">1,000+</strong> estudiantes latinos
+              </div>
+              <div className="flex items-center">
+                <Star className="w-4 h-4 mr-1 text-yellow-500" />
+                <strong className="text-gray-900">4.9</strong> calificación promedio
+              </div>
+              <div className="flex items-center">
+                <Clock className="w-4 h-4 mr-1 text-passport-orange" />
+                Clases de <strong className="text-gray-900">40 minutos</strong>
+              </div>
+            </div>
+
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <Button 
+                onClick={() => handleBookingClick('adult')}
+                className="bg-passport-blue hover:bg-blue-700 text-white px-8 py-4 text-lg font-semibold"
+                size="lg"
+              >
+                Reservar Clase Gratis
+                <ArrowRight className="w-5 h-5 ml-2" />
+              </Button>
+              <Button 
+                onClick={() => scrollToSection('como-funciona')}
+                variant="outline" 
+                className="border-passport-blue text-passport-blue hover:bg-passport-blue hover:text-white px-8 py-4 text-lg font-semibold"
+                size="lg"
+              >
+                Ver Cómo Funciona
+              </Button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* How it Works */}
+      <section id="como-funciona" className="py-20 bg-white">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl font-bold text-gray-900 mb-4">
+              Cómo Funciona
+            </h2>
+            <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+              Solo 3 pasos simples para empezar a hablar inglés con confianza
+            </p>
+          </div>
+
+          <div className="max-w-5xl mx-auto grid md:grid-cols-3 gap-8">
+            <Card className="text-center border-2 hover:border-passport-blue transition-colors">
+              <CardContent className="p-8">
+                <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-6">
+                  <Calendar className="w-8 h-8 text-passport-blue" />
+                </div>
+                <h3 className="text-xl font-bold text-gray-900 mb-4">1. Agenda tu clase</h3>
+                <p className="text-gray-600">
+                  Elige el horario que mejor te convenga. Disponible 24/7, incluso de último momento.
+                </p>
+              </CardContent>
+            </Card>
+
+            <Card className="text-center border-2 hover:border-passport-blue transition-colors">
+              <CardContent className="p-8">
+                <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-6">
+                  <VideoIcon className="w-8 h-8 text-passport-blue" />
+                </div>
+                <h3 className="text-xl font-bold text-gray-900 mb-4">2. Conecta por video</h3>
+                <p className="text-gray-600">
+                  Únete a tu clase por Zoom desde cualquier dispositivo. Tu instructor te estará esperando.
+                </p>
+              </CardContent>
+            </Card>
+
+            <Card className="text-center border-2 hover:border-passport-blue transition-colors">
+              <CardContent className="p-8">
+                <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-6">
+                  <MessageCircle className="w-8 h-8 text-passport-blue" />
+                </div>
+                <h3 className="text-xl font-bold text-gray-900 mb-4">3. Practica y mejora</h3>
+                <p className="text-gray-600">
+                  Conversación real con retroalimentación instantánea. Tu progreso se guarda automáticamente.
+                </p>
+              </CardContent>
+            </Card>
+          </div>
+        </div>
+      </section>
+
+      {/* Features */}
+      <section className="py-20 bg-gray-50">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl font-bold text-gray-900 mb-4">
+              ¿Por qué elegir Passport to Fluency?
+            </h2>
+          </div>
+
+          <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-12 items-center">
+            <div>
+              <ul className="space-y-6">
+                <li className="flex items-start">
+                  <CheckCircle className="w-6 h-6 text-green-500 mr-4 mt-1 flex-shrink-0" />
+                  <div>
+                    <h3 className="text-lg font-semibold text-gray-900 mb-2">
+                      Instructores nativos americanos
+                    </h3>
+                    <p className="text-gray-600">
+                      Todos nuestros profesores son hablantes nativos de inglés de Estados Unidos, con experiencia enseñando a latinos.
+                    </p>
+                  </div>
+                </li>
+                <li className="flex items-start">
+                  <CheckCircle className="w-6 h-6 text-green-500 mr-4 mt-1 flex-shrink-0" />
+                  <div>
+                    <h3 className="text-lg font-semibold text-gray-900 mb-2">
+                      Horarios súper flexibles
+                    </h3>
+                    <p className="text-gray-600">
+                      Agenda clases cuando quieras, incluso 15 minutos antes. Disponible 24/7 para adaptarse a tu vida ocupada.
+                    </p>
+                  </div>
+                </li>
+                <li className="flex items-start">
+                  <CheckCircle className="w-6 h-6 text-green-500 mr-4 mt-1 flex-shrink-0" />
+                  <div>
+                    <h3 className="text-lg font-semibold text-gray-900 mb-2">
+                      Método personalizado
+                    </h3>
+                    <p className="text-gray-600">
+                      Cada clase se adapta a tu nivel y objetivos. Enfoque práctico en conversación real del día a día.
+                    </p>
+                  </div>
+                </li>
+                <li className="flex items-start">
+                  <CheckCircle className="w-6 h-6 text-green-500 mr-4 mt-1 flex-shrink-0" />
+                  <div>
+                    <h3 className="text-lg font-semibold text-gray-900 mb-2">
+                      Progreso garantizado
+                    </h3>
+                    <p className="text-gray-600">
+                      95% de nuestros estudiantes mejoran su fluidez en las primeras 4 semanas o te devolvemos tu dinero.
+                    </p>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div className="text-center">
+              <div className="bg-white rounded-2xl p-8 shadow-lg">
+                <h3 className="text-2xl font-bold text-gray-900 mb-4">
+                  Prueba tu primera clase gratis
+                </h3>
+                <p className="text-gray-600 mb-6">
+                  Sin compromiso. Conoce tu instructor y experimenta nuestro método personalizado.
+                </p>
                 <Button 
-                  onClick={() => scrollToSection('planes')}
-                  className="passport-blue text-white hover:bg-blue-700"
+                  onClick={() => handleBookingClick('adult')}
+                  className="bg-passport-orange hover:bg-orange-600 text-white w-full py-3 text-lg font-semibold"
                 >
-                  {t('programs.children.cta')}
+                  Reservar Clase Gratuita
                 </Button>
               </div>
             </div>
@@ -114,169 +271,250 @@ export default function EnglishSite() {
         </div>
       </section>
 
-      <PricingSection 
-        t={t}
-        onPlanSelect={handlePlanSelect}
-        currency="$"
-      />
-
-      {/* Teachers Section */}
-      <section id="coaches" className="py-20 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      {/* Pricing */}
+      <section id="precios" className="py-20 bg-white">
+        <div className="container mx-auto px-4">
           <div className="text-center mb-16">
-            <img 
-              src="https://images.unsplash.com/photo-1582213782179-e0d53f98f2ca?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&h=400"
-              alt="Professional Spanish teachers team" 
-              className="w-full h-64 object-cover rounded-2xl shadow-lg mb-8 animate-fade-in"
-            />
-            
-            <h2 className="text-4xl font-bold font-poppins text-passport-gray mb-4 animate-fade-in">
-              {t('teachers.title')}
+            <h2 className="text-4xl font-bold text-gray-900 mb-4">
+              Planes Simples y Transparentes
             </h2>
-            <p className="text-xl text-gray-600 animate-fade-in">{t('teachers.subtitle')}</p>
-            
-            <Button 
-              className="passport-blue text-white px-8 py-3 rounded-lg font-semibold hover:bg-blue-700 transition-colors mt-6 animate-fade-in"
-            >
-              {t('teachers.cta')}
-            </Button>
+            <p className="text-xl text-gray-600">
+              Sin contratos ni letras pequeñas. Cancela cuando quieras.
+            </p>
+          </div>
+
+          <div className="max-w-4xl mx-auto grid md:grid-cols-2 gap-8">
+            <Card className="border-2 hover:border-passport-blue transition-colors">
+              <CardContent className="p-8 text-center">
+                <h3 className="text-2xl font-bold text-gray-900 mb-4">Plan Individual</h3>
+                <div className="text-4xl font-bold text-passport-blue mb-2">$49</div>
+                <div className="text-gray-600 mb-6">por clase de 40 minutos</div>
+                <ul className="text-left space-y-3 mb-8">
+                  <li className="flex items-center">
+                    <CheckCircle className="w-5 h-5 text-green-500 mr-3" />
+                    Clase individual 1-a-1
+                  </li>
+                  <li className="flex items-center">
+                    <CheckCircle className="w-5 h-5 text-green-500 mr-3" />
+                    Instructor nativo americano
+                  </li>
+                  <li className="flex items-center">
+                    <CheckCircle className="w-5 h-5 text-green-500 mr-3" />
+                    Material personalizado incluido
+                  </li>
+                  <li className="flex items-center">
+                    <CheckCircle className="w-5 h-5 text-green-500 mr-3" />
+                    Seguimiento de progreso
+                  </li>
+                </ul>
+                <Button 
+                  onClick={() => handleBookingClick('adult')}
+                  className="w-full bg-passport-blue hover:bg-blue-700 text-white py-3 font-semibold"
+                >
+                  Empezar Ahora
+                </Button>
+              </CardContent>
+            </Card>
+
+            <Card className="border-2 border-passport-orange bg-orange-50">
+              <CardContent className="p-8 text-center">
+                <div className="bg-passport-orange text-white px-3 py-1 rounded-full text-sm font-semibold mb-4 inline-block">
+                  MÁS POPULAR
+                </div>
+                <h3 className="text-2xl font-bold text-gray-900 mb-4">Paquete 4 Clases</h3>
+                <div className="text-4xl font-bold text-passport-orange mb-2">$179</div>
+                <div className="text-gray-600 mb-2">$44.75 por clase</div>
+                <div className="text-sm text-green-600 font-semibold mb-6">Ahorra $17</div>
+                <ul className="text-left space-y-3 mb-8">
+                  <li className="flex items-center">
+                    <CheckCircle className="w-5 h-5 text-green-500 mr-3" />
+                    4 clases individuales 1-a-1
+                  </li>
+                  <li className="flex items-center">
+                    <CheckCircle className="w-5 h-5 text-green-500 mr-3" />
+                    Instructor nativo americano
+                  </li>
+                  <li className="flex items-center">
+                    <CheckCircle className="w-5 h-5 text-green-500 mr-3" />
+                    Material personalizado incluido
+                  </li>
+                  <li className="flex items-center">
+                    <CheckCircle className="w-5 h-5 text-green-500 mr-3" />
+                    Seguimiento de progreso
+                  </li>
+                  <li className="flex items-center">
+                    <CheckCircle className="w-5 h-5 text-green-500 mr-3" />
+                    Válido por 30 días
+                  </li>
+                </ul>
+                <Button 
+                  onClick={() => handleBookingClick('adult')}
+                  className="w-full bg-passport-orange hover:bg-orange-600 text-white py-3 font-semibold"
+                >
+                  Empezar Ahora
+                </Button>
+              </CardContent>
+            </Card>
           </div>
         </div>
       </section>
 
-      <TestimonialsSection t={t} language={language} />
+      {/* Testimonials */}
+      <section id="testimonios" className="py-20 bg-gray-50">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl font-bold text-gray-900 mb-4">
+              Lo que dicen nuestros estudiantes
+            </h2>
+          </div>
+
+          <div className="max-w-6xl mx-auto grid md:grid-cols-3 gap-8">
+            <Card className="bg-white">
+              <CardContent className="p-6">
+                <div className="flex text-yellow-400 mb-4">
+                  <Star className="w-5 h-5 fill-current" />
+                  <Star className="w-5 h-5 fill-current" />
+                  <Star className="w-5 h-5 fill-current" />
+                  <Star className="w-5 h-5 fill-current" />
+                  <Star className="w-5 h-5 fill-current" />
+                </div>
+                <p className="text-gray-700 mb-4">
+                  "En solo 2 meses mejoré mi confianza para hablar inglés en el trabajo. Los instructores son muy pacientes y te ayudan a perder el miedo."
+                </p>
+                <div className="font-semibold text-gray-900">María González</div>
+                <div className="text-sm text-gray-600">Ingeniera, México</div>
+              </CardContent>
+            </Card>
+
+            <Card className="bg-white">
+              <CardContent className="p-6">
+                <div className="flex text-yellow-400 mb-4">
+                  <Star className="w-5 h-5 fill-current" />
+                  <Star className="w-5 h-5 fill-current" />
+                  <Star className="w-5 h-5 fill-current" />
+                  <Star className="w-5 h-5 fill-current" />
+                  <Star className="w-5 h-5 fill-current" />
+                </div>
+                <p className="text-gray-700 mb-4">
+                  "La flexibilidad de horarios es perfecta para mi trabajo. Puedo tomar clases temprano en la mañana o tarde en la noche."
+                </p>
+                <div className="font-semibold text-gray-900">Carlos Ruiz</div>
+                <div className="text-sm text-gray-600">Contador, Colombia</div>
+              </CardContent>
+            </Card>
+
+            <Card className="bg-white">
+              <CardContent className="p-6">
+                <div className="flex text-yellow-400 mb-4">
+                  <Star className="w-5 h-5 fill-current" />
+                  <Star className="w-5 h-5 fill-current" />
+                  <Star className="w-5 h-5 fill-current" />
+                  <Star className="w-5 h-5 fill-current" />
+                  <Star className="w-5 h-5 fill-current" />
+                </div>
+                <p className="text-gray-700 mb-4">
+                  "Finalmente puedo tener conversaciones naturales en inglés. El método personalizado hace toda la diferencia."
+                </p>
+                <div className="font-semibold text-gray-900">Ana Martínez</div>
+                <div className="text-sm text-gray-600">Médica, Argentina</div>
+              </CardContent>
+            </Card>
+          </div>
+        </div>
+      </section>
 
       {/* CTA Section */}
-      <section className="py-20 bg-gradient-to-r from-passport-blue to-blue-700 text-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-4xl md:text-5xl font-bold font-poppins mb-6 animate-fade-in">
-            {t('cta.title')}
+      <section className="py-20 bg-passport-blue">
+        <div className="container mx-auto px-4 text-center">
+          <h2 className="text-4xl font-bold text-white mb-6">
+            ¿Listo para hablar inglés con confianza?
           </h2>
-          
-          <div className="flex flex-col sm:flex-row justify-center gap-6 mt-12">
-            <Button 
-              onClick={() => handleBookingClick('adult')}
-              className="passport-orange text-white px-8 py-4 rounded-lg font-semibold text-lg hover:bg-orange-600 transition-all duration-200 transform hover:scale-105 animate-fade-in"
-            >
-              {t('cta.adults')}
-            </Button>
-            <Button 
-              onClick={() => handleBookingClick('child')}
-              className="bg-white text-passport-blue px-8 py-4 rounded-lg font-semibold text-lg hover:bg-gray-100 transition-all duration-200 transform hover:scale-105 animate-fade-in"
-            >
-              {t('cta.children')}
-            </Button>
-          </div>
+          <p className="text-xl text-blue-100 mb-8 max-w-2xl mx-auto">
+            Únete a más de 1,000 latinos que ya están mejorando su inglés con nosotros
+          </p>
+          <Button 
+            onClick={() => handleBookingClick('adult')}
+            className="bg-white text-passport-blue hover:bg-gray-100 px-8 py-4 text-lg font-semibold"
+            size="lg"
+          >
+            Reservar Clase Gratuita
+            <ArrowRight className="w-5 h-5 ml-2" />
+          </Button>
         </div>
       </section>
 
       {/* Footer */}
-      <footer className="bg-passport-gray text-white py-16">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <footer className="bg-gray-900 text-white py-12">
+        <div className="container mx-auto px-4">
           <div className="grid md:grid-cols-4 gap-8">
-            <div className="md:col-span-2">
-              <img 
-                src={passportLogo}
-                alt="Passport to Fluency Logo" 
-                className="h-12 w-auto mb-4 brightness-0 invert"
-              />
-              <p className="text-gray-300 mb-6">
-                {t('footer.description')}
-              </p>
-              <div className="flex space-x-4">
-                <a href="#" className="text-gray-300 hover:text-passport-orange transition-colors">
-                  <Facebook size={20} />
-                </a>
-                <a href="#" className="text-gray-300 hover:text-passport-orange transition-colors">
-                  <Instagram size={20} />
-                </a>
-                <a href="#" className="text-gray-300 hover:text-passport-orange transition-colors">
-                  <Linkedin size={20} />
-                </a>
-                <a href="#" className="text-gray-300 hover:text-passport-orange transition-colors">
-                  <Youtube size={20} />
-                </a>
-              </div>
-            </div>
-            
             <div>
-              <h3 className="text-lg font-semibold mb-4">{t('footer.quickLinks')}</h3>
-              <ul className="space-y-2">
-                <li>
-                  <button 
-                    onClick={() => scrollToSection('inicio')}
-                    className="text-gray-300 hover:text-passport-orange transition-colors"
-                  >
-                    {t('nav.home')}
-                  </button>
+              <img src={passportLogo} alt="Passport to Fluency" className="h-10 brightness-0 invert mb-4" />
+              <p className="text-gray-400">
+                Aprende inglés con instructores nativos americanos, 24/7.
+              </p>
+            </div>
+            <div>
+              <h3 className="font-semibold text-lg mb-4">Enlaces</h3>
+              <ul className="space-y-2 text-gray-400">
+                <li><button onClick={() => scrollToSection('como-funciona')} className="hover:text-white transition-colors">Cómo Funciona</button></li>
+                <li><button onClick={() => scrollToSection('precios')} className="hover:text-white transition-colors">Precios</button></li>
+                <li><button onClick={() => scrollToSection('testimonios')} className="hover:text-white transition-colors">Testimonios</button></li>
+              </ul>
+            </div>
+            <div>
+              <h3 className="font-semibold text-lg mb-4">Contacto</h3>
+              <ul className="space-y-2 text-gray-400">
+                <li className="flex items-center">
+                  <Mail className="w-4 h-4 mr-2" />
+                  info@passporttofluency.com
                 </li>
-                <li>
-                  <button 
-                    onClick={() => scrollToSection('como-funciona')}
-                    className="text-gray-300 hover:text-passport-orange transition-colors"
-                  >
-                    {t('nav.howItWorks')}
-                  </button>
-                </li>
-                <li>
-                  <button 
-                    onClick={() => scrollToSection('planes')}
-                    className="text-gray-300 hover:text-passport-orange transition-colors"
-                  >
-                    {t('nav.plans')}
-                  </button>
-                </li>
-                <li>
-                  <button 
-                    onClick={() => scrollToSection('coaches')}
-                    className="text-gray-300 hover:text-passport-orange transition-colors"
-                  >
-                    {t('nav.teachers')}
-                  </button>
-                </li>
-                <li>
-                  <button 
-                    onClick={() => scrollToSection('testimonios')}
-                    className="text-gray-300 hover:text-passport-orange transition-colors"
-                  >
-                    {t('nav.testimonials')}
-                  </button>
+                <li className="flex items-center">
+                  <Phone className="w-4 h-4 mr-2" />
+                  +1 (555) 123-4567
                 </li>
               </ul>
             </div>
-            
             <div>
-              <h3 className="text-lg font-semibold mb-4">{t('footer.contact')}</h3>
-              <div className="space-y-2 text-gray-300">
-                <p className="flex items-center gap-2">
-                  <Mail size={16} />
-                  info@passport2fluency.com
-                </p>
-                <p className="flex items-center gap-2">
-                  <Phone size={16} />
-                  +1 (555) 123-4567
-                </p>
-                <p className="flex items-center gap-2">
-                  <Clock size={16} />
-                  {t('footer.schedule')}
-                </p>
+              <h3 className="font-semibold text-lg mb-4">Síguenos</h3>
+              <div className="flex space-x-4">
+                <Facebook className="w-6 h-6 text-gray-400 hover:text-white cursor-pointer transition-colors" />
+                <Instagram className="w-6 h-6 text-gray-400 hover:text-white cursor-pointer transition-colors" />
+                <Linkedin className="w-6 h-6 text-gray-400 hover:text-white cursor-pointer transition-colors" />
+                <Youtube className="w-6 h-6 text-gray-400 hover:text-white cursor-pointer transition-colors" />
               </div>
             </div>
           </div>
-          
-          <div className="border-t border-gray-600 mt-12 pt-8 text-center">
-            <p className="text-gray-400">{t('footer.copyright')}</p>
+          <div className="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
+            <p>&copy; 2025 Passport to Fluency. Todos los derechos reservados.</p>
           </div>
         </div>
       </footer>
 
+      {/* Booking Form Modal */}
       {showBookingForm && (
-        <BookingForm 
-          t={t}
-          language={language}
-          studentType={bookingType}
-          onClose={() => setShowBookingForm(false)}
-        />
+        <div className="fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center p-4">
+          <div className="bg-white rounded-lg max-w-md w-full max-h-[90vh] overflow-y-auto">
+            <div className="p-6">
+              <div className="flex justify-between items-center mb-4">
+                <h2 className="text-2xl font-bold text-gray-900">Reservar Clase Gratuita</h2>
+                <button 
+                  onClick={() => setShowBookingForm(false)}
+                  className="text-gray-400 hover:text-gray-600"
+                >
+                  ✕
+                </button>
+              </div>
+              <BookingForm 
+                type={bookingType}
+                onSuccess={() => {
+                  setShowBookingForm(false);
+                  alert('¡Perfecto! Te contactaremos pronto para confirmar tu clase gratuita.');
+                }}
+                onCancel={() => setShowBookingForm(false)}
+              />
+            </div>
+          </div>
+        </div>
       )}
     </div>
   );

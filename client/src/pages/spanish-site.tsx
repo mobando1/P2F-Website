@@ -1,22 +1,18 @@
 import { useState } from "react";
-import { useTranslation } from "@/lib/translations";
-import LanguageToggle from "@/components/language-toggle";
-import Navigation from "@/components/navigation";
-import HeroSection from "@/components/hero-section";
-import FeaturesSection from "@/components/features-section";
-import PricingSection from "@/components/pricing-section";
-import TestimonialsSection from "@/components/testimonials-section";
-import BookingForm from "@/components/booking-form";
 import { Button } from "@/components/ui/button";
+import { Card, CardContent } from "@/components/ui/card";
+import BookingForm from "@/components/booking-form";
 import passportLogo from "@assets/a1c5a1_9514ede9e3124d7a9adf78f5dcf07f28~mv2_1755803448396.png";
 import { useLocation } from "wouter";
-import { Facebook, Instagram, Linkedin, Youtube, Mail, Phone, Clock } from "lucide-react";
+import { 
+  Globe, Star, Users, Clock, ArrowRight, Calendar, 
+  Headphones, VideoIcon, CheckCircle, MessageCircle,
+  Facebook, Instagram, Linkedin, Youtube, Mail, Phone 
+} from "lucide-react";
 
 export default function SpanishSite() {
-  const [language, setLanguage] = useState<'es'>('es');
   const [showBookingForm, setShowBookingForm] = useState(false);
   const [bookingType, setBookingType] = useState<'adult' | 'child'>('adult');
-  const { t } = useTranslation(language);
   const [, navigate] = useLocation();
 
   const scrollToSection = (sectionId: string) => {
@@ -31,82 +27,243 @@ export default function SpanishSite() {
     setShowBookingForm(true);
   };
 
-  const handlePlanSelect = (planId: string) => {
-    // In a real app, this would redirect to payment processing
-    console.log('Plan selected:', planId);
-    alert('Redirigiendo al sistema de pago...');
-  };
-
   const goToEnglishSite = () => {
     navigate('/en');
   };
 
+  const goToLanding = () => {
+    navigate('/');
+  };
+
   return (
-    <div className="min-h-screen bg-white font-inter">
-      <LanguageToggle 
-        currentLanguage={language} 
-        onLanguageChange={() => goToEnglishSite()}
-      />
-
-      <Navigation 
-        t={t} 
-        onSectionClick={scrollToSection}
-        onBookingClick={() => handleBookingClick('adult')}
-      />
-
-      <HeroSection 
-        t={t}
-        language={language}
-        onBookingClick={() => handleBookingClick('adult')}
-        onPlansClick={() => scrollToSection('planes')}
-      />
-
-      <FeaturesSection t={t} />
-
-      {/* Program Options */}
-      <section className="py-20 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold font-poppins text-passport-gray mb-4 animate-fade-in">
-              {t('programs.title')}
-            </h2>
-          </div>
-          
-          <div className="grid md:grid-cols-2 gap-12 items-center">
-            <div className="relative animate-fade-in">
+    <div className="min-h-screen bg-white">
+      {/* Header */}
+      <header className="border-b border-gray-100 sticky top-0 bg-white z-50">
+        <div className="container mx-auto px-4 py-4">
+          <div className="flex justify-between items-center">
+            <div className="flex items-center space-x-4">
               <img 
-                src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600"
-                alt="Adult learning English online" 
-                className="rounded-2xl shadow-lg w-full"
+                src={passportLogo} 
+                alt="Passport to Fluency" 
+                className="h-10 cursor-pointer" 
+                onClick={goToLanding}
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-passport-blue to-transparent opacity-30 rounded-2xl"></div>
-              <div className="absolute bottom-6 left-6 text-white">
-                <h3 className="text-2xl font-bold mb-2">{t('programs.adults.title')}</h3>
-                <p className="mb-4">{t('programs.adults.description')}</p>
-                <Button 
-                  onClick={() => scrollToSection('planes')}
-                  className="passport-orange text-white hover:bg-orange-600"
+            </div>
+            <div className="flex items-center space-x-6">
+              <nav className="hidden md:flex space-x-6">
+                <button 
+                  onClick={() => scrollToSection('how-it-works')}
+                  className="text-gray-700 hover:text-passport-orange transition-colors"
                 >
-                  {t('programs.adults.cta')}
-                </Button>
+                  How It Works
+                </button>
+                <button 
+                  onClick={() => scrollToSection('pricing')}
+                  className="text-gray-700 hover:text-passport-orange transition-colors"
+                >
+                  Pricing
+                </button>
+                <button 
+                  onClick={() => scrollToSection('testimonials')}
+                  className="text-gray-700 hover:text-passport-orange transition-colors"
+                >
+                  Testimonials
+                </button>
+              </nav>
+              <Button 
+                onClick={goToEnglishSite}
+                variant="outline" 
+                size="sm"
+                className="border-passport-blue text-passport-blue hover:bg-passport-blue hover:text-white"
+              >
+                🇺🇸 English
+              </Button>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      {/* Hero Section */}
+      <section className="py-20 bg-gradient-to-b from-orange-50 to-white">
+        <div className="container mx-auto px-4">
+          <div className="max-w-4xl mx-auto text-center">
+            <div className="mb-8">
+              <div className="inline-flex items-center bg-orange-100 text-orange-800 rounded-full px-4 py-2 text-sm mb-6">
+                <Globe className="w-4 h-4 mr-2" />
+                For English speakers who want to master Spanish
               </div>
             </div>
             
-            <div className="relative animate-fade-in">
-              <img 
-                src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600"
-                alt="Children learning English online" 
-                className="rounded-2xl shadow-lg w-full"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-passport-orange to-transparent opacity-30 rounded-2xl"></div>
-              <div className="absolute bottom-6 left-6 text-white">
-                <h3 className="text-2xl font-bold mb-2">{t('programs.children.title')}</h3>
-                <p className="mb-4">{t('programs.children.description')}</p>
+            <h1 className="text-5xl md:text-7xl font-bold text-gray-900 mb-6">
+              <span className="text-passport-orange">Speak Spanish</span><br />
+              <span className="italic text-passport-blue">like a native</span>
+            </h1>
+            
+            <p className="text-xl md:text-2xl text-gray-700 mb-8 max-w-3xl mx-auto">
+              Personalized 1-on-1 classes with native Latin American instructors. 
+              <span className="font-semibold"> Available 24/7, from anywhere.</span>
+            </p>
+
+            <div className="flex flex-wrap justify-center gap-6 mb-12 text-sm text-gray-600">
+              <div className="flex items-center">
+                <Users className="w-4 h-4 mr-1 text-passport-orange" />
+                <strong className="text-gray-900">1,000+</strong> English speakers learning
+              </div>
+              <div className="flex items-center">
+                <Star className="w-4 h-4 mr-1 text-yellow-500" />
+                <strong className="text-gray-900">4.9</strong> average rating
+              </div>
+              <div className="flex items-center">
+                <Clock className="w-4 h-4 mr-1 text-passport-blue" />
+                <strong className="text-gray-900">40-minute</strong> classes
+              </div>
+            </div>
+
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <Button 
+                onClick={() => handleBookingClick('adult')}
+                className="bg-passport-orange hover:bg-orange-600 text-white px-8 py-4 text-lg font-semibold"
+                size="lg"
+              >
+                Book Free Class
+                <ArrowRight className="w-5 h-5 ml-2" />
+              </Button>
+              <Button 
+                onClick={() => scrollToSection('how-it-works')}
+                variant="outline" 
+                className="border-passport-orange text-passport-orange hover:bg-passport-orange hover:text-white px-8 py-4 text-lg font-semibold"
+                size="lg"
+              >
+                See How It Works
+              </Button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* How it Works */}
+      <section id="how-it-works" className="py-20 bg-white">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl font-bold text-gray-900 mb-4">
+              How It Works
+            </h2>
+            <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+              Just 3 simple steps to start speaking Spanish with confidence
+            </p>
+          </div>
+
+          <div className="max-w-5xl mx-auto grid md:grid-cols-3 gap-8">
+            <Card className="text-center border-2 hover:border-passport-orange transition-colors">
+              <CardContent className="p-8">
+                <div className="w-16 h-16 bg-orange-100 rounded-full flex items-center justify-center mx-auto mb-6">
+                  <Calendar className="w-8 h-8 text-passport-orange" />
+                </div>
+                <h3 className="text-xl font-bold text-gray-900 mb-4">1. Schedule your class</h3>
+                <p className="text-gray-600">
+                  Pick the time that works best for you. Available 24/7, even last minute bookings.
+                </p>
+              </CardContent>
+            </Card>
+
+            <Card className="text-center border-2 hover:border-passport-orange transition-colors">
+              <CardContent className="p-8">
+                <div className="w-16 h-16 bg-orange-100 rounded-full flex items-center justify-center mx-auto mb-6">
+                  <VideoIcon className="w-8 h-8 text-passport-orange" />
+                </div>
+                <h3 className="text-xl font-bold text-gray-900 mb-4">2. Connect via video</h3>
+                <p className="text-gray-600">
+                  Join your class through Zoom from any device. Your instructor will be waiting for you.
+                </p>
+              </CardContent>
+            </Card>
+
+            <Card className="text-center border-2 hover:border-passport-orange transition-colors">
+              <CardContent className="p-8">
+                <div className="w-16 h-16 bg-orange-100 rounded-full flex items-center justify-center mx-auto mb-6">
+                  <MessageCircle className="w-8 h-8 text-passport-orange" />
+                </div>
+                <h3 className="text-xl font-bold text-gray-900 mb-4">3. Practice and improve</h3>
+                <p className="text-gray-600">
+                  Real conversation with instant feedback. Your progress is automatically tracked.
+                </p>
+              </CardContent>
+            </Card>
+          </div>
+        </div>
+      </section>
+
+      {/* Features */}
+      <section className="py-20 bg-gray-50">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl font-bold text-gray-900 mb-4">
+              Why Choose Passport to Fluency?
+            </h2>
+          </div>
+
+          <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-12 items-center">
+            <div>
+              <ul className="space-y-6">
+                <li className="flex items-start">
+                  <CheckCircle className="w-6 h-6 text-green-500 mr-4 mt-1 flex-shrink-0" />
+                  <div>
+                    <h3 className="text-lg font-semibold text-gray-900 mb-2">
+                      Native Latin American instructors
+                    </h3>
+                    <p className="text-gray-600">
+                      All our teachers are native Spanish speakers from Latin America, with experience teaching English speakers.
+                    </p>
+                  </div>
+                </li>
+                <li className="flex items-start">
+                  <CheckCircle className="w-6 h-6 text-green-500 mr-4 mt-1 flex-shrink-0" />
+                  <div>
+                    <h3 className="text-lg font-semibold text-gray-900 mb-2">
+                      Super flexible scheduling
+                    </h3>
+                    <p className="text-gray-600">
+                      Book classes whenever you want, even 15 minutes in advance. Available 24/7 to fit your busy life.
+                    </p>
+                  </div>
+                </li>
+                <li className="flex items-start">
+                  <CheckCircle className="w-6 h-6 text-green-500 mr-4 mt-1 flex-shrink-0" />
+                  <div>
+                    <h3 className="text-lg font-semibold text-gray-900 mb-2">
+                      Personalized method
+                    </h3>
+                    <p className="text-gray-600">
+                      Each class adapts to your level and goals. Practical focus on real everyday conversation.
+                    </p>
+                  </div>
+                </li>
+                <li className="flex items-start">
+                  <CheckCircle className="w-6 h-6 text-green-500 mr-4 mt-1 flex-shrink-0" />
+                  <div>
+                    <h3 className="text-lg font-semibold text-gray-900 mb-2">
+                      Guaranteed progress
+                    </h3>
+                    <p className="text-gray-600">
+                      95% of our students improve their fluency in the first 4 weeks or we give you your money back.
+                    </p>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div className="text-center">
+              <div className="bg-white rounded-2xl p-8 shadow-lg">
+                <h3 className="text-2xl font-bold text-gray-900 mb-4">
+                  Try your first class free
+                </h3>
+                <p className="text-gray-600 mb-6">
+                  No commitment required. Meet your instructor and experience our personalized method.
+                </p>
                 <Button 
-                  onClick={() => scrollToSection('planes')}
-                  className="passport-blue text-white hover:bg-blue-700"
+                  onClick={() => handleBookingClick('adult')}
+                  className="bg-passport-blue hover:bg-blue-700 text-white w-full py-3 text-lg font-semibold"
                 >
-                  {t('programs.children.cta')}
+                  Book Free Class
                 </Button>
               </div>
             </div>
@@ -114,169 +271,250 @@ export default function SpanishSite() {
         </div>
       </section>
 
-      <PricingSection 
-        t={t}
-        onPlanSelect={handlePlanSelect}
-        currency="€"
-      />
-
-      {/* Teachers Section */}
-      <section id="coaches" className="py-20 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      {/* Pricing */}
+      <section id="pricing" className="py-20 bg-white">
+        <div className="container mx-auto px-4">
           <div className="text-center mb-16">
-            <img 
-              src="https://images.unsplash.com/photo-1582213782179-e0d53f98f2ca?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&h=400"
-              alt="Professional English teachers team" 
-              className="w-full h-64 object-cover rounded-2xl shadow-lg mb-8 animate-fade-in"
-            />
-            
-            <h2 className="text-4xl font-bold font-poppins text-passport-gray mb-4 animate-fade-in">
-              {t('teachers.title')}
+            <h2 className="text-4xl font-bold text-gray-900 mb-4">
+              Simple, Transparent Pricing
             </h2>
-            <p className="text-xl text-gray-600 animate-fade-in">{t('teachers.subtitle')}</p>
-            
-            <Button 
-              className="passport-blue text-white px-8 py-3 rounded-lg font-semibold hover:bg-blue-700 transition-colors mt-6 animate-fade-in"
-            >
-              {t('teachers.cta')}
-            </Button>
+            <p className="text-xl text-gray-600">
+              No contracts or fine print. Cancel anytime.
+            </p>
+          </div>
+
+          <div className="max-w-4xl mx-auto grid md:grid-cols-2 gap-8">
+            <Card className="border-2 hover:border-passport-orange transition-colors">
+              <CardContent className="p-8 text-center">
+                <h3 className="text-2xl font-bold text-gray-900 mb-4">Individual Plan</h3>
+                <div className="text-4xl font-bold text-passport-orange mb-2">$49</div>
+                <div className="text-gray-600 mb-6">per 40-minute class</div>
+                <ul className="text-left space-y-3 mb-8">
+                  <li className="flex items-center">
+                    <CheckCircle className="w-5 h-5 text-green-500 mr-3" />
+                    One-on-one individual class
+                  </li>
+                  <li className="flex items-center">
+                    <CheckCircle className="w-5 h-5 text-green-500 mr-3" />
+                    Native Latin American instructor
+                  </li>
+                  <li className="flex items-center">
+                    <CheckCircle className="w-5 h-5 text-green-500 mr-3" />
+                    Personalized materials included
+                  </li>
+                  <li className="flex items-center">
+                    <CheckCircle className="w-5 h-5 text-green-500 mr-3" />
+                    Progress tracking
+                  </li>
+                </ul>
+                <Button 
+                  onClick={() => handleBookingClick('adult')}
+                  className="w-full bg-passport-orange hover:bg-orange-600 text-white py-3 font-semibold"
+                >
+                  Get Started
+                </Button>
+              </CardContent>
+            </Card>
+
+            <Card className="border-2 border-passport-blue bg-blue-50">
+              <CardContent className="p-8 text-center">
+                <div className="bg-passport-blue text-white px-3 py-1 rounded-full text-sm font-semibold mb-4 inline-block">
+                  MOST POPULAR
+                </div>
+                <h3 className="text-2xl font-bold text-gray-900 mb-4">4-Class Package</h3>
+                <div className="text-4xl font-bold text-passport-blue mb-2">$179</div>
+                <div className="text-gray-600 mb-2">$44.75 per class</div>
+                <div className="text-sm text-green-600 font-semibold mb-6">Save $17</div>
+                <ul className="text-left space-y-3 mb-8">
+                  <li className="flex items-center">
+                    <CheckCircle className="w-5 h-5 text-green-500 mr-3" />
+                    4 one-on-one individual classes
+                  </li>
+                  <li className="flex items-center">
+                    <CheckCircle className="w-5 h-5 text-green-500 mr-3" />
+                    Native Latin American instructor
+                  </li>
+                  <li className="flex items-center">
+                    <CheckCircle className="w-5 h-5 text-green-500 mr-3" />
+                    Personalized materials included
+                  </li>
+                  <li className="flex items-center">
+                    <CheckCircle className="w-5 h-5 text-green-500 mr-3" />
+                    Progress tracking
+                  </li>
+                  <li className="flex items-center">
+                    <CheckCircle className="w-5 h-5 text-green-500 mr-3" />
+                    Valid for 30 days
+                  </li>
+                </ul>
+                <Button 
+                  onClick={() => handleBookingClick('adult')}
+                  className="w-full bg-passport-blue hover:bg-blue-700 text-white py-3 font-semibold"
+                >
+                  Get Started
+                </Button>
+              </CardContent>
+            </Card>
           </div>
         </div>
       </section>
 
-      <TestimonialsSection t={t} language={language} />
+      {/* Testimonials */}
+      <section id="testimonials" className="py-20 bg-gray-50">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl font-bold text-gray-900 mb-4">
+              What Our Students Say
+            </h2>
+          </div>
+
+          <div className="max-w-6xl mx-auto grid md:grid-cols-3 gap-8">
+            <Card className="bg-white">
+              <CardContent className="p-6">
+                <div className="flex text-yellow-400 mb-4">
+                  <Star className="w-5 h-5 fill-current" />
+                  <Star className="w-5 h-5 fill-current" />
+                  <Star className="w-5 h-5 fill-current" />
+                  <Star className="w-5 h-5 fill-current" />
+                  <Star className="w-5 h-5 fill-current" />
+                </div>
+                <p className="text-gray-700 mb-4">
+                  "In just 2 months I improved my confidence to speak Spanish at work. The instructors are very patient and help you lose your fear."
+                </p>
+                <div className="font-semibold text-gray-900">Sarah Johnson</div>
+                <div className="text-sm text-gray-600">Marketing Manager, California</div>
+              </CardContent>
+            </Card>
+
+            <Card className="bg-white">
+              <CardContent className="p-6">
+                <div className="flex text-yellow-400 mb-4">
+                  <Star className="w-5 h-5 fill-current" />
+                  <Star className="w-5 h-5 fill-current" />
+                  <Star className="w-5 h-5 fill-current" />
+                  <Star className="w-5 h-5 fill-current" />
+                  <Star className="w-5 h-5 fill-current" />
+                </div>
+                <p className="text-gray-700 mb-4">
+                  "The flexible scheduling is perfect for my work. I can take classes early in the morning or late at night."
+                </p>
+                <div className="font-semibold text-gray-900">Michael Chen</div>
+                <div className="text-sm text-gray-600">Software Developer, New York</div>
+              </CardContent>
+            </Card>
+
+            <Card className="bg-white">
+              <CardContent className="p-6">
+                <div className="flex text-yellow-400 mb-4">
+                  <Star className="w-5 h-5 fill-current" />
+                  <Star className="w-5 h-5 fill-current" />
+                  <Star className="w-5 h-5 fill-current" />
+                  <Star className="w-5 h-5 fill-current" />
+                  <Star className="w-5 h-5 fill-current" />
+                </div>
+                <p className="text-gray-700 mb-4">
+                  "I can finally have natural conversations in Spanish. The personalized method makes all the difference."
+                </p>
+                <div className="font-semibold text-gray-900">Emily Rodriguez</div>
+                <div className="text-sm text-gray-600">Teacher, Texas</div>
+              </CardContent>
+            </Card>
+          </div>
+        </div>
+      </section>
 
       {/* CTA Section */}
-      <section className="py-20 bg-gradient-to-r from-passport-blue to-blue-700 text-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-4xl md:text-5xl font-bold font-poppins mb-6 animate-fade-in">
-            {t('cta.title')}
+      <section className="py-20 bg-passport-orange">
+        <div className="container mx-auto px-4 text-center">
+          <h2 className="text-4xl font-bold text-white mb-6">
+            Ready to speak Spanish with confidence?
           </h2>
-          
-          <div className="flex flex-col sm:flex-row justify-center gap-6 mt-12">
-            <Button 
-              onClick={() => handleBookingClick('adult')}
-              className="passport-orange text-white px-8 py-4 rounded-lg font-semibold text-lg hover:bg-orange-600 transition-all duration-200 transform hover:scale-105 animate-fade-in"
-            >
-              {t('cta.adults')}
-            </Button>
-            <Button 
-              onClick={() => handleBookingClick('child')}
-              className="bg-white text-passport-blue px-8 py-4 rounded-lg font-semibold text-lg hover:bg-gray-100 transition-all duration-200 transform hover:scale-105 animate-fade-in"
-            >
-              {t('cta.children')}
-            </Button>
-          </div>
+          <p className="text-xl text-orange-100 mb-8 max-w-2xl mx-auto">
+            Join over 1,000 English speakers who are already improving their Spanish with us
+          </p>
+          <Button 
+            onClick={() => handleBookingClick('adult')}
+            className="bg-white text-passport-orange hover:bg-gray-100 px-8 py-4 text-lg font-semibold"
+            size="lg"
+          >
+            Book Free Class
+            <ArrowRight className="w-5 h-5 ml-2" />
+          </Button>
         </div>
       </section>
 
       {/* Footer */}
-      <footer className="bg-passport-gray text-white py-16">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <footer className="bg-gray-900 text-white py-12">
+        <div className="container mx-auto px-4">
           <div className="grid md:grid-cols-4 gap-8">
-            <div className="md:col-span-2">
-              <img 
-                src={passportLogo}
-                alt="Passport to Fluency Logo" 
-                className="h-12 w-auto mb-4 brightness-0 invert"
-              />
-              <p className="text-gray-300 mb-6">
-                {t('footer.description')}
-              </p>
-              <div className="flex space-x-4">
-                <a href="#" className="text-gray-300 hover:text-passport-orange transition-colors">
-                  <Facebook size={20} />
-                </a>
-                <a href="#" className="text-gray-300 hover:text-passport-orange transition-colors">
-                  <Instagram size={20} />
-                </a>
-                <a href="#" className="text-gray-300 hover:text-passport-orange transition-colors">
-                  <Linkedin size={20} />
-                </a>
-                <a href="#" className="text-gray-300 hover:text-passport-orange transition-colors">
-                  <Youtube size={20} />
-                </a>
-              </div>
-            </div>
-            
             <div>
-              <h3 className="text-lg font-semibold mb-4">{t('footer.quickLinks')}</h3>
-              <ul className="space-y-2">
-                <li>
-                  <button 
-                    onClick={() => scrollToSection('inicio')}
-                    className="text-gray-300 hover:text-passport-orange transition-colors"
-                  >
-                    {t('nav.home')}
-                  </button>
+              <img src={passportLogo} alt="Passport to Fluency" className="h-10 brightness-0 invert mb-4" />
+              <p className="text-gray-400">
+                Learn Spanish with native Latin American instructors, 24/7.
+              </p>
+            </div>
+            <div>
+              <h3 className="font-semibold text-lg mb-4">Links</h3>
+              <ul className="space-y-2 text-gray-400">
+                <li><button onClick={() => scrollToSection('how-it-works')} className="hover:text-white transition-colors">How It Works</button></li>
+                <li><button onClick={() => scrollToSection('pricing')} className="hover:text-white transition-colors">Pricing</button></li>
+                <li><button onClick={() => scrollToSection('testimonials')} className="hover:text-white transition-colors">Testimonials</button></li>
+              </ul>
+            </div>
+            <div>
+              <h3 className="font-semibold text-lg mb-4">Contact</h3>
+              <ul className="space-y-2 text-gray-400">
+                <li className="flex items-center">
+                  <Mail className="w-4 h-4 mr-2" />
+                  info@passporttofluency.com
                 </li>
-                <li>
-                  <button 
-                    onClick={() => scrollToSection('como-funciona')}
-                    className="text-gray-300 hover:text-passport-orange transition-colors"
-                  >
-                    {t('nav.howItWorks')}
-                  </button>
-                </li>
-                <li>
-                  <button 
-                    onClick={() => scrollToSection('planes')}
-                    className="text-gray-300 hover:text-passport-orange transition-colors"
-                  >
-                    {t('nav.plans')}
-                  </button>
-                </li>
-                <li>
-                  <button 
-                    onClick={() => scrollToSection('coaches')}
-                    className="text-gray-300 hover:text-passport-orange transition-colors"
-                  >
-                    {t('nav.teachers')}
-                  </button>
-                </li>
-                <li>
-                  <button 
-                    onClick={() => scrollToSection('testimonios')}
-                    className="text-gray-300 hover:text-passport-orange transition-colors"
-                  >
-                    {t('nav.testimonials')}
-                  </button>
+                <li className="flex items-center">
+                  <Phone className="w-4 h-4 mr-2" />
+                  +1 (555) 123-4567
                 </li>
               </ul>
             </div>
-            
             <div>
-              <h3 className="text-lg font-semibold mb-4">{t('footer.contact')}</h3>
-              <div className="space-y-2 text-gray-300">
-                <p className="flex items-center gap-2">
-                  <Mail size={16} />
-                  info@passport2fluency.com
-                </p>
-                <p className="flex items-center gap-2">
-                  <Phone size={16} />
-                  +1 (555) 123-4567
-                </p>
-                <p className="flex items-center gap-2">
-                  <Clock size={16} />
-                  {t('footer.schedule')}
-                </p>
+              <h3 className="font-semibold text-lg mb-4">Follow Us</h3>
+              <div className="flex space-x-4">
+                <Facebook className="w-6 h-6 text-gray-400 hover:text-white cursor-pointer transition-colors" />
+                <Instagram className="w-6 h-6 text-gray-400 hover:text-white cursor-pointer transition-colors" />
+                <Linkedin className="w-6 h-6 text-gray-400 hover:text-white cursor-pointer transition-colors" />
+                <Youtube className="w-6 h-6 text-gray-400 hover:text-white cursor-pointer transition-colors" />
               </div>
             </div>
           </div>
-          
-          <div className="border-t border-gray-600 mt-12 pt-8 text-center">
-            <p className="text-gray-400">{t('footer.copyright')}</p>
+          <div className="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
+            <p>&copy; 2025 Passport to Fluency. All rights reserved.</p>
           </div>
         </div>
       </footer>
 
+      {/* Booking Form Modal */}
       {showBookingForm && (
-        <BookingForm 
-          t={t}
-          language={language}
-          studentType={bookingType}
-          onClose={() => setShowBookingForm(false)}
-        />
+        <div className="fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center p-4">
+          <div className="bg-white rounded-lg max-w-md w-full max-h-[90vh] overflow-y-auto">
+            <div className="p-6">
+              <div className="flex justify-between items-center mb-4">
+                <h2 className="text-2xl font-bold text-gray-900">Book Free Class</h2>
+                <button 
+                  onClick={() => setShowBookingForm(false)}
+                  className="text-gray-400 hover:text-gray-600"
+                >
+                  ✕
+                </button>
+              </div>
+              <BookingForm 
+                type={bookingType}
+                onSuccess={() => {
+                  setShowBookingForm(false);
+                  alert('Perfect! We will contact you soon to confirm your free class.');
+                }}
+                onCancel={() => setShowBookingForm(false)}
+              />
+            </div>
+          </div>
+        </div>
       )}
     </div>
   );
