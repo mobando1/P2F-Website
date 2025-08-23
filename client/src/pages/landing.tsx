@@ -2,201 +2,184 @@ import { useLocation } from "wouter";
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import { Globe, Star, Users, Clock, Heart, Zap, Sparkles } from "lucide-react";
+import { Globe, Star, Users, Clock, ArrowRight } from "lucide-react";
 import passportLogo from "@assets/a1c5a1_9514ede9e3124d7a9adf78f5dcf07f28~mv2_1755803448396.png";
 
 export default function Landing() {
   const [, navigate] = useLocation();
-  const [detectedLanguage, setDetectedLanguage] = useState<string>('');
+  const [detectedLanguage, setDetectedLanguage] = useState<string | null>(null);
 
   useEffect(() => {
-    // Detect browser language
-    const browserLang = navigator.language.toLowerCase();
-    if (browserLang.startsWith('es')) {
+    // Simple language detection based on browser language
+    const browserLanguage = navigator.language || navigator.languages?.[0];
+    
+    if (browserLanguage?.startsWith('es')) {
       setDetectedLanguage('español');
-    } else if (browserLang.startsWith('en')) {
+    } else {
       setDetectedLanguage('English');
     }
   }, []);
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-passport-blue via-blue-600 to-passport-orange relative overflow-hidden">
-      {/* Floating geometric shapes */}
-      <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute top-20 left-10 w-32 h-32 bg-passport-orange/30 rounded-full animate-bounce" style={{ animationDelay: '0s', animationDuration: '3s' }}></div>
-        <div className="absolute top-40 right-20 w-20 h-20 bg-passport-blue/40 rotate-45 animate-pulse" style={{ animationDelay: '1s' }}></div>
-        <div className="absolute bottom-32 left-32 w-24 h-24 bg-passport-orange/35 rounded-full animate-ping" style={{ animationDelay: '2s', animationDuration: '4s' }}></div>
-        <div className="absolute bottom-20 right-16 w-16 h-16 bg-passport-blue/40 rotate-12 animate-bounce" style={{ animationDelay: '0.5s', animationDuration: '2.5s' }}></div>
-        <div className="absolute top-1/2 left-1/4 w-12 h-12 bg-passport-orange/50 rotate-45 animate-spin" style={{ animationDelay: '1.5s', animationDuration: '8s' }}></div>
-        <div className="absolute top-1/3 right-1/3 w-28 h-28 bg-passport-blue/25 rounded-full animate-pulse" style={{ animationDelay: '3s' }}></div>
-      </div>
+    <div className="min-h-screen bg-white">
+      <div className="container mx-auto px-4 py-8">
+        {/* Header */}
+        <div className="text-center mb-16">
+          <img src={passportLogo} alt="Passport to Fluency" className="h-16 mx-auto mb-8" />
+          
+          <h1 className="text-4xl md:text-6xl font-bold text-gray-900 mb-4">
+            <span className="text-passport-blue">Habla </span>
+            <span className="italic text-passport-orange">como un nativo</span>
+          </h1>
+          
+          <p className="text-xl md:text-2xl text-gray-700 mb-8 max-w-3xl mx-auto">
+            Clases personalizadas 1-a-1 con instructores nativos, 
+            <span className="font-semibold"> disponibles 24/7</span>
+          </p>
 
-      <div className="relative z-10 min-h-screen flex items-center justify-center p-4">
-        <div className="max-w-7xl w-full">
-          <div className="text-center mb-20">
-            <div className="relative mb-12">
-              <img src={passportLogo} alt="Passport to Fluency" className="h-28 mx-auto brightness-0 invert animate-fade-in drop-shadow-2xl" />
-              <div className="absolute -top-4 -right-4 animate-bounce">
-                <Sparkles className="w-8 h-8 text-yellow-300" />
-              </div>
+          {/* Language detection */}
+          {detectedLanguage && (
+            <div className="bg-blue-50 border border-blue-200 rounded-lg px-4 py-3 text-blue-800 text-sm mb-8 inline-flex items-center">
+              <Globe className="w-4 h-4 mr-2" />
+              Detectamos que hablas {detectedLanguage} • We detected your language is {detectedLanguage}
             </div>
-            
-            <h1 className="text-6xl md:text-8xl font-black font-poppins text-white mb-8 animate-fade-in relative">
-              <span className="bg-gradient-to-r from-passport-orange via-yellow-300 to-passport-blue bg-clip-text text-transparent">
-                Habla Como
-              </span>
-              <br />
-              <span className="text-white drop-shadow-lg">
-                Un Nativo
-              </span>
-              <div className="absolute -top-6 right-0 animate-spin" style={{ animationDuration: '10s' }}>
-                <Zap className="w-12 h-12 text-passport-orange" />
-              </div>
-            </h1>
-            
-            <h2 className="text-2xl md:text-4xl font-bold text-white/90 mb-6 animate-fade-in" style={{ animationDelay: '0.2s' }}>
-              🚀 Your Language Adventure Starts Here
-            </h2>
-            
-            <p className="text-lg md:text-xl text-white/80 mb-12 max-w-3xl mx-auto leading-relaxed animate-fade-in" style={{ animationDelay: '0.4s' }}>
-              Conecta con coaches nativos increíbles y transforma tu vida aprendiendo un nuevo idioma de forma divertida y personalizada
-            </p>
+          )}
 
-            {/* Language detection notification - more fun */}
-            {detectedLanguage && (
-              <div className="bg-white/20 backdrop-blur-lg border-2 border-white/30 rounded-3xl px-8 py-4 text-white text-sm mb-12 inline-flex items-center animate-fade-in shadow-2xl" style={{ animationDelay: '0.6s' }}>
-                <Globe className="w-5 h-5 mr-3 animate-spin" style={{ animationDuration: '3s' }} />
-                <span className="font-semibold">¡Hola! Detectamos que hablas {detectedLanguage} 👋</span>
-              </div>
-            )}
-
-            {/* Fun stats with emojis */}
-            <div className="flex flex-wrap justify-center gap-8 mb-16 animate-fade-in" style={{ animationDelay: '0.8s' }}>
-              <div className="bg-white/20 backdrop-blur-lg rounded-2xl p-6 text-center min-w-[140px] hover:scale-110 transition-transform duration-300">
-                <div className="text-4xl mb-2">🎉</div>
-                <div className="text-3xl font-black text-white">1000+</div>
-                <div className="text-white/80 text-sm font-medium">Estudiantes Felices</div>
-              </div>
-              <div className="bg-white/20 backdrop-blur-lg rounded-2xl p-6 text-center min-w-[140px] hover:scale-110 transition-transform duration-300">
-                <div className="text-4xl mb-2">⭐</div>
-                <div className="text-3xl font-black text-white">4.9</div>
-                <div className="text-white/80 text-sm font-medium">Rating Increíble</div>
-              </div>
-              <div className="bg-white/20 backdrop-blur-lg rounded-2xl p-6 text-center min-w-[140px] hover:scale-110 transition-transform duration-300">
-                <div className="text-4xl mb-2">⚡</div>
-                <div className="text-3xl font-black text-white">40</div>
-                <div className="text-white/80 text-sm font-medium">Min de Diversión</div>
-              </div>
+          {/* Social proof */}
+          <div className="flex flex-wrap justify-center gap-6 mb-12 text-sm text-gray-600">
+            <div className="flex items-center">
+              <Users className="w-4 h-4 mr-1 text-passport-blue" />
+              <strong className="text-gray-900">1,000+</strong> estudiantes activos
+            </div>
+            <div className="flex items-center">
+              <Star className="w-4 h-4 mr-1 text-yellow-500" />
+              <strong className="text-gray-900">4.9</strong> calificación promedio
+            </div>
+            <div className="flex items-center">
+              <Clock className="w-4 h-4 mr-1 text-passport-orange" />
+              Clases de <strong className="text-gray-900">40 minutos</strong>
             </div>
           </div>
-        
-          <div className="grid md:grid-cols-2 gap-12 max-w-5xl mx-auto">
-            {/* Spanish Learning Card */}
-            <div 
-              className="group cursor-pointer animate-fade-in"
-              onClick={() => navigate('/en')}
-              style={{ animationDelay: '1s' }}
-            >
-              <div className="bg-gradient-to-br from-passport-orange via-orange-500 to-passport-blue p-1 rounded-3xl hover:scale-105 transition-all duration-500 shadow-2xl hover:shadow-passport-orange/25">
-                <div className="bg-white rounded-3xl p-8 h-full relative overflow-hidden">
-                  <div className="absolute top-4 right-4 opacity-20 text-8xl">🌮</div>
-                  
-                  <div className="relative z-10">
-                    <div className="flex items-center justify-center w-20 h-20 bg-gradient-to-br from-passport-orange to-passport-blue rounded-2xl mb-6 mx-auto text-4xl shadow-lg">
-                      🇪🇸
+        </div>
+
+        {/* Main Options */}
+        <div className="max-w-4xl mx-auto grid md:grid-cols-2 gap-8">
+          {/* Spanish Learning Card */}
+          <Card 
+            className="hover:shadow-lg transition-all duration-300 cursor-pointer border-2 hover:border-passport-orange"
+            onClick={() => navigate('/en')}
+          >
+            <CardContent className="p-8">
+              <div className="text-center">
+                <div className="w-16 h-16 mx-auto mb-6 bg-red-100 rounded-full flex items-center justify-center text-3xl">
+                  🇪🇸
+                </div>
+                
+                <h2 className="text-2xl font-bold text-gray-900 mb-3">
+                  Learn Spanish
+                </h2>
+                
+                <p className="text-gray-600 mb-6">
+                  Native Spanish instructors for English speakers. Master Spanish with personalized 1-on-1 coaching.
+                </p>
+                
+                <div className="bg-gray-50 rounded-lg p-4 mb-6">
+                  <div className="grid grid-cols-2 gap-4">
+                    <div className="text-center">
+                      <div className="text-2xl font-bold text-passport-orange">40</div>
+                      <div className="text-xs text-gray-600">min sessions</div>
                     </div>
-                    
-                    <h2 className="text-3xl font-black text-gray-800 mb-4 group-hover:text-passport-orange transition-colors">
-                      ¡Aprende Español!
-                    </h2>
-                    
-                    <div className="bg-orange-50 rounded-2xl p-4 mb-6">
-                      <p className="text-gray-700 font-medium">
-                        🔥 Coaches nativos latinoamericanos <br/>
-                        ⚡ Sesiones súper personalizadas <br/>
-                        💯 Resultados garantizados
-                      </p>
+                    <div className="text-center">
+                      <div className="text-2xl font-bold text-green-600">95%</div>
+                      <div className="text-xs text-gray-600">success rate</div>
                     </div>
-                    
-                    <div className="flex justify-center gap-4 mb-6">
-                      <div className="bg-gradient-to-r from-passport-orange to-passport-blue text-white rounded-xl px-4 py-2 text-sm font-bold">
-                        40 min 🕒
-                      </div>
-                      <div className="bg-gradient-to-r from-green-500 to-emerald-500 text-white rounded-xl px-4 py-2 text-sm font-bold">
-                        95% éxito 🎯
-                      </div>
-                    </div>
-                    
-                    <Button className="w-full bg-gradient-to-r from-passport-orange to-passport-blue hover:from-orange-600 hover:to-blue-700 text-white py-4 rounded-2xl font-black text-lg shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
-                      ¡Vamos a Hablar Español! 🚀
-                    </Button>
                   </div>
                 </div>
+                
+                <ul className="text-sm text-gray-600 space-y-2 mb-6">
+                  <li className="flex items-center justify-center">
+                    <div className="w-2 h-2 bg-passport-orange rounded-full mr-3"></div>
+                    Native Latin American coaches
+                  </li>
+                  <li className="flex items-center justify-center">
+                    <div className="w-2 h-2 bg-passport-orange rounded-full mr-3"></div>
+                    100% virtual classes
+                  </li>
+                  <li className="flex items-center justify-center">
+                    <div className="w-2 h-2 bg-passport-orange rounded-full mr-3"></div>
+                    Flexible scheduling
+                  </li>
+                </ul>
+                
+                <Button className="w-full bg-passport-orange hover:bg-orange-600 text-white py-3 font-semibold">
+                  Start Learning Spanish
+                  <ArrowRight className="w-4 h-4 ml-2" />
+                </Button>
               </div>
-            </div>
+            </CardContent>
+          </Card>
 
-            {/* English Learning Card */}
-            <div 
-              className="group cursor-pointer animate-fade-in"
-              onClick={() => navigate('/es')}
-              style={{ animationDelay: '1.2s' }}
-            >
-              <div className="bg-gradient-to-br from-passport-blue via-blue-500 to-passport-orange p-1 rounded-3xl hover:scale-105 transition-all duration-500 shadow-2xl hover:shadow-passport-blue/25">
-                <div className="bg-white rounded-3xl p-8 h-full relative overflow-hidden">
-                  <div className="absolute top-4 right-4 opacity-20 text-8xl">🍔</div>
-                  
-                  <div className="relative z-10">
-                    <div className="flex items-center justify-center w-20 h-20 bg-gradient-to-br from-passport-blue to-passport-orange rounded-2xl mb-6 mx-auto text-4xl shadow-lg">
-                      🇺🇸
+          {/* English Learning Card */}
+          <Card 
+            className="hover:shadow-lg transition-all duration-300 cursor-pointer border-2 hover:border-passport-blue"
+            onClick={() => navigate('/es')}
+          >
+            <CardContent className="p-8">
+              <div className="text-center">
+                <div className="w-16 h-16 mx-auto mb-6 bg-blue-100 rounded-full flex items-center justify-center text-3xl">
+                  🇺🇸
+                </div>
+                
+                <h2 className="text-2xl font-bold text-gray-900 mb-3">
+                  Aprende Inglés
+                </h2>
+                
+                <p className="text-gray-600 mb-6">
+                  Instructores nativos de inglés para hispanohablantes. Domina el inglés con coaching personalizado 1-a-1.
+                </p>
+                
+                <div className="bg-gray-50 rounded-lg p-4 mb-6">
+                  <div className="grid grid-cols-2 gap-4">
+                    <div className="text-center">
+                      <div className="text-2xl font-bold text-passport-blue">40</div>
+                      <div className="text-xs text-gray-600">min sesiones</div>
                     </div>
-                    
-                    <h2 className="text-3xl font-black text-gray-800 mb-4 group-hover:text-passport-blue transition-colors">
-                      Learn English Now!
-                    </h2>
-                    
-                    <div className="bg-blue-50 rounded-2xl p-4 mb-6">
-                      <p className="text-gray-700 font-medium">
-                        🔥 Native English speakers <br/>
-                        ⚡ Super personalized sessions <br/>
-                        💯 Amazing results guaranteed
-                      </p>
+                    <div className="text-center">
+                      <div className="text-2xl font-bold text-green-600">95%</div>
+                      <div className="text-xs text-gray-600">tasa de éxito</div>
                     </div>
-                    
-                    <div className="flex justify-center gap-4 mb-6">
-                      <div className="bg-gradient-to-r from-passport-blue to-passport-orange text-white rounded-xl px-4 py-2 text-sm font-bold">
-                        40 min 🕒
-                      </div>
-                      <div className="bg-gradient-to-r from-green-500 to-emerald-500 text-white rounded-xl px-4 py-2 text-sm font-bold">
-                        95% success 🎯
-                      </div>
-                    </div>
-                    
-                    <Button className="w-full bg-gradient-to-r from-passport-blue to-passport-orange hover:from-blue-700 hover:to-orange-600 text-white py-4 rounded-2xl font-black text-lg shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
-                      Let's Speak English! 🚀
-                    </Button>
                   </div>
                 </div>
+                
+                <ul className="text-sm text-gray-600 space-y-2 mb-6">
+                  <li className="flex items-center justify-center">
+                    <div className="w-2 h-2 bg-passport-blue rounded-full mr-3"></div>
+                    Coaches nativos angloparlantes
+                  </li>
+                  <li className="flex items-center justify-center">
+                    <div className="w-2 h-2 bg-passport-blue rounded-full mr-3"></div>
+                    Clases 100% virtuales
+                  </li>
+                  <li className="flex items-center justify-center">
+                    <div className="w-2 h-2 bg-passport-blue rounded-full mr-3"></div>
+                    Horarios flexibles
+                  </li>
+                </ul>
+                
+                <Button className="w-full bg-passport-blue hover:bg-blue-700 text-white py-3 font-semibold">
+                  Comenzar a Aprender Inglés
+                  <ArrowRight className="w-4 h-4 ml-2" />
+                </Button>
               </div>
-            </div>
-          </div>
+            </CardContent>
+          </Card>
+        </div>
 
-          <div className="text-center mt-16">
-            <div className="bg-white/10 backdrop-blur-lg rounded-3xl p-6 max-w-2xl mx-auto animate-fade-in" style={{ animationDelay: '1.4s' }}>
-              <p className="text-white font-medium text-lg mb-2">
-                🌟 ¡Elige tu idioma y comienza ya!
-              </p>
-              <p className="text-white/80 text-sm">
-                Choose your language and start now • Escoge tu idioma y comienza ahora
-              </p>
-            </div>
-            
-            {/* Floating hearts animation */}
-            <div className="mt-8 flex justify-center space-x-4 animate-fade-in" style={{ animationDelay: '1.6s' }}>
-              <Heart className="w-6 h-6 text-pink-300 animate-bounce" style={{ animationDelay: '0s' }} />
-              <Heart className="w-6 h-6 text-red-300 animate-bounce" style={{ animationDelay: '0.3s' }} />
-              <Heart className="w-6 h-6 text-pink-300 animate-bounce" style={{ animationDelay: '0.6s' }} />
-            </div>
-          </div>
+        {/* Footer */}
+        <div className="text-center mt-16">
+          <p className="text-gray-600">
+            Elige tu idioma preferido para continuar • Choose your preferred language to continue
+          </p>
         </div>
       </div>
     </div>
