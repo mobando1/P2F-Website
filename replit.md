@@ -10,21 +10,22 @@ Preferred communication style: Simple, everyday language.
 
 ## Landing Page Complete Redesign (August 2025)
 - **Fixed flag confusion**: Spanish flag (🇪🇸) now represents learning Spanish, US flag (🇺🇸) represents learning English
-- **Complete visual transformation from corporate to modern/fun**:
-  - Vibrant gradient background (pink → purple → indigo) replacing corporate dark theme
-  - Playful floating geometric shapes with bounce/spin animations
-  - Dynamic title "Tu Aventura Idiomática" with rainbow gradient text effects
-  - Fun emojis throughout (🚀, 🎉, ⭐, ⚡, 🌮, 🍔)
-  - Colorful card designs with cultural emoji backgrounds
-  - Interactive hover effects with scaling and glow shadows
+- **Complete visual transformation from corporate to modern/fun while maintaining brand identity**:
+  - Brand-consistent gradient background (passport-blue → passport-orange) maintaining company colors
+  - Playful floating geometric shapes with bounce/spin animations using brand colors
+  - Dynamic title "Habla Como Un Nativo" (natural Spanish phrase replacing "aventura idiomática")
+  - Fun emojis throughout (🚀, 🎉, ⭐, ⚡, 🌮, 🍔) with cultural references
+  - Colorful card designs with passport brand gradient borders and backgrounds
+  - Interactive hover effects with scaling and glow shadows in brand colors
   - Modern glass-morphism design elements
-  - Energetic CTA buttons with movement effects
+  - Energetic CTA buttons with passport brand gradients and movement effects
 - **Enhanced personality and warmth**:
   - Conversational language ("¡Hola! Detectamos que hablas...")
+  - Natural Spanish expressions avoiding artificial phrases
   - Cultural references and playful elements
   - Animated hearts and sparkles
   - Stats presented as achievements with emoji icons
-- **Better emotional connection**: Transforms from cold corporate feel to warm, engaging, and modern adventure theme
+- **Better emotional connection**: Transforms from cold corporate feel to warm, engaging, and modern design while preserving brand recognition through consistent color usage
 
 # System Architecture
 

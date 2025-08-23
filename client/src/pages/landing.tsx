@@ -20,15 +20,15 @@ export default function Landing() {
   }, []);
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-pink-500 via-purple-600 to-indigo-700 relative overflow-hidden">
+    <div className="min-h-screen bg-gradient-to-br from-passport-blue via-blue-600 to-passport-orange relative overflow-hidden">
       {/* Floating geometric shapes */}
       <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute top-20 left-10 w-32 h-32 bg-yellow-400/30 rounded-full animate-bounce" style={{ animationDelay: '0s', animationDuration: '3s' }}></div>
-        <div className="absolute top-40 right-20 w-20 h-20 bg-green-400/40 rotate-45 animate-pulse" style={{ animationDelay: '1s' }}></div>
-        <div className="absolute bottom-32 left-32 w-24 h-24 bg-orange-400/35 rounded-full animate-ping" style={{ animationDelay: '2s', animationDuration: '4s' }}></div>
-        <div className="absolute bottom-20 right-16 w-16 h-16 bg-blue-400/40 rotate-12 animate-bounce" style={{ animationDelay: '0.5s', animationDuration: '2.5s' }}></div>
-        <div className="absolute top-1/2 left-1/4 w-12 h-12 bg-pink-300/50 rotate-45 animate-spin" style={{ animationDelay: '1.5s', animationDuration: '8s' }}></div>
-        <div className="absolute top-1/3 right-1/3 w-28 h-28 bg-purple-300/25 rounded-full animate-pulse" style={{ animationDelay: '3s' }}></div>
+        <div className="absolute top-20 left-10 w-32 h-32 bg-passport-orange/30 rounded-full animate-bounce" style={{ animationDelay: '0s', animationDuration: '3s' }}></div>
+        <div className="absolute top-40 right-20 w-20 h-20 bg-passport-blue/40 rotate-45 animate-pulse" style={{ animationDelay: '1s' }}></div>
+        <div className="absolute bottom-32 left-32 w-24 h-24 bg-passport-orange/35 rounded-full animate-ping" style={{ animationDelay: '2s', animationDuration: '4s' }}></div>
+        <div className="absolute bottom-20 right-16 w-16 h-16 bg-passport-blue/40 rotate-12 animate-bounce" style={{ animationDelay: '0.5s', animationDuration: '2.5s' }}></div>
+        <div className="absolute top-1/2 left-1/4 w-12 h-12 bg-passport-orange/50 rotate-45 animate-spin" style={{ animationDelay: '1.5s', animationDuration: '8s' }}></div>
+        <div className="absolute top-1/3 right-1/3 w-28 h-28 bg-passport-blue/25 rounded-full animate-pulse" style={{ animationDelay: '3s' }}></div>
       </div>
 
       <div className="relative z-10 min-h-screen flex items-center justify-center p-4">
@@ -42,15 +42,15 @@ export default function Landing() {
             </div>
             
             <h1 className="text-6xl md:text-8xl font-black font-poppins text-white mb-8 animate-fade-in relative">
-              <span className="bg-gradient-to-r from-yellow-300 via-pink-300 to-purple-300 bg-clip-text text-transparent">
-                Tu Aventura
+              <span className="bg-gradient-to-r from-passport-orange via-yellow-300 to-passport-blue bg-clip-text text-transparent">
+                Habla Como
               </span>
               <br />
               <span className="text-white drop-shadow-lg">
-                Idiomática
+                Un Nativo
               </span>
               <div className="absolute -top-6 right-0 animate-spin" style={{ animationDuration: '10s' }}>
-                <Zap className="w-12 h-12 text-yellow-400" />
+                <Zap className="w-12 h-12 text-passport-orange" />
               </div>
             </h1>
             
@@ -97,20 +97,20 @@ export default function Landing() {
               onClick={() => navigate('/en')}
               style={{ animationDelay: '1s' }}
             >
-              <div className="bg-gradient-to-br from-red-500 via-orange-500 to-yellow-500 p-1 rounded-3xl hover:scale-105 transition-all duration-500 shadow-2xl hover:shadow-red-500/25">
+              <div className="bg-gradient-to-br from-passport-orange via-orange-500 to-passport-blue p-1 rounded-3xl hover:scale-105 transition-all duration-500 shadow-2xl hover:shadow-passport-orange/25">
                 <div className="bg-white rounded-3xl p-8 h-full relative overflow-hidden">
                   <div className="absolute top-4 right-4 opacity-20 text-8xl">🌮</div>
                   
                   <div className="relative z-10">
-                    <div className="flex items-center justify-center w-20 h-20 bg-gradient-to-br from-red-500 to-yellow-500 rounded-2xl mb-6 mx-auto text-4xl shadow-lg">
+                    <div className="flex items-center justify-center w-20 h-20 bg-gradient-to-br from-passport-orange to-passport-blue rounded-2xl mb-6 mx-auto text-4xl shadow-lg">
                       🇪🇸
                     </div>
                     
-                    <h2 className="text-3xl font-black text-gray-800 mb-4 group-hover:text-red-600 transition-colors">
+                    <h2 className="text-3xl font-black text-gray-800 mb-4 group-hover:text-passport-orange transition-colors">
                       ¡Aprende Español!
                     </h2>
                     
-                    <div className="bg-red-50 rounded-2xl p-4 mb-6">
+                    <div className="bg-orange-50 rounded-2xl p-4 mb-6">
                       <p className="text-gray-700 font-medium">
                         🔥 Coaches nativos latinoamericanos <br/>
                         ⚡ Sesiones súper personalizadas <br/>
@@ -119,7 +119,7 @@ export default function Landing() {
                     </div>
                     
                     <div className="flex justify-center gap-4 mb-6">
-                      <div className="bg-gradient-to-r from-red-500 to-pink-500 text-white rounded-xl px-4 py-2 text-sm font-bold">
+                      <div className="bg-gradient-to-r from-passport-orange to-passport-blue text-white rounded-xl px-4 py-2 text-sm font-bold">
                         40 min 🕒
                       </div>
                       <div className="bg-gradient-to-r from-green-500 to-emerald-500 text-white rounded-xl px-4 py-2 text-sm font-bold">
@@ -127,7 +127,7 @@ export default function Landing() {
                       </div>
                     </div>
                     
-                    <Button className="w-full bg-gradient-to-r from-red-500 to-orange-500 hover:from-red-600 hover:to-orange-600 text-white py-4 rounded-2xl font-black text-lg shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
+                    <Button className="w-full bg-gradient-to-r from-passport-orange to-passport-blue hover:from-orange-600 hover:to-blue-700 text-white py-4 rounded-2xl font-black text-lg shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
                       ¡Vamos a Hablar Español! 🚀
                     </Button>
                   </div>
@@ -141,16 +141,16 @@ export default function Landing() {
               onClick={() => navigate('/es')}
               style={{ animationDelay: '1.2s' }}
             >
-              <div className="bg-gradient-to-br from-blue-600 via-purple-600 to-pink-600 p-1 rounded-3xl hover:scale-105 transition-all duration-500 shadow-2xl hover:shadow-blue-500/25">
+              <div className="bg-gradient-to-br from-passport-blue via-blue-500 to-passport-orange p-1 rounded-3xl hover:scale-105 transition-all duration-500 shadow-2xl hover:shadow-passport-blue/25">
                 <div className="bg-white rounded-3xl p-8 h-full relative overflow-hidden">
                   <div className="absolute top-4 right-4 opacity-20 text-8xl">🍔</div>
                   
                   <div className="relative z-10">
-                    <div className="flex items-center justify-center w-20 h-20 bg-gradient-to-br from-blue-600 to-purple-600 rounded-2xl mb-6 mx-auto text-4xl shadow-lg">
+                    <div className="flex items-center justify-center w-20 h-20 bg-gradient-to-br from-passport-blue to-passport-orange rounded-2xl mb-6 mx-auto text-4xl shadow-lg">
                       🇺🇸
                     </div>
                     
-                    <h2 className="text-3xl font-black text-gray-800 mb-4 group-hover:text-blue-600 transition-colors">
+                    <h2 className="text-3xl font-black text-gray-800 mb-4 group-hover:text-passport-blue transition-colors">
                       Learn English Now!
                     </h2>
                     
@@ -163,7 +163,7 @@ export default function Landing() {
                     </div>
                     
                     <div className="flex justify-center gap-4 mb-6">
-                      <div className="bg-gradient-to-r from-blue-500 to-purple-500 text-white rounded-xl px-4 py-2 text-sm font-bold">
+                      <div className="bg-gradient-to-r from-passport-blue to-passport-orange text-white rounded-xl px-4 py-2 text-sm font-bold">
                         40 min 🕒
                       </div>
                       <div className="bg-gradient-to-r from-green-500 to-emerald-500 text-white rounded-xl px-4 py-2 text-sm font-bold">
@@ -171,7 +171,7 @@ export default function Landing() {
                       </div>
                     </div>
                     
-                    <Button className="w-full bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white py-4 rounded-2xl font-black text-lg shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
+                    <Button className="w-full bg-gradient-to-r from-passport-blue to-passport-orange hover:from-blue-700 hover:to-orange-600 text-white py-4 rounded-2xl font-black text-lg shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
                       Let's Speak English! 🚀
                     </Button>
                   </div>
@@ -183,10 +183,10 @@ export default function Landing() {
           <div className="text-center mt-16">
             <div className="bg-white/10 backdrop-blur-lg rounded-3xl p-6 max-w-2xl mx-auto animate-fade-in" style={{ animationDelay: '1.4s' }}>
               <p className="text-white font-medium text-lg mb-2">
-                🌟 ¡Elige tu aventura idiomática!
+                🌟 ¡Elige tu idioma y comienza ya!
               </p>
               <p className="text-white/80 text-sm">
-                Choose your language adventure • Escoge tu aventura de idiomas
+                Choose your language and start now • Escoge tu idioma y comienza ahora
               </p>
             </div>
             
