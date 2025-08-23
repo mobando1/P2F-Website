@@ -37,11 +37,11 @@ export default function HighLevelCalendar({ language, type, className = "" }: Hi
 
   const t = texts[language];
 
-  // HighLevel calendar URLs - Kids and Adult Spanish provided, others pending
+  // HighLevel calendar URLs - Spanish calendars and Adult English provided, Kids English pending
   const calendarUrls = {
     adult: {
       en: "https://api.leadconnectorhq.com/widget/booking/g27wbcMQU9YvigMrJfVK", // Adult Spanish calendar (provided)
-      es: "https://api.appointmentcore.com/calendar/adults-english"  // TODO: Replace with adult English calendar
+      es: "https://api.leadconnectorhq.com/widget/booking/Z5fJpM9ktwCxfpHAPJRh"  // Adult English calendar (provided)
     },
     child: {
       en: "https://api.leadconnectorhq.com/widget/booking/DplznTj4YrOGaYJ12ufO", // Kids Spanish calendar (provided)
@@ -116,16 +116,16 @@ export default function HighLevelCalendar({ language, type, className = "" }: Hi
       ) : (
         <div className="calendar-container">
           <div className="min-h-[500px]">
-            {/* Show real HighLevel calendars for Spanish learning, fallback for English learning */}
-            {language === 'en' ? (
+            {/* Show real HighLevel calendars - Spanish learning and Adult English available */}
+            {(language === 'en') || (language === 'es' && type === 'adult') ? (
               <div 
                 dangerouslySetInnerHTML={{
                   __html: `
                     <iframe 
-                      src="${type === 'adult' ? 'https://api.leadconnectorhq.com/widget/booking/g27wbcMQU9YvigMrJfVK' : 'https://api.leadconnectorhq.com/widget/booking/DplznTj4YrOGaYJ12ufO'}" 
+                      src="${calendarUrls[type][language]}" 
                       style="width: 100%;border:none;overflow: hidden;min-height:500px;" 
                       scrolling="no" 
-                      id="${type === 'adult' ? 'g27wbcMQU9YvigMrJfVK' : 'DplznTj4YrOGaYJ12ufO'}_${Date.now()}"
+                      id="${calendarUrls[type][language].split('/').pop()}_${Date.now()}"
                     ></iframe>
                     <script src="https://link.msgsndr.com/js/form_embed.js" type="text/javascript"></script>
                   `
