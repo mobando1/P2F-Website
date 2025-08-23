@@ -1,7 +1,10 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import BookingForm from "@/components/booking-form";
+import NewsletterSignup from "@/components/newsletter-signup";
+import DiscountPopup from "@/components/discount-popup";
+import HighLevelCalendar from "@/components/highlevel-calendar";
 import passportLogo from "@assets/a1c5a1_9514ede9e3124d7a9adf78f5dcf07f28~mv2_1755803448396.png";
 import { useLocation } from "wouter";
 import { 
@@ -13,7 +16,29 @@ import {
 export default function SpanishSite() {
   const [showBookingForm, setShowBookingForm] = useState(false);
   const [bookingType, setBookingType] = useState<'adult' | 'child'>('adult');
+  const [showDiscountPopup, setShowDiscountPopup] = useState(false);
   const [, navigate] = useLocation();
+
+  // Show discount popup after 30 seconds or on scroll
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      if (!localStorage.getItem('discountPopupShown')) {
+        setShowDiscountPopup(true);
+      }
+    }, 30000);
+
+    const handleScroll = () => {
+      if (window.scrollY > window.innerHeight * 0.5 && !localStorage.getItem('discountPopupShown')) {
+        setShowDiscountPopup(true);
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => {
+      clearTimeout(timer);
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
 
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
@@ -25,6 +50,17 @@ export default function SpanishSite() {
   const handleBookingClick = (type: 'adult' | 'child' = 'adult') => {
     setBookingType(type);
     setShowBookingForm(true);
+  };
+
+  const handleDiscountSubscribe = (email: string) => {
+    // TODO: Integrate with HighLevel newsletter
+    localStorage.setItem('discountPopupShown', 'true');
+    console.log('Discount subscription:', email);
+  };
+
+  const handleDiscountClose = () => {
+    setShowDiscountPopup(false);
+    localStorage.setItem('discountPopupShown', 'true');
   };
 
   const goToEnglishSite = () => {
@@ -283,73 +319,120 @@ export default function SpanishSite() {
             </p>
           </div>
 
-          <div className="max-w-4xl mx-auto grid md:grid-cols-2 gap-8">
+          <div className="max-w-5xl mx-auto grid md:grid-cols-3 gap-6">
             <Card className="border-2 hover:border-passport-orange transition-colors">
-              <CardContent className="p-8 text-center">
-                <h3 className="text-2xl font-bold text-gray-900 mb-4">Individual Plan</h3>
-                <div className="text-4xl font-bold text-passport-orange mb-2">$49</div>
-                <div className="text-gray-600 mb-6">per 40-minute class</div>
-                <ul className="text-left space-y-3 mb-8">
+              <CardContent className="p-6 text-center">
+                <h3 className="text-xl font-bold text-gray-900 mb-4">1 Class per Week</h3>
+                <div className="text-3xl font-bold text-passport-orange mb-2">$119.96</div>
+                <div className="text-gray-600 mb-1">per month</div>
+                <div className="text-sm text-gray-500 mb-6">$29.99 per class</div>
+                <p className="text-sm text-gray-600 mb-6">Perfect for maintaining steady progress</p>
+                <ul className="text-left space-y-2 mb-8 text-sm">
                   <li className="flex items-center">
-                    <CheckCircle className="w-5 h-5 text-green-500 mr-3" />
-                    One-on-one individual class
+                    <CheckCircle className="w-4 h-4 text-green-500 mr-2" />
+                    1 class per week (4 per month)
                   </li>
                   <li className="flex items-center">
-                    <CheckCircle className="w-5 h-5 text-green-500 mr-3" />
-                    Native Latin American instructor
+                    <CheckCircle className="w-4 h-4 text-green-500 mr-2" />
+                    Private 1-on-1 sessions (40 min)
                   </li>
                   <li className="flex items-center">
-                    <CheckCircle className="w-5 h-5 text-green-500 mr-3" />
-                    Personalized materials included
+                    <CheckCircle className="w-4 h-4 text-green-500 mr-2" />
+                    Flexible scheduling
                   </li>
                   <li className="flex items-center">
-                    <CheckCircle className="w-5 h-5 text-green-500 mr-3" />
-                    Progress tracking
+                    <CheckCircle className="w-4 h-4 text-green-500 mr-2" />
+                    Cancel anytime
+                  </li>
+                  <li className="flex items-center">
+                    <CheckCircle className="w-4 h-4 text-green-500 mr-2" />
+                    Teacher support
                   </li>
                 </ul>
                 <Button 
                   onClick={() => handleBookingClick('adult')}
-                  className="w-full bg-passport-orange hover:bg-orange-600 text-white py-3 font-semibold"
+                  className="w-full bg-passport-orange hover:bg-orange-600 text-white py-2 font-semibold"
                 >
                   Get Started
                 </Button>
               </CardContent>
             </Card>
 
-            <Card className="border-2 border-passport-blue bg-blue-50">
-              <CardContent className="p-8 text-center">
-                <div className="bg-passport-blue text-white px-3 py-1 rounded-full text-sm font-semibold mb-4 inline-block">
-                  MOST POPULAR
-                </div>
-                <h3 className="text-2xl font-bold text-gray-900 mb-4">4-Class Package</h3>
-                <div className="text-4xl font-bold text-passport-blue mb-2">$179</div>
-                <div className="text-gray-600 mb-2">$44.75 per class</div>
-                <div className="text-sm text-green-600 font-semibold mb-6">Save $17</div>
-                <ul className="text-left space-y-3 mb-8">
+            <Card className="border-2 hover:border-passport-orange transition-colors">
+              <CardContent className="p-6 text-center">
+                <h3 className="text-xl font-bold text-gray-900 mb-4">2 Classes per Week</h3>
+                <div className="text-3xl font-bold text-passport-orange mb-2">$219.99</div>
+                <div className="text-gray-600 mb-1">per month</div>
+                <div className="text-sm text-gray-500 mb-6">$27.50 per class</div>
+                <p className="text-sm text-gray-600 mb-6">Best for fast improvement and weekly conversation</p>
+                <ul className="text-left space-y-2 mb-8 text-sm">
                   <li className="flex items-center">
-                    <CheckCircle className="w-5 h-5 text-green-500 mr-3" />
-                    4 one-on-one individual classes
+                    <CheckCircle className="w-4 h-4 text-green-500 mr-2" />
+                    2 classes per week (8 per month)
                   </li>
                   <li className="flex items-center">
-                    <CheckCircle className="w-5 h-5 text-green-500 mr-3" />
-                    Native Latin American instructor
+                    <CheckCircle className="w-4 h-4 text-green-500 mr-2" />
+                    Private 1-on-1 sessions (40 min)
                   </li>
                   <li className="flex items-center">
-                    <CheckCircle className="w-5 h-5 text-green-500 mr-3" />
-                    Personalized materials included
+                    <CheckCircle className="w-4 h-4 text-green-500 mr-2" />
+                    Flexible scheduling
                   </li>
                   <li className="flex items-center">
-                    <CheckCircle className="w-5 h-5 text-green-500 mr-3" />
-                    Progress tracking
+                    <CheckCircle className="w-4 h-4 text-green-500 mr-2" />
+                    Cancel anytime
                   </li>
                   <li className="flex items-center">
-                    <CheckCircle className="w-5 h-5 text-green-500 mr-3" />
-                    Valid for 30 days
+                    <CheckCircle className="w-4 h-4 text-green-500 mr-2" />
+                    Teacher support
                   </li>
                 </ul>
                 <Button 
                   onClick={() => handleBookingClick('adult')}
-                  className="w-full bg-passport-blue hover:bg-blue-700 text-white py-3 font-semibold"
+                  className="w-full bg-passport-orange hover:bg-orange-600 text-white py-2 font-semibold"
+                >
+                  Choose This Plan
+                </Button>
+              </CardContent>
+            </Card>
+
+            <Card className="border-2 border-passport-blue bg-blue-50 relative">
+              <div className="absolute -top-3 left-1/2 transform -translate-x-1/2">
+                <div className="bg-passport-blue text-white px-3 py-1 rounded-full text-xs font-semibold">
+                  MOST POPULAR
+                </div>
+              </div>
+              <CardContent className="p-6 text-center">
+                <h3 className="text-xl font-bold text-gray-900 mb-4">3 Classes per Week</h3>
+                <div className="text-3xl font-bold text-passport-blue mb-2">$299.99</div>
+                <div className="text-gray-600 mb-1">per month</div>
+                <div className="text-sm text-gray-500 mb-6">$24.99 per class</div>
+                <p className="text-sm text-gray-600 mb-6">For serious learners who want results fast</p>
+                <ul className="text-left space-y-2 mb-8 text-sm">
+                  <li className="flex items-center">
+                    <CheckCircle className="w-4 h-4 text-green-500 mr-2" />
+                    3 classes per week (12 per month)
+                  </li>
+                  <li className="flex items-center">
+                    <CheckCircle className="w-4 h-4 text-green-500 mr-2" />
+                    Private 1-on-1 sessions (40 min)
+                  </li>
+                  <li className="flex items-center">
+                    <CheckCircle className="w-4 h-4 text-green-500 mr-2" />
+                    Flexible scheduling
+                  </li>
+                  <li className="flex items-center">
+                    <CheckCircle className="w-4 h-4 text-green-500 mr-2" />
+                    Cancel anytime
+                  </li>
+                  <li className="flex items-center">
+                    <CheckCircle className="w-4 h-4 text-green-500 mr-2" />
+                    Teacher support
+                  </li>
+                </ul>
+                <Button 
+                  onClick={() => handleBookingClick('adult')}
+                  className="w-full bg-passport-blue hover:bg-blue-700 text-white py-2 font-semibold"
                 >
                   Get Started
                 </Button>
@@ -379,10 +462,10 @@ export default function SpanishSite() {
                   <Star className="w-5 h-5 fill-current" />
                 </div>
                 <p className="text-gray-700 mb-4">
-                  "In just 2 months I improved my confidence to speak Spanish at work. The instructors are very patient and help you lose your fear."
+                  "I decided to learn Spanish because most of my friends were from all over South America. When we would go out salsa dancing, everyone was speaking Spanish, and I wanted to join in! Passport2Fluency personalizes lessons for my specific needs!"
                 </p>
-                <div className="font-semibold text-gray-900">Sarah Johnson</div>
-                <div className="text-sm text-gray-600">Marketing Manager, California</div>
+                <div className="font-semibold text-gray-900">Ben Northrop</div>
+                <div className="text-sm text-gray-600">Professional, San Diego</div>
               </CardContent>
             </Card>
 
@@ -396,10 +479,10 @@ export default function SpanishSite() {
                   <Star className="w-5 h-5 fill-current" />
                 </div>
                 <p className="text-gray-700 mb-4">
-                  "The flexible scheduling is perfect for my work. I can take classes early in the morning or late at night."
+                  "I wanted to improve my Spanish to communicate with my family members and for travel. I chose Passport2fluency because I needed something virtual. My wonderful instructor Valentina makes things clear and sets me up for success!"
                 </p>
-                <div className="font-semibold text-gray-900">Michael Chen</div>
-                <div className="text-sm text-gray-600">Software Developer, New York</div>
+                <div className="font-semibold text-gray-900">Jaclyn Blohm</div>
+                <div className="text-sm text-gray-600">Business Owner, Corpus Christi</div>
               </CardContent>
             </Card>
 
@@ -413,13 +496,20 @@ export default function SpanishSite() {
                   <Star className="w-5 h-5 fill-current" />
                 </div>
                 <p className="text-gray-700 mb-4">
-                  "I can finally have natural conversations in Spanish. The personalized method makes all the difference."
+                  "As a parent with Argentine and Cuban heritage, it was important that my twins maintain a strong connection to their roots and learn Spanish fluently. The interactive lessons and culturally relevant content have truly captivated my kids' interest."
                 </p>
-                <div className="font-semibold text-gray-900">Emily Rodriguez</div>
-                <div className="text-sm text-gray-600">Teacher, Texas</div>
+                <div className="font-semibold text-gray-900">Rebecca Unrath</div>
+                <div className="text-sm text-gray-600">Mother, New Jersey</div>
               </CardContent>
             </Card>
           </div>
+        </div>
+      </section>
+
+      {/* Newsletter Section */}
+      <section className="py-20 bg-white">
+        <div className="container mx-auto px-4">
+          <NewsletterSignup language="en" className="max-w-2xl mx-auto" />
         </div>
       </section>
 
@@ -493,7 +583,7 @@ export default function SpanishSite() {
       {/* Booking Form Modal */}
       {showBookingForm && (
         <div className="fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center p-4">
-          <div className="bg-white rounded-lg max-w-md w-full max-h-[90vh] overflow-y-auto">
+          <div className="bg-white rounded-lg max-w-2xl w-full max-h-[90vh] overflow-y-auto">
             <div className="p-6">
               <div className="flex justify-between items-center mb-4">
                 <h2 className="text-2xl font-bold text-gray-900">Book Free Class</h2>
@@ -504,17 +594,19 @@ export default function SpanishSite() {
                   ✕
                 </button>
               </div>
-              <BookingForm 
-                type={bookingType}
-                onSuccess={() => {
-                  setShowBookingForm(false);
-                  alert('Perfect! We will contact you soon to confirm your free class.');
-                }}
-                onCancel={() => setShowBookingForm(false)}
-              />
+              <HighLevelCalendar language="en" type={bookingType} />
             </div>
           </div>
         </div>
+      )}
+
+      {/* Discount Popup */}
+      {showDiscountPopup && (
+        <DiscountPopup
+          language="en"
+          onClose={handleDiscountClose}
+          onSubscribe={handleDiscountSubscribe}
+        />
       )}
     </div>
   );

@@ -84,6 +84,39 @@ export async function registerRoutes(app: Express): Promise<Server> {
     }
   });
 
+  // Newsletter subscription endpoint
+  app.post("/api/newsletter", async (req, res) => {
+    try {
+      const { email, name, language, source } = req.body;
+      
+      if (!email || !name) {
+        return res.status(400).json({ error: "Email and name are required" });
+      }
+
+      // TODO: Replace with actual HighLevel API integration
+      // Example HighLevel webhook call:
+      // const response = await fetch('https://hooks.leadconnectorhq.com/hook/YOUR_WEBHOOK_ID', {
+      //   method: 'POST',
+      //   headers: { 'Content-Type': 'application/json' },
+      //   body: JSON.stringify({ email, name, language, source })
+      // });
+
+      console.log(`Newsletter subscription: ${name} (${email}) - Language: ${language}`);
+      
+      // Simulate success response
+      res.json({ 
+        success: true, 
+        message: "Successfully subscribed to newsletter" 
+      });
+    } catch (error) {
+      console.error("Error subscribing to newsletter:", error);
+      res.status(500).json({ 
+        success: false, 
+        error: "Failed to subscribe to newsletter" 
+      });
+    }
+  });
+
   const httpServer = createServer(app);
   return httpServer;
 }

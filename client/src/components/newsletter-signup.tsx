@@ -1,0 +1,144 @@
+import { useState } from "react";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Mail, CheckCircle, AlertCircle } from "lucide-react";
+
+interface NewsletterSignupProps {
+  language: 'en' | 'es';
+  className?: string;
+}
+
+export default function NewsletterSignup({ language, className = "" }: NewsletterSignupProps) {
+  const [email, setEmail] = useState("");
+  const [name, setName] = useState("");
+  const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
+  const [message, setMessage] = useState("");
+
+  const texts = {
+    en: {
+      title: "Stay updated with Spanish learning tips",
+      subtitle: "Get weekly tips, resources, and exclusive offers delivered to your inbox",
+      namePlaceholder: "Your name",
+      emailPlaceholder: "Your email address",
+      button: "Subscribe",
+      buttonLoading: "Subscribing...",
+      successMessage: "Thanks for subscribing! Check your email for confirmation.",
+      errorMessage: "Something went wrong. Please try again.",
+      privacyText: "We respect your privacy. Unsubscribe anytime."
+    },
+    es: {
+      title: "Mantente actualizado con consejos para aprender inglés",
+      subtitle: "Recibe consejos semanales, recursos y ofertas exclusivas en tu bandeja de entrada",
+      namePlaceholder: "Tu nombre",
+      emailPlaceholder: "Tu dirección de email",
+      button: "Suscribirse",
+      buttonLoading: "Suscribiendo...",
+      successMessage: "¡Gracias por suscribirte! Revisa tu email para confirmar.",
+      errorMessage: "Algo salió mal. Por favor intenta de nuevo.",
+      privacyText: "Respetamos tu privacidad. Puedes cancelar en cualquier momento."
+    }
+  };
+
+  const t = texts[language];
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!email || !name) return;
+
+    setStatus('loading');
+
+    try {
+      // TODO: Replace with actual HighLevel endpoint
+      const response = await fetch('/api/newsletter', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          email,
+          name,
+          language,
+          source: 'website'
+        }),
+      });
+
+      if (response.ok) {
+        setStatus('success');
+        setMessage(t.successMessage);
+        setEmail("");
+        setName("");
+      } else {
+        throw new Error('Subscription failed');
+      }
+    } catch (error) {
+      setStatus('error');
+      setMessage(t.errorMessage);
+    }
+  };
+
+  return (
+    <div className={`bg-gray-50 p-8 rounded-2xl ${className}`}>
+      <div className="max-w-md mx-auto text-center">
+        <div className="w-12 h-12 bg-passport-blue rounded-full flex items-center justify-center mx-auto mb-4">
+          <Mail className="w-6 h-6 text-white" />
+        </div>
+        
+        <h3 className="text-2xl font-bold text-gray-900 mb-2">
+          {t.title}
+        </h3>
+        
+        <p className="text-gray-600 mb-6">
+          {t.subtitle}
+        </p>
+
+        {status === 'success' ? (
+          <div className="flex items-center justify-center text-green-600 bg-green-50 p-4 rounded-lg">
+            <CheckCircle className="w-5 h-5 mr-2" />
+            <span>{message}</span>
+          </div>
+        ) : (
+          <form onSubmit={handleSubmit} className="space-y-4">
+            <Input
+              type="text"
+              placeholder={t.namePlaceholder}
+              value={name}
+              onChange={(e) => setName(e.target.value)}
+              required
+              disabled={status === 'loading'}
+              className="w-full"
+            />
+            
+            <Input
+              type="email"
+              placeholder={t.emailPlaceholder}
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              required
+              disabled={status === 'loading'}
+              className="w-full"
+            />
+            
+            <Button
+              type="submit"
+              disabled={status === 'loading' || !email || !name}
+              className="w-full bg-passport-blue hover:bg-blue-700 text-white font-semibold py-3"
+            >
+              {status === 'loading' ? t.buttonLoading : t.button}
+            </Button>
+
+            {status === 'error' && (
+              <div className="flex items-center justify-center text-red-600 bg-red-50 p-3 rounded-lg">
+                <AlertCircle className="w-4 h-4 mr-2" />
+                <span className="text-sm">{message}</span>
+              </div>
+            )}
+          </form>
+        )}
+
+        <p className="text-xs text-gray-500 mt-4">
+          {t.privacyText}
+        </p>
+      </div>
+    </div>
+  );
+}
