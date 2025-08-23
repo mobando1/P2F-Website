@@ -37,15 +37,15 @@ export default function HighLevelCalendar({ language, type, className = "" }: Hi
 
   const t = texts[language];
 
-  // HighLevel calendar URLs - Spanish calendars and Adult English provided, Kids English pending
+  // HighLevel calendar URLs - All calendars now provided and working
   const calendarUrls = {
     adult: {
-      en: "https://api.leadconnectorhq.com/widget/booking/g27wbcMQU9YvigMrJfVK", // Adult Spanish calendar (provided)
-      es: "https://api.leadconnectorhq.com/widget/booking/Z5fJpM9ktwCxfpHAPJRh"  // Adult English calendar (provided)
+      en: "https://api.leadconnectorhq.com/widget/booking/g27wbcMQU9YvigMrJfVK", // Adult Spanish calendar
+      es: "https://api.leadconnectorhq.com/widget/booking/Z5fJpM9ktwCxfpHAPJRh"  // Adult English calendar
     },
     child: {
-      en: "https://api.leadconnectorhq.com/widget/booking/DplznTj4YrOGaYJ12ufO", // Kids Spanish calendar (provided)
-      es: "https://api.appointmentcore.com/calendar/children-english"  // TODO: Replace with kids English calendar
+      en: "https://api.leadconnectorhq.com/widget/booking/DplznTj4YrOGaYJ12ufO", // Kids Spanish calendar
+      es: "https://api.leadconnectorhq.com/widget/booking/dYj2Xhmgf3w26n0Mrwqw"  // Kids English calendar
     }
   };
 
@@ -116,8 +116,8 @@ export default function HighLevelCalendar({ language, type, className = "" }: Hi
       ) : (
         <div className="calendar-container">
           <div className="min-h-[500px]">
-            {/* Show real HighLevel calendars - Spanish learning and Adult English available */}
-            {(language === 'en') || (language === 'es' && type === 'adult') ? (
+            {/* Show real HighLevel calendars - All 4 calendars now available */}
+            {true ? (
               <div 
                 dangerouslySetInnerHTML={{
                   __html: `

@@ -8,12 +8,17 @@ Preferred communication style: Simple, everyday language.
 
 # Recent Changes
 
-## Separate Adult/Children Calendars Implementation (August 2025)
+## Complete HighLevel Calendar Integration (August 2025)
+- **Full calendar system**: All 4 HighLevel calendars integrated and working
+  - Adult Spanish: g27wbcMQU9YvigMrJfVK
+  - Kids Spanish: DplznTj4YrOGaYJ12ufO  
+  - Adult English: Z5fJpM9ktwCxfpHAPJRh
+  - Kids English: dYj2Xhmgf3w26n0Mrwqw
+- **Smart calendar selection**: System automatically shows correct calendar based on language and age group
 - **Calendar separation**: Created separate booking flows for adult vs children classes
   - Same pricing structure but specialized teaching preparation for instructors
   - Clear visual distinction in CTA sections with separate buttons
   - Modal titles dynamically update to indicate "Adult Classes" or "Kids Classes"
-  - HighLevel calendar component properly receives booking type parameter
 - **Testimonials correction**: Fixed testimonial content alignment
   - Spanish site (/en) now shows real Spanish learning testimonials from Passport to Fluency
   - English site (/es) features invented English learning testimonials (María González, Ana Rodríguez, Carlos Mendoza)
