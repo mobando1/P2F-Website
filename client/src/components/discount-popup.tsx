@@ -150,23 +150,34 @@ export default function DiscountPopup({ language, onClose, onSubscribe }: Discou
           ))}
         </ul>
 
-        <form onSubmit={handleSubmit} className="space-y-4">
-          <Input
-            type="email"
-            placeholder={t.emailPlaceholder}
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            required
-            className="w-full text-center"
-          />
-          
-          <Button
-            type="submit"
-            disabled={!email}
-            className="w-full bg-gradient-to-r from-passport-blue to-passport-orange hover:from-blue-700 hover:to-orange-600 text-white font-bold py-3 text-lg"
-          >
-            {t.ctaButton}
-          </Button>
+        {/* HighLevel form integration for discount popup */}
+        <div className="space-y-4">
+          <div className="min-h-[300px] -mx-4 -mb-4">
+            <div 
+              dangerouslySetInnerHTML={{
+                __html: `
+                  <iframe
+                    src="https://api.leadconnectorhq.com/widget/form/FTuj7n9Kp5GYdlbLyyI7"
+                    style="width:100%;height:300px;border:none;border-radius:0px"
+                    id="inline-FTuj7n9Kp5GYdlbLyyI7_${Date.now()}" 
+                    data-layout="{'id':'INLINE'}"
+                    data-trigger-type="alwaysShow"
+                    data-trigger-value=""
+                    data-activation-type="alwaysActivated"
+                    data-activation-value=""
+                    data-deactivation-type="neverDeactivate"
+                    data-deactivation-value=""
+                    data-form-name="Newsletter subscription - POP UP"
+                    data-height="300"
+                    data-layout-iframe-id="inline-FTuj7n9Kp5GYdlbLyyI7"
+                    data-form-id="FTuj7n9Kp5GYdlbLyyI7"
+                    title="Newsletter subscription - POP UP"
+                  ></iframe>
+                  <script src="https://link.msgsndr.com/js/form_embed.js"></script>
+                `
+              }}
+            />
+          </div>
           
           <button
             type="button"
@@ -175,7 +186,7 @@ export default function DiscountPopup({ language, onClose, onSubscribe }: Discou
           >
             {t.noThanks}
           </button>
-        </form>
+        </div>
       </div>
     </div>
   );
