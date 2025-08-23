@@ -91,53 +91,85 @@ export default function NewsletterSignup({ language, className = "" }: Newslette
           {t.subtitle}
         </p>
 
-        {status === 'success' ? (
-          <div className="flex items-center justify-center text-green-600 bg-green-50 p-4 rounded-lg">
-            <CheckCircle className="w-5 h-5 mr-2" />
-            <span>{message}</span>
+        {/* Use real HighLevel form for Spanish learners, custom form for English learners */}
+        {language === 'en' ? (
+          <div className="min-h-[400px]">
+            <div 
+              dangerouslySetInnerHTML={{
+                __html: `
+                  <iframe
+                    src="https://api.leadconnectorhq.com/widget/form/IT3EmBJlzLa0VUEN4IiS"
+                    style="width:100%;height:400px;border:none;border-radius:8px"
+                    id="inline-IT3EmBJlzLa0VUEN4IiS_${Date.now()}" 
+                    data-layout="{'id':'INLINE'}"
+                    data-trigger-type="alwaysShow"
+                    data-trigger-value=""
+                    data-activation-type="alwaysActivated"
+                    data-activation-value=""
+                    data-deactivation-type="neverDeactivate"
+                    data-deactivation-value=""
+                    data-form-name="Newsletter subscription"
+                    data-height="400"
+                    data-layout-iframe-id="inline-IT3EmBJlzLa0VUEN4IiS"
+                    data-form-id="IT3EmBJlzLa0VUEN4IiS"
+                    title="Newsletter subscription"
+                  ></iframe>
+                  <script src="https://link.msgsndr.com/js/form_embed.js"></script>
+                `
+              }}
+            />
           </div>
         ) : (
-          <form onSubmit={handleSubmit} className="space-y-4">
-            <Input
-              type="text"
-              placeholder={t.namePlaceholder}
-              value={name}
-              onChange={(e) => setName(e.target.value)}
-              required
-              disabled={status === 'loading'}
-              className="w-full"
-            />
-            
-            <Input
-              type="email"
-              placeholder={t.emailPlaceholder}
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              required
-              disabled={status === 'loading'}
-              className="w-full"
-            />
-            
-            <Button
-              type="submit"
-              disabled={status === 'loading' || !email || !name}
-              className="w-full bg-passport-blue hover:bg-blue-700 text-white font-semibold py-3"
-            >
-              {status === 'loading' ? t.buttonLoading : t.button}
-            </Button>
-
-            {status === 'error' && (
-              <div className="flex items-center justify-center text-red-600 bg-red-50 p-3 rounded-lg">
-                <AlertCircle className="w-4 h-4 mr-2" />
-                <span className="text-sm">{message}</span>
+          <>
+            {status === 'success' ? (
+              <div className="flex items-center justify-center text-green-600 bg-green-50 p-4 rounded-lg">
+                <CheckCircle className="w-5 h-5 mr-2" />
+                <span>{message}</span>
               </div>
-            )}
-          </form>
-        )}
+            ) : (
+              <form onSubmit={handleSubmit} className="space-y-4">
+                <Input
+                  type="text"
+                  placeholder={t.namePlaceholder}
+                  value={name}
+                  onChange={(e) => setName(e.target.value)}
+                  required
+                  disabled={status === 'loading'}
+                  className="w-full"
+                />
+                
+                <Input
+                  type="email"
+                  placeholder={t.emailPlaceholder}
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  required
+                  disabled={status === 'loading'}
+                  className="w-full"
+                />
+                
+                <Button
+                  type="submit"
+                  disabled={status === 'loading' || !email || !name}
+                  className="w-full bg-passport-blue hover:bg-blue-700 text-white font-semibold py-3"
+                >
+                  {status === 'loading' ? t.buttonLoading : t.button}
+                </Button>
 
-        <p className="text-xs text-gray-500 mt-4">
-          {t.privacyText}
-        </p>
+                {status === 'error' && (
+                  <div className="flex items-center justify-center text-red-600 bg-red-50 p-3 rounded-lg">
+                    <AlertCircle className="w-4 h-4 mr-2" />
+                    <span className="text-sm">{message}</span>
+                  </div>
+                )}
+              </form>
+            )}
+
+            <p className="text-xs text-gray-500 mt-4">
+              {t.privacyText}
+            </p>
+          </>
+        )}
       </div>
     </div>
   );
