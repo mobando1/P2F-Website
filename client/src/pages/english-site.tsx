@@ -14,8 +14,7 @@ import {
 } from "lucide-react";
 
 export default function EnglishSite() {
-  const [showBookingForm, setShowBookingForm] = useState(false);
-  const [bookingType, setBookingType] = useState<'adult' | 'child'>('adult');
+  // Removed modal state - now using integrated calendars
   const [showDiscountPopup, setShowDiscountPopup] = useState(false);
   const [, navigate] = useLocation();
 
@@ -48,8 +47,10 @@ export default function EnglishSite() {
   };
 
   const handleBookingClick = (type: 'adult' | 'child' = 'adult') => {
-    setBookingType(type);
-    setShowBookingForm(true);
+    const calendarSection = document.querySelector('#booking-calendars');
+    if (calendarSection) {
+      calendarSection.scrollIntoView({ behavior: 'smooth' });
+    }
   };
 
   const handleDiscountSubscribe = (email: string) => {
@@ -287,21 +288,91 @@ export default function EnglishSite() {
                 </li>
               </ul>
             </div>
-            <div className="text-center">
+            <div className="space-y-6">
               <div className="bg-white rounded-2xl p-8 shadow-lg">
-                <h3 className="text-2xl font-bold text-gray-900 mb-4">
+                <h3 className="text-2xl font-bold text-gray-900 mb-4 text-center">
                   Prueba tu primera clase gratis
                 </h3>
-                <p className="text-gray-600 mb-6">
-                  Sin compromiso. Conoce tu instructor y experimenta nuestro método personalizado.
+                <p className="text-gray-600 mb-6 text-center">
+                  Elige entre nuestros programas especializados
                 </p>
-                <Button 
-                  onClick={() => handleBookingClick('adult')}
-                  className="bg-passport-orange hover:bg-orange-600 text-white w-full py-3 text-lg font-semibold"
-                >
-                  Reservar Clase Gratuita
-                </Button>
+                <div className="grid gap-4">
+                  <div className="p-4 border-2 border-passport-blue rounded-lg bg-blue-50">
+                    <div className="flex items-center mb-2">
+                      <Users className="w-5 h-5 text-passport-blue mr-2" />
+                      <h4 className="font-semibold text-gray-900">Clases para Adultos</h4>
+                    </div>
+                    <p className="text-sm text-gray-600 mb-3">Conversación profesional y inglés de negocios</p>
+                  </div>
+                  <div className="p-4 border-2 border-passport-blue rounded-lg bg-blue-50">
+                    <div className="flex items-center mb-2">
+                      <Star className="w-5 h-5 text-passport-blue mr-2" />
+                      <h4 className="font-semibold text-gray-900">Clases para Niños</h4>
+                    </div>
+                    <p className="text-sm text-gray-600 mb-3">Aprendizaje divertido e interactivo para niños</p>
+                  </div>
+                </div>
               </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Booking Calendars */}
+      <section id="booking-calendars" className="py-20 bg-white">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl font-bold text-gray-900 mb-4">
+              Agenda tu Clase de Prueba Gratuita
+            </h2>
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+              Elige el programa que mejor se adapte a tus necesidades. Mismo precio, enfoque de enseñanza especializado para cada grupo de edad.
+            </p>
+          </div>
+
+          <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-12">
+            {/* Adult Calendar */}
+            <div className="bg-gray-50 rounded-2xl p-8">
+              <div className="text-center mb-6">
+                <div className="w-16 h-16 bg-passport-blue rounded-full flex items-center justify-center mx-auto mb-4">
+                  <Users className="w-8 h-8 text-white" />
+                </div>
+                <h3 className="text-2xl font-bold text-gray-900 mb-2">
+                  Clases de Inglés para Adultos
+                </h3>
+                <p className="text-gray-600">
+                  Conversación profesional, inglés de negocios e inmersión cultural
+                </p>
+              </div>
+              <HighLevelCalendar language="es" type="adult" className="bg-white" />
+            </div>
+
+            {/* Kids Calendar */}
+            <div className="bg-gray-50 rounded-2xl p-8">
+              <div className="text-center mb-6">
+                <div className="w-16 h-16 bg-passport-orange rounded-full flex items-center justify-center mx-auto mb-4">
+                  <Star className="w-8 h-8 text-white" />
+                </div>
+                <h3 className="text-2xl font-bold text-gray-900 mb-2">
+                  Clases de Inglés para Niños
+                </h3>
+                <p className="text-gray-600">
+                  Aprendizaje divertido e interactivo diseñado específicamente para niños de 5-17 años
+                </p>
+              </div>
+              <HighLevelCalendar language="es" type="child" className="bg-white" />
+            </div>
+          </div>
+
+          <div className="text-center mt-12">
+            <div className="bg-green-50 border border-green-200 rounded-lg p-6 max-w-2xl mx-auto">
+              <div className="flex items-center justify-center mb-3">
+                <CheckCircle className="w-6 h-6 text-green-500 mr-2" />
+                <span className="font-semibold text-green-800">Prueba 100% Sin Riesgo</span>
+              </div>
+              <p className="text-green-700">
+                Sin pago requerido • Conoce a tu instructor primero • Cancela en cualquier momento
+              </p>
             </div>
           </div>
         </div>
@@ -593,27 +664,7 @@ export default function EnglishSite() {
         </div>
       </footer>
 
-      {/* Booking Form Modal */}
-      {showBookingForm && (
-        <div className="fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center p-4">
-          <div className="bg-white rounded-lg max-w-4xl w-full max-h-[95vh] overflow-y-auto">
-            <div className="p-6">
-              <div className="flex justify-between items-center mb-4">
-                <h2 className="text-2xl font-bold text-gray-900">
-                  {bookingType === 'adult' ? 'Reservar Clase Gratuita - Adultos' : 'Reservar Clase Gratuita - Niños'}
-                </h2>
-                <button 
-                  onClick={() => setShowBookingForm(false)}
-                  className="text-gray-400 hover:text-gray-600"
-                >
-                  ✕
-                </button>
-              </div>
-              <HighLevelCalendar language="es" type={bookingType} />
-            </div>
-          </div>
-        </div>
-      )}
+      {/* Modal removed - calendars now integrated directly in page */}
 
       {/* Discount Popup */}
       {showDiscountPopup && (

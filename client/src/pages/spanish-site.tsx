@@ -14,8 +14,7 @@ import {
 } from "lucide-react";
 
 export default function SpanishSite() {
-  const [showBookingForm, setShowBookingForm] = useState(false);
-  const [bookingType, setBookingType] = useState<'adult' | 'child'>('adult');
+  // Removed modal state - now using integrated calendars
   const [showDiscountPopup, setShowDiscountPopup] = useState(false);
   const [, navigate] = useLocation();
 
@@ -48,8 +47,10 @@ export default function SpanishSite() {
   };
 
   const handleBookingClick = (type: 'adult' | 'child' = 'adult') => {
-    setBookingType(type);
-    setShowBookingForm(true);
+    const calendarSection = document.querySelector('#booking-calendars');
+    if (calendarSection) {
+      calendarSection.scrollIntoView({ behavior: 'smooth' });
+    }
   };
 
   const handleDiscountSubscribe = (email: string) => {
@@ -287,21 +288,91 @@ export default function SpanishSite() {
                 </li>
               </ul>
             </div>
-            <div className="text-center">
+            <div className="space-y-6">
               <div className="bg-white rounded-2xl p-8 shadow-lg">
-                <h3 className="text-2xl font-bold text-gray-900 mb-4">
+                <h3 className="text-2xl font-bold text-gray-900 mb-4 text-center">
                   Try your first class free
                 </h3>
-                <p className="text-gray-600 mb-6">
-                  No commitment required. Meet your instructor and experience our personalized method.
+                <p className="text-gray-600 mb-6 text-center">
+                  Choose between our specialized programs
                 </p>
-                <Button 
-                  onClick={() => handleBookingClick('adult')}
-                  className="bg-passport-blue hover:bg-blue-700 text-white w-full py-3 text-lg font-semibold"
-                >
-                  Book Free Class
-                </Button>
+                <div className="grid gap-4">
+                  <div className="p-4 border-2 border-passport-orange rounded-lg bg-orange-50">
+                    <div className="flex items-center mb-2">
+                      <Users className="w-5 h-5 text-passport-orange mr-2" />
+                      <h4 className="font-semibold text-gray-900">Adult Classes</h4>
+                    </div>
+                    <p className="text-sm text-gray-600 mb-3">Professional conversation and business Spanish</p>
+                  </div>
+                  <div className="p-4 border-2 border-passport-orange rounded-lg bg-orange-50">
+                    <div className="flex items-center mb-2">
+                      <Star className="w-5 h-5 text-passport-orange mr-2" />
+                      <h4 className="font-semibold text-gray-900">Kids Classes</h4>
+                    </div>
+                    <p className="text-sm text-gray-600 mb-3">Fun, interactive learning for children</p>
+                  </div>
+                </div>
               </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Booking Calendars */}
+      <section id="booking-calendars" className="py-20 bg-white">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl font-bold text-gray-900 mb-4">
+              Schedule Your Free Trial Class
+            </h2>
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+              Choose the program that best fits your needs. Same pricing, specialized teaching approach for each age group.
+            </p>
+          </div>
+
+          <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-12">
+            {/* Adult Calendar */}
+            <div className="bg-gray-50 rounded-2xl p-8">
+              <div className="text-center mb-6">
+                <div className="w-16 h-16 bg-passport-orange rounded-full flex items-center justify-center mx-auto mb-4">
+                  <Users className="w-8 h-8 text-white" />
+                </div>
+                <h3 className="text-2xl font-bold text-gray-900 mb-2">
+                  Adult Spanish Classes
+                </h3>
+                <p className="text-gray-600">
+                  Professional conversation, business Spanish, and cultural immersion
+                </p>
+              </div>
+              <HighLevelCalendar language="en" type="adult" className="bg-white" />
+            </div>
+
+            {/* Kids Calendar */}
+            <div className="bg-gray-50 rounded-2xl p-8">
+              <div className="text-center mb-6">
+                <div className="w-16 h-16 bg-passport-blue rounded-full flex items-center justify-center mx-auto mb-4">
+                  <Star className="w-8 h-8 text-white" />
+                </div>
+                <h3 className="text-2xl font-bold text-gray-900 mb-2">
+                  Kids Spanish Classes
+                </h3>
+                <p className="text-gray-600">
+                  Fun, interactive learning designed specifically for children ages 5-17
+                </p>
+              </div>
+              <HighLevelCalendar language="en" type="child" className="bg-white" />
+            </div>
+          </div>
+
+          <div className="text-center mt-12">
+            <div className="bg-green-50 border border-green-200 rounded-lg p-6 max-w-2xl mx-auto">
+              <div className="flex items-center justify-center mb-3">
+                <CheckCircle className="w-6 h-6 text-green-500 mr-2" />
+                <span className="font-semibold text-green-800">100% Risk-Free Trial</span>
+              </div>
+              <p className="text-green-700">
+                No payment required • Meet your instructor first • Cancel anytime
+              </p>
             </div>
           </div>
         </div>
@@ -593,27 +664,7 @@ export default function SpanishSite() {
         </div>
       </footer>
 
-      {/* Booking Form Modal */}
-      {showBookingForm && (
-        <div className="fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center p-4">
-          <div className="bg-white rounded-lg max-w-4xl w-full max-h-[95vh] overflow-y-auto">
-            <div className="p-6">
-              <div className="flex justify-between items-center mb-4">
-                <h2 className="text-2xl font-bold text-gray-900">
-                  {bookingType === 'adult' ? 'Book Free Trial - Adult Classes' : 'Book Free Trial - Kids Classes'}
-                </h2>
-                <button 
-                  onClick={() => setShowBookingForm(false)}
-                  className="text-gray-400 hover:text-gray-600"
-                >
-                  ✕
-                </button>
-              </div>
-              <HighLevelCalendar language="en" type={bookingType} />
-            </div>
-          </div>
-        </div>
-      )}
+      {/* Modal removed - calendars now integrated directly in page */}
 
       {/* Discount Popup */}
       {showDiscountPopup && (
