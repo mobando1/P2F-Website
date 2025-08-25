@@ -67,7 +67,7 @@ export default function Landing() {
           {/* Spanish Learning Card */}
           <Card 
             className="hover:shadow-lg transition-all duration-300 cursor-pointer border-2 hover:border-passport-orange"
-            onClick={() => navigate('/en')}
+            onClick={() => navigate('/es')}
           >
             <CardContent className="p-8">
               <div className="text-center">
@@ -122,7 +122,7 @@ export default function Landing() {
           {/* English Learning Card */}
           <Card 
             className="hover:shadow-lg transition-all duration-300 cursor-pointer border-2 hover:border-passport-blue"
-            onClick={() => navigate('/es')}
+            onClick={() => navigate('/en')}
           >
             <CardContent className="p-8">
               <div className="text-center">
