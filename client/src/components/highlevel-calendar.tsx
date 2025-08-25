@@ -115,7 +115,7 @@ export default function HighLevelCalendar({ language, type, className = "" }: Hi
         </div>
       ) : (
         <div className="calendar-container">
-          <div className="min-h-[500px]">
+          <div className="min-h-[700px]">
             {/* Show real HighLevel calendars - All 4 calendars now available */}
             {true ? (
               <div 
@@ -123,8 +123,8 @@ export default function HighLevelCalendar({ language, type, className = "" }: Hi
                   __html: `
                     <iframe 
                       src="${calendarUrls[type][language]}" 
-                      style="width: 100%;border:none;overflow: hidden;min-height:500px;" 
-                      scrolling="no" 
+                      style="width: 100%;height: 700px;border:none;overflow: hidden;" 
+                      scrolling="yes" 
                       id="${calendarUrls[type][language].split('/').pop()}_${Date.now()}"
                     ></iframe>
                     <script src="https://link.msgsndr.com/js/form_embed.js" type="text/javascript"></script>
