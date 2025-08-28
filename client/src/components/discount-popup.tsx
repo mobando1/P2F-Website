@@ -152,14 +152,14 @@ export default function DiscountPopup({ language, onClose, onSubscribe }: Discou
 
         {/* HighLevel form integration for discount popup */}
         <div className="space-y-4">
-          <div className="min-h-[300px] -mx-4 -mb-4">
+          <div className="min-h-[406px] -mx-4 -mb-4">
             <div 
               dangerouslySetInnerHTML={{
                 __html: `
                   <iframe
-                    src="https://api.leadconnectorhq.com/widget/form/FTuj7n9Kp5GYdlbLyyI7"
-                    style="width:100%;height:300px;border:none;border-radius:0px"
-                    id="inline-FTuj7n9Kp5GYdlbLyyI7_${Date.now()}" 
+                    src="${language === 'es' ? 'https://api.leadconnectorhq.com/widget/form/4jKIDLnqJmvyS6yhYdly' : 'https://api.leadconnectorhq.com/widget/form/FTuj7n9Kp5GYdlbLyyI7'}"
+                    style="width:100%;height:406px;border:none;border-radius:20px"
+                    id="inline-${language === 'es' ? '4jKIDLnqJmvyS6yhYdly' : 'FTuj7n9Kp5GYdlbLyyI7'}_${Date.now()}" 
                     data-layout="{'id':'INLINE'}"
                     data-trigger-type="alwaysShow"
                     data-trigger-value=""
@@ -167,11 +167,11 @@ export default function DiscountPopup({ language, onClose, onSubscribe }: Discou
                     data-activation-value=""
                     data-deactivation-type="neverDeactivate"
                     data-deactivation-value=""
-                    data-form-name="Newsletter subscription - POP UP"
-                    data-height="300"
-                    data-layout-iframe-id="inline-FTuj7n9Kp5GYdlbLyyI7"
-                    data-form-id="FTuj7n9Kp5GYdlbLyyI7"
-                    title="Newsletter subscription - POP UP"
+                    data-form-name="${language === 'es' ? 'Newsletter subscription - POP UP - CLASES DE INGLES' : 'Newsletter subscription - POP UP'}"
+                    data-height="406"
+                    data-layout-iframe-id="inline-${language === 'es' ? '4jKIDLnqJmvyS6yhYdly' : 'FTuj7n9Kp5GYdlbLyyI7'}"
+                    data-form-id="${language === 'es' ? '4jKIDLnqJmvyS6yhYdly' : 'FTuj7n9Kp5GYdlbLyyI7'}"
+                    title="${language === 'es' ? 'Newsletter subscription - POP UP - CLASES DE INGLES' : 'Newsletter subscription - POP UP'}"
                   ></iframe>
                   <script src="https://link.msgsndr.com/js/form_embed.js"></script>
                 `
