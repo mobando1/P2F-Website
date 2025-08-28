@@ -91,7 +91,7 @@ export default function NewsletterSignup({ language, className = "" }: Newslette
           {t.subtitle}
         </p>
 
-        {/* Use real HighLevel form for Spanish learners, custom form for English learners */}
+        {/* Use real HighLevel forms for both languages */}
         {language === 'en' ? (
           <div className="min-h-[400px]">
             <div 
@@ -120,55 +120,32 @@ export default function NewsletterSignup({ language, className = "" }: Newslette
             />
           </div>
         ) : (
-          <>
-            {status === 'success' ? (
-              <div className="flex items-center justify-center text-green-600 bg-green-50 p-4 rounded-lg">
-                <CheckCircle className="w-5 h-5 mr-2" />
-                <span>{message}</span>
-              </div>
-            ) : (
-              <form onSubmit={handleSubmit} className="space-y-4">
-                <Input
-                  type="text"
-                  placeholder={t.namePlaceholder}
-                  value={name}
-                  onChange={(e) => setName(e.target.value)}
-                  required
-                  disabled={status === 'loading'}
-                  className="w-full"
-                />
-                
-                <Input
-                  type="email"
-                  placeholder={t.emailPlaceholder}
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                  required
-                  disabled={status === 'loading'}
-                  className="w-full"
-                />
-                
-                <Button
-                  type="submit"
-                  disabled={status === 'loading' || !email || !name}
-                  className="w-full bg-passport-blue hover:bg-blue-700 text-white font-semibold py-3"
-                >
-                  {status === 'loading' ? t.buttonLoading : t.button}
-                </Button>
-
-                {status === 'error' && (
-                  <div className="flex items-center justify-center text-red-600 bg-red-50 p-3 rounded-lg">
-                    <AlertCircle className="w-4 h-4 mr-2" />
-                    <span className="text-sm">{message}</span>
-                  </div>
-                )}
-              </form>
-            )}
-
-            <p className="text-xs text-gray-500 mt-4">
-              {t.privacyText}
-            </p>
-          </>
+          <div className="min-h-[400px]">
+            <div 
+              dangerouslySetInnerHTML={{
+                __html: `
+                  <iframe
+                    src="https://api.leadconnectorhq.com/widget/form/VsFcVGunIocpad9n8R2u"
+                    style="width:100%;height:400px;border:none;border-radius:8px"
+                    id="inline-VsFcVGunIocpad9n8R2u_${Date.now()}" 
+                    data-layout="{'id':'INLINE'}"
+                    data-trigger-type="alwaysShow"
+                    data-trigger-value=""
+                    data-activation-type="alwaysActivated"
+                    data-activation-value=""
+                    data-deactivation-type="neverDeactivate"
+                    data-deactivation-value=""
+                    data-form-name="Newsletter subscription - CLASES DE INGLES"
+                    data-height="400"
+                    data-layout-iframe-id="inline-VsFcVGunIocpad9n8R2u"
+                    data-form-id="VsFcVGunIocpad9n8R2u"
+                    title="Newsletter subscription - CLASES DE INGLES"
+                  ></iframe>
+                  <script src="https://link.msgsndr.com/js/form_embed.js"></script>
+                `
+              }}
+            />
+          </div>
         )}
       </div>
     </div>
