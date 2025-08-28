@@ -219,11 +219,21 @@ export default function Children({ language }: ChildrenProps) {
 
       {/* Calendar Modal */}
       {showCalendar && (
-        <HighLevelCalendar 
-          type="child" 
-          language={language}
-          onClose={() => setShowCalendar(false)} 
-        />
+        <div className="fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center p-4">
+          <div className="bg-white rounded-lg max-w-4xl w-full max-h-[90vh] overflow-auto relative">
+            <button 
+              onClick={() => setShowCalendar(false)}
+              className="absolute top-4 right-4 text-gray-500 hover:text-gray-700 z-10"
+            >
+              ✕
+            </button>
+            <HighLevelCalendar 
+              type="child" 
+              language={language}
+              className="p-6"
+            />
+          </div>
+        </div>
       )}
     </div>
   );

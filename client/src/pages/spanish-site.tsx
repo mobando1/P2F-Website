@@ -6,7 +6,7 @@ import NewsletterSignup from "@/components/newsletter-signup";
 import DiscountPopup from "@/components/discount-popup";
 import HighLevelCalendar from "@/components/highlevel-calendar";
 import passportLogo from "@assets/a1c5a1_9514ede9e3124d7a9adf78f5dcf07f28~mv2_1755803448396.png";
-import { useLocation } from "wouter";
+import { useLocation, Link } from "wouter";
 import { 
   Globe, Star, Users, Clock, ArrowRight, Calendar, 
   Headphones, VideoIcon, CheckCircle, MessageCircle,
