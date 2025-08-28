@@ -394,15 +394,15 @@ export default function SpanishSite() {
           </div>
         </div>
       </section>
-      {/* Pricing */}
-      <section id="pricing" className="py-20 bg-white">
+      {/* Plans & Pricing */}
+      <section id="plans-pricing" className="py-20 bg-white">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold text-gray-900 mb-4">
-              Simple, Transparent Pricing
+              Find the Perfect Plan to Speak Spanish Confidently
             </h2>
             <p className="text-xl text-gray-600">
-              No contracts or fine print. Cancel anytime.
+              Personalized 1-on-1 coaching with native Latin American instructors. No contracts or fine print. Cancel anytime.
             </p>
           </div>
 
@@ -413,7 +413,7 @@ export default function SpanishSite() {
                 <div className="text-3xl font-bold text-passport-orange mb-2">$119.96</div>
                 <div className="text-gray-600 mb-1">per month</div>
                 <div className="text-sm text-gray-500 mb-6">$29.99 per class</div>
-                <p className="text-sm text-gray-600 mb-6">Perfect for maintaining steady progress</p>
+                <p className="text-sm text-gray-600 mb-6">Perfect for maintaining steady progress with native coaches</p>
                 <ul className="text-left space-y-2 mb-8 text-sm">
                   <li className="flex items-center">
                     <CheckCircle className="w-4 h-4 text-green-500 mr-2" />
@@ -425,15 +425,19 @@ export default function SpanishSite() {
                   </li>
                   <li className="flex items-center">
                     <CheckCircle className="w-4 h-4 text-green-500 mr-2" />
-                    Flexible scheduling
+                    Native Latin American instructors
                   </li>
                   <li className="flex items-center">
                     <CheckCircle className="w-4 h-4 text-green-500 mr-2" />
-                    Cancel anytime
+                    100% virtual - save time
                   </li>
                   <li className="flex items-center">
                     <CheckCircle className="w-4 h-4 text-green-500 mr-2" />
-                    Teacher support
+                    Flexible scheduling 24/7
+                  </li>
+                  <li className="flex items-center">
+                    <CheckCircle className="w-4 h-4 text-green-500 mr-2" />
+                    No contract - Cancel anytime
                   </li>
                 </ul>
                 <Button 
@@ -451,7 +455,7 @@ export default function SpanishSite() {
                 <div className="text-3xl font-bold text-passport-orange mb-2">$219.99</div>
                 <div className="text-gray-600 mb-1">per month</div>
                 <div className="text-sm text-gray-500 mb-6">$27.50 per class</div>
-                <p className="text-sm text-gray-600 mb-6">Best for fast improvement and weekly conversation</p>
+                <p className="text-sm text-gray-600 mb-6">Best for fast improvement and consistent conversation practice</p>
                 <ul className="text-left space-y-2 mb-8 text-sm">
                   <li className="flex items-center">
                     <CheckCircle className="w-4 h-4 text-green-500 mr-2" />
@@ -494,7 +498,7 @@ export default function SpanishSite() {
                 <div className="text-3xl font-bold text-passport-blue mb-2">$299.99</div>
                 <div className="text-gray-600 mb-1">per month</div>
                 <div className="text-sm text-gray-500 mb-6">$24.99 per class</div>
-                <p className="text-sm text-gray-600 mb-6">For serious learners who want results fast</p>
+                <p className="text-sm text-gray-600 mb-6">For serious learners who want maximum results and cultural immersion</p>
                 <ul className="text-left space-y-2 mb-8 text-sm">
                   <li className="flex items-center">
                     <CheckCircle className="w-4 h-4 text-green-500 mr-2" />

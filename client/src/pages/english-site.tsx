@@ -394,15 +394,15 @@ export default function EnglishSite() {
           </div>
         </div>
       </section>
-      {/* Pricing */}
-      <section id="precios" className="py-20 bg-white">
+      {/* Planes y Precios */}
+      <section id="planes-precios" className="py-20 bg-white">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold text-gray-900 mb-4">
-              Planes Simples y Transparentes
+              Encuentra el Plan Perfecto para Hablar Inglés con Confianza
             </h2>
             <p className="text-xl text-gray-600">
-              Sin contratos ni letras pequeñas. Cancela cuando quieras.
+              Clases personalizadas 1-a-1 con instructores nativos americanos. Sin contratos ni letras pequeñas. Cancela cuando quieras.
             </p>
           </div>
 
@@ -413,7 +413,7 @@ export default function EnglishSite() {
                 <div className="text-3xl font-bold text-passport-blue mb-2">$119.96</div>
                 <div className="text-gray-600 mb-1">por mes</div>
                 <div className="text-sm text-gray-500 mb-6">$29.99 por clase</div>
-                <p className="text-sm text-gray-600 mb-6">Perfecto para mantener progreso constante</p>
+                <p className="text-sm text-gray-600 mb-6">Perfecto para mantener progreso constante con instructores nativos</p>
                 <ul className="text-left space-y-2 mb-8 text-sm">
                   <li className="flex items-center">
                     <CheckCircle className="w-4 h-4 text-green-500 mr-2" />
@@ -425,15 +425,19 @@ export default function EnglishSite() {
                   </li>
                   <li className="flex items-center">
                     <CheckCircle className="w-4 h-4 text-green-500 mr-2" />
-                    Horarios flexibles
+                    Instructores nativos americanos
                   </li>
                   <li className="flex items-center">
                     <CheckCircle className="w-4 h-4 text-green-500 mr-2" />
-                    Cancela cuando quieras
+                    100% virtual - ahorra tiempo
                   </li>
                   <li className="flex items-center">
                     <CheckCircle className="w-4 h-4 text-green-500 mr-2" />
-                    Soporte del instructor
+                    Horarios flexibles 24/7
+                  </li>
+                  <li className="flex items-center">
+                    <CheckCircle className="w-4 h-4 text-green-500 mr-2" />
+                    Sin contrato - Cancela cuando quieras
                   </li>
                 </ul>
                 <Button 
@@ -451,7 +455,7 @@ export default function EnglishSite() {
                 <div className="text-3xl font-bold text-passport-blue mb-2">$219.99</div>
                 <div className="text-gray-600 mb-1">por mes</div>
                 <div className="text-sm text-gray-500 mb-6">$27.50 por clase</div>
-                <p className="text-sm text-gray-600 mb-6">Ideal para mejora rápida y conversación semanal</p>
+                <p className="text-sm text-gray-600 mb-6">Ideal para mejora rápida y práctica constante de conversación</p>
                 <ul className="text-left space-y-2 mb-8 text-sm">
                   <li className="flex items-center">
                     <CheckCircle className="w-4 h-4 text-green-500 mr-2" />
@@ -494,7 +498,7 @@ export default function EnglishSite() {
                 <div className="text-3xl font-bold text-passport-orange mb-2">$299.99</div>
                 <div className="text-gray-600 mb-1">por mes</div>
                 <div className="text-sm text-gray-500 mb-6">$24.99 por clase</div>
-                <p className="text-sm text-gray-600 mb-6">Para estudiantes serios que quieren resultados rápidos</p>
+                <p className="text-sm text-gray-600 mb-6">Para estudiantes serios que quieren máximos resultados e inmersión cultural</p>
                 <ul className="text-left space-y-2 mb-8 text-sm">
                   <li className="flex items-center">
                     <CheckCircle className="w-4 h-4 text-green-500 mr-2" />
