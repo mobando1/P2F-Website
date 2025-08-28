@@ -20,6 +20,9 @@ export default function SpanishSite() {
 
   // Show discount popup after 7 seconds or on scroll
   useEffect(() => {
+    // Clear any previous popup state for testing
+    localStorage.removeItem('discountPopupShown');
+    
     const timer = setTimeout(() => {
       if (!localStorage.getItem('discountPopupShown')) {
         setShowDiscountPopup(true);
@@ -664,7 +667,7 @@ export default function SpanishSite() {
       {/* Discount Popup */}
       {showDiscountPopup && (
         <DiscountPopup
-          language="en"
+          language="es"
           onClose={handleDiscountClose}
           onSubscribe={handleDiscountSubscribe}
         />
