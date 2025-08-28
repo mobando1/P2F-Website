@@ -36,7 +36,7 @@ export default function NavigationDropdown({ language, currentPath }: Navigation
     { label: content.businessEnglish, href: `${basePath}/business` }
   ];
 
-  const isActive = currentPath && (
+  const isActive = currentPath && typeof currentPath === 'string' && (
     currentPath.includes('/children') || 
     currentPath.includes('/business') || 
     currentPath === basePath
@@ -69,7 +69,7 @@ export default function NavigationDropdown({ language, currentPath }: Navigation
                 key={index}
                 href={item.href}
                 className={`block px-4 py-3 text-sm transition-colors ${
-                  currentPath === item.href
+                  currentPath && typeof currentPath === 'string' && currentPath === item.href
                     ? language === 'en'
                       ? 'text-passport-orange bg-orange-50 font-semibold'
                       : 'text-passport-blue bg-blue-50 font-semibold'
