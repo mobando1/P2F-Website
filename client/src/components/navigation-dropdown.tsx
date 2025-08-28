@@ -62,7 +62,11 @@ export default function NavigationDropdown({ language, currentPath }: Navigation
       </button>
 
       {isOpen && (
-        <div className="absolute top-full left-0 mt-2 w-56 bg-white border border-gray-200 rounded-lg shadow-lg z-50">
+        <div 
+          className="absolute top-full left-0 mt-1 w-56 bg-white border border-gray-200 rounded-lg shadow-lg z-50"
+          onMouseEnter={() => setIsOpen(true)}
+          onMouseLeave={() => setIsOpen(false)}
+        >
           <div className="py-2">
             {dropdownItems.map((item, index) => (
               <Link 
