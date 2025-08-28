@@ -10,7 +10,7 @@ import { useLocation } from "wouter";
 import { 
   Globe, Star, Users, Clock, ArrowRight, Calendar, 
   Headphones, VideoIcon, CheckCircle, MessageCircle,
-  Facebook, Instagram, Linkedin, Youtube, Mail, Phone 
+  Facebook, Instagram, Linkedin, Youtube, Mail, Phone, Building
 } from "lucide-react";
 
 export default function SpanishSite() {
@@ -628,6 +628,339 @@ export default function SpanishSite() {
                 Same affordable pricing as adult classes • Specialized teaching methods for children • Fun and educational approach
               </p>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Business Programs */}
+      <section id="business-programs" className="py-20 bg-gray-50">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl font-bold text-gray-900 mb-4">
+              Business Spanish Programs
+            </h2>
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+              Elevate your career and expand your business opportunities with professional Spanish training designed for the corporate world.
+            </p>
+          </div>
+
+          <div className="max-w-6xl mx-auto">
+            {/* Main Value Proposition */}
+            <div className="bg-white rounded-2xl p-8 shadow-lg mb-12">
+              <div className="grid md:grid-cols-2 gap-8 items-center">
+                <div>
+                  <div className="w-16 h-16 bg-passport-blue rounded-full flex items-center justify-center mb-6">
+                    <Users className="w-8 h-8 text-white" />
+                  </div>
+                  <h3 className="text-2xl font-bold text-gray-900 mb-4">
+                    Transform Your Business Communication
+                  </h3>
+                  <p className="text-lg text-gray-700 mb-6">
+                    Connect with Spanish-speaking clients, colleagues, and markets with confidence. Our business-focused curriculum covers industry-specific vocabulary and professional communication skills.
+                  </p>
+                  <ul className="space-y-3">
+                    <li className="flex items-center">
+                      <CheckCircle className="w-5 h-5 text-green-500 mr-3" />
+                      <span className="text-gray-700">Industry-specific vocabulary and terminology</span>
+                    </li>
+                    <li className="flex items-center">
+                      <CheckCircle className="w-5 h-5 text-green-500 mr-3" />
+                      <span className="text-gray-700">Professional presentation and negotiation skills</span>
+                    </li>
+                    <li className="flex items-center">
+                      <CheckCircle className="w-5 h-5 text-green-500 mr-3" />
+                      <span className="text-gray-700">Cultural business etiquette and practices</span>
+                    </li>
+                  </ul>
+                </div>
+                <div className="bg-gradient-to-br from-passport-blue to-blue-600 rounded-xl p-6 text-white">
+                  <h4 className="text-xl font-semibold mb-4">Popular Industries:</h4>
+                  <div className="grid grid-cols-2 gap-3 text-sm">
+                    <div>• Healthcare & Medical</div>
+                    <div>• Legal & Law</div>
+                    <div>• Real Estate</div>
+                    <div>• Banking & Finance</div>
+                    <div>• Sales & Marketing</div>
+                    <div>• Hospitality & Tourism</div>
+                    <div>• Education</div>
+                    <div>• Technology</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Program Options */}
+            <div className="grid md:grid-cols-2 gap-8 mb-12">
+              <Card className="border-2 hover:border-passport-blue transition-colors">
+                <CardContent className="p-6">
+                  <div className="text-center mb-6">
+                    <Users className="w-12 h-12 text-passport-blue mx-auto mb-4" />
+                    <h3 className="text-xl font-bold text-gray-900">Individual Executive Coaching</h3>
+                  </div>
+                  <ul className="space-y-3 mb-6">
+                    <li className="flex items-start">
+                      <CheckCircle className="w-5 h-5 text-green-500 mr-3 mt-0.5 flex-shrink-0" />
+                      <span className="text-gray-700">Personalized curriculum based on your industry and role</span>
+                    </li>
+                    <li className="flex items-start">
+                      <CheckCircle className="w-5 h-5 text-green-500 mr-3 mt-0.5 flex-shrink-0" />
+                      <span className="text-gray-700">Flexible scheduling around your busy executive schedule</span>
+                    </li>
+                    <li className="flex items-start">
+                      <CheckCircle className="w-5 h-5 text-green-500 mr-3 mt-0.5 flex-shrink-0" />
+                      <span className="text-gray-700">Real business scenarios and case studies</span>
+                    </li>
+                    <li className="flex items-start">
+                      <CheckCircle className="w-5 h-5 text-green-500 mr-3 mt-0.5 flex-shrink-0" />
+                      <span className="text-gray-700">Accelerated learning for immediate business impact</span>
+                    </li>
+                  </ul>
+                  <Button 
+                    onClick={() => handleBookingClick('adult')}
+                    className="w-full bg-passport-blue hover:bg-blue-700 text-white"
+                  >
+                    Start Executive Program
+                  </Button>
+                </CardContent>
+              </Card>
+
+              <Card className="border-2 hover:border-passport-orange transition-colors">
+                <CardContent className="p-6">
+                  <div className="text-center mb-6">
+                    <Building className="w-12 h-12 text-passport-orange mx-auto mb-4" />
+                    <h3 className="text-xl font-bold text-gray-900">Corporate Team Training</h3>
+                  </div>
+                  <ul className="space-y-3 mb-6">
+                    <li className="flex items-start">
+                      <CheckCircle className="w-5 h-5 text-green-500 mr-3 mt-0.5 flex-shrink-0" />
+                      <span className="text-gray-700">Group sessions designed for teams and departments</span>
+                    </li>
+                    <li className="flex items-start">
+                      <CheckCircle className="w-5 h-5 text-green-500 mr-3 mt-0.5 flex-shrink-0" />
+                      <span className="text-gray-700">Company-specific vocabulary and procedures</span>
+                    </li>
+                    <li className="flex items-start">
+                      <CheckCircle className="w-5 h-5 text-green-500 mr-3 mt-0.5 flex-shrink-0" />
+                      <span className="text-gray-700">Consistent learning outcomes across your organization</span>
+                    </li>
+                    <li className="flex items-start">
+                      <CheckCircle className="w-5 h-5 text-green-500 mr-3 mt-0.5 flex-shrink-0" />
+                      <span className="text-gray-700">Volume discounts and flexible billing options</span>
+                    </li>
+                  </ul>
+                  <Button 
+                    onClick={() => handleBookingClick('adult')}
+                    className="w-full bg-passport-orange hover:bg-orange-600 text-white"
+                  >
+                    Get Corporate Quote
+                  </Button>
+                </CardContent>
+              </Card>
+            </div>
+
+            {/* Success Story */}
+            <div className="bg-white rounded-2xl p-8 shadow-lg">
+              <div className="text-center mb-8">
+                <h3 className="text-2xl font-bold text-gray-900 mb-4">Success Stories</h3>
+              </div>
+              <div className="grid md:grid-cols-2 gap-8 items-center">
+                <div>
+                  <div className="flex text-yellow-400 mb-4">
+                    <Star className="w-5 h-5 fill-current" />
+                    <Star className="w-5 h-5 fill-current" />
+                    <Star className="w-5 h-5 fill-current" />
+                    <Star className="w-5 h-5 fill-current" />
+                    <Star className="w-5 h-5 fill-current" />
+                  </div>
+                  <p className="text-lg text-gray-700 mb-6 italic">
+                    "Within 3 months, I went from basic Spanish to confidently leading client meetings in Spanish. Our Hispanic client base has grown 40% since I started the program, and I attribute much of that success to being able to build authentic relationships."
+                  </p>
+                  <div className="font-semibold text-gray-900">Michael Thompson</div>
+                  <div className="text-sm text-gray-600">Senior Sales Director, Austin Real Estate Group</div>
+                </div>
+                <div className="bg-gradient-to-br from-green-50 to-blue-50 rounded-xl p-6">
+                  <h4 className="font-semibold text-gray-900 mb-4">Business Impact Metrics:</h4>
+                  <div className="space-y-3">
+                    <div className="flex justify-between">
+                      <span className="text-gray-600">Client Satisfaction</span>
+                      <span className="font-semibold text-green-600">+35%</span>
+                    </div>
+                    <div className="flex justify-between">
+                      <span className="text-gray-600">New Market Opportunities</span>
+                      <span className="font-semibold text-green-600">+50%</span>
+                    </div>
+                    <div className="flex justify-between">
+                      <span className="text-gray-600">Team Communication</span>
+                      <span className="font-semibold text-green-600">+45%</span>
+                    </div>
+                    <div className="flex justify-between">
+                      <span className="text-gray-600">Revenue Growth</span>
+                      <span className="font-semibold text-green-600">+40%</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Team */}
+      <section id="team" className="py-20 bg-white">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl font-bold text-gray-900 mb-4">
+              Meet Your Spanish Coaches
+            </h2>
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+              Learn from experienced native instructors from across Latin America who are passionate about sharing their language and culture.
+            </p>
+          </div>
+
+          <div className="max-w-6xl mx-auto grid md:grid-cols-3 gap-8 mb-16">
+            <Card className="text-center hover:shadow-lg transition-shadow">
+              <CardContent className="p-6">
+                <div className="w-24 h-24 bg-gradient-to-br from-passport-blue to-blue-600 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <Users className="w-12 h-12 text-white" />
+                </div>
+                <h3 className="text-xl font-bold text-gray-900 mb-2">Maria Rodriguez</h3>
+                <p className="text-passport-orange font-semibold mb-3">Lead Instructor • Colombia</p>
+                <p className="text-gray-600 mb-4">
+                  Master's in Education with 8+ years teaching Spanish to professionals. Specializes in business communication and cultural immersion.
+                </p>
+                <div className="text-sm text-gray-500">
+                  💼 Business Spanish Expert • 🎓 M.Ed Universidad Nacional
+                </div>
+              </CardContent>
+            </Card>
+
+            <Card className="text-center hover:shadow-lg transition-shadow">
+              <CardContent className="p-6">
+                <div className="w-24 h-24 bg-gradient-to-br from-passport-orange to-orange-600 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <Star className="w-12 h-12 text-white" />
+                </div>
+                <h3 className="text-xl font-bold text-gray-900 mb-2">Carlos Martinez</h3>
+                <p className="text-passport-blue font-semibold mb-3">Children's Specialist • Mexico</p>
+                <p className="text-gray-600 mb-4">
+                  Former elementary teacher with a passion for making Spanish fun and engaging for young learners through games and storytelling.
+                </p>
+                <div className="text-sm text-gray-500">
+                  🌟 Kids Spanish Expert • 🎯 Interactive Learning Methods
+                </div>
+              </CardContent>
+            </Card>
+
+            <Card className="text-center hover:shadow-lg transition-shadow">
+              <CardContent className="p-6">
+                <div className="w-24 h-24 bg-gradient-to-br from-green-500 to-green-600 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <Globe className="w-12 h-12 text-white" />
+                </div>
+                <h3 className="text-xl font-bold text-gray-900 mb-2">Ana Gutierrez</h3>
+                <p className="text-passport-orange font-semibold mb-3">Cultural Expert • Argentina</p>
+                <p className="text-gray-600 mb-4">
+                  Linguistics graduate focused on cultural nuances and regional variations. Helps students understand Spanish-speaking cultures.
+                </p>
+                <div className="text-sm text-gray-500">
+                  🌍 Cultural Immersion • 📚 B.A. Linguistics
+                </div>
+              </CardContent>
+            </Card>
+          </div>
+
+          <div className="text-center">
+            <div className="bg-gradient-to-r from-passport-blue to-passport-orange rounded-2xl p-8 text-white max-w-4xl mx-auto">
+              <h3 className="text-2xl font-bold mb-4">Why Our Instructors Make the Difference</h3>
+              <div className="grid md:grid-cols-3 gap-6 text-center">
+                <div>
+                  <div className="text-3xl font-bold mb-2">100%</div>
+                  <div className="text-sm">Native Speakers</div>
+                </div>
+                <div>
+                  <div className="text-3xl font-bold mb-2">5+ years</div>
+                  <div className="text-sm">Teaching Experience</div>
+                </div>
+                <div>
+                  <div className="text-3xl font-bold mb-2">8 Countries</div>
+                  <div className="text-sm">Latin American Representation</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Blog */}
+      <section id="blog" className="py-20 bg-gray-50">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl font-bold text-gray-900 mb-4">
+              Spanish Learning Resources
+            </h2>
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+              Accelerate your Spanish learning journey with our expert tips, cultural insights, and practical guides.
+            </p>
+          </div>
+
+          <div className="max-w-6xl mx-auto grid md:grid-cols-3 gap-8 mb-12">
+            <Card className="hover:shadow-lg transition-shadow">
+              <CardContent className="p-6">
+                <div className="w-12 h-12 bg-passport-orange rounded-lg flex items-center justify-center mb-4">
+                  <MessageCircle className="w-6 h-6 text-white" />
+                </div>
+                <h3 className="text-xl font-bold text-gray-900 mb-3">
+                  Essential Business Spanish Phrases for Professionals
+                </h3>
+                <p className="text-gray-600 mb-4">
+                  Master the key phrases and expressions you need to succeed in Spanish-speaking business environments.
+                </p>
+                <div className="text-sm text-passport-blue font-semibold">
+                  Business Spanish • 5 min read
+                </div>
+              </CardContent>
+            </Card>
+
+            <Card className="hover:shadow-lg transition-shadow">
+              <CardContent className="p-6">
+                <div className="w-12 h-12 bg-passport-blue rounded-lg flex items-center justify-center mb-4">
+                  <Globe className="w-6 h-6 text-white" />
+                </div>
+                <h3 className="text-xl font-bold text-gray-900 mb-3">
+                  Cultural Differences: Mexico vs Colombia vs Argentina
+                </h3>
+                <p className="text-gray-600 mb-4">
+                  Understand the cultural nuances and regional differences that will help you connect better with native speakers.
+                </p>
+                <div className="text-sm text-passport-blue font-semibold">
+                  Culture • 7 min read
+                </div>
+              </CardContent>
+            </Card>
+
+            <Card className="hover:shadow-lg transition-shadow">
+              <CardContent className="p-6">
+                <div className="w-12 h-12 bg-green-500 rounded-lg flex items-center justify-center mb-4">
+                  <Star className="w-6 h-6 text-white" />
+                </div>
+                <h3 className="text-xl font-bold text-gray-900 mb-3">
+                  How to Help Your Child Learn Spanish at Home
+                </h3>
+                <p className="text-gray-600 mb-4">
+                  Practical tips and fun activities to support your child's Spanish learning journey between classes.
+                </p>
+                <div className="text-sm text-passport-blue font-semibold">
+                  Kids Learning • 4 min read
+                </div>
+              </CardContent>
+            </Card>
+          </div>
+
+          <div className="text-center">
+            <Button 
+              onClick={() => handleBookingClick('adult')}
+              className="bg-passport-blue hover:bg-blue-700 text-white px-8 py-4 text-lg font-semibold"
+            >
+              Start Learning Today
+            </Button>
           </div>
         </div>
       </section>

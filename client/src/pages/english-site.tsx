@@ -10,7 +10,7 @@ import { useLocation } from "wouter";
 import { 
   Globe, Star, Users, Clock, ArrowRight, Calendar, 
   Headphones, VideoIcon, CheckCircle, MessageCircle,
-  Facebook, Instagram, Linkedin, Youtube, Mail, Phone 
+  Facebook, Instagram, Linkedin, Youtube, Mail, Phone, Building
 } from "lucide-react";
 
 export default function EnglishSite() {
@@ -628,6 +628,339 @@ export default function EnglishSite() {
                 Mismo precio accesible que las clases para adultos • Métodos de enseñanza especializados para niños • Enfoque divertido y educativo
               </p>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Programas Empresariales */}
+      <section id="programas-empresariales" className="py-20 bg-gray-50">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl font-bold text-gray-900 mb-4">
+              Programas Empresariales de Inglés
+            </h2>
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+              Eleva tu carrera y expande tus oportunidades de negocio con capacitación profesional en inglés diseñada para el mundo corporativo.
+            </p>
+          </div>
+
+          <div className="max-w-6xl mx-auto">
+            {/* Main Value Proposition */}
+            <div className="bg-white rounded-2xl p-8 shadow-lg mb-12">
+              <div className="grid md:grid-cols-2 gap-8 items-center">
+                <div>
+                  <div className="w-16 h-16 bg-passport-blue rounded-full flex items-center justify-center mb-6">
+                    <Users className="w-8 h-8 text-white" />
+                  </div>
+                  <h3 className="text-2xl font-bold text-gray-900 mb-4">
+                    Transforma tu Comunicación Empresarial
+                  </h3>
+                  <p className="text-lg text-gray-700 mb-6">
+                    Conéctate con clientes, colegas y mercados de habla inglesa con confianza. Nuestro currículo enfocado en negocios cubre vocabulario específico de la industria y habilidades de comunicación profesional.
+                  </p>
+                  <ul className="space-y-3">
+                    <li className="flex items-center">
+                      <CheckCircle className="w-5 h-5 text-green-500 mr-3" />
+                      <span className="text-gray-700">Vocabulario específico de industria y terminología</span>
+                    </li>
+                    <li className="flex items-center">
+                      <CheckCircle className="w-5 h-5 text-green-500 mr-3" />
+                      <span className="text-gray-700">Habilidades profesionales de presentación y negociación</span>
+                    </li>
+                    <li className="flex items-center">
+                      <CheckCircle className="w-5 h-5 text-green-500 mr-3" />
+                      <span className="text-gray-700">Etiqueta empresarial y prácticas culturales</span>
+                    </li>
+                  </ul>
+                </div>
+                <div className="bg-gradient-to-br from-passport-blue to-blue-600 rounded-xl p-6 text-white">
+                  <h4 className="text-xl font-semibold mb-4">Industrias Populares:</h4>
+                  <div className="grid grid-cols-2 gap-3 text-sm">
+                    <div>• Salud y Medicina</div>
+                    <div>• Legal y Derecho</div>
+                    <div>• Bienes Raíces</div>
+                    <div>• Banca y Finanzas</div>
+                    <div>• Ventas y Marketing</div>
+                    <div>• Hospitalidad y Turismo</div>
+                    <div>• Educación</div>
+                    <div>• Tecnología</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Program Options */}
+            <div className="grid md:grid-cols-2 gap-8 mb-12">
+              <Card className="border-2 hover:border-passport-blue transition-colors">
+                <CardContent className="p-6">
+                  <div className="text-center mb-6">
+                    <Users className="w-12 h-12 text-passport-blue mx-auto mb-4" />
+                    <h3 className="text-xl font-bold text-gray-900">Coaching Ejecutivo Individual</h3>
+                  </div>
+                  <ul className="space-y-3 mb-6">
+                    <li className="flex items-start">
+                      <CheckCircle className="w-5 h-5 text-green-500 mr-3 mt-0.5 flex-shrink-0" />
+                      <span className="text-gray-700">Currículo personalizado basado en tu industria y rol</span>
+                    </li>
+                    <li className="flex items-start">
+                      <CheckCircle className="w-5 h-5 text-green-500 mr-3 mt-0.5 flex-shrink-0" />
+                      <span className="text-gray-700">Horarios flexibles adaptados a tu agenda ejecutiva</span>
+                    </li>
+                    <li className="flex items-start">
+                      <CheckCircle className="w-5 h-5 text-green-500 mr-3 mt-0.5 flex-shrink-0" />
+                      <span className="text-gray-700">Escenarios reales de negocios y estudios de caso</span>
+                    </li>
+                    <li className="flex items-start">
+                      <CheckCircle className="w-5 h-5 text-green-500 mr-3 mt-0.5 flex-shrink-0" />
+                      <span className="text-gray-700">Aprendizaje acelerado para impacto empresarial inmediato</span>
+                    </li>
+                  </ul>
+                  <Button 
+                    onClick={() => handleBookingClick('adult')}
+                    className="w-full bg-passport-blue hover:bg-blue-700 text-white"
+                  >
+                    Comenzar Programa Ejecutivo
+                  </Button>
+                </CardContent>
+              </Card>
+
+              <Card className="border-2 hover:border-passport-orange transition-colors">
+                <CardContent className="p-6">
+                  <div className="text-center mb-6">
+                    <Building className="w-12 h-12 text-passport-orange mx-auto mb-4" />
+                    <h3 className="text-xl font-bold text-gray-900">Capacitación Corporativa de Equipos</h3>
+                  </div>
+                  <ul className="space-y-3 mb-6">
+                    <li className="flex items-start">
+                      <CheckCircle className="w-5 h-5 text-green-500 mr-3 mt-0.5 flex-shrink-0" />
+                      <span className="text-gray-700">Sesiones grupales diseñadas para equipos y departamentos</span>
+                    </li>
+                    <li className="flex items-start">
+                      <CheckCircle className="w-5 h-5 text-green-500 mr-3 mt-0.5 flex-shrink-0" />
+                      <span className="text-gray-700">Vocabulario específico de empresa y procedimientos</span>
+                    </li>
+                    <li className="flex items-start">
+                      <CheckCircle className="w-5 h-5 text-green-500 mr-3 mt-0.5 flex-shrink-0" />
+                      <span className="text-gray-700">Resultados de aprendizaje consistentes en tu organización</span>
+                    </li>
+                    <li className="flex items-start">
+                      <CheckCircle className="w-5 h-5 text-green-500 mr-3 mt-0.5 flex-shrink-0" />
+                      <span className="text-gray-700">Descuentos por volumen y opciones de facturación flexible</span>
+                    </li>
+                  </ul>
+                  <Button 
+                    onClick={() => handleBookingClick('adult')}
+                    className="w-full bg-passport-orange hover:bg-orange-600 text-white"
+                  >
+                    Obtener Cotización Corporativa
+                  </Button>
+                </CardContent>
+              </Card>
+            </div>
+
+            {/* Success Story */}
+            <div className="bg-white rounded-2xl p-8 shadow-lg">
+              <div className="text-center mb-8">
+                <h3 className="text-2xl font-bold text-gray-900 mb-4">Casos de Éxito</h3>
+              </div>
+              <div className="grid md:grid-cols-2 gap-8 items-center">
+                <div>
+                  <div className="flex text-yellow-400 mb-4">
+                    <Star className="w-5 h-5 fill-current" />
+                    <Star className="w-5 h-5 fill-current" />
+                    <Star className="w-5 h-5 fill-current" />
+                    <Star className="w-5 h-5 fill-current" />
+                    <Star className="w-5 h-5 fill-current" />
+                  </div>
+                  <p className="text-lg text-gray-700 mb-6 italic">
+                    "En 3 meses pasé de inglés básico a dirigir reuniones con clientes en inglés con confianza. Nuestra base de clientes americanos creció 40% desde que comencé el programa, y atribuyo gran parte de ese éxito a poder construir relaciones auténticas."
+                  </p>
+                  <div className="font-semibold text-gray-900">Carlos Mendoza</div>
+                  <div className="text-sm text-gray-600">Director de Ventas Senior, Grupo Inmobiliario México</div>
+                </div>
+                <div className="bg-gradient-to-br from-green-50 to-blue-50 rounded-xl p-6">
+                  <h4 className="font-semibold text-gray-900 mb-4">Métricas de Impacto Empresarial:</h4>
+                  <div className="space-y-3">
+                    <div className="flex justify-between">
+                      <span className="text-gray-600">Satisfacción del Cliente</span>
+                      <span className="font-semibold text-green-600">+35%</span>
+                    </div>
+                    <div className="flex justify-between">
+                      <span className="text-gray-600">Nuevas Oportunidades</span>
+                      <span className="font-semibold text-green-600">+50%</span>
+                    </div>
+                    <div className="flex justify-between">
+                      <span className="text-gray-600">Comunicación del Equipo</span>
+                      <span className="font-semibold text-green-600">+45%</span>
+                    </div>
+                    <div className="flex justify-between">
+                      <span className="text-gray-600">Crecimiento de Ingresos</span>
+                      <span className="font-semibold text-green-600">+40%</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Equipo */}
+      <section id="equipo" className="py-20 bg-white">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl font-bold text-gray-900 mb-4">
+              Conoce a Tus Instructores de Inglés
+            </h2>
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+              Aprende con instructores nativos americanos experimentados que son apasionados por compartir su idioma y cultura.
+            </p>
+          </div>
+
+          <div className="max-w-6xl mx-auto grid md:grid-cols-3 gap-8 mb-16">
+            <Card className="text-center hover:shadow-lg transition-shadow">
+              <CardContent className="p-6">
+                <div className="w-24 h-24 bg-gradient-to-br from-passport-blue to-blue-600 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <Users className="w-12 h-12 text-white" />
+                </div>
+                <h3 className="text-xl font-bold text-gray-900 mb-2">Sarah Johnson</h3>
+                <p className="text-passport-orange font-semibold mb-3">Instructora Principal • Estados Unidos</p>
+                <p className="text-gray-600 mb-4">
+                  Maestría en Educación con más de 8 años enseñando inglés a profesionales. Se especializa en comunicación empresarial e inmersión cultural.
+                </p>
+                <div className="text-sm text-gray-500">
+                  💼 Experta en Inglés de Negocios • 🎓 M.Ed Harvard University
+                </div>
+              </CardContent>
+            </Card>
+
+            <Card className="text-center hover:shadow-lg transition-shadow">
+              <CardContent className="p-6">
+                <div className="w-24 h-24 bg-gradient-to-br from-passport-orange to-orange-600 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <Star className="w-12 h-12 text-white" />
+                </div>
+                <h3 className="text-xl font-bold text-gray-900 mb-2">Michael Davis</h3>
+                <p className="text-passport-blue font-semibold mb-3">Especialista en Niños • Estados Unidos</p>
+                <p className="text-gray-600 mb-4">
+                  Ex-maestro de primaria con pasión por hacer el inglés divertido y atractivo para jóvenes estudiantes a través de juegos y cuentos.
+                </p>
+                <div className="text-sm text-gray-500">
+                  🌟 Experto en Inglés para Niños • 🎯 Métodos de Aprendizaje Interactivo
+                </div>
+              </CardContent>
+            </Card>
+
+            <Card className="text-center hover:shadow-lg transition-shadow">
+              <CardContent className="p-6">
+                <div className="w-24 h-24 bg-gradient-to-br from-green-500 to-green-600 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <Globe className="w-12 h-12 text-white" />
+                </div>
+                <h3 className="text-xl font-bold text-gray-900 mb-2">Jennifer Wilson</h3>
+                <p className="text-passport-orange font-semibold mb-3">Experta Cultural • Estados Unidos</p>
+                <p className="text-gray-600 mb-4">
+                  Graduada en Lingüística enfocada en matices culturales americanos. Ayuda a estudiantes a entender la cultura estadounidense.
+                </p>
+                <div className="text-sm text-gray-500">
+                  🌍 Inmersión Cultural • 📚 B.A. Lingüística
+                </div>
+              </CardContent>
+            </Card>
+          </div>
+
+          <div className="text-center">
+            <div className="bg-gradient-to-r from-passport-blue to-passport-orange rounded-2xl p-8 text-white max-w-4xl mx-auto">
+              <h3 className="text-2xl font-bold mb-4">Por Qué Nuestros Instructores Hacen la Diferencia</h3>
+              <div className="grid md:grid-cols-3 gap-6 text-center">
+                <div>
+                  <div className="text-3xl font-bold mb-2">100%</div>
+                  <div className="text-sm">Hablantes Nativos</div>
+                </div>
+                <div>
+                  <div className="text-3xl font-bold mb-2">5+ años</div>
+                  <div className="text-sm">Experiencia Docente</div>
+                </div>
+                <div>
+                  <div className="text-3xl font-bold mb-2">50 Estados</div>
+                  <div className="text-sm">Representación Americana</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Blog */}
+      <section id="blog" className="py-20 bg-gray-50">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl font-bold text-gray-900 mb-4">
+              Recursos para Aprender Inglés
+            </h2>
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+              Acelera tu aprendizaje del inglés con nuestros consejos de expertos, conocimientos culturales y guías prácticas.
+            </p>
+          </div>
+
+          <div className="max-w-6xl mx-auto grid md:grid-cols-3 gap-8 mb-12">
+            <Card className="hover:shadow-lg transition-shadow">
+              <CardContent className="p-6">
+                <div className="w-12 h-12 bg-passport-orange rounded-lg flex items-center justify-center mb-4">
+                  <MessageCircle className="w-6 h-6 text-white" />
+                </div>
+                <h3 className="text-xl font-bold text-gray-900 mb-3">
+                  Frases Esenciales de Inglés de Negocios para Profesionales
+                </h3>
+                <p className="text-gray-600 mb-4">
+                  Domina las frases y expresiones clave que necesitas para tener éxito en ambientes empresariales de habla inglesa.
+                </p>
+                <div className="text-sm text-passport-blue font-semibold">
+                  Inglés de Negocios • 5 min de lectura
+                </div>
+              </CardContent>
+            </Card>
+
+            <Card className="hover:shadow-lg transition-shadow">
+              <CardContent className="p-6">
+                <div className="w-12 h-12 bg-passport-blue rounded-lg flex items-center justify-center mb-4">
+                  <Globe className="w-6 h-6 text-white" />
+                </div>
+                <h3 className="text-xl font-bold text-gray-900 mb-3">
+                  Diferencias Culturales: Estados Unidos vs Canadá vs Reino Unido
+                </h3>
+                <p className="text-gray-600 mb-4">
+                  Entiende los matices culturales y diferencias regionales que te ayudarán a conectar mejor con hablantes nativos.
+                </p>
+                <div className="text-sm text-passport-blue font-semibold">
+                  Cultura • 7 min de lectura
+                </div>
+              </CardContent>
+            </Card>
+
+            <Card className="hover:shadow-lg transition-shadow">
+              <CardContent className="p-6">
+                <div className="w-12 h-12 bg-green-500 rounded-lg flex items-center justify-center mb-4">
+                  <Star className="w-6 h-6 text-white" />
+                </div>
+                <h3 className="text-xl font-bold text-gray-900 mb-3">
+                  Cómo Ayudar a tu Hijo a Aprender Inglés en Casa
+                </h3>
+                <p className="text-gray-600 mb-4">
+                  Consejos prácticos y actividades divertidas para apoyar el viaje de aprendizaje de inglés de tu hijo entre clases.
+                </p>
+                <div className="text-sm text-passport-blue font-semibold">
+                  Aprendizaje Infantil • 4 min de lectura
+                </div>
+              </CardContent>
+            </Card>
+          </div>
+
+          <div className="text-center">
+            <Button 
+              onClick={() => handleBookingClick('adult')}
+              className="bg-passport-blue hover:bg-blue-700 text-white px-8 py-4 text-lg font-semibold"
+            >
+              Comenzar a Aprender Hoy
+            </Button>
           </div>
         </div>
       </section>
