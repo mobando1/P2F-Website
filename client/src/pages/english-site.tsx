@@ -327,7 +327,7 @@ export default function EnglishSite() {
           <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-12">
             {/* Adult Calendar */}
             <div className="bg-gray-50 rounded-2xl p-8">
-              <div className="text-center mb-6">
+              <div className="text-center mb-6 min-h-[120px] flex flex-col justify-start">
                 <div className="w-16 h-16 bg-passport-blue rounded-full flex items-center justify-center mx-auto mb-4">
                   <Users className="w-8 h-8 text-white" />
                 </div>
@@ -343,7 +343,7 @@ export default function EnglishSite() {
 
             {/* Kids Calendar */}
             <div className="bg-gray-50 rounded-2xl p-8">
-              <div className="text-center mb-6">
+              <div className="text-center mb-6 min-h-[120px] flex flex-col justify-start">
                 <div className="w-16 h-16 bg-passport-orange rounded-full flex items-center justify-center mx-auto mb-4">
                   <Star className="w-8 h-8 text-white" />
                 </div>
