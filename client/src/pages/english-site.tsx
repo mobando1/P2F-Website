@@ -135,7 +135,7 @@ export default function EnglishSite() {
             
             <h1 className="text-5xl md:text-7xl font-bold text-gray-900 mb-6">
               <span className="text-passport-blue">Speak English</span><br />
-              <span className="italic text-passport-orange">like a native</span>
+              <span className="italic text-passport-orange">como un nativo</span>
             </h1>
             
             <p className="text-xl md:text-2xl text-gray-700 mb-8 max-w-3xl mx-auto">
