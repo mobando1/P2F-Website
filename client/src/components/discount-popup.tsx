@@ -13,6 +13,7 @@ export default function DiscountPopup({ language, onClose, onSubscribe }: Discou
   const [email, setEmail] = useState("");
   const [timeLeft, setTimeLeft] = useState(600); // 10 minutes in seconds
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [scriptLoaded, setScriptLoaded] = useState(false);
 
   const texts = {
     en: {
@@ -56,7 +57,6 @@ export default function DiscountPopup({ language, onClose, onSubscribe }: Discou
       setTimeLeft((prev) => {
         if (prev <= 1) {
           clearInterval(timer);
-          onClose();
           return 0;
         }
         return prev - 1;
@@ -64,7 +64,20 @@ export default function DiscountPopup({ language, onClose, onSubscribe }: Discou
     }, 1000);
 
     return () => clearInterval(timer);
-  }, [onClose]);
+  }, []);
+
+  useEffect(() => {
+    // Load HighLevel script only once
+    if (!document.getElementById('highlevel-script')) {
+      const script = document.createElement('script');
+      script.id = 'highlevel-script';
+      script.src = 'https://link.msgsndr.com/js/form_embed.js';
+      script.onload = () => setScriptLoaded(true);
+      document.head.appendChild(script);
+    } else {
+      setScriptLoaded(true);
+    }
+  }, []);
 
   const formatTime = (seconds: number) => {
     const minutes = Math.floor(seconds / 60);
@@ -153,30 +166,49 @@ export default function DiscountPopup({ language, onClose, onSubscribe }: Discou
         {/* HighLevel form integration for discount popup */}
         <div className="space-y-4">
           <div className="min-h-[406px] -mx-4 -mb-4">
-            <div 
-              dangerouslySetInnerHTML={{
-                __html: `
-                  <iframe
-                    src="${language === 'es' ? 'https://api.leadconnectorhq.com/widget/form/4jKIDLnqJmvyS6yhYdly' : 'https://api.leadconnectorhq.com/widget/form/FTuj7n9Kp5GYdlbLyyI7'}"
-                    style="width:100%;height:406px;border:none;border-radius:20px"
-                    id="inline-${language === 'es' ? '4jKIDLnqJmvyS6yhYdly' : 'FTuj7n9Kp5GYdlbLyyI7'}_${Date.now()}" 
-                    data-layout="{'id':'INLINE'}"
-                    data-trigger-type="alwaysShow"
-                    data-trigger-value=""
-                    data-activation-type="alwaysActivated"
-                    data-activation-value=""
-                    data-deactivation-type="neverDeactivate"
-                    data-deactivation-value=""
-                    data-form-name="${language === 'es' ? 'Newsletter subscription - POP UP - CLASES DE INGLES' : 'Newsletter subscription - POP UP'}"
-                    data-height="406"
-                    data-layout-iframe-id="inline-${language === 'es' ? '4jKIDLnqJmvyS6yhYdly' : 'FTuj7n9Kp5GYdlbLyyI7'}"
-                    data-form-id="${language === 'es' ? '4jKIDLnqJmvyS6yhYdly' : 'FTuj7n9Kp5GYdlbLyyI7'}"
-                    title="${language === 'es' ? 'Newsletter subscription - POP UP - CLASES DE INGLES' : 'Newsletter subscription - POP UP'}"
-                  ></iframe>
-                  <script src="https://link.msgsndr.com/js/form_embed.js"></script>
-                `
-              }}
-            />
+            {scriptLoaded ? (
+              language === 'es' ? (
+                <iframe
+                  src="https://api.leadconnectorhq.com/widget/form/4jKIDLnqJmvyS6yhYdly"
+                  style={{width:'100%', height:'406px', border:'none', borderRadius:'20px'}}
+                  id={`inline-4jKIDLnqJmvyS6yhYdly_${Date.now()}`}
+                  data-layout="{'id':'INLINE'}"
+                  data-trigger-type="alwaysShow"
+                  data-trigger-value=""
+                  data-activation-type="alwaysActivated"
+                  data-activation-value=""
+                  data-deactivation-type="neverDeactivate"
+                  data-deactivation-value=""
+                  data-form-name="Newsletter subscription - POP UP - CLASES DE INGLES"
+                  data-height="406"
+                  data-layout-iframe-id="inline-4jKIDLnqJmvyS6yhYdly"
+                  data-form-id="4jKIDLnqJmvyS6yhYdly"
+                  title="Newsletter subscription - POP UP - CLASES DE INGLES"
+                />
+              ) : (
+                <iframe
+                  src="https://api.leadconnectorhq.com/widget/form/FTuj7n9Kp5GYdlbLyyI7"
+                  style={{width:'100%', height:'406px', border:'none', borderRadius:'20px'}}
+                  id={`inline-FTuj7n9Kp5GYdlbLyyI7_${Date.now()}`}
+                  data-layout="{'id':'INLINE'}"
+                  data-trigger-type="alwaysShow"
+                  data-trigger-value=""
+                  data-activation-type="alwaysActivated"
+                  data-activation-value=""
+                  data-deactivation-type="neverDeactivate"
+                  data-deactivation-value=""
+                  data-form-name="Newsletter subscription - POP UP"
+                  data-height="406"
+                  data-layout-iframe-id="inline-FTuj7n9Kp5GYdlbLyyI7"
+                  data-form-id="FTuj7n9Kp5GYdlbLyyI7"
+                  title="Newsletter subscription - POP UP"
+                />
+              )
+            ) : (
+              <div className="flex items-center justify-center h-full">
+                <div className="text-gray-500">Cargando formulario...</div>
+              </div>
+            )}
           </div>
           
           <button
