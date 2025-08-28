@@ -18,13 +18,13 @@ export default function SpanishSite() {
   const [showDiscountPopup, setShowDiscountPopup] = useState(false);
   const [, navigate] = useLocation();
 
-  // Show discount popup after 30 seconds or on scroll
+  // Show discount popup after 7 seconds or on scroll
   useEffect(() => {
     const timer = setTimeout(() => {
       if (!localStorage.getItem('discountPopupShown')) {
         setShowDiscountPopup(true);
       }
-    }, 30000);
+    }, 7000);
 
     const handleScroll = () => {
       if (window.scrollY > window.innerHeight * 0.5 && !localStorage.getItem('discountPopupShown')) {
