@@ -119,7 +119,6 @@ export default function SpanishSite() {
           </div>
         </div>
       </header>
-
       {/* Hero Section */}
       <section className="py-20 bg-gradient-to-b from-orange-50 to-white">
         <div className="container mx-auto px-4">
@@ -177,7 +176,6 @@ export default function SpanishSite() {
           </div>
         </div>
       </section>
-
       {/* How it Works */}
       <section id="how-it-works" className="py-20 bg-white">
         <div className="container mx-auto px-4">
@@ -209,9 +207,7 @@ export default function SpanishSite() {
                   <VideoIcon className="w-8 h-8 text-passport-orange" />
                 </div>
                 <h3 className="text-xl font-bold text-gray-900 mb-4">2. Connect via video</h3>
-                <p className="text-gray-600">
-                  Join your class through Zoom from any device. Your instructor will be waiting for you.
-                </p>
+                <p className="text-gray-600">Join your class through Google Meet from any device. Your instructor will be waiting for you.</p>
               </CardContent>
             </Card>
 
@@ -229,7 +225,6 @@ export default function SpanishSite() {
           </div>
         </div>
       </section>
-
       {/* Features */}
       <section className="py-20 bg-gray-50">
         <div className="container mx-auto px-4">
@@ -317,7 +312,6 @@ export default function SpanishSite() {
           </div>
         </div>
       </section>
-
       {/* Booking Calendars */}
       <section id="booking-calendars" className="py-20 bg-white">
         <div className="container mx-auto px-4">
@@ -377,7 +371,6 @@ export default function SpanishSite() {
           </div>
         </div>
       </section>
-
       {/* Pricing */}
       <section id="pricing" className="py-20 bg-white">
         <div className="container mx-auto px-4">
@@ -512,7 +505,6 @@ export default function SpanishSite() {
           </div>
         </div>
       </section>
-
       {/* Testimonials */}
       <section id="testimonials" className="py-20 bg-gray-50">
         <div className="container mx-auto px-4">
@@ -576,14 +568,12 @@ export default function SpanishSite() {
           </div>
         </div>
       </section>
-
       {/* Newsletter Section */}
       <section className="py-20 bg-white">
         <div className="container mx-auto px-4">
           <NewsletterSignup language="en" className="max-w-2xl mx-auto" />
         </div>
       </section>
-
       {/* Free Trial Section */}
       <section className="py-20 bg-passport-orange">
         <div className="container mx-auto px-4 text-center">
@@ -616,7 +606,6 @@ export default function SpanishSite() {
           </p>
         </div>
       </section>
-
       {/* Footer */}
       <footer className="bg-gray-900 text-white py-12">
         <div className="container mx-auto px-4">
@@ -663,9 +652,7 @@ export default function SpanishSite() {
           </div>
         </div>
       </footer>
-
       {/* Modal removed - calendars now integrated directly in page */}
-
       {/* Discount Popup */}
       {showDiscountPopup && (
         <DiscountPopup
