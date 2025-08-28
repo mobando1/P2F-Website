@@ -92,22 +92,34 @@ export default function EnglishSite() {
             <div className="flex items-center space-x-6">
               <nav className="hidden md:flex space-x-6">
                 <button 
-                  onClick={() => scrollToSection('como-funciona')}
+                  onClick={() => scrollToSection('planes-precios')}
                   className="text-gray-700 hover:text-passport-blue transition-colors"
                 >
-                  Cómo Funciona
+                  Planes y Precios
                 </button>
                 <button 
-                  onClick={() => scrollToSection('precios')}
+                  onClick={() => scrollToSection('ingles-para-ninos')}
                   className="text-gray-700 hover:text-passport-blue transition-colors"
                 >
-                  Precios
+                  Inglés para Niños
                 </button>
                 <button 
-                  onClick={() => scrollToSection('testimonios')}
+                  onClick={() => scrollToSection('programas-empresariales')}
                   className="text-gray-700 hover:text-passport-blue transition-colors"
                 >
-                  Testimonios
+                  Programas Empresariales
+                </button>
+                <button 
+                  onClick={() => scrollToSection('equipo')}
+                  className="text-gray-700 hover:text-passport-blue transition-colors"
+                >
+                  Equipo
+                </button>
+                <button 
+                  onClick={() => scrollToSection('blog')}
+                  className="text-gray-700 hover:text-passport-blue transition-colors"
+                >
+                  Blog
                 </button>
               </nav>
               <Button 

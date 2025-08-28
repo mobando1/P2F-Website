@@ -92,22 +92,34 @@ export default function SpanishSite() {
             <div className="flex items-center space-x-6">
               <nav className="hidden md:flex space-x-6">
                 <button 
-                  onClick={() => scrollToSection('how-it-works')}
+                  onClick={() => scrollToSection('plans-pricing')}
                   className="text-gray-700 hover:text-passport-orange transition-colors"
                 >
-                  How It Works
+                  Plans & Pricing
                 </button>
                 <button 
-                  onClick={() => scrollToSection('pricing')}
+                  onClick={() => scrollToSection('spanish-for-children')}
                   className="text-gray-700 hover:text-passport-orange transition-colors"
                 >
-                  Pricing
+                  Spanish for Children
                 </button>
                 <button 
-                  onClick={() => scrollToSection('testimonials')}
+                  onClick={() => scrollToSection('business-programs')}
                   className="text-gray-700 hover:text-passport-orange transition-colors"
                 >
-                  Testimonials
+                  Business Programs
+                </button>
+                <button 
+                  onClick={() => scrollToSection('team')}
+                  className="text-gray-700 hover:text-passport-orange transition-colors"
+                >
+                  Team
+                </button>
+                <button 
+                  onClick={() => scrollToSection('blog')}
+                  className="text-gray-700 hover:text-passport-orange transition-colors"
+                >
+                  Blog
                 </button>
               </nav>
               <Button 
