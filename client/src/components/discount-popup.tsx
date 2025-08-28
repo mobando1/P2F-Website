@@ -144,19 +144,29 @@ export default function DiscountPopup({ language, onClose, onSubscribe }: Discou
                 }}
               />
             ) : (
-              <iframe
-                src="https://api.leadconnectorhq.com/widget/form/FTuj7n9Kp5GYdlbLyyI7"
-                style={{
-                  width: '100%',
-                  height: '350px',
-                  border: 'none',
-                  borderRadius: '12px',
-                  backgroundColor: '#f9fafb'
+              <div 
+                dangerouslySetInnerHTML={{
+                  __html: `
+                    <iframe
+                      src="https://api.leadconnectorhq.com/widget/form/FTuj7n9Kp5GYdlbLyyI7"
+                      style="width:100%;height:350px;border:none;border-radius:12px"
+                      id="inline-FTuj7n9Kp5GYdlbLyyI7" 
+                      data-layout="{'id':'INLINE'}"
+                      data-trigger-type="alwaysShow"
+                      data-trigger-value=""
+                      data-activation-type="alwaysActivated"
+                      data-activation-value=""
+                      data-deactivation-type="neverDeactivate"
+                      data-deactivation-value=""
+                      data-form-name="Newsletter subscription - POP UP"
+                      data-height="350"
+                      data-layout-iframe-id="inline-FTuj7n9Kp5GYdlbLyyI7"
+                      data-form-id="FTuj7n9Kp5GYdlbLyyI7"
+                      title="Newsletter subscription - POP UP">
+                    </iframe>
+                    <script src="https://link.msgsndr.com/js/form_embed.js"></script>
+                  `
                 }}
-                loading="lazy"
-                title="Newsletter Subscription"
-                allow="clipboard-write"
-                sandbox="allow-same-origin allow-scripts allow-forms allow-popups"
               />
             )}
           </div>

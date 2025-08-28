@@ -18,9 +18,28 @@ export default function SpanishSite() {
   const [showDiscountPopup, setShowDiscountPopup] = useState(false);
   const [, navigate] = useLocation();
 
-  // No popup for Spanish learners
+  // Show discount popup after 7 seconds or on scroll for Spanish learners
   useEffect(() => {
-    // No popup logic for Spanish learning page
+    // Clear any previous popup state for testing
+    localStorage.removeItem('discountPopupShown');
+    
+    const timer = setTimeout(() => {
+      if (!localStorage.getItem('discountPopupShown')) {
+        setShowDiscountPopup(true);
+      }
+    }, 7000);
+
+    const handleScroll = () => {
+      if (window.scrollY > window.innerHeight * 0.5 && !localStorage.getItem('discountPopupShown')) {
+        setShowDiscountPopup(true);
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => {
+      clearTimeout(timer);
+      window.removeEventListener('scroll', handleScroll);
+    };
   }, []);
 
   const scrollToSection = (sectionId: string) => {
@@ -646,7 +665,14 @@ export default function SpanishSite() {
       </footer>
       {/* Modal removed - calendars now integrated directly in page */}
       {/* Discount Popup */}
-      {/* No popup for Spanish learners - only for English learners on /en */}
+      {/* Discount Popup for Spanish learners */}
+      {showDiscountPopup && (
+        <DiscountPopup
+          language="en"
+          onClose={handleDiscountClose}
+          onSubscribe={handleDiscountSubscribe}
+        />
+      )}
     </div>
   );
 }
