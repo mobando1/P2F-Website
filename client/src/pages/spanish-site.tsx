@@ -324,37 +324,45 @@ export default function SpanishSite() {
             </p>
           </div>
 
-          <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-12">
+          <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-12 items-start">
             {/* Adult Calendar */}
-            <div className="bg-gray-50 rounded-2xl p-8">
-              <div className="text-center mb-6 min-h-[120px] flex flex-col justify-start">
-                <div className="w-16 h-16 bg-passport-orange rounded-full flex items-center justify-center mx-auto mb-4">
-                  <Users className="w-8 h-8 text-white" />
+            <div className="bg-gray-50 rounded-2xl p-8 h-full flex flex-col">
+              <div className="text-center mb-6 min-h-[160px] flex flex-col justify-between">
+                <div>
+                  <div className="w-16 h-16 bg-passport-orange rounded-full flex items-center justify-center mx-auto mb-4">
+                    <Users className="w-8 h-8 text-white" />
+                  </div>
+                  <h3 className="text-2xl font-bold text-gray-900 mb-2 min-h-[64px] flex items-center justify-center">
+                    Adult Spanish Classes
+                  </h3>
                 </div>
-                <h3 className="text-2xl font-bold text-gray-900 mb-2">
-                  Adult Spanish Classes
-                </h3>
                 <p className="text-gray-600">
                   Professional conversation, business Spanish, and cultural immersion
                 </p>
               </div>
-              <HighLevelCalendar language="en" type="adult" className="bg-white" />
+              <div className="flex-1">
+                <HighLevelCalendar language="en" type="adult" className="bg-white" />
+              </div>
             </div>
 
             {/* Kids Calendar */}
-            <div className="bg-gray-50 rounded-2xl p-8">
-              <div className="text-center mb-6 min-h-[120px] flex flex-col justify-start">
-                <div className="w-16 h-16 bg-passport-blue rounded-full flex items-center justify-center mx-auto mb-4">
-                  <Star className="w-8 h-8 text-white" />
+            <div className="bg-gray-50 rounded-2xl p-8 h-full flex flex-col">
+              <div className="text-center mb-6 min-h-[160px] flex flex-col justify-between">
+                <div>
+                  <div className="w-16 h-16 bg-passport-blue rounded-full flex items-center justify-center mx-auto mb-4">
+                    <Star className="w-8 h-8 text-white" />
+                  </div>
+                  <h3 className="text-2xl font-bold text-gray-900 mb-2 min-h-[64px] flex items-center justify-center">
+                    Kids Spanish Classes
+                  </h3>
                 </div>
-                <h3 className="text-2xl font-bold text-gray-900 mb-2">
-                  Kids Spanish Classes
-                </h3>
                 <p className="text-gray-600">
                   Fun, interactive learning designed specifically for children ages 5-17
                 </p>
               </div>
-              <HighLevelCalendar language="en" type="child" className="bg-white" />
+              <div className="flex-1">
+                <HighLevelCalendar language="en" type="child" className="bg-white" />
+              </div>
             </div>
           </div>
 
