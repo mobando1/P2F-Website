@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { CheckCircle } from "lucide-react";
+import NavigationDropdown from "@/components/navigation-dropdown";
 import HighLevelCalendar from "@/components/highlevel-calendar";
 import passportLogo from "@assets/a1c5a1_9514ede9e3124d7a9adf78f5dcf07f28~mv2_1755803448396.png";
 import { Link } from "wouter";
@@ -107,12 +108,7 @@ export default function Pricing({ language }: PricingProps) {
               <Link href={`${basePath}/pricing`} className="text-passport-blue font-semibold">
                 {content.nav.pricing}
               </Link>
-              <Link href={`${basePath}/children`} className="text-gray-700 hover:text-passport-blue">
-                {content.nav.children}
-              </Link>
-              <Link href={`${basePath}/business`} className="text-gray-700 hover:text-passport-blue">
-                {content.nav.business}
-              </Link>
+              <NavigationDropdown language={language} currentPath={`${basePath}/pricing`} />
               <Link href={`${basePath}/team`} className="text-gray-700 hover:text-passport-blue">
                 {content.nav.team}
               </Link>

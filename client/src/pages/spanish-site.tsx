@@ -7,6 +7,7 @@ import DiscountPopup from "@/components/discount-popup";
 import HighLevelCalendar from "@/components/highlevel-calendar";
 import passportLogo from "@assets/a1c5a1_9514ede9e3124d7a9adf78f5dcf07f28~mv2_1755803448396.png";
 import { useLocation, Link } from "wouter";
+import NavigationDropdown from "@/components/navigation-dropdown";
 import { 
   Globe, Star, Users, Clock, ArrowRight, Calendar, 
   Headphones, VideoIcon, CheckCircle, MessageCircle,
@@ -90,16 +91,11 @@ export default function SpanishSite() {
               />
             </div>
             <div className="flex items-center space-x-6">
-              <nav className="hidden md:flex space-x-6">
+              <nav className="hidden md:flex items-center space-x-6">
                 <Link href="/es/pricing" className="text-gray-700 hover:text-passport-orange transition-colors">
                   Plans & Pricing
                 </Link>
-                <Link href="/es/children" className="text-gray-700 hover:text-passport-orange transition-colors">
-                  Spanish for Children
-                </Link>
-                <Link href="/es/business" className="text-gray-700 hover:text-passport-orange transition-colors">
-                  Business Programs
-                </Link>
+                <NavigationDropdown language="en" currentPath={location} />
                 <Link href="/es/team" className="text-gray-700 hover:text-passport-orange transition-colors">
                   Team
                 </Link>
