@@ -12,10 +12,10 @@ export default function HighLevelCalendar({ language, type, className = "" }: Hi
 
   const texts = {
     en: {
-      title: type === 'adult' ? 'Book Your Free English Class' : 'Book Free Class for Children',
+      title: type === 'adult' ? 'Book Your Free Spanish Class' : 'Book Free Spanish Class for Children',
       subtitle: type === 'adult' 
-        ? 'Schedule a 40-minute trial class with a native American instructor'
-        : 'Schedule a 40-minute trial class for your child with our specialized instructors',
+        ? 'Schedule a 40-minute trial class with a native Latin American instructor'
+        : 'Schedule a 40-minute trial class for your child with our specialized Spanish instructors',
       loading: 'Loading calendar...',
       fallbackTitle: 'Calendar temporarily unavailable',
       fallbackMessage: 'Please contact us directly to schedule your free class:',
@@ -23,10 +23,10 @@ export default function HighLevelCalendar({ language, type, className = "" }: Hi
       contactPhone: '+1 (555) 123-4567'
     },
     es: {
-      title: type === 'adult' ? 'Reserva tu Clase Gratuita de Inglés' : 'Reserva Clase Gratuita para Niños',
+      title: type === 'adult' ? 'Reserva tu Clase Gratuita de Español' : 'Reserva Clase Gratuita de Español para Niños',
       subtitle: type === 'adult'
-        ? 'Agenda una clase de prueba de 40 minutos con un instructor nativo americano'
-        : 'Agenda una clase de prueba de 40 minutos para tu hijo con nuestros instructores especializados',
+        ? 'Agenda una clase de prueba de 40 minutos con un instructor nativo latinoamericano'
+        : 'Agenda una clase de prueba de 40 minutos para tu hijo con nuestros instructores especializados en español',
       loading: 'Cargando calendario...',
       fallbackTitle: 'Calendario temporalmente no disponible',
       fallbackMessage: 'Por favor contáctanos directamente para agendar tu clase gratuita:',
