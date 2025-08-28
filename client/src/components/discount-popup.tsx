@@ -115,15 +115,6 @@ export default function DiscountPopup({ language, onClose, onSubscribe }: Discou
         </div>
 
         {/* Timer removed as requested */}
-
-        <div className="space-y-2 mb-6">
-          {t.features.map((feature, index) => (
-            <div key={index} className="text-sm text-gray-700 text-center">
-              {feature}
-            </div>
-          ))}
-        </div>
-
         {/* HighLevel form integration for discount popup */}
         <div className="space-y-4">
           <div className="min-h-[250px] -mx-2 -mb-2">
