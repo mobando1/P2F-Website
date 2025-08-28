@@ -613,174 +613,32 @@ export default function SpanishSite() {
         </div>
       </section>
 
-      {/* Business Programs */}
-      <section id="business-programs" className="py-20 bg-gray-50">
+      {/* Business Programs - Simplified */}
+      <section id="business-programs" className="py-16 bg-gray-50">
         <div className="container mx-auto px-4">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-gray-900 mb-4">
-              Business Spanish Programs
-            </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Elevate your career and expand your business opportunities with professional Spanish training designed for the corporate world.
-            </p>
-          </div>
-
-          <div className="max-w-6xl mx-auto">
-            {/* Main Value Proposition */}
-            <div className="bg-white rounded-2xl p-8 shadow-lg mb-12">
-              <div className="grid md:grid-cols-2 gap-8 items-center">
-                <div>
-                  <div className="w-16 h-16 bg-passport-blue rounded-full flex items-center justify-center mb-6">
-                    <Users className="w-8 h-8 text-white" />
-                  </div>
-                  <h3 className="text-2xl font-bold text-gray-900 mb-4">
-                    Transform Your Business Communication
-                  </h3>
-                  <p className="text-lg text-gray-700 mb-6">
-                    Connect with Spanish-speaking clients, colleagues, and markets with confidence. Our business-focused curriculum covers industry-specific vocabulary and professional communication skills.
-                  </p>
-                  <ul className="space-y-3">
-                    <li className="flex items-center">
-                      <CheckCircle className="w-5 h-5 text-green-500 mr-3" />
-                      <span className="text-gray-700">Industry-specific vocabulary and terminology</span>
-                    </li>
-                    <li className="flex items-center">
-                      <CheckCircle className="w-5 h-5 text-green-500 mr-3" />
-                      <span className="text-gray-700">Professional presentation and negotiation skills</span>
-                    </li>
-                    <li className="flex items-center">
-                      <CheckCircle className="w-5 h-5 text-green-500 mr-3" />
-                      <span className="text-gray-700">Cultural business etiquette and practices</span>
-                    </li>
-                  </ul>
-                </div>
-                <div className="bg-gradient-to-br from-passport-blue to-blue-600 rounded-xl p-6 text-white">
-                  <h4 className="text-xl font-semibold mb-4">Popular Industries:</h4>
-                  <div className="grid grid-cols-2 gap-3 text-sm">
-                    <div>• Healthcare & Medical</div>
-                    <div>• Legal & Law</div>
-                    <div>• Real Estate</div>
-                    <div>• Banking & Finance</div>
-                    <div>• Sales & Marketing</div>
-                    <div>• Hospitality & Tourism</div>
-                    <div>• Education</div>
-                    <div>• Technology</div>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            {/* Program Options */}
-            <div className="grid md:grid-cols-2 gap-8 mb-12">
-              <Card className="border-2 hover:border-passport-blue transition-colors">
-                <CardContent className="p-6">
-                  <div className="text-center mb-6">
-                    <Users className="w-12 h-12 text-passport-blue mx-auto mb-4" />
-                    <h3 className="text-xl font-bold text-gray-900">Individual Executive Coaching</h3>
-                  </div>
-                  <ul className="space-y-3 mb-6">
-                    <li className="flex items-start">
-                      <CheckCircle className="w-5 h-5 text-green-500 mr-3 mt-0.5 flex-shrink-0" />
-                      <span className="text-gray-700">Personalized curriculum based on your industry and role</span>
-                    </li>
-                    <li className="flex items-start">
-                      <CheckCircle className="w-5 h-5 text-green-500 mr-3 mt-0.5 flex-shrink-0" />
-                      <span className="text-gray-700">Flexible scheduling around your busy executive schedule</span>
-                    </li>
-                    <li className="flex items-start">
-                      <CheckCircle className="w-5 h-5 text-green-500 mr-3 mt-0.5 flex-shrink-0" />
-                      <span className="text-gray-700">Real business scenarios and case studies</span>
-                    </li>
-                    <li className="flex items-start">
-                      <CheckCircle className="w-5 h-5 text-green-500 mr-3 mt-0.5 flex-shrink-0" />
-                      <span className="text-gray-700">Accelerated learning for immediate business impact</span>
-                    </li>
-                  </ul>
-                  <Button 
-                    onClick={() => handleBookingClick('adult')}
-                    className="w-full bg-passport-blue hover:bg-blue-700 text-white"
-                  >
-                    Start Executive Program
-                  </Button>
-                </CardContent>
-              </Card>
-
-              <Card className="border-2 hover:border-passport-orange transition-colors">
-                <CardContent className="p-6">
-                  <div className="text-center mb-6">
-                    <Building className="w-12 h-12 text-passport-orange mx-auto mb-4" />
-                    <h3 className="text-xl font-bold text-gray-900">Corporate Team Training</h3>
-                  </div>
-                  <ul className="space-y-3 mb-6">
-                    <li className="flex items-start">
-                      <CheckCircle className="w-5 h-5 text-green-500 mr-3 mt-0.5 flex-shrink-0" />
-                      <span className="text-gray-700">Group sessions designed for teams and departments</span>
-                    </li>
-                    <li className="flex items-start">
-                      <CheckCircle className="w-5 h-5 text-green-500 mr-3 mt-0.5 flex-shrink-0" />
-                      <span className="text-gray-700">Company-specific vocabulary and procedures</span>
-                    </li>
-                    <li className="flex items-start">
-                      <CheckCircle className="w-5 h-5 text-green-500 mr-3 mt-0.5 flex-shrink-0" />
-                      <span className="text-gray-700">Consistent learning outcomes across your organization</span>
-                    </li>
-                    <li className="flex items-start">
-                      <CheckCircle className="w-5 h-5 text-green-500 mr-3 mt-0.5 flex-shrink-0" />
-                      <span className="text-gray-700">Volume discounts and flexible billing options</span>
-                    </li>
-                  </ul>
-                  <Button 
-                    onClick={() => handleBookingClick('adult')}
-                    className="w-full bg-passport-orange hover:bg-orange-600 text-white"
-                  >
-                    Get Corporate Quote
-                  </Button>
-                </CardContent>
-              </Card>
-            </div>
-
-            {/* Success Story */}
+          <div className="max-w-4xl mx-auto text-center">
             <div className="bg-white rounded-2xl p-8 shadow-lg">
-              <div className="text-center mb-8">
-                <h3 className="text-2xl font-bold text-gray-900 mb-4">Success Stories</h3>
+              <div className="w-16 h-16 bg-passport-blue rounded-full flex items-center justify-center mx-auto mb-6">
+                <Building className="w-8 h-8 text-white" />
               </div>
-              <div className="grid md:grid-cols-2 gap-8 items-center">
-                <div>
-                  <div className="flex text-yellow-400 mb-4">
-                    <Star className="w-5 h-5 fill-current" />
-                    <Star className="w-5 h-5 fill-current" />
-                    <Star className="w-5 h-5 fill-current" />
-                    <Star className="w-5 h-5 fill-current" />
-                    <Star className="w-5 h-5 fill-current" />
-                  </div>
-                  <p className="text-lg text-gray-700 mb-6 italic">
-                    "Within 3 months, I went from basic Spanish to confidently leading client meetings in Spanish. Our Hispanic client base has grown 40% since I started the program, and I attribute much of that success to being able to build authentic relationships."
-                  </p>
-                  <div className="font-semibold text-gray-900">Michael Thompson</div>
-                  <div className="text-sm text-gray-600">Senior Sales Director, Austin Real Estate Group</div>
-                </div>
-                <div className="bg-gradient-to-br from-green-50 to-blue-50 rounded-xl p-6">
-                  <h4 className="font-semibold text-gray-900 mb-4">Business Impact Metrics:</h4>
-                  <div className="space-y-3">
-                    <div className="flex justify-between">
-                      <span className="text-gray-600">Client Satisfaction</span>
-                      <span className="font-semibold text-green-600">+35%</span>
-                    </div>
-                    <div className="flex justify-between">
-                      <span className="text-gray-600">New Market Opportunities</span>
-                      <span className="font-semibold text-green-600">+50%</span>
-                    </div>
-                    <div className="flex justify-between">
-                      <span className="text-gray-600">Team Communication</span>
-                      <span className="font-semibold text-green-600">+45%</span>
-                    </div>
-                    <div className="flex justify-between">
-                      <span className="text-gray-600">Revenue Growth</span>
-                      <span className="font-semibold text-green-600">+40%</span>
-                    </div>
-                  </div>
-                </div>
+              <h3 className="text-2xl font-bold text-gray-900 mb-4">
+                Business Spanish Programs
+              </h3>
+              <p className="text-gray-600 mb-6">
+                Transform your career with professional Spanish training designed for the corporate world. Perfect for executives, sales teams, and professionals working with Spanish-speaking markets.
+              </p>
+              <div className="flex flex-wrap justify-center gap-4 mb-6 text-sm text-gray-600">
+                <span className="bg-blue-100 text-blue-800 px-3 py-1 rounded-full">Healthcare & Medical</span>
+                <span className="bg-blue-100 text-blue-800 px-3 py-1 rounded-full">Real Estate</span>
+                <span className="bg-blue-100 text-blue-800 px-3 py-1 rounded-full">Sales & Marketing</span>
+                <span className="bg-blue-100 text-blue-800 px-3 py-1 rounded-full">Legal & Law</span>
               </div>
+              <Link href="/es/business">
+                <Button className="bg-passport-blue hover:bg-blue-700 text-white px-6 py-3">
+                  <Building className="w-4 h-4 mr-2" />
+                  Explore Business Programs
+                </Button>
+              </Link>
             </div>
           </div>
         </div>

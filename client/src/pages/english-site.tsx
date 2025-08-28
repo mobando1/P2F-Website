@@ -613,174 +613,32 @@ export default function EnglishSite() {
         </div>
       </section>
 
-      {/* Programas Empresariales */}
-      <section id="programas-empresariales" className="py-20 bg-gray-50">
+      {/* Programas Empresariales - Simplified */}
+      <section id="programas-empresariales" className="py-16 bg-gray-50">
         <div className="container mx-auto px-4">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-gray-900 mb-4">
-              Programas Empresariales de Inglés
-            </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Eleva tu carrera y expande tus oportunidades de negocio con capacitación profesional en inglés diseñada para el mundo corporativo.
-            </p>
-          </div>
-
-          <div className="max-w-6xl mx-auto">
-            {/* Main Value Proposition */}
-            <div className="bg-white rounded-2xl p-8 shadow-lg mb-12">
-              <div className="grid md:grid-cols-2 gap-8 items-center">
-                <div>
-                  <div className="w-16 h-16 bg-passport-blue rounded-full flex items-center justify-center mb-6">
-                    <Users className="w-8 h-8 text-white" />
-                  </div>
-                  <h3 className="text-2xl font-bold text-gray-900 mb-4">
-                    Transforma tu Comunicación Empresarial
-                  </h3>
-                  <p className="text-lg text-gray-700 mb-6">
-                    Conéctate con clientes, colegas y mercados de habla inglesa con confianza. Nuestro currículo enfocado en negocios cubre vocabulario específico de la industria y habilidades de comunicación profesional.
-                  </p>
-                  <ul className="space-y-3">
-                    <li className="flex items-center">
-                      <CheckCircle className="w-5 h-5 text-green-500 mr-3" />
-                      <span className="text-gray-700">Vocabulario específico de industria y terminología</span>
-                    </li>
-                    <li className="flex items-center">
-                      <CheckCircle className="w-5 h-5 text-green-500 mr-3" />
-                      <span className="text-gray-700">Habilidades profesionales de presentación y negociación</span>
-                    </li>
-                    <li className="flex items-center">
-                      <CheckCircle className="w-5 h-5 text-green-500 mr-3" />
-                      <span className="text-gray-700">Etiqueta empresarial y prácticas culturales</span>
-                    </li>
-                  </ul>
-                </div>
-                <div className="bg-gradient-to-br from-passport-blue to-blue-600 rounded-xl p-6 text-white">
-                  <h4 className="text-xl font-semibold mb-4">Industrias Populares:</h4>
-                  <div className="grid grid-cols-2 gap-3 text-sm">
-                    <div>• Salud y Medicina</div>
-                    <div>• Legal y Derecho</div>
-                    <div>• Bienes Raíces</div>
-                    <div>• Banca y Finanzas</div>
-                    <div>• Ventas y Marketing</div>
-                    <div>• Hospitalidad y Turismo</div>
-                    <div>• Educación</div>
-                    <div>• Tecnología</div>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            {/* Program Options */}
-            <div className="grid md:grid-cols-2 gap-8 mb-12">
-              <Card className="border-2 hover:border-passport-blue transition-colors">
-                <CardContent className="p-6">
-                  <div className="text-center mb-6">
-                    <Users className="w-12 h-12 text-passport-blue mx-auto mb-4" />
-                    <h3 className="text-xl font-bold text-gray-900">Coaching Ejecutivo Individual</h3>
-                  </div>
-                  <ul className="space-y-3 mb-6">
-                    <li className="flex items-start">
-                      <CheckCircle className="w-5 h-5 text-green-500 mr-3 mt-0.5 flex-shrink-0" />
-                      <span className="text-gray-700">Currículo personalizado basado en tu industria y rol</span>
-                    </li>
-                    <li className="flex items-start">
-                      <CheckCircle className="w-5 h-5 text-green-500 mr-3 mt-0.5 flex-shrink-0" />
-                      <span className="text-gray-700">Horarios flexibles adaptados a tu agenda ejecutiva</span>
-                    </li>
-                    <li className="flex items-start">
-                      <CheckCircle className="w-5 h-5 text-green-500 mr-3 mt-0.5 flex-shrink-0" />
-                      <span className="text-gray-700">Escenarios reales de negocios y estudios de caso</span>
-                    </li>
-                    <li className="flex items-start">
-                      <CheckCircle className="w-5 h-5 text-green-500 mr-3 mt-0.5 flex-shrink-0" />
-                      <span className="text-gray-700">Aprendizaje acelerado para impacto empresarial inmediato</span>
-                    </li>
-                  </ul>
-                  <Button 
-                    onClick={() => handleBookingClick('adult')}
-                    className="w-full bg-passport-blue hover:bg-blue-700 text-white"
-                  >
-                    Comenzar Programa Ejecutivo
-                  </Button>
-                </CardContent>
-              </Card>
-
-              <Card className="border-2 hover:border-passport-orange transition-colors">
-                <CardContent className="p-6">
-                  <div className="text-center mb-6">
-                    <Building className="w-12 h-12 text-passport-orange mx-auto mb-4" />
-                    <h3 className="text-xl font-bold text-gray-900">Capacitación Corporativa de Equipos</h3>
-                  </div>
-                  <ul className="space-y-3 mb-6">
-                    <li className="flex items-start">
-                      <CheckCircle className="w-5 h-5 text-green-500 mr-3 mt-0.5 flex-shrink-0" />
-                      <span className="text-gray-700">Sesiones grupales diseñadas para equipos y departamentos</span>
-                    </li>
-                    <li className="flex items-start">
-                      <CheckCircle className="w-5 h-5 text-green-500 mr-3 mt-0.5 flex-shrink-0" />
-                      <span className="text-gray-700">Vocabulario específico de empresa y procedimientos</span>
-                    </li>
-                    <li className="flex items-start">
-                      <CheckCircle className="w-5 h-5 text-green-500 mr-3 mt-0.5 flex-shrink-0" />
-                      <span className="text-gray-700">Resultados de aprendizaje consistentes en tu organización</span>
-                    </li>
-                    <li className="flex items-start">
-                      <CheckCircle className="w-5 h-5 text-green-500 mr-3 mt-0.5 flex-shrink-0" />
-                      <span className="text-gray-700">Descuentos por volumen y opciones de facturación flexible</span>
-                    </li>
-                  </ul>
-                  <Button 
-                    onClick={() => handleBookingClick('adult')}
-                    className="w-full bg-passport-orange hover:bg-orange-600 text-white"
-                  >
-                    Obtener Cotización Corporativa
-                  </Button>
-                </CardContent>
-              </Card>
-            </div>
-
-            {/* Success Story */}
+          <div className="max-w-4xl mx-auto text-center">
             <div className="bg-white rounded-2xl p-8 shadow-lg">
-              <div className="text-center mb-8">
-                <h3 className="text-2xl font-bold text-gray-900 mb-4">Casos de Éxito</h3>
+              <div className="w-16 h-16 bg-passport-orange rounded-full flex items-center justify-center mx-auto mb-6">
+                <Building className="w-8 h-8 text-white" />
               </div>
-              <div className="grid md:grid-cols-2 gap-8 items-center">
-                <div>
-                  <div className="flex text-yellow-400 mb-4">
-                    <Star className="w-5 h-5 fill-current" />
-                    <Star className="w-5 h-5 fill-current" />
-                    <Star className="w-5 h-5 fill-current" />
-                    <Star className="w-5 h-5 fill-current" />
-                    <Star className="w-5 h-5 fill-current" />
-                  </div>
-                  <p className="text-lg text-gray-700 mb-6 italic">
-                    "En 3 meses pasé de inglés básico a dirigir reuniones con clientes en inglés con confianza. Nuestra base de clientes americanos creció 40% desde que comencé el programa, y atribuyo gran parte de ese éxito a poder construir relaciones auténticas."
-                  </p>
-                  <div className="font-semibold text-gray-900">Carlos Mendoza</div>
-                  <div className="text-sm text-gray-600">Director de Ventas Senior, Grupo Inmobiliario México</div>
-                </div>
-                <div className="bg-gradient-to-br from-green-50 to-blue-50 rounded-xl p-6">
-                  <h4 className="font-semibold text-gray-900 mb-4">Métricas de Impacto Empresarial:</h4>
-                  <div className="space-y-3">
-                    <div className="flex justify-between">
-                      <span className="text-gray-600">Satisfacción del Cliente</span>
-                      <span className="font-semibold text-green-600">+35%</span>
-                    </div>
-                    <div className="flex justify-between">
-                      <span className="text-gray-600">Nuevas Oportunidades</span>
-                      <span className="font-semibold text-green-600">+50%</span>
-                    </div>
-                    <div className="flex justify-between">
-                      <span className="text-gray-600">Comunicación del Equipo</span>
-                      <span className="font-semibold text-green-600">+45%</span>
-                    </div>
-                    <div className="flex justify-between">
-                      <span className="text-gray-600">Crecimiento de Ingresos</span>
-                      <span className="font-semibold text-green-600">+40%</span>
-                    </div>
-                  </div>
-                </div>
+              <h3 className="text-2xl font-bold text-gray-900 mb-4">
+                Programas Empresariales de Inglés
+              </h3>
+              <p className="text-gray-600 mb-6">
+                Eleva tu carrera con capacitación profesional en inglés diseñada para el mundo corporativo. Perfecto para ejecutivos, equipos de ventas y profesionales que trabajan con mercados de habla inglesa.
+              </p>
+              <div className="flex flex-wrap justify-center gap-4 mb-6 text-sm text-gray-600">
+                <span className="bg-orange-100 text-orange-800 px-3 py-1 rounded-full">Salud y Medicina</span>
+                <span className="bg-orange-100 text-orange-800 px-3 py-1 rounded-full">Bienes Raíces</span>
+                <span className="bg-orange-100 text-orange-800 px-3 py-1 rounded-full">Ventas y Marketing</span>
+                <span className="bg-orange-100 text-orange-800 px-3 py-1 rounded-full">Legal y Derecho</span>
               </div>
+              <Link href="/en/business">
+                <Button className="bg-passport-orange hover:bg-orange-600 text-white px-6 py-3">
+                  <Building className="w-4 h-4 mr-2" />
+                  Explorar Programas Empresariales
+                </Button>
+              </Link>
             </div>
           </div>
         </div>
