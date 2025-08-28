@@ -158,9 +158,9 @@ export default function DiscountPopup({ language, onClose, onSubscribe }: Discou
                   __html: `
                     <iframe
                       src="https://api.leadconnectorhq.com/widget/form/4jKIDLnqJmvyS6yhYdly"
-                      style="display:none;width:100%;height:100%;border:none;border-radius:20px"
+                      style="width:100%;height:340px;border:none;border-radius:12px"
                       id="popup-4jKIDLnqJmvyS6yhYdly" 
-                      data-layout="{'id':'POPUP'}"
+                      data-layout="{'id':'INLINE'}"
                       data-trigger-type="alwaysShow"
                       data-trigger-value=""
                       data-activation-type="alwaysActivated"
