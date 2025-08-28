@@ -288,20 +288,33 @@ export default function SpanishSite() {
                   Choose between our specialized programs
                 </p>
                 <div className="grid gap-4">
-                  <div className="p-4 border-2 border-passport-orange rounded-lg bg-orange-50">
-                    <div className="flex items-center mb-2">
-                      <Users className="w-5 h-5 text-passport-orange mr-2" />
-                      <h4 className="font-semibold text-gray-900">Adult Classes</h4>
+                  <Link href="#booking-calendars" className="block">
+                    <div className="p-4 border-2 border-passport-orange rounded-lg bg-orange-50 hover:bg-orange-100 transition-colors cursor-pointer">
+                      <div className="flex items-center mb-2">
+                        <Users className="w-5 h-5 text-passport-orange mr-2" />
+                        <h4 className="font-semibold text-gray-900">Adult Classes</h4>
+                      </div>
+                      <p className="text-sm text-gray-600 mb-3">Professional conversation and business Spanish</p>
                     </div>
-                    <p className="text-sm text-gray-600 mb-3">Professional conversation and business Spanish</p>
-                  </div>
-                  <div className="p-4 border-2 border-passport-orange rounded-lg bg-orange-50">
-                    <div className="flex items-center mb-2">
-                      <Star className="w-5 h-5 text-passport-orange mr-2" />
-                      <h4 className="font-semibold text-gray-900">Kids Classes</h4>
+                  </Link>
+                  <Link href="#spanish-for-children" className="block">
+                    <div className="p-4 border-2 border-passport-orange rounded-lg bg-orange-50 hover:bg-orange-100 transition-colors cursor-pointer">
+                      <div className="flex items-center mb-2">
+                        <Star className="w-5 h-5 text-passport-orange mr-2" />
+                        <h4 className="font-semibold text-gray-900">Kids Classes</h4>
+                      </div>
+                      <p className="text-sm text-gray-600 mb-3">Fun, interactive learning for children</p>
                     </div>
-                    <p className="text-sm text-gray-600 mb-3">Fun, interactive learning for children</p>
-                  </div>
+                  </Link>
+                  <Link href="#business-programs" className="block">
+                    <div className="p-4 border-2 border-passport-blue rounded-lg bg-blue-50 hover:bg-blue-100 transition-colors cursor-pointer">
+                      <div className="flex items-center mb-2">
+                        <Building className="w-5 h-5 text-passport-blue mr-2" />
+                        <h4 className="font-semibold text-gray-900">Business Programs</h4>
+                      </div>
+                      <p className="text-sm text-gray-600 mb-3">Professional Spanish for corporate teams</p>
+                    </div>
+                  </Link>
                 </div>
               </div>
             </div>

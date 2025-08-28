@@ -288,20 +288,33 @@ export default function EnglishSite() {
                   Elige entre nuestros programas especializados
                 </p>
                 <div className="grid gap-4">
-                  <div className="p-4 border-2 border-passport-blue rounded-lg bg-blue-50">
-                    <div className="flex items-center mb-2">
-                      <Users className="w-5 h-5 text-passport-blue mr-2" />
-                      <h4 className="font-semibold text-gray-900">Clases para Adultos</h4>
+                  <Link href="#booking-calendars" className="block">
+                    <div className="p-4 border-2 border-passport-blue rounded-lg bg-blue-50 hover:bg-blue-100 transition-colors cursor-pointer">
+                      <div className="flex items-center mb-2">
+                        <Users className="w-5 h-5 text-passport-blue mr-2" />
+                        <h4 className="font-semibold text-gray-900">Clases para Adultos</h4>
+                      </div>
+                      <p className="text-sm text-gray-600 mb-3">Conversación profesional y inglés de negocios</p>
                     </div>
-                    <p className="text-sm text-gray-600 mb-3">Conversación profesional y inglés de negocios</p>
-                  </div>
-                  <div className="p-4 border-2 border-passport-blue rounded-lg bg-blue-50">
-                    <div className="flex items-center mb-2">
-                      <Star className="w-5 h-5 text-passport-blue mr-2" />
-                      <h4 className="font-semibold text-gray-900">Clases para Niños</h4>
+                  </Link>
+                  <Link href="#ingles-para-ninos" className="block">
+                    <div className="p-4 border-2 border-passport-blue rounded-lg bg-blue-50 hover:bg-blue-100 transition-colors cursor-pointer">
+                      <div className="flex items-center mb-2">
+                        <Star className="w-5 h-5 text-passport-blue mr-2" />
+                        <h4 className="font-semibold text-gray-900">Clases para Niños</h4>
+                      </div>
+                      <p className="text-sm text-gray-600 mb-3">Aprendizaje divertido e interactivo para niños</p>
                     </div>
-                    <p className="text-sm text-gray-600 mb-3">Aprendizaje divertido e interactivo para niños</p>
-                  </div>
+                  </Link>
+                  <Link href="#programas-empresariales" className="block">
+                    <div className="p-4 border-2 border-passport-orange rounded-lg bg-orange-50 hover:bg-orange-100 transition-colors cursor-pointer">
+                      <div className="flex items-center mb-2">
+                        <Building className="w-5 h-5 text-passport-orange mr-2" />
+                        <h4 className="font-semibold text-gray-900">Programas Empresariales</h4>
+                      </div>
+                      <p className="text-sm text-gray-600 mb-3">Inglés profesional para equipos corporativos</p>
+                    </div>
+                  </Link>
                 </div>
               </div>
             </div>
