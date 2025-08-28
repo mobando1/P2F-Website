@@ -23,10 +23,10 @@ export default function HighLevelCalendar({ language, type, className = "" }: Hi
       contactPhone: '+1 (555) 123-4567'
     },
     es: {
-      title: type === 'adult' ? 'Reserva tu Clase Gratuita' : 'Reserva Clase Gratuita para Niños',
+      title: type === 'adult' ? 'Reserva tu Clase Gratuita de Inglés' : 'Reserva Clase Gratuita de Inglés para Niños',
       subtitle: type === 'adult'
-        ? 'Agenda una clase de prueba de 40 minutos con un instructor nativo latinoamericano'
-        : 'Agenda una clase de prueba de 40 minutos para tu hijo con nuestros instructores especializados en español',
+        ? 'Agenda una clase de prueba de 40 minutos con un instructor nativo americano'
+        : 'Agenda una clase de prueba de 40 minutos para tu hijo con nuestros instructores especializados en inglés',
       loading: 'Cargando calendario...',
       fallbackTitle: 'Calendario temporalmente no disponible',
       fallbackMessage: 'Por favor contáctanos directamente para agendar tu clase gratuita:',
