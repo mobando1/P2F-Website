@@ -151,28 +151,38 @@ export default function DiscountPopup({ language, onClose, onSubscribe }: Discou
 
         {/* HighLevel form integration for discount popup */}
         <div className="space-y-4">
-          <div className="min-h-[406px] -mx-4 -mb-4">
+          <div className="min-h-[340px] -mx-4 -mb-4">
             {language === 'es' ? (
-              <iframe
-                src="https://api.leadconnectorhq.com/widget/form/4jKIDLnqJmvyS6yhYdly"
-                style={{
-                  width: '100%',
-                  height: '400px',
-                  border: 'none',
-                  borderRadius: '12px',
-                  backgroundColor: '#f9fafb'
+              <div 
+                dangerouslySetInnerHTML={{
+                  __html: `
+                    <iframe
+                      src="https://api.leadconnectorhq.com/widget/form/4jKIDLnqJmvyS6yhYdly"
+                      style="display:none;width:100%;height:100%;border:none;border-radius:20px"
+                      id="popup-4jKIDLnqJmvyS6yhYdly" 
+                      data-layout="{'id':'POPUP'}"
+                      data-trigger-type="alwaysShow"
+                      data-trigger-value=""
+                      data-activation-type="alwaysActivated"
+                      data-activation-value=""
+                      data-deactivation-type="neverDeactivate"
+                      data-deactivation-value=""
+                      data-form-name="Newsletter subscription - POP UP - CLASES DE INGLES"
+                      data-height="340"
+                      data-layout-iframe-id="popup-4jKIDLnqJmvyS6yhYdly"
+                      data-form-id="4jKIDLnqJmvyS6yhYdly"
+                      title="Newsletter subscription - POP UP - CLASES DE INGLES">
+                    </iframe>
+                    <script src="https://link.msgsndr.com/js/form_embed.js"></script>
+                  `
                 }}
-                loading="lazy"
-                title="Suscripción Newsletter - Clases de Inglés"
-                allow="clipboard-write"
-                sandbox="allow-same-origin allow-scripts allow-forms allow-popups"
               />
             ) : (
               <iframe
                 src="https://api.leadconnectorhq.com/widget/form/FTuj7n9Kp5GYdlbLyyI7"
                 style={{
                   width: '100%',
-                  height: '400px',
+                  height: '340px',
                   border: 'none',
                   borderRadius: '12px',
                   backgroundColor: '#f9fafb'
