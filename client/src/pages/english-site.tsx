@@ -91,36 +91,21 @@ export default function EnglishSite() {
             </div>
             <div className="flex items-center space-x-6">
               <nav className="hidden md:flex space-x-6">
-                <button 
-                  onClick={() => scrollToSection('planes-precios')}
-                  className="text-gray-700 hover:text-passport-blue transition-colors"
-                >
+                <Link href="/en/pricing" className="text-gray-700 hover:text-passport-blue transition-colors">
                   Planes y Precios
-                </button>
-                <button 
-                  onClick={() => scrollToSection('ingles-para-ninos')}
-                  className="text-gray-700 hover:text-passport-blue transition-colors"
-                >
+                </Link>
+                <Link href="/en/children" className="text-gray-700 hover:text-passport-blue transition-colors">
                   Inglés para Niños
-                </button>
-                <button 
-                  onClick={() => scrollToSection('programas-empresariales')}
-                  className="text-gray-700 hover:text-passport-blue transition-colors"
-                >
+                </Link>
+                <Link href="/en/business" className="text-gray-700 hover:text-passport-blue transition-colors">
                   Programas Empresariales
-                </button>
-                <button 
-                  onClick={() => scrollToSection('equipo')}
-                  className="text-gray-700 hover:text-passport-blue transition-colors"
-                >
+                </Link>
+                <Link href="/en/team" className="text-gray-700 hover:text-passport-blue transition-colors">
                   Equipo
-                </button>
-                <button 
-                  onClick={() => scrollToSection('blog')}
-                  className="text-gray-700 hover:text-passport-blue transition-colors"
-                >
+                </Link>
+                <Link href="/en/blog" className="text-gray-700 hover:text-passport-blue transition-colors">
                   Blog
-                </button>
+                </Link>
               </nav>
               <Button 
                 onClick={goToSpanishSite}

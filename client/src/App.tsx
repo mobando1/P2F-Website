@@ -7,6 +7,11 @@ import NotFound from "@/pages/not-found";
 import Landing from "@/pages/landing";
 import SpanishSite from "@/pages/spanish-site";
 import EnglishSite from "@/pages/english-site";
+import Pricing from "@/pages/pricing";
+import Children from "@/pages/children";
+import Business from "@/pages/business";
+import Team from "@/pages/team";
+import Blog from "@/pages/blog";
 
 function Router() {
   return (
@@ -14,6 +19,21 @@ function Router() {
       <Route path="/" component={Landing} />
       <Route path="/es" component={SpanishSite} />
       <Route path="/en" component={EnglishSite} />
+      
+      {/* Spanish site pages (English speakers learning Spanish) */}
+      <Route path="/es/pricing" component={() => <Pricing language="en" />} />
+      <Route path="/es/children" component={() => <Children language="en" />} />
+      <Route path="/es/business" component={() => <Business language="en" />} />
+      <Route path="/es/team" component={() => <Team language="en" />} />
+      <Route path="/es/blog" component={() => <Blog language="en" />} />
+      
+      {/* English site pages (Spanish speakers learning English) */}
+      <Route path="/en/pricing" component={() => <Pricing language="es" />} />
+      <Route path="/en/children" component={() => <Children language="es" />} />
+      <Route path="/en/business" component={() => <Business language="es" />} />
+      <Route path="/en/team" component={() => <Team language="es" />} />
+      <Route path="/en/blog" component={() => <Blog language="es" />} />
+      
       <Route component={NotFound} />
     </Switch>
   );
