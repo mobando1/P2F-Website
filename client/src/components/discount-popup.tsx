@@ -11,14 +11,14 @@ interface DiscountPopupProps {
 
 export default function DiscountPopup({ language, onClose, onSubscribe }: DiscountPopupProps) {
   const [email, setEmail] = useState("");
-  const [timeLeft, setTimeLeft] = useState(600); // 10 minutes in seconds
+  // Removed timer functionality as requested
   const [isSubmitted, setIsSubmitted] = useState(false);
 
   const texts = {
     en: {
       title: "🎉 Special Offer!",
       subtitle: "Get 10% OFF your first month",
-      description: "Join thousands learning English with native instructors. Limited time offer!",
+      description: "Join thousands learning English with native instructors!",
       timer: "Offer expires in:",
       emailPlaceholder: "Enter your email",
       ctaButton: "Claim 10% Discount",
@@ -34,7 +34,7 @@ export default function DiscountPopup({ language, onClose, onSubscribe }: Discou
     es: {
       title: "🎉 ¡Oferta Especial!",
       subtitle: "Obtén 10% de DESCUENTO en tu primer mes",
-      description: "Únete a miles aprendiendo inglés con instructores nativos. ¡Oferta por tiempo limitado!",
+      description: "Únete a miles aprendiendo inglés con instructores nativos!",
       timer: "La oferta expira en:",
       emailPlaceholder: "Ingresa tu email",
       ctaButton: "Reclamar 10% Descuento",
@@ -51,25 +51,9 @@ export default function DiscountPopup({ language, onClose, onSubscribe }: Discou
 
   const t = texts[language];
 
-  useEffect(() => {
-    const timer = setInterval(() => {
-      setTimeLeft((prev) => {
-        if (prev <= 1) {
-          clearInterval(timer);
-          return 0;
-        }
-        return prev - 1;
-      });
-    }, 1000);
+  // Timer removed as requested
 
-    return () => clearInterval(timer);
-  }, []);
-
-  const formatTime = (seconds: number) => {
-    const minutes = Math.floor(seconds / 60);
-    const remainingSeconds = seconds % 60;
-    return `${minutes}:${remainingSeconds.toString().padStart(2, '0')}`;
-  };
+  // Timer formatting removed
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -104,7 +88,7 @@ export default function DiscountPopup({ language, onClose, onSubscribe }: Discou
 
   return (
     <div className="fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center p-4">
-      <div className="bg-white rounded-2xl max-w-md w-full p-8 relative animate-in fade-in zoom-in duration-300">
+      <div className="bg-white rounded-2xl max-w-sm w-full p-6 relative animate-in fade-in zoom-in duration-300">
         <button
           onClick={onClose}
           className="absolute top-4 right-4 text-gray-400 hover:text-gray-600 transition-colors"
@@ -117,7 +101,7 @@ export default function DiscountPopup({ language, onClose, onSubscribe }: Discou
             <Gift className="w-8 h-8 text-white" />
           </div>
           
-          <h3 className="text-2xl font-bold text-gray-900 mb-2">
+          <h3 className="text-2xl font-bold bg-gradient-to-r from-passport-blue to-passport-orange bg-clip-text text-transparent mb-2">
             {t.title}
           </h3>
           
@@ -130,35 +114,26 @@ export default function DiscountPopup({ language, onClose, onSubscribe }: Discou
           </p>
         </div>
 
-        <div className="bg-red-50 border border-red-200 rounded-lg p-4 mb-6 text-center">
-          <div className="flex items-center justify-center text-red-600 mb-2">
-            <Timer className="w-4 h-4 mr-2" />
-            <span className="text-sm font-medium">{t.timer}</span>
-          </div>
-          <div className="text-2xl font-bold text-red-600">
-            {formatTime(timeLeft)}
-          </div>
-        </div>
+        {/* Timer removed as requested */}
 
-        <ul className="space-y-2 mb-6">
+        <div className="space-y-2 mb-6">
           {t.features.map((feature, index) => (
-            <li key={index} className="flex items-center text-sm text-gray-700">
-              <CheckCircle className="w-4 h-4 text-green-500 mr-2 flex-shrink-0" />
+            <div key={index} className="text-sm text-gray-700 text-center">
               {feature}
-            </li>
+            </div>
           ))}
-        </ul>
+        </div>
 
         {/* HighLevel form integration for discount popup */}
         <div className="space-y-4">
-          <div className="min-h-[300px] -mx-4 -mb-4">
+          <div className="min-h-[250px] -mx-2 -mb-2">
             {language === 'es' ? (
               <div 
                 dangerouslySetInnerHTML={{
                   __html: `
                     <iframe
                       src="https://api.leadconnectorhq.com/widget/form/4jKIDLnqJmvyS6yhYdly"
-                      style="width:100%;height:300px;border:none;border-radius:20px"
+                      style="width:100%;height:250px;border:none;border-radius:12px"
                       id="inline-4jKIDLnqJmvyS6yhYdly" 
                       data-layout="{'id':'INLINE'}"
                       data-trigger-type="alwaysShow"
@@ -168,7 +143,7 @@ export default function DiscountPopup({ language, onClose, onSubscribe }: Discou
                       data-deactivation-type="neverDeactivate"
                       data-deactivation-value=""
                       data-form-name="Newsletter subscription - POP UP - CLASES DE INGLES"
-                      data-height="300"
+                      data-height="250"
                       data-layout-iframe-id="inline-4jKIDLnqJmvyS6yhYdly"
                       data-form-id="4jKIDLnqJmvyS6yhYdly"
                       title="Newsletter subscription - POP UP - CLASES DE INGLES">
@@ -182,7 +157,7 @@ export default function DiscountPopup({ language, onClose, onSubscribe }: Discou
                 src="https://api.leadconnectorhq.com/widget/form/FTuj7n9Kp5GYdlbLyyI7"
                 style={{
                   width: '100%',
-                  height: '340px',
+                  height: '250px',
                   border: 'none',
                   borderRadius: '12px',
                   backgroundColor: '#f9fafb'
