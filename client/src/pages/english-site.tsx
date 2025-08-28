@@ -109,7 +109,7 @@ export default function EnglishSite() {
                 size="sm"
                 className="border-passport-orange text-passport-orange hover:bg-passport-orange hover:text-white"
               >
-                🇪🇸 Español
+                🇪🇸 Aprende Español
               </Button>
             </div>
           </div>
