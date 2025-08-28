@@ -151,15 +151,15 @@ export default function DiscountPopup({ language, onClose, onSubscribe }: Discou
 
         {/* HighLevel form integration for discount popup */}
         <div className="space-y-4">
-          <div className="min-h-[340px] -mx-4 -mb-4">
+          <div className="min-h-[406px] -mx-4 -mb-4">
             {language === 'es' ? (
               <div 
                 dangerouslySetInnerHTML={{
                   __html: `
                     <iframe
                       src="https://api.leadconnectorhq.com/widget/form/4jKIDLnqJmvyS6yhYdly"
-                      style="width:100%;height:340px;border:none;border-radius:12px"
-                      id="popup-4jKIDLnqJmvyS6yhYdly" 
+                      style="width:100%;height:406px;border:none;border-radius:20px"
+                      id="inline-4jKIDLnqJmvyS6yhYdly" 
                       data-layout="{'id':'INLINE'}"
                       data-trigger-type="alwaysShow"
                       data-trigger-value=""
@@ -168,8 +168,8 @@ export default function DiscountPopup({ language, onClose, onSubscribe }: Discou
                       data-deactivation-type="neverDeactivate"
                       data-deactivation-value=""
                       data-form-name="Newsletter subscription - POP UP - CLASES DE INGLES"
-                      data-height="340"
-                      data-layout-iframe-id="popup-4jKIDLnqJmvyS6yhYdly"
+                      data-height="406"
+                      data-layout-iframe-id="inline-4jKIDLnqJmvyS6yhYdly"
                       data-form-id="4jKIDLnqJmvyS6yhYdly"
                       title="Newsletter subscription - POP UP - CLASES DE INGLES">
                     </iframe>
