@@ -532,6 +532,106 @@ export default function SpanishSite() {
           </div>
         </div>
       </section>
+      
+      {/* Spanish for Children */}
+      <section id="spanish-for-children" className="py-20 bg-gradient-to-b from-orange-50 to-white">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl font-bold text-gray-900 mb-4">
+              Spanish for Children
+            </h2>
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+              Spark your child's love for Spanish with fun, interactive sessions designed specifically for young learners aged 5-17.
+            </p>
+          </div>
+
+          <div className="max-w-6xl mx-auto grid lg:grid-cols-2 gap-12 items-center">
+            {/* Content */}
+            <div>
+              <div className="mb-8">
+                <div className="w-16 h-16 bg-passport-orange rounded-full flex items-center justify-center mb-4">
+                  <Star className="w-8 h-8 text-white" />
+                </div>
+                <h3 className="text-3xl font-bold text-gray-900 mb-4">
+                  Fun, Interactive Learning That Works
+                </h3>
+                <p className="text-lg text-gray-700 mb-6">
+                  Our experienced coaches provide personalized attention and engaging activities to build essential language skills in a vibrant learning environment.
+                </p>
+              </div>
+
+              <ul className="space-y-4 mb-8">
+                <li className="flex items-start">
+                  <CheckCircle className="w-6 h-6 text-green-500 mr-3 mt-1 flex-shrink-0" />
+                  <div>
+                    <h4 className="font-semibold text-gray-900">Age-Appropriate Curriculum</h4>
+                    <p className="text-gray-600">Specially designed lessons that match your child's developmental stage and learning style.</p>
+                  </div>
+                </li>
+                <li className="flex items-start">
+                  <CheckCircle className="w-6 h-6 text-green-500 mr-3 mt-1 flex-shrink-0" />
+                  <div>
+                    <h4 className="font-semibold text-gray-900">Interactive Games & Activities</h4>
+                    <p className="text-gray-600">Learning through play with songs, stories, and cultural activities that keep kids engaged.</p>
+                  </div>
+                </li>
+                <li className="flex items-start">
+                  <CheckCircle className="w-6 h-6 text-green-500 mr-3 mt-1 flex-shrink-0" />
+                  <div>
+                    <h4 className="font-semibold text-gray-900">Patient Native Instructors</h4>
+                    <p className="text-gray-600">Experienced teachers who specialize in working with children and creating a supportive environment.</p>
+                  </div>
+                </li>
+                <li className="flex items-start">
+                  <CheckCircle className="w-6 h-6 text-green-500 mr-3 mt-1 flex-shrink-0" />
+                  <div>
+                    <h4 className="font-semibold text-gray-900">Cultural Connection</h4>
+                    <p className="text-gray-600">Develop appreciation for Latin American cultures while building language skills and confidence.</p>
+                  </div>
+                </li>
+              </ul>
+
+              <Button 
+                onClick={() => handleBookingClick('child')}
+                className="bg-passport-orange hover:bg-orange-600 text-white px-8 py-4 text-lg font-semibold"
+                size="lg"
+              >
+                <Star className="w-5 h-5 mr-2" />
+                Book Free Trial for Kids
+              </Button>
+            </div>
+
+            {/* Testimonial */}
+            <div className="bg-white rounded-2xl p-8 shadow-lg">
+              <div className="flex text-yellow-400 mb-4">
+                <Star className="w-5 h-5 fill-current" />
+                <Star className="w-5 h-5 fill-current" />
+                <Star className="w-5 h-5 fill-current" />
+                <Star className="w-5 h-5 fill-current" />
+                <Star className="w-5 h-5 fill-current" />
+              </div>
+              <p className="text-gray-700 mb-6 text-lg italic">
+                "I'm incredibly thrilled with the language learning journey my twins have embarked on with Passport to Fluency. The interactive lessons, engaging activities, and culturally relevant content have truly captivated my kids' interest and enthusiasm. They are not only learning the language but also developing a deep appreciation for their cultural roots."
+              </p>
+              <div className="font-semibold text-gray-900">Rebecca Unrath</div>
+              <div className="text-sm text-gray-600">Parent of twins, New Jersey</div>
+            </div>
+          </div>
+
+          <div className="text-center mt-12">
+            <div className="bg-blue-50 border border-blue-200 rounded-lg p-6 max-w-2xl mx-auto">
+              <div className="flex items-center justify-center mb-3">
+                <Star className="w-6 h-6 text-blue-500 mr-2" />
+                <span className="font-semibold text-blue-800">Perfect for Ages 5-17</span>
+              </div>
+              <p className="text-blue-700">
+                Same affordable pricing as adult classes • Specialized teaching methods for children • Fun and educational approach
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Testimonials */}
       <section id="testimonials" className="py-20 bg-gray-50">
         <div className="container mx-auto px-4">
