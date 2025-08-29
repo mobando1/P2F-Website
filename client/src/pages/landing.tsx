@@ -1,7 +1,7 @@
 import { useLocation } from "wouter";
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
-import { Globe, Star, Users, Clock, ArrowRight, CheckCircle, ChevronDown, BookOpen, Headphones, Award, TrendingUp, Play, Zap, Target, Shield, HelpCircle, Plus, Minus } from "lucide-react";
+import { Globe, Star, Users, Clock, ArrowRight, CheckCircle, ChevronDown, BookOpen, Headphones, Award, TrendingUp, Play, Zap, Target, Shield, HelpCircle, Plus, Minus, X } from "lucide-react";
 import passportLogo from "@assets/a1c5a1_9514ede9e3124d7a9adf78f5dcf07f28~mv2_1755803448396.png";
 import newLearningImage from "@assets/generated_images/Student_learning_with_online_tutor_5c3a43c2.png";
 
@@ -34,8 +34,22 @@ const FAQItem = ({ question, answer }: { question: string; answer: string }) => 
 };
 
 // Componente CTA Slim reutilizable
-const CTASlim = ({ text = "¿Listo? Elige tu idioma" }: { text?: string }) => {
+const CTASlim = ({ 
+  text = "¿Listo? Elige tu idioma", 
+  onLanguageSelect 
+}: { 
+  text?: string;
+  onLanguageSelect?: (language: 'spanish' | 'english', route: string) => void;
+}) => {
   const [, navigate] = useLocation();
+  
+  const handleClick = (language: 'spanish' | 'english', route: string) => {
+    if (onLanguageSelect) {
+      onLanguageSelect(language, route);
+    } else {
+      navigate(route);
+    }
+  };
   
   return (
     <div className="bg-white py-6 border-t border-gray-100" style={{
@@ -48,7 +62,7 @@ const CTASlim = ({ text = "¿Listo? Elige tu idioma" }: { text?: string }) => {
           </p>
           <div className="flex flex-col sm:flex-row gap-4">
             <Button 
-              onClick={() => navigate('/es')}
+              onClick={() => handleClick('spanish', '/es')}
               className="px-8 py-3 text-lg font-bold rounded-full transition-all duration-300 hover:shadow-lg border-0"
               style={{
                 background: 'linear-gradient(135deg, #F59E1C 0%, #fbbf24 100%)',
@@ -62,7 +76,7 @@ const CTASlim = ({ text = "¿Listo? Elige tu idioma" }: { text?: string }) => {
               </span>
             </Button>
             <Button 
-              onClick={() => navigate('/en')}
+              onClick={() => handleClick('english', '/en')}
               className="px-8 py-3 text-lg font-bold rounded-full transition-all duration-300 hover:shadow-lg border-0"
               style={{
                 background: 'linear-gradient(135deg, #0A4A6E 0%, #1C7BB1 100%)',
@@ -83,7 +97,11 @@ const CTASlim = ({ text = "¿Listo? Elige tu idioma" }: { text?: string }) => {
 };
 
 // Componente CTA móvil fijo
-const MobileCTA = () => {
+const MobileCTA = ({ 
+  onLanguageSelect 
+}: { 
+  onLanguageSelect?: (language: 'spanish' | 'english', route: string) => void;
+}) => {
   const [, navigate] = useLocation();
   const [isVisible, setIsVisible] = useState(false);
   
@@ -96,6 +114,14 @@ const MobileCTA = () => {
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
+
+  const handleClick = (language: 'spanish' | 'english', route: string) => {
+    if (onLanguageSelect) {
+      onLanguageSelect(language, route);
+    } else {
+      navigate(route);
+    }
+  };
   
   if (!isVisible) return null;
   
@@ -105,7 +131,7 @@ const MobileCTA = () => {
     }}>
       <div className="flex gap-3">
         <Button 
-          onClick={() => navigate('/es')}
+          onClick={() => handleClick('spanish', '/es')}
           className="flex-1 py-4 text-lg font-bold rounded-full border-0 bg-white transition-all duration-300"
           style={{color: '#0A4A6E'}}
           data-testid="mobile-cta-learn-spanish"
@@ -117,7 +143,7 @@ const MobileCTA = () => {
         </Button>
         
         <Button 
-          onClick={() => navigate('/en')}
+          onClick={() => handleClick('english', '/en')}
           className="flex-1 py-4 text-lg font-bold rounded-full border-0 bg-white transition-all duration-300"
           style={{color: '#0A4A6E'}}
           data-testid="mobile-cta-aprende-ingles"
@@ -132,9 +158,134 @@ const MobileCTA = () => {
   );
 };
 
+// Componente Popup Adaptativo de Email
+const EmailPopup = ({ selectedLanguage }: { selectedLanguage: 'spanish' | 'english' | null }) => {
+  const [isVisible, setIsVisible] = useState(false);
+  const [isClosing, setIsClosing] = useState(false);
+
+  useEffect(() => {
+    // Mostrar popup después de 7 segundos
+    const timer = setTimeout(() => {
+      setIsVisible(true);
+    }, 7000);
+
+    return () => clearTimeout(timer);
+  }, []);
+
+  useEffect(() => {
+    // Agregar el script de form_embed cuando el componente se monta
+    if (isVisible && !document.querySelector('script[src="https://link.msgsndr.com/js/form_embed.js"]')) {
+      const script = document.createElement('script');
+      script.src = 'https://link.msgsndr.com/js/form_embed.js';
+      script.async = true;
+      document.body.appendChild(script);
+    }
+  }, [isVisible]);
+
+  const handleClose = () => {
+    setIsClosing(true);
+    setTimeout(() => {
+      setIsVisible(false);
+      setIsClosing(false);
+    }, 300);
+  };
+
+  if (!isVisible) return null;
+
+  // Determinar el contenido del popup según el idioma seleccionado
+  const isSpanishSelected = selectedLanguage === 'spanish';
+  const isEnglishSelected = selectedLanguage === 'english';
+  
+  // Si no hay selección, mostrar el popup genérico en español
+  const popupContent = {
+    title: isEnglishSelected 
+      ? "🎯 Special Offer - 10% OFF!" 
+      : "🎯 ¡Oferta Especial - 10% de Descuento!",
+    subtitle: isEnglishSelected
+      ? "Get 10% discount on your first month of any plan!"
+      : "¡Obtén 10% de descuento en tu primer mes de cualquier plan!",
+    description: isEnglishSelected
+      ? "Join thousands of students who are already learning with native instructors. Limited time offer!"
+      : "Únete a miles de estudiantes que ya están aprendiendo con instructores nativos. ¡Oferta por tiempo limitado!"
+  };
+
+  return (
+    <>
+      {/* Overlay */}
+      <div 
+        className={`fixed inset-0 bg-black transition-opacity duration-300 z-50 ${
+          isClosing ? 'opacity-0' : 'opacity-50'
+        }`}
+        onClick={handleClose}
+      />
+      
+      {/* Popup Modal */}
+      <div className={`fixed inset-0 z-50 flex items-center justify-center p-4 transition-all duration-300 ${
+        isClosing ? 'opacity-0 scale-95' : 'opacity-100 scale-100'
+      }`}>
+        <div className="bg-white rounded-3xl shadow-2xl max-w-md w-full mx-4 relative overflow-hidden"
+             style={{ maxHeight: '90vh' }}>
+          
+          {/* Header con gradiente de marca */}
+          <div className="relative p-6 text-center text-white"
+               style={{
+                 background: 'linear-gradient(135deg, #0A4A6E 0%, #F59E1C 100%)'
+               }}>
+            {/* Botón cerrar */}
+            <button
+              onClick={handleClose}
+              className="absolute top-4 right-4 text-white hover:text-gray-200 transition-colors"
+              data-testid="popup-close-button"
+            >
+              <X className="w-6 h-6" />
+            </button>
+            
+            <h2 className="text-2xl font-bold mb-2">{popupContent.title}</h2>
+            <p className="text-lg opacity-90">{popupContent.subtitle}</p>
+          </div>
+
+          {/* Contenido del popup */}
+          <div className="p-6">
+            <p className="text-gray-600 text-center mb-6 leading-relaxed">
+              {popupContent.description}
+            </p>
+            
+            {/* Iframe del formulario */}
+            <div className="w-full h-96 rounded-2xl overflow-hidden">
+              <iframe
+                src="https://api.leadconnectorhq.com/widget/form/kE3wnjGXhaeQvy1S6FPd"
+                style={{
+                  width: '100%',
+                  height: '100%',
+                  border: 'none',
+                  borderRadius: '20px'
+                }}
+                id="inline-kE3wnjGXhaeQvy1S6FPd"
+                data-layout="{'id':'INLINE'}"
+                data-trigger-type="alwaysShow"
+                data-trigger-value=""
+                data-activation-type="alwaysActivated"
+                data-activation-value=""
+                data-deactivation-type="neverDeactivate"
+                data-deactivation-value=""
+                data-form-name="Newsletter subscription - POP UP - CLASES DE INGLES - Copy"
+                data-height="466"
+                data-layout-iframe-id="inline-kE3wnjGXhaeQvy1S6FPd"
+                data-form-id="kE3wnjGXhaeQvy1S6FPd"
+                title="Newsletter subscription - POP UP - CLASES DE INGLES - Copy"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </>
+  );
+};
+
 export default function Landing() {
   const [, navigate] = useLocation();
   const [detectedLanguage, setDetectedLanguage] = useState<string | null>(null);
+  const [selectedLanguage, setSelectedLanguage] = useState<'spanish' | 'english' | null>(null);
 
   useEffect(() => {
     // Simple language detection based on browser language
@@ -146,6 +297,12 @@ export default function Landing() {
       setDetectedLanguage('English');
     }
   }, []);
+
+  // Función para manejar la selección de idioma y navegar
+  const handleLanguageSelection = (language: 'spanish' | 'english', route: string) => {
+    setSelectedLanguage(language);
+    navigate(route);
+  };
 
   return (
     <div className="min-h-screen overflow-hidden relative" style={{
@@ -207,7 +364,7 @@ export default function Landing() {
             {/* CTA Buttons - Elegant Pill Style con mejor espaciado */}
             <div className="space-y-6">
               <Button 
-                onClick={() => navigate('/es')}
+                onClick={() => handleLanguageSelection('spanish', '/es')}
                 className="w-full sm:w-auto px-12 py-6 text-2xl font-bold rounded-full transition-all duration-500 hover:shadow-2xl transform hover:scale-105 border-0 relative overflow-hidden group"
                 style={{
                   background: 'linear-gradient(135deg, #F59E1C 0%, #fbbf24 100%)',
@@ -224,7 +381,7 @@ export default function Landing() {
               </Button>
               
               <Button 
-                onClick={() => navigate('/en')}
+                onClick={() => handleLanguageSelection('english', '/en')}
                 className="w-full sm:w-auto px-12 py-6 text-2xl font-bold rounded-full transition-all duration-500 hover:shadow-2xl transform hover:scale-105 border-0 relative overflow-hidden group ml-0 sm:ml-6"
                 style={{
                   background: 'linear-gradient(135deg, #0A4A6E 0%, #1C7BB1 100%)',
@@ -318,7 +475,7 @@ export default function Landing() {
       </div>
       
       {/* CTA Slim #1 */}
-      <CTASlim />
+      <CTASlim onLanguageSelect={handleLanguageSelection} />
       
       {/* Sección 2: Cómo funciona */}
       <div className="py-20 bg-gray-50">
@@ -433,7 +590,7 @@ export default function Landing() {
       </div>
       
       {/* CTA Slim #2 */}
-      <CTASlim text="¿Te gusta el proceso? ¡Empezemos!" />
+      <CTASlim text="¿Te gusta el proceso? ¡Empezemos!" onLanguageSelect={handleLanguageSelection} />
       
       {/* Sección 3: Prueba social - Reviews */}
       <div className="py-20 bg-white">
@@ -535,7 +692,7 @@ export default function Landing() {
             {/* CTAs grandes lado a lado */}
             <div className="flex flex-col md:flex-row gap-6 justify-center items-center mb-8">
               <Button 
-                onClick={() => navigate('/es')}
+                onClick={() => handleLanguageSelection('spanish', '/es')}
                 className="px-12 py-6 text-2xl font-bold rounded-full transition-all duration-300 hover:shadow-2xl hover:scale-105 border-0 bg-white"
                 style={{color: '#0A4A6E'}}
                 data-testid="final-cta-learn-spanish"
@@ -548,7 +705,7 @@ export default function Landing() {
               </Button>
               
               <Button 
-                onClick={() => navigate('/en')}
+                onClick={() => handleLanguageSelection('english', '/en')}
                 className="px-12 py-6 text-2xl font-bold rounded-full transition-all duration-300 hover:shadow-2xl hover:scale-105 border-0 bg-white"
                 style={{color: '#0A4A6E'}}
                 data-testid="final-cta-aprende-ingles"
@@ -598,7 +755,10 @@ export default function Landing() {
       </div>
       
       {/* CTA móvil fijo */}
-      <MobileCTA />
+      <MobileCTA onLanguageSelect={handleLanguageSelection} />
+      
+      {/* Popup de Email Adaptativo */}
+      <EmailPopup selectedLanguage={selectedLanguage} />
     </div>
   );
 }
