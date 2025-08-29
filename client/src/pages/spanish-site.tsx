@@ -173,74 +173,185 @@ export default function SpanishSite() {
           </div>
         </div>
       </section>
-      {/* How it Works - Simple & Clean */}
+      {/* How it Works - Timeline Visual */}
       <section id="how-it-works" className="py-20 bg-white">
         <div className="container mx-auto px-4">
+          {/* Header */}
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-gray-900 mb-4">
+            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
               How It Works
             </h2>
-            <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
               Just 3 simple steps to start speaking Spanish with confidence
             </p>
           </div>
 
-          <div className="max-w-5xl mx-auto grid md:grid-cols-3 gap-8">
-            
-            {/* Paso 1 */}
-            <div className="text-center group">
-              <div className="relative mb-8">
-                <div className="w-20 h-20 bg-blue-500 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:scale-105 transition-transform duration-200">
-                  <span className="text-white font-bold text-2xl">1</span>
+          {/* Desktop: Horizontal Timeline */}
+          <div className="hidden md:block max-w-6xl mx-auto">
+            <div className="relative">
+              
+              {/* Línea conectora horizontal */}
+              <div className="absolute top-1/2 left-0 right-0 h-0.5 bg-gray-200 transform -translate-y-1/2 z-0"></div>
+              
+              {/* Grid de pasos */}
+              <div className="grid grid-cols-3 gap-8 relative z-10">
+                
+                {/* Paso 1 - Azul */}
+                <div className="text-center group">
+                  <div className="relative mb-8">
+                    {/* Círculo principal con ícono */}
+                    <div className="w-24 h-24 bg-blue-500 rounded-full flex items-center justify-center mx-auto relative group-hover:shadow-lg group-hover:-translate-y-1 transition-all duration-300">
+                      <Calendar className="w-10 h-10 text-white group-hover:scale-110 transition-transform duration-200" />
+                      
+                      {/* Badge numérico en esquina superior derecha */}
+                      <div className="absolute -top-2 -right-2 w-8 h-8 bg-blue-700 rounded-full flex items-center justify-center group-hover:bg-blue-800 transition-colors duration-200">
+                        <span className="text-white font-bold text-sm">1</span>
+                      </div>
+                    </div>
+                  </div>
+                  
+                  <h3 className="text-xl font-bold text-gray-900 mb-3">
+                    Schedule your class
+                  </h3>
+                  <p className="text-gray-600 leading-relaxed">
+                    Pick the time that works best for you. Available 24/7, even last minute bookings.
+                  </p>
                 </div>
-                <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto">
-                  <Calendar className="w-8 h-8 text-blue-500" />
-                </div>
-              </div>
-              <h3 className="text-xl font-bold text-gray-900 mb-3">
-                Schedule your class
-              </h3>
-              <p className="text-gray-600">
-                Pick the time that works best for you. Available 24/7, even last minute bookings.
-              </p>
-            </div>
 
-            {/* Paso 2 */}
-            <div className="text-center group">
-              <div className="relative mb-8">
-                <div className="w-20 h-20 bg-green-500 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:scale-105 transition-transform duration-200">
-                  <span className="text-white font-bold text-2xl">2</span>
+                {/* Paso 2 - Verde */}
+                <div className="text-center group">
+                  <div className="relative mb-8">
+                    {/* Círculo principal con ícono */}
+                    <div className="w-24 h-24 bg-green-500 rounded-full flex items-center justify-center mx-auto relative group-hover:shadow-lg group-hover:-translate-y-1 transition-all duration-300">
+                      <VideoIcon className="w-10 h-10 text-white group-hover:scale-110 transition-transform duration-200" />
+                      
+                      {/* Badge numérico en esquina superior derecha */}
+                      <div className="absolute -top-2 -right-2 w-8 h-8 bg-green-700 rounded-full flex items-center justify-center group-hover:bg-green-800 transition-colors duration-200">
+                        <span className="text-white font-bold text-sm">2</span>
+                      </div>
+                    </div>
+                  </div>
+                  
+                  <h3 className="text-xl font-bold text-gray-900 mb-3">
+                    Connect via video
+                  </h3>
+                  <p className="text-gray-600 leading-relaxed">
+                    Join your class through Google Meet from any device. Your instructor will be waiting for you.
+                  </p>
                 </div>
-                <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto">
-                  <VideoIcon className="w-8 h-8 text-green-500" />
-                </div>
-              </div>
-              <h3 className="text-xl font-bold text-gray-900 mb-3">
-                Connect via video
-              </h3>
-              <p className="text-gray-600">
-                Join your class through Google Meet from any device. Your instructor will be waiting for you.
-              </p>
-            </div>
 
-            {/* Paso 3 */}
-            <div className="text-center group">
-              <div className="relative mb-8">
-                <div className="w-20 h-20 bg-orange-500 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:scale-105 transition-transform duration-200">
-                  <span className="text-white font-bold text-2xl">3</span>
+                {/* Paso 3 - Naranja */}
+                <div className="text-center group">
+                  <div className="relative mb-8">
+                    {/* Círculo principal con ícono */}
+                    <div className="w-24 h-24 bg-orange-500 rounded-full flex items-center justify-center mx-auto relative group-hover:shadow-lg group-hover:-translate-y-1 transition-all duration-300">
+                      <MessageCircle className="w-10 h-10 text-white group-hover:scale-110 transition-transform duration-200" />
+                      
+                      {/* Badge numérico en esquina superior derecha */}
+                      <div className="absolute -top-2 -right-2 w-8 h-8 bg-orange-700 rounded-full flex items-center justify-center group-hover:bg-orange-800 transition-colors duration-200">
+                        <span className="text-white font-bold text-sm">3</span>
+                      </div>
+                    </div>
+                  </div>
+                  
+                  <h3 className="text-xl font-bold text-gray-900 mb-3">
+                    Practice and improve
+                  </h3>
+                  <p className="text-gray-600 leading-relaxed">
+                    Real conversation with instant feedback. Your progress is automatically tracked.
+                  </p>
                 </div>
-                <div className="w-16 h-16 bg-orange-100 rounded-full flex items-center justify-center mx-auto">
-                  <MessageCircle className="w-8 h-8 text-orange-500" />
-                </div>
+                
               </div>
-              <h3 className="text-xl font-bold text-gray-900 mb-3">
-                Practice and improve
-              </h3>
-              <p className="text-gray-600">
-                Real conversation with instant feedback. Your progress is automatically tracked.
-              </p>
             </div>
-            
+          </div>
+
+          {/* Mobile: Timeline Vertical */}
+          <div className="md:hidden max-w-lg mx-auto">
+            <div className="relative">
+              
+              {/* Línea vertical conectora */}
+              <div className="absolute left-6 top-0 bottom-0 w-0.5 bg-gray-200"></div>
+              
+              <div className="space-y-12">
+                
+                {/* Paso 1 - Azul */}
+                <div className="flex items-start gap-6 group">
+                  {/* Círculo con timeline */}
+                  <div className="relative flex-shrink-0">
+                    <div className="w-12 h-12 bg-blue-500 rounded-full flex items-center justify-center relative group-hover:shadow-lg transition-all duration-300">
+                      <Calendar className="w-6 h-6 text-white group-hover:scale-110 transition-transform duration-200" />
+                      
+                      {/* Badge numérico */}
+                      <div className="absolute -top-1 -right-1 w-6 h-6 bg-blue-700 rounded-full flex items-center justify-center group-hover:bg-blue-800 transition-colors duration-200">
+                        <span className="text-white font-bold text-xs">1</span>
+                      </div>
+                    </div>
+                  </div>
+                  
+                  {/* Contenido */}
+                  <div className="flex-1 pt-1">
+                    <h3 className="text-lg font-bold text-gray-900 mb-2">
+                      Schedule your class
+                    </h3>
+                    <p className="text-gray-600 leading-relaxed">
+                      Pick the time that works best for you. Available 24/7, even last minute bookings.
+                    </p>
+                  </div>
+                </div>
+
+                {/* Paso 2 - Verde */}
+                <div className="flex items-start gap-6 group">
+                  {/* Círculo con timeline */}
+                  <div className="relative flex-shrink-0">
+                    <div className="w-12 h-12 bg-green-500 rounded-full flex items-center justify-center relative group-hover:shadow-lg transition-all duration-300">
+                      <VideoIcon className="w-6 h-6 text-white group-hover:scale-110 transition-transform duration-200" />
+                      
+                      {/* Badge numérico */}
+                      <div className="absolute -top-1 -right-1 w-6 h-6 bg-green-700 rounded-full flex items-center justify-center group-hover:bg-green-800 transition-colors duration-200">
+                        <span className="text-white font-bold text-xs">2</span>
+                      </div>
+                    </div>
+                  </div>
+                  
+                  {/* Contenido */}
+                  <div className="flex-1 pt-1">
+                    <h3 className="text-lg font-bold text-gray-900 mb-2">
+                      Connect via video
+                    </h3>
+                    <p className="text-gray-600 leading-relaxed">
+                      Join your class through Google Meet from any device. Your instructor will be waiting for you.
+                    </p>
+                  </div>
+                </div>
+
+                {/* Paso 3 - Naranja */}
+                <div className="flex items-start gap-6 group">
+                  {/* Círculo con timeline */}
+                  <div className="relative flex-shrink-0">
+                    <div className="w-12 h-12 bg-orange-500 rounded-full flex items-center justify-center relative group-hover:shadow-lg transition-all duration-300">
+                      <MessageCircle className="w-6 h-6 text-white group-hover:scale-110 transition-transform duration-200" />
+                      
+                      {/* Badge numérico */}
+                      <div className="absolute -top-1 -right-1 w-6 h-6 bg-orange-700 rounded-full flex items-center justify-center group-hover:bg-orange-800 transition-colors duration-200">
+                        <span className="text-white font-bold text-xs">3</span>
+                      </div>
+                    </div>
+                  </div>
+                  
+                  {/* Contenido */}
+                  <div className="flex-1 pt-1">
+                    <h3 className="text-lg font-bold text-gray-900 mb-2">
+                      Practice and improve
+                    </h3>
+                    <p className="text-gray-600 leading-relaxed">
+                      Real conversation with instant feedback. Your progress is automatically tracked.
+                    </p>
+                  </div>
+                </div>
+                
+              </div>
+            </div>
           </div>
         </div>
       </section>

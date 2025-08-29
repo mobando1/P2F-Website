@@ -1,0 +1,81 @@
+Quiero que rediseñes la sección “How It Works” en formato timeline visual, moderno y claro, adaptado para desktop y móvil.
+
+🔹 Estructura General
+
+Título centrado arriba: “How It Works”, en bold y tamaño grande.
+
+Subtítulo debajo: “Just 3 simple steps to start speaking Spanish with confidence”, en gris medio.
+
+Los tres pasos deben estar conectados visualmente para mostrar que es un proceso.
+
+🔹 Desktop (horizontal)
+
+Mostrar los pasos en tres columnas alineadas horizontalmente.
+
+Entre cada paso, incluir una línea o flechas suaves que conecten los círculos (puede ser línea gris clara con un pequeño ícono de flecha).
+
+Cada paso debe tener:
+
+Círculo de color sólido con un ícono grande en el centro (ejemplo: 📅 calendario, 🎥 cámara de video, 💬 burbuja de diálogo).
+
+Número del paso como badge pequeño en la esquina superior derecha del círculo.
+
+El badge debe ser un circulito pequeño con el número en blanco sobre fondo más oscuro o más brillante del mismo color del círculo.
+
+Ejemplo: círculo azul con calendario, badge azul oscuro arriba con un “1”.
+
+Debajo del círculo: el título del paso en bold.
+
+Más abajo: el texto descriptivo en gris oscuro, legible.
+
+Colores de cada paso:
+
+Paso 1 → azul (#3B82F6).
+
+Paso 2 → verde (#22C55E).
+
+Paso 3 → naranja (#F97316).
+
+🔹 Móvil (vertical timeline)
+
+Los pasos deben organizarse como un timeline vertical.
+
+A la izquierda: una línea vertical gris clara que conecta los tres pasos.
+
+En cada punto de la línea: un círculo con ícono en el centro y badge numérico en la esquina superior derecha.
+
+A la derecha de cada círculo: el título en bold y debajo la descripción.
+
+Esto debe transmitir la sensación de progresión secuencial de arriba hacia abajo.
+
+🔹 Íconos de cada paso
+
+Paso 1 → calendario (Schedule your class).
+
+Paso 2 → cámara de video (Connect via video).
+
+Paso 3 → burbuja de diálogo (Practice and improve).
+
+Estilo de los íconos: lineales, modernos, con el color principal de cada paso.
+
+🔹 Micro-interacciones
+
+Hover en desktop:
+
+El círculo se eleva ligeramente y proyecta sombra.
+
+El badge numérico se ilumina con un tono más brillante.
+
+Hover en ícono: leve animación (bounce o escala 1.05x).
+
+Timeline/flechas con animación sutil de flujo (ejemplo: la línea se ilumina de izquierda a derecha al hacer scroll).
+
+En móvil: los pasos pueden aparecer con fade-in o slide al hacer scroll.
+
+🔹 Resultado esperado
+
+En desktop: tres pasos horizontales conectados con línea/flechas, cada uno con un círculo de color, ícono en el centro y número como badge en la esquina superior derecha del círculo.
+
+En móvil: timeline vertical con línea conectando los pasos, círculo con ícono + badge a la izquierda y texto a la derecha.
+
+El resultado debe ser claro, dinámico y amigable, sin verse plano ni repetitivo.
