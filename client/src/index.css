@@ -178,6 +178,28 @@
 /* Font imports */
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap');
 
+/* Custom animations for highlighting important sections */
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@keyframes glow {
+  0%, 100% {
+    box-shadow: 0 0 5px rgba(245, 158, 28, 0.4);
+  }
+  50% {
+    box-shadow: 0 0 20px rgba(245, 158, 28, 0.6);
+  }
+}
+
 html {
   scroll-behavior: smooth;
 }
