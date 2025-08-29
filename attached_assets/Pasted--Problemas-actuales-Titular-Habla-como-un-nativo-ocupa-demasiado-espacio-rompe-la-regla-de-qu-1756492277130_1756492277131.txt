@@ -1,0 +1,95 @@
+🔹 Problemas actuales
+
+Titular “Habla como un nativo” ocupa demasiado espacio → rompe la regla de que todo debe verse en una pantalla sin scroll (above the fold).
+
+Íconos de estadísticas (1,000 estudiantes, rating, 40 min) se ven caricaturescos → no transmiten confianza ni profesionalismo.
+
+Distribución vertical muy alargada → el hero se siente “separado” de las tarjetas de selección.
+
+Decorativos de fondo (círculos, ondas) hacen que se sienta menos minimalista y más folclórico.
+
+🔹 Solución propuesta
+1. Titular compacto
+
+En lugar de 3 líneas, hazlo en una sola línea fluida:
+“Habla como un nativo”
+
+Ajusta jerarquía de color y peso, pero sin forzar saltos de línea.
+
+Ejemplo:
+
+“Habla” → azul noche #0A4A6E.
+
+“como un” → gris medio, más pequeño.
+
+“nativo” → naranja sol #F59E1C, en bold, con un tamaño un poco más grande que “Habla”.
+
+👉 Resultado: ocupa menos altura, pero mantiene impacto.
+
+2. Subtítulo más pequeño y pegado
+
+El texto de soporte (“Clases personalizadas… 24/7”) debe ir pegado justo debajo del título, con tipografía más pequeña (16px).
+
+Esto ahorra espacio y mantiene el foco en el CTA.
+
+3. Estadísticas más sobrias
+
+Quitar los íconos coloridos actuales (parecen stickers).
+
+Reemplazarlos por iconos lineales minimalistas en azul noche, con texto en gris oscuro y el número destacado en bold.
+
+Ejemplo:
+
+👥 “1,000+ estudiantes activos”
+
+⭐ “4.9 calificación promedio”
+
+⏱ “40 minutos por clase”
+
+No necesitas cajas con fondos, basta con iconos limpios alineados horizontalmente debajo del subtítulo.
+
+👉 Esto transmite más confianza y seriedad.
+
+4. Hero más compacto y flexible
+
+Reduce el padding vertical del hero (ahora tienes demasiado aire arriba y abajo).
+
+El bloque hero debería ocupar 50–60% de la pantalla, y dejar que las tarjetas de idioma se vean inmediatamente debajo sin hacer scroll.
+
+Así, al entrar, el usuario ve en una misma vista:
+
+El titular
+
+La propuesta de valor
+
+Los dos caminos (aprender inglés o aprender español)
+
+👉 Esto es clave: no obligues a scrollear para tomar la decisión principal.
+
+5. Tarjetas de idioma más arriba
+
+Ahora mismo las tarjetas están cortadas.
+
+Súbelas para que empiecen justo debajo de las estadísticas, casi como parte del hero.
+
+Incluso podrías integrar todo en un mismo bloque:
+
+Hero arriba
+
+Inmediatamente las tarjetas (con banderas, botones CTA)
+
+Todo visible en un solo pantallazo.
+
+✅ Resultado esperado
+
+En desktop y mobile, al aterrizar, se ve TODO:
+
+Hero compacto con el mensaje “Habla como un nativo”.
+
+Subtítulo más pequeño.
+
+Estadísticas minimalistas y sobrias en una sola línea.
+
+Las dos tarjetas de selección (Inglés / Español) completas, visibles sin scroll.
+
+Visual más profesional, menos folclórico, más claro y orientado a la acción inmediata.
