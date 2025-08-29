@@ -200,11 +200,11 @@ export default function EnglishSite() {
                 <div className="text-center group">
                   <div className="relative mb-8">
                     {/* Círculo principal con ícono */}
-                    <div className="w-24 h-24 bg-blue-500 rounded-full flex items-center justify-center mx-auto relative group-hover:shadow-lg group-hover:-translate-y-1 transition-all duration-300">
+                    <div className="w-24 h-24 bg-gradient-to-br from-blue-800 to-blue-700 rounded-full flex items-center justify-center mx-auto relative group-hover:shadow-lg group-hover:-translate-y-1 transition-all duration-300" style={{backgroundColor: '#1E3A8A'}}>
                       <Calendar className="w-10 h-10 text-white group-hover:scale-110 transition-transform duration-200" />
                       
                       {/* Badge numérico en esquina superior derecha */}
-                      <div className="absolute -top-2 -right-2 w-8 h-8 bg-blue-700 rounded-full flex items-center justify-center group-hover:bg-blue-800 transition-colors duration-200">
+                      <div className="absolute -top-2 -right-2 w-8 h-8 bg-gradient-to-br from-blue-900 to-blue-800 rounded-full flex items-center justify-center group-hover:bg-blue-900 transition-colors duration-200" style={{backgroundColor: '#1E40AF'}}>
                         <span className="text-white font-bold text-sm">1</span>
                       </div>
                     </div>
@@ -222,11 +222,11 @@ export default function EnglishSite() {
                 <div className="text-center group">
                   <div className="relative mb-8">
                     {/* Círculo principal con ícono */}
-                    <div className="w-24 h-24 bg-green-500 rounded-full flex items-center justify-center mx-auto relative group-hover:shadow-lg group-hover:-translate-y-1 transition-all duration-300">
+                    <div className="w-24 h-24 bg-gradient-to-br from-sky-400 to-blue-500 rounded-full flex items-center justify-center mx-auto relative group-hover:shadow-lg group-hover:-translate-y-1 transition-all duration-300" style={{backgroundColor: '#3DB5E6'}}>
                       <VideoIcon className="w-10 h-10 text-white group-hover:scale-110 transition-transform duration-200" />
                       
                       {/* Badge numérico en esquina superior derecha */}
-                      <div className="absolute -top-2 -right-2 w-8 h-8 bg-green-700 rounded-full flex items-center justify-center group-hover:bg-green-800 transition-colors duration-200">
+                      <div className="absolute -top-2 -right-2 w-8 h-8 bg-gradient-to-br from-sky-600 to-blue-600 rounded-full flex items-center justify-center group-hover:bg-sky-600 transition-colors duration-200" style={{backgroundColor: '#0EA5E9'}}>
                         <span className="text-white font-bold text-sm">2</span>
                       </div>
                     </div>
@@ -244,11 +244,11 @@ export default function EnglishSite() {
                 <div className="text-center group">
                   <div className="relative mb-8">
                     {/* Círculo principal con ícono */}
-                    <div className="w-24 h-24 bg-orange-500 rounded-full flex items-center justify-center mx-auto relative group-hover:shadow-lg group-hover:-translate-y-1 transition-all duration-300">
+                    <div className="w-24 h-24 bg-gradient-to-br from-amber-500 to-orange-500 rounded-full flex items-center justify-center mx-auto relative group-hover:shadow-lg group-hover:-translate-y-1 transition-all duration-300" style={{backgroundColor: '#F59E0B'}}>
                       <MessageCircle className="w-10 h-10 text-white group-hover:scale-110 transition-transform duration-200" />
                       
                       {/* Badge numérico en esquina superior derecha */}
-                      <div className="absolute -top-2 -right-2 w-8 h-8 bg-orange-700 rounded-full flex items-center justify-center group-hover:bg-orange-800 transition-colors duration-200">
+                      <div className="absolute -top-2 -right-2 w-8 h-8 bg-gradient-to-br from-amber-600 to-orange-600 rounded-full flex items-center justify-center group-hover:bg-amber-600 transition-colors duration-200" style={{backgroundColor: '#EA580C'}}>
                         <span className="text-white font-bold text-sm">3</span>
                       </div>
                     </div>
@@ -279,11 +279,11 @@ export default function EnglishSite() {
                 <div className="flex items-start gap-6 group">
                   {/* Círculo con timeline */}
                   <div className="relative flex-shrink-0">
-                    <div className="w-12 h-12 bg-blue-500 rounded-full flex items-center justify-center relative group-hover:shadow-lg transition-all duration-300">
+                    <div className="w-12 h-12 bg-gradient-to-br from-blue-800 to-blue-700 rounded-full flex items-center justify-center relative group-hover:shadow-lg transition-all duration-300" style={{backgroundColor: '#1E3A8A'}}>
                       <Calendar className="w-6 h-6 text-white group-hover:scale-110 transition-transform duration-200" />
                       
                       {/* Badge numérico */}
-                      <div className="absolute -top-1 -right-1 w-6 h-6 bg-blue-700 rounded-full flex items-center justify-center group-hover:bg-blue-800 transition-colors duration-200">
+                      <div className="absolute -top-1 -right-1 w-6 h-6 bg-gradient-to-br from-blue-900 to-blue-800 rounded-full flex items-center justify-center group-hover:bg-blue-900 transition-colors duration-200" style={{backgroundColor: '#1E40AF'}}>
                         <span className="text-white font-bold text-xs">1</span>
                       </div>
                     </div>
@@ -304,11 +304,11 @@ export default function EnglishSite() {
                 <div className="flex items-start gap-6 group">
                   {/* Círculo con timeline */}
                   <div className="relative flex-shrink-0">
-                    <div className="w-12 h-12 bg-green-500 rounded-full flex items-center justify-center relative group-hover:shadow-lg transition-all duration-300">
+                    <div className="w-12 h-12 bg-gradient-to-br from-sky-400 to-blue-500 rounded-full flex items-center justify-center relative group-hover:shadow-lg transition-all duration-300" style={{backgroundColor: '#3DB5E6'}}>
                       <VideoIcon className="w-6 h-6 text-white group-hover:scale-110 transition-transform duration-200" />
                       
                       {/* Badge numérico */}
-                      <div className="absolute -top-1 -right-1 w-6 h-6 bg-green-700 rounded-full flex items-center justify-center group-hover:bg-green-800 transition-colors duration-200">
+                      <div className="absolute -top-1 -right-1 w-6 h-6 bg-gradient-to-br from-sky-600 to-blue-600 rounded-full flex items-center justify-center group-hover:bg-sky-600 transition-colors duration-200" style={{backgroundColor: '#0EA5E9'}}>
                         <span className="text-white font-bold text-xs">2</span>
                       </div>
                     </div>
@@ -329,11 +329,11 @@ export default function EnglishSite() {
                 <div className="flex items-start gap-6 group">
                   {/* Círculo con timeline */}
                   <div className="relative flex-shrink-0">
-                    <div className="w-12 h-12 bg-orange-500 rounded-full flex items-center justify-center relative group-hover:shadow-lg transition-all duration-300">
+                    <div className="w-12 h-12 bg-gradient-to-br from-amber-500 to-orange-500 rounded-full flex items-center justify-center relative group-hover:shadow-lg transition-all duration-300" style={{backgroundColor: '#F59E0B'}}>
                       <MessageCircle className="w-6 h-6 text-white group-hover:scale-110 transition-transform duration-200" />
                       
                       {/* Badge numérico */}
-                      <div className="absolute -top-1 -right-1 w-6 h-6 bg-orange-700 rounded-full flex items-center justify-center group-hover:bg-orange-800 transition-colors duration-200">
+                      <div className="absolute -top-1 -right-1 w-6 h-6 bg-gradient-to-br from-amber-600 to-orange-600 rounded-full flex items-center justify-center group-hover:bg-amber-600 transition-colors duration-200" style={{backgroundColor: '#EA580C'}}>
                         <span className="text-white font-bold text-xs">3</span>
                       </div>
                     </div>
