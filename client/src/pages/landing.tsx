@@ -175,13 +175,13 @@ const EmailPopup = ({
   const [isVisible, setIsVisible] = useState(false);
   const [isClosing, setIsClosing] = useState(false);
   const [isReady, setIsReady] = useState(false);
+  const [contentLoaded, setContentLoaded] = useState(false);
 
   useEffect(() => {
     if (showInitial) {
       // Mostrar popup inicial después de 7 segundos
       const timer = setTimeout(() => {
         setIsReady(true);
-        setTimeout(() => setIsVisible(true), 100); // Pequeña demora adicional
       }, 7000);
       return () => clearTimeout(timer);
     }
@@ -192,11 +192,17 @@ const EmailPopup = ({
       // Mostrar popup después de 7 segundos cuando hay cambio de idioma
       const timer = setTimeout(() => {
         setIsReady(true);
-        setTimeout(() => setIsVisible(true), 100); // Pequeña demora adicional
       }, 7000);
       return () => clearTimeout(timer);
     }
   }, [showOnLanguageChange]);
+
+  // Solo mostrar cuando todo esté listo
+  useEffect(() => {
+    if (isReady && contentLoaded) {
+      setTimeout(() => setIsVisible(true), 200);
+    }
+  }, [isReady, contentLoaded]);
 
   useEffect(() => {
     // Agregar el script de form_embed cuando el componente se monta
@@ -207,10 +213,14 @@ const EmailPopup = ({
         script.src = 'https://link.msgsndr.com/js/form_embed.js';
         script.async = true;
         script.onload = () => {
-          // Script cargado, el iframe debería funcionar bien ahora
+          // Script cargado, marcar contenido como listo
+          setTimeout(() => setContentLoaded(true), 500);
           console.log('HighLevel form script loaded');
         };
         document.body.appendChild(script);
+      } else {
+        // Script ya existe, marcar como listo
+        setTimeout(() => setContentLoaded(true), 300);
       }
     }
   }, [isReady]);
@@ -224,7 +234,7 @@ const EmailPopup = ({
     }, 300);
   };
 
-  if (!isVisible || !isReady) return null;
+  if (!isVisible || !isReady || !contentLoaded) return null;
 
   // Determinar el contenido del popup según el idioma actual de la página
   const isEnglishLang = currentLang === 'en';
