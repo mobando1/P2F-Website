@@ -11,7 +11,8 @@ import NavigationDropdown from "@/components/navigation-dropdown";
 import { 
   Globe, Star, Users, Clock, ArrowRight, Calendar, 
   Headphones, VideoIcon, CheckCircle, MessageCircle,
-  Facebook, Instagram, Linkedin, Youtube, Mail, Phone, Building
+  Facebook, Instagram, Linkedin, Youtube, Mail, Phone, Building,
+  Gamepad2, Briefcase, Stethoscope, Home, TrendingUp, Scale
 } from "lucide-react";
 
 export default function EnglishSite() {
@@ -527,64 +528,155 @@ export default function EnglishSite() {
         </div>
       </section>
       
-      {/* Inglés para Niños - Simplified */}
-      <section id="ingles-para-ninos" className="py-16 bg-gradient-to-b from-blue-50 to-white">
+      {/* Programas Especializados - New Design */}
+      <section className="py-20 bg-slate-50">
         <div className="container mx-auto px-4">
-          <div className="max-w-4xl mx-auto text-center">
-            <div className="bg-white rounded-2xl p-8 shadow-lg">
-              <div className="w-16 h-16 bg-passport-blue rounded-full flex items-center justify-center mx-auto mb-6">
-                <Star className="w-8 h-8 text-white" />
+          <div className="max-w-6xl mx-auto space-y-20 md:space-y-24">
+            
+            {/* Inglés para Niños */}
+            <Link href="/en/children" className="block group focus:outline-none focus:ring-4 focus:ring-blue-300 rounded-3xl">
+              <div className="bg-white rounded-3xl p-10 md:p-16 shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 cursor-pointer">
+                <div className="text-center">
+                  {/* Ícono principal */}
+                  <div className="w-20 h-20 md:w-24 md:h-24 bg-gradient-to-br from-blue-100 to-blue-50 border-2 border-blue-200 rounded-full flex items-center justify-center mx-auto mb-8 group-hover:-translate-y-1 transition-transform duration-300">
+                    <Star className="w-10 h-10 md:w-12 md:h-12 text-blue-600" />
+                  </div>
+                  
+                  {/* Título */}
+                  <h3 className="text-2xl md:text-3xl font-bold text-slate-900 mb-6">
+                    Inglés para Niños
+                  </h3>
+                  
+                  {/* Descripción */}
+                  <p className="text-base md:text-lg text-slate-600 leading-relaxed mb-8 max-w-2xl mx-auto">
+                    Despierta el amor por el inglés en tu hijo con sesiones divertidas e interactivas diseñadas específicamente para jóvenes estudiantes de 5-17 años. Nuestros instructores nativos hacen el aprendizaje atractivo a través de juegos, canciones y actividades culturales.
+                  </p>
+                  
+                  {/* Chips */}
+                  <div className="flex flex-wrap justify-center gap-3 mb-8 md:gap-4">
+                    <div className="hidden md:flex flex-wrap justify-center gap-4">
+                      <span className="bg-white border-2 border-blue-200 text-blue-700 px-4 py-2 rounded-full text-sm font-medium hover:bg-blue-50 transition-colors flex items-center gap-2">
+                        <Users className="w-4 h-4" />
+                        Edades 5-17
+                      </span>
+                      <span className="bg-white border-2 border-blue-200 text-blue-700 px-4 py-2 rounded-full text-sm font-medium hover:bg-blue-50 transition-colors flex items-center gap-2">
+                        <Gamepad2 className="w-4 h-4" />
+                        Juegos Interactivos
+                      </span>
+                      <span className="bg-white border-2 border-blue-200 text-blue-700 px-4 py-2 rounded-full text-sm font-medium hover:bg-blue-50 transition-colors flex items-center gap-2">
+                        <Globe className="w-4 h-4" />
+                        Instructores Nativos
+                      </span>
+                      <span className="bg-white border-2 border-blue-200 text-blue-700 px-4 py-2 rounded-full text-sm font-medium hover:bg-blue-50 transition-colors flex items-center gap-2">
+                        <Globe className="w-4 h-4" />
+                        Aprendizaje Cultural
+                      </span>
+                    </div>
+                    
+                    {/* Mobile: Scroll horizontal */}
+                    <div className="md:hidden flex gap-3 overflow-x-auto pb-2 snap-x snap-mandatory w-full">
+                      <span className="bg-white border-2 border-blue-200 text-blue-700 px-4 py-2 rounded-full text-sm font-medium hover:bg-blue-50 transition-colors flex items-center gap-2 snap-start flex-shrink-0">
+                        <Users className="w-4 h-4" />
+                        Edades 5-17
+                      </span>
+                      <span className="bg-white border-2 border-blue-200 text-blue-700 px-4 py-2 rounded-full text-sm font-medium hover:bg-blue-50 transition-colors flex items-center gap-2 snap-start flex-shrink-0">
+                        <Gamepad2 className="w-4 h-4" />
+                        Juegos Interactivos
+                      </span>
+                      <span className="bg-white border-2 border-blue-200 text-blue-700 px-4 py-2 rounded-full text-sm font-medium hover:bg-blue-50 transition-colors flex items-center gap-2 snap-start flex-shrink-0">
+                        <Globe className="w-4 h-4" />
+                        Instructores Nativos
+                      </span>
+                      <span className="bg-white border-2 border-blue-200 text-blue-700 px-4 py-2 rounded-full text-sm font-medium hover:bg-blue-50 transition-colors flex items-center gap-2 snap-start flex-shrink-0">
+                        <Globe className="w-4 h-4" />
+                        Aprendizaje Cultural
+                      </span>
+                    </div>
+                  </div>
+                  
+                  {/* Botón CTA */}
+                  <div className="inline-block">
+                    <div className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 rounded-full font-semibold text-lg hover:shadow-lg hover:-translate-y-1 transition-all duration-300 flex items-center gap-3 group">
+                      Explorar Programas para Niños
+                      <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                    </div>
+                  </div>
+                </div>
               </div>
-              <h3 className="text-2xl font-bold text-gray-900 mb-4">
-                Inglés para Niños
-              </h3>
-              <p className="text-gray-600 mb-6">
-                Despierta el amor por el inglés en tu hijo con sesiones divertidas e interactivas diseñadas específicamente para jóvenes estudiantes de 5-17 años. Nuestros instructores nativos hacen el aprendizaje atractivo a través de juegos, canciones y actividades culturales.
-              </p>
-              <div className="flex flex-wrap justify-center gap-4 mb-6 text-sm text-gray-600">
-                <span className="bg-blue-100 text-blue-800 px-3 py-1 rounded-full">Edades 5-17</span>
-                <span className="bg-blue-100 text-blue-800 px-3 py-1 rounded-full">Juegos Interactivos</span>
-                <span className="bg-blue-100 text-blue-800 px-3 py-1 rounded-full">Instructores Nativos</span>
-                <span className="bg-blue-100 text-blue-800 px-3 py-1 rounded-full">Aprendizaje Cultural</span>
+            </Link>
+            
+            {/* Programas Empresariales */}
+            <Link href="/en/business" className="block group focus:outline-none focus:ring-4 focus:ring-amber-300 rounded-3xl">
+              <div className="bg-white rounded-3xl p-10 md:p-16 shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 cursor-pointer">
+                <div className="text-center">
+                  {/* Ícono principal */}
+                  <div className="w-20 h-20 md:w-24 md:h-24 bg-gradient-to-br from-amber-100 to-amber-50 border-2 border-amber-200 rounded-full flex items-center justify-center mx-auto mb-8 group-hover:-translate-y-1 transition-transform duration-300">
+                    <Briefcase className="w-10 h-10 md:w-12 md:h-12 text-amber-600" />
+                  </div>
+                  
+                  {/* Título */}
+                  <h3 className="text-2xl md:text-3xl font-bold text-slate-900 mb-6">
+                    Programas Empresariales de Inglés
+                  </h3>
+                  
+                  {/* Descripción */}
+                  <p className="text-base md:text-lg text-slate-600 leading-relaxed mb-8 max-w-2xl mx-auto">
+                    Eleva tu carrera con capacitación profesional en inglés diseñada para el mundo corporativo. Perfecto para ejecutivos, equipos de ventas y profesionales que trabajan con mercados de habla inglesa.
+                  </p>
+                  
+                  {/* Chips */}
+                  <div className="flex flex-wrap justify-center gap-3 mb-8 md:gap-4">
+                    <div className="hidden md:flex flex-wrap justify-center gap-4">
+                      <span className="bg-white border-2 border-amber-200 text-amber-700 px-4 py-2 rounded-full text-sm font-medium hover:bg-amber-50 transition-colors flex items-center gap-2">
+                        <Stethoscope className="w-4 h-4" />
+                        Salud y Medicina
+                      </span>
+                      <span className="bg-white border-2 border-amber-200 text-amber-700 px-4 py-2 rounded-full text-sm font-medium hover:bg-amber-50 transition-colors flex items-center gap-2">
+                        <Home className="w-4 h-4" />
+                        Bienes Raíces
+                      </span>
+                      <span className="bg-white border-2 border-amber-200 text-amber-700 px-4 py-2 rounded-full text-sm font-medium hover:bg-amber-50 transition-colors flex items-center gap-2">
+                        <TrendingUp className="w-4 h-4" />
+                        Ventas y Marketing
+                      </span>
+                      <span className="bg-white border-2 border-amber-200 text-amber-700 px-4 py-2 rounded-full text-sm font-medium hover:bg-amber-50 transition-colors flex items-center gap-2">
+                        <Scale className="w-4 h-4" />
+                        Legal y Derecho
+                      </span>
+                    </div>
+                    
+                    {/* Mobile: Scroll horizontal */}
+                    <div className="md:hidden flex gap-3 overflow-x-auto pb-2 snap-x snap-mandatory w-full">
+                      <span className="bg-white border-2 border-amber-200 text-amber-700 px-4 py-2 rounded-full text-sm font-medium hover:bg-amber-50 transition-colors flex items-center gap-2 snap-start flex-shrink-0">
+                        <Stethoscope className="w-4 h-4" />
+                        Salud y Medicina
+                      </span>
+                      <span className="bg-white border-2 border-amber-200 text-amber-700 px-4 py-2 rounded-full text-sm font-medium hover:bg-amber-50 transition-colors flex items-center gap-2 snap-start flex-shrink-0">
+                        <Home className="w-4 h-4" />
+                        Bienes Raíces
+                      </span>
+                      <span className="bg-white border-2 border-amber-200 text-amber-700 px-4 py-2 rounded-full text-sm font-medium hover:bg-amber-50 transition-colors flex items-center gap-2 snap-start flex-shrink-0">
+                        <TrendingUp className="w-4 h-4" />
+                        Ventas y Marketing
+                      </span>
+                      <span className="bg-white border-2 border-amber-200 text-amber-700 px-4 py-2 rounded-full text-sm font-medium hover:bg-amber-50 transition-colors flex items-center gap-2 snap-start flex-shrink-0">
+                        <Scale className="w-4 h-4" />
+                        Legal y Derecho
+                      </span>
+                    </div>
+                  </div>
+                  
+                  {/* Botón CTA */}
+                  <div className="inline-block">
+                    <div className="bg-amber-500 hover:bg-amber-600 text-white px-8 py-4 rounded-full font-semibold text-lg hover:shadow-lg hover:-translate-y-1 transition-all duration-300 flex items-center gap-3 group">
+                      Explorar Programas Empresariales
+                      <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                    </div>
+                  </div>
+                </div>
               </div>
-              <Link href="/en/children">
-                <Button className="bg-passport-blue hover:bg-blue-700 text-white px-6 py-3">
-                  <Star className="w-4 h-4 mr-2" />
-                  Explorar Programas para Niños
-                </Button>
-              </Link>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Programas Empresariales - Simplified */}
-      <section id="programas-empresariales" className="py-16 bg-gray-50">
-        <div className="container mx-auto px-4">
-          <div className="max-w-4xl mx-auto text-center">
-            <div className="bg-white rounded-2xl p-8 shadow-lg">
-              <div className="w-16 h-16 bg-passport-orange rounded-full flex items-center justify-center mx-auto mb-6">
-                <Building className="w-8 h-8 text-white" />
-              </div>
-              <h3 className="text-2xl font-bold text-gray-900 mb-4">
-                Programas Empresariales de Inglés
-              </h3>
-              <p className="text-gray-600 mb-6">
-                Eleva tu carrera con capacitación profesional en inglés diseñada para el mundo corporativo. Perfecto para ejecutivos, equipos de ventas y profesionales que trabajan con mercados de habla inglesa.
-              </p>
-              <div className="flex flex-wrap justify-center gap-4 mb-6 text-sm text-gray-600">
-                <span className="bg-orange-100 text-orange-800 px-3 py-1 rounded-full">Salud y Medicina</span>
-                <span className="bg-orange-100 text-orange-800 px-3 py-1 rounded-full">Bienes Raíces</span>
-                <span className="bg-orange-100 text-orange-800 px-3 py-1 rounded-full">Ventas y Marketing</span>
-                <span className="bg-orange-100 text-orange-800 px-3 py-1 rounded-full">Legal y Derecho</span>
-              </div>
-              <Link href="/en/business">
-                <Button className="bg-passport-orange hover:bg-orange-600 text-white px-6 py-3">
-                  <Building className="w-4 h-4 mr-2" />
-                  Explorar Programas Empresariales
-                </Button>
-              </Link>
-            </div>
+            </Link>
+            
           </div>
         </div>
       </section>

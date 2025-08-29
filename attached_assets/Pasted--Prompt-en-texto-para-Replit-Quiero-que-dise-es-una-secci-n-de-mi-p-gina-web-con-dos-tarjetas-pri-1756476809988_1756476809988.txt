@@ -1,0 +1,151 @@
+📌 Prompt en texto para Replit
+
+Quiero que diseñes una sección de mi página web con dos tarjetas principales:
+
+Inglés para Niños
+
+Programas Empresariales de Inglés
+
+El objetivo es que la sección sea amigable, clara y moderna, con una jerarquía visual bien definida, íconos ilustrativos, tarjetas completas clickeables y que se adapten tanto a desktop como a móvil.
+
+🔹 Estructura General
+
+La sección debe estar centrada en la página, con un máximo ancho de 1200px y márgenes laterales balanceados.
+
+El fondo de la sección es gris muy claro (slate-50) para diferenciarse del resto de la web.
+
+Cada tarjeta debe estar dentro de un bloque con fondo blanco, bordes redondeados grandes (radio 16–20px) y sombra suave.
+
+Entre una tarjeta y otra debe haber espacio vertical amplio (80–100px en desktop, 40–50px en móvil).
+
+🔹 Tarjetas
+
+Padding interno: amplio, al menos 40px en desktop y 24px en móvil.
+
+Cada tarjeta debe tener este orden visual:
+
+Ícono grande dentro de un círculo de color suave (badge).
+
+Título principal en tipografía bold, tamaño grande.
+
+Texto descriptivo en color gris medio, tamaño mediano.
+
+Chips o etiquetas con ícono + texto.
+
+Botón CTA (Call to Action) con color fuerte y micro-interacción.
+
+Al pasar el mouse por encima de toda la tarjeta, debe tener una animación sutil: sombra más marcada y leve elevación. Toda la tarjeta debe ser clickeable (no solo el botón).
+
+🔹 Íconos principales (encabezado de cada tarjeta)
+
+Para Niños: usar un ícono de “sparkles / estrellas brillando” que transmita diversión y descubrimiento.
+
+Dentro de un círculo azul claro degradado (de azul-100 a azul-50) con borde azul-200.
+
+Ícono en azul intenso (#2563EB).
+
+Para Empresarial: usar un ícono de “maletín de negocios”.
+
+Dentro de un círculo ámbar claro degradado (de amber-100 a amber-50) con borde amber-200.
+
+Ícono en ámbar intenso (#D97706).
+
+🔹 Títulos y texto
+
+Títulos:
+
+“Inglés para Niños” y “Programas Empresariales de Inglés” deben ir en tipografía bold, en tamaño 28–32px en desktop y 22–24px en móvil.
+
+Color: gris muy oscuro, casi negro (#0F172A).
+
+Texto descriptivo:
+
+Debajo del título, con tamaño 16–17px, interlineado cómodo (1.6).
+
+Color gris medio (#475569) para buena legibilidad.
+
+🔹 Chips (etiquetas con ícono)
+
+Cada tarjeta debe tener chips con fondo blanco, borde de color suave y un ícono pequeño a la izquierda.
+
+Inglés para Niños:
+
+“Edades 5–17” → ícono de usuarios / niños.
+
+“Juegos Interactivos” → ícono de control de videojuegos.
+
+“Instructores Nativos” → ícono de globo con idioma.
+
+“Aprendizaje Cultural” → ícono de globo terráqueo.
+
+Programas Empresariales:
+
+“Salud y Medicina” → ícono de estetoscopio.
+
+“Bienes Raíces” → ícono de casa.
+
+“Ventas y Marketing” → ícono de flecha de crecimiento / trending up.
+
+“Legal y Derecho” → ícono de balanza de justicia.
+
+Estilo de chips:
+
+Forma ovalada, con borde redondeado total.
+
+Ícono pequeño a la izquierda (tamaño 14px).
+
+Texto en negrita ligera (13px–14px).
+
+Colores:
+
+En Niños: borde azul-200, texto azul-700, hover fondo azul-50.
+
+En Empresarial: borde ámbar-200, texto ámbar-700, hover fondo ámbar-50.
+
+En móvil, los chips deben ponerse en scroll horizontal con snap para no ocupar demasiadas filas.
+
+🔹 Botón CTA
+
+Cada tarjeta debe tener un botón redondeado (pill-shape), con un ícono de flecha hacia la derecha al final del texto.
+
+Texto del botón:
+
+Niños: “Explorar Programas para Niños”
+
+Empresarial: “Explorar Programas Empresariales”
+
+Estilo por tarjeta:
+
+Niños: fondo azul-600, texto blanco, hover azul-700.
+
+Empresarial: fondo ámbar-500, texto blanco, hover ámbar-600.
+
+Animaciones: al pasar el mouse, debe elevarse levemente y mostrar una sombra suave.
+
+🔹 Interactividad y accesibilidad
+
+Toda la tarjeta debe ser clickeable como enlace.
+
+Hover: la tarjeta debe elevarse y proyectar sombra más fuerte.
+
+Foco con teclado: debe verse un anillo de color (azul para Niños, ámbar para Empresarial).
+
+Micro-animaciones:
+
+El ícono principal dentro del círculo sube levemente (2–3px) al hover.
+
+El botón CTA se eleva y cambia de sombra.
+
+Accesibilidad:
+
+Contraste mínimo de texto 4.5:1.
+
+aria-label en los enlaces con el texto del CTA.
+
+🔹 Responsive
+
+Desktop: tarjetas apiladas en columna con mucho espacio entre ellas. También se puede mostrar en 2 columnas si el diseño lo permite.
+
+Tablet/móvil: las tarjetas deben apilarse verticalmente con menos padding.
+
+Los chips deben mostrarse en scroll horizontal en móvil.
