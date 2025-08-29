@@ -516,7 +516,7 @@ export default function EnglishSite() {
                   </li>
                 </ul>
                 <Button 
-                  onClick={() => window.open('FLUENCY_BOOST_PAYMENT_LINK_HERE', '_blank')}
+                  onClick={() => window.open('https://buy.stripe.com/00w28s2Gw3fB1c0eWOes003', '_blank')}
                   className="w-full bg-passport-orange hover:bg-orange-600 text-white py-2 font-semibold"
                 >
                   Empezar Ahora
