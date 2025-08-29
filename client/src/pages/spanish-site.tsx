@@ -516,7 +516,7 @@ export default function SpanishSite() {
                   </li>
                 </ul>
                 <Button 
-                  onClick={() => window.open('https://buy.stripe.com/00w28s2Gw3fB1c0eWOes003', '_blank')}
+                  onClick={() => window.open('https://buy.stripe.com/4gM28sa8Yg2nbQE8yqes009', '_blank')}
                   className="w-full bg-passport-blue hover:bg-blue-700 text-white py-2 font-semibold"
                 >
                   Get Started
