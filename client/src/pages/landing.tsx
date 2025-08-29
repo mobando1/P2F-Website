@@ -245,13 +245,13 @@ const EmailPopup = ({ selectedLanguage }: { selectedLanguage: 'spanish' | 'engli
           </div>
 
           {/* Contenido del popup */}
-          <div className="p-6">
-            <p className="text-gray-600 text-center mb-6 leading-relaxed">
+          <div className="p-6 pb-2">
+            <p className="text-gray-600 text-center mb-4 leading-relaxed">
               {popupContent.description}
             </p>
             
             {/* Iframe del formulario */}
-            <div className="w-full h-96 rounded-2xl overflow-hidden">
+            <div className="w-full h-80 rounded-2xl overflow-hidden">
               <iframe
                 src="https://api.leadconnectorhq.com/widget/form/kE3wnjGXhaeQvy1S6FPd"
                 style={{
