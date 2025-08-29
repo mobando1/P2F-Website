@@ -118,46 +118,17 @@ export default function Landing() {
             </div>
           </div>
 
-          {/* Right Side - Realistic Images */}
-          <div className="relative flex justify-center lg:justify-end animate-slide-right">
-            <div className="relative">
-              {/* Main large image */}
-              <div className="relative z-10 bg-white rounded-3xl p-2 shadow-xl transform rotate-3" style={{
-                background: 'linear-gradient(135deg, rgba(10, 74, 110, 0.1) 0%, rgba(245, 158, 28, 0.1) 100%)',
-                border: '3px solid white'
-              }}>
-                <img 
-                  src={newLearningImage} 
-                  alt="Clases de idiomas virtuales 1-a-1" 
-                  className="w-80 h-64 object-cover rounded-2xl"
-                />
-              </div>
-              
-              {/* Smaller overlapping image - Elegant frame */}
-              <div className="absolute -top-8 -left-8 z-20 bg-white rounded-2xl p-3 shadow-xl transform -rotate-6" style={{
-                border: '2px solid white',
-                background: 'linear-gradient(135deg, rgba(245, 158, 28, 0.05) 0%, rgba(10, 74, 110, 0.05) 100%)'
-              }}>
-                <div className="w-28 h-28 bg-white rounded-xl flex items-center justify-center">
-                  <div className="text-center">
-                    <div className="w-12 h-12 rounded-full mx-auto mb-2 flex items-center justify-center" style={{background: 'linear-gradient(135deg, #0A4A6E, #F59E1C)'}}>
-                      <Users className="w-6 h-6 text-white" />
-                    </div>
-                    <div className="text-xs font-bold" style={{color: '#0A4A6E'}}>1K+ activos</div>
-                  </div>
-                </div>
-              </div>
-              
-              {/* Third decorative element */}
-              <div className="absolute -bottom-4 -right-4 z-15 bg-white rounded-xl p-3 shadow-xl" style={{
-                border: '2px solid white',
-                background: 'linear-gradient(135deg, #F59E1C 0%, #fbbf24 100%)'
-              }}>
-                <div className="flex items-center space-x-2">
-                  <Star className="w-5 h-5 text-white fill-current" />
-                  <span className="font-bold text-white text-sm">4.9</span>
-                </div>
-              </div>
+          {/* Right Side - Single Large Image like Preply */}
+          <div className="flex justify-center lg:justify-end animate-slide-right">
+            <div className="bg-white rounded-3xl p-4 shadow-2xl" style={{
+              background: 'linear-gradient(135deg, rgba(245, 158, 28, 0.05) 0%, rgba(10, 74, 110, 0.05) 100%)',
+              border: '3px solid white'
+            }}>
+              <img 
+                src={newLearningImage} 
+                alt="Clases de idiomas virtuales 1-a-1 con instructores nativos" 
+                className="w-96 h-80 md:w-[500px] md:h-[400px] object-cover rounded-2xl"
+              />
             </div>
           </div>
         </div>
