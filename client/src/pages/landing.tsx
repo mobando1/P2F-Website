@@ -324,6 +324,19 @@ export default function Landing() {
       scrollIndicator: "Desliza ↓ para ver cómo funciona",
       learnSpanishBtn: "Learn Spanish",
       learnEnglishBtn: "Aprende Inglés",
+      // Secciones adicionales
+      ctaReady: "¿Listo? Elige tu idioma",
+      ctaLike: "¿Te gusta el proceso? ¡Empezemos!",
+      finalCtaTitle: "¡Tu pasaporte a la fluidez te está esperando!",
+      finalCtaSubtitle: "Miles de estudiantes ya transformaron su vida profesional y personal.",
+      finalCtaBold: "Tú puedes ser el siguiente.",
+      incentive1: "Primera clase GRATIS",
+      incentive2: "50% descuento primer mes",
+      incentive3: "Garantía de progreso 30 días",
+      footerRights: "© 2024 Passport to Fluency. Todos los derechos reservados.",
+      footerTerms: "Términos y Condiciones",
+      footerPrivacy: "Política de Privacidad",
+      footerSupport: "Soporte",
     },
     en: {
       heroTitle: "Speak like a",
@@ -334,6 +347,19 @@ export default function Landing() {
       scrollIndicator: "Scroll ↓ to see how it works",
       learnSpanishBtn: "Learn Spanish",
       learnEnglishBtn: "Learn English",
+      // Secciones adicionales
+      ctaReady: "Ready? Choose your language",
+      ctaLike: "Like the process? Let's get started!",
+      finalCtaTitle: "Your passport to fluency is waiting for you!",
+      finalCtaSubtitle: "Thousands of students have already transformed their professional and personal lives.",
+      finalCtaBold: "You could be next.",
+      incentive1: "First class FREE",
+      incentive2: "50% off first month",
+      incentive3: "30-day progress guarantee",
+      footerRights: "© 2024 Passport to Fluency. All rights reserved.",
+      footerTerms: "Terms and Conditions",
+      footerPrivacy: "Privacy Policy",
+      footerSupport: "Support",
     }
   };
 
@@ -517,7 +543,7 @@ export default function Landing() {
       </div>
       
       {/* CTA Slim #1 */}
-      <CTASlim onLanguageSelect={handleLanguageSelection} />
+      <CTASlim text={t.ctaReady} onLanguageSelect={handleLanguageSelection} />
       
       {/* Sección 2: Cómo funciona */}
       <div className="py-20 bg-gray-50">
@@ -632,7 +658,7 @@ export default function Landing() {
       </div>
       
       {/* CTA Slim #2 */}
-      <CTASlim text="¿Te gusta el proceso? ¡Empezemos!" onLanguageSelect={handleLanguageSelection} />
+      <CTASlim text={t.ctaLike} onLanguageSelect={handleLanguageSelection} />
       
       {/* Sección 3: Prueba social - Reviews */}
       <div className="py-20 bg-white">
@@ -723,12 +749,12 @@ export default function Landing() {
         <div className="container mx-auto px-6 relative z-10">
           <div className="text-center max-w-4xl mx-auto">
             <h2 className="text-4xl md:text-6xl font-black text-white mb-8">
-              ¡Tu pasaporte a la fluidez te está esperando!
+              {t.finalCtaTitle}
             </h2>
             <p className="text-xl md:text-2xl text-blue-100 mb-12 leading-relaxed">
-              Miles de estudiantes ya transformaron su vida profesional y personal. 
+              {t.finalCtaSubtitle}
               <br />
-              <strong>Tú puedes ser el siguiente.</strong>
+              <strong>{t.finalCtaBold}</strong>
             </p>
             
             {/* CTAs grandes lado a lado */}
@@ -741,7 +767,7 @@ export default function Landing() {
               >
                 <span className="flex items-center gap-3">
                   <span className="text-3xl">🇪🇸</span>
-                  <span>Learn Spanish</span>
+                  <span>{t.learnSpanishBtn}</span>
                   <ArrowRight className="w-8 h-8" />
                 </span>
               </Button>
@@ -754,7 +780,7 @@ export default function Landing() {
               >
                 <span className="flex items-center gap-3">
                   <span className="text-3xl">🇺🇸</span>
-                  <span>Aprende Inglés</span>
+                  <span>{t.learnEnglishBtn}</span>
                   <ArrowRight className="w-8 h-8" />
                 </span>
               </Button>
@@ -764,15 +790,15 @@ export default function Landing() {
             <div className="grid md:grid-cols-3 gap-6 text-white">
               <div className="flex items-center gap-3 justify-center">
                 <CheckCircle className="w-6 h-6 text-green-300 flex-shrink-0" />
-                <span>Primera clase GRATIS</span>
+                <span>{t.incentive1}</span>
               </div>
               <div className="flex items-center gap-3 justify-center">
                 <CheckCircle className="w-6 h-6 text-green-300 flex-shrink-0" />
-                <span>50% descuento primer mes</span>
+                <span>{t.incentive2}</span>
               </div>
               <div className="flex items-center gap-3 justify-center">
                 <CheckCircle className="w-6 h-6 text-green-300 flex-shrink-0" />
-                <span>Garantía de progreso 30 días</span>
+                <span>{t.incentive3}</span>
               </div>
             </div>
           </div>
@@ -786,11 +812,11 @@ export default function Landing() {
             <div className="flex justify-center mb-6">
               <img src={passportLogo} alt="Passport to Fluency" className="h-12" />
             </div>
-            <p className="text-gray-600 mb-4">© 2024 Passport to Fluency. Todos los derechos reservados.</p>
+            <p className="text-gray-600 mb-4">{t.footerRights}</p>
             <div className="flex justify-center gap-8 text-sm text-gray-500">
-              <a href="#" className="hover:text-gray-700 transition-colors">Términos y Condiciones</a>
-              <a href="#" className="hover:text-gray-700 transition-colors">Política de Privacidad</a>
-              <a href="#" className="hover:text-gray-700 transition-colors">Soporte</a>
+              <a href="#" className="hover:text-gray-700 transition-colors">{t.footerTerms}</a>
+              <a href="#" className="hover:text-gray-700 transition-colors">{t.footerPrivacy}</a>
+              <a href="#" className="hover:text-gray-700 transition-colors">{t.footerSupport}</a>
             </div>
           </div>
         </div>
