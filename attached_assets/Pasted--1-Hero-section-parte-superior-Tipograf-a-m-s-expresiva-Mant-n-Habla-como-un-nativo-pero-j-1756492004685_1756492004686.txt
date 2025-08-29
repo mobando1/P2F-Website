@@ -1,0 +1,95 @@
+🔹 1. Hero section (parte superior)
+
+Tipografía más expresiva:
+
+Mantén “Habla como un nativo” pero juega con peso y tamaños distintos. Ejemplo:
+
+“Habla” en azul noche #0A4A6E.
+
+“como un” más pequeño, en gris medio.
+
+“nativo” grande, en naranja sol #F59E1C con un gradiente suave para darle brillo.
+
+Fondo dinámico:
+
+En lugar de blanco plano, coloca un fondo degradado muy suave: de #FDF8F3 (beige muy claro) a blanco, o de azul cielo clarísimo a blanco.
+
+Esto da calidez y rompe la rigidez.
+
+Elemento gráfico decorativo:
+
+Puedes añadir ondas suaves o un trazo curvo detrás del titular, con los colores de la marca.
+
+Incluso un globo terráqueo minimalista translúcido como fondo.
+
+🔹 2. Sección de elección (tarjetas de “Learn Spanish / Aprende Inglés”)
+
+Ahora están claras, pero planas. Aquí cómo darles más vida:
+
+Tarjetas con más jerarquía:
+
+Aumentar el tamaño de los íconos de banderas y darles un círculo con gradiente de fondo (ej: rojo → amarillo para España, azul → rojo → blanco para USA).
+
+Esto hace que la tarjeta no dependa solo de texto.
+
+Más contraste en títulos:
+
+“Learn Spanish” → Azul noche #0A4A6E.
+
+“Aprende Inglés” → Azul cielo #1C7BB1.
+
+Uso del naranja sol:
+
+Ahora solo aparece en un botón. Dale más peso en esta sección:
+
+Íconos de check o bullets en naranja.
+
+Líneas divisorias en naranja suave.
+
+Botones CTA más llamativos:
+
+Hazlos más grandes, redondeados y con icono de flecha.
+
+Añade micro-interacción: sombra suave + cambio de tono al hover.
+
+🔹 3. Fluidez y conexión visual
+
+Conexión entre secciones:
+
+Añade una línea curva sutil o un gradiente horizontal que conecte la parte superior con las tarjetas.
+
+Animación ligera:
+
+Cuando la página carga, que los dos bloques (English / Spanish) aparezcan con un efecto de slide-in desde lados opuestos.
+
+Esto refuerza la idea de “dos caminos, una decisión clara”.
+
+🔹 4. Innovación y diferenciación
+
+Ilustraciones personalizadas:
+
+En lugar de solo texto, usa ilustraciones flat relacionadas con el aprendizaje (ej: una laptop con videollamada, un globo terráqueo, estudiantes interactuando).
+
+Estilo minimalista con tus colores de marca.
+
+Badges de prueba social más vistosos:
+
+Donde pones “1,000+ estudiantes activos” y “4.9 rating”, haz que sean badges con iconos coloridos (estrella dorada, ícono de estudiantes en azul, reloj naranja).
+
+🔹 5. Paleta aplicada
+
+Azul cielo #1C7BB1: botones principales, títulos secundarios, tarjeta de “Aprende Inglés”.
+
+Azul noche #0A4A6E: titulares, textos fuertes.
+
+Naranja sol #F59E1C: botones destacados, subtítulos, íconos y elementos gráficos de soporte.
+
+Blancos y grises suaves: fondos para mantener limpieza.
+
+✅ Resultado esperado
+
+Hero section con más personalidad visual (tipografía jerarquizada, fondo degradado, formas suaves o ilustraciones).
+
+Tarjetas de elección con más vida y color (banderas destacadas, gradientes, botones potentes).
+
+Una landing que ya no se siente como plantilla, sino como marca propia, innovadora, cercana y atractiva.
