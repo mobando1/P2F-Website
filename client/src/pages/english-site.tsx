@@ -435,7 +435,7 @@ export default function EnglishSite() {
                   </li>
                 </ul>
                 <Button 
-                  onClick={() => window.open('STARTER_FLOW_PAYMENT_LINK_HERE', '_blank')}
+                  onClick={() => window.open('https://buy.stripe.com/fZu5kE2Gw8zV2g49Cues004', '_blank')}
                   className="w-full bg-passport-blue hover:bg-blue-700 text-white py-2 font-semibold"
                 >
                   Empezar Ahora
