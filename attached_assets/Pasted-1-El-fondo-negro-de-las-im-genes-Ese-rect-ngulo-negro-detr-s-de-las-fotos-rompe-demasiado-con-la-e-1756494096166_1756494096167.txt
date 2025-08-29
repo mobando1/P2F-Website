@@ -1,0 +1,77 @@
+1. El fondo negro de las imágenes
+
+Ese rectángulo negro detrás de las fotos rompe demasiado con la estética limpia y clara del resto de la página.
+
+Mejoras posibles:
+
+Quitar el fondo negro y dejar las imágenes enmarcadas en blanco con sombra suave.
+
+O usar un marco con gradiente (azul cielo → naranja sol) muy sutil en lugar de negro.
+
+Incluso podrías poner el borde con estilo “sello de pasaporte” para reforzar la marca.
+
+👉 Así las imágenes no parecerán incrustadas, sino integradas.
+
+🔹 2. Botones principales (Learn Spanish / Aprende Inglés)
+
+Ahora los botones tienen contorno fuerte que se siente un poco pesado.
+
+Ajustes recomendados:
+
+Sin contorno → fondo sólido con gradiente sutil (ej: naranja sol → dorado claro, o azul cielo → azul noche).
+
+Bordes más redondeados (pill buttons), transmiten modernidad.
+
+Icono de bandera alineado dentro del botón, no pegado al borde.
+
+Micro-interacción: al hover, un glow suave o un cambio de gradiente.
+
+👉 Resultado: más elegantes, menos “botonazos” cuadrados.
+
+🔹 3. Título “Habla como un nativo”
+
+Muy bien la jerarquía de colores, pero está un poco pesado por estar en 3 líneas.
+
+Sugerencia:
+
+Hazlo en dos líneas máximo.
+
+Ejemplo:
+“Habla como un” (azul noche)
+“nativo” (naranja sol, más grande).
+
+👉 Eso ahorra espacio y da más impacto.
+
+🔹 4. Estadísticas (1,000+ / 300,000+ / 40+ / 4.9)
+
+Mucho mejor abajo, pero todavía los íconos y estrellas son un poco inconsistentes en estilo.
+
+Ajustes:
+
+Usar iconos lineales minimalistas en azul cielo/naranja sol.
+
+Números en bold y más grandes, texto en gris oscuro más chico.
+
+Ordenarlos en una línea centrada con separación equilibrada (no que un número salte más que otro).
+
+🔹 5. Fondo general
+
+El fondo beige claro funciona, pero está algo plano.
+
+Opciones:
+
+Agregar ondas suaves en gradiente de azul cielo → blanco en la parte superior.
+
+O pequeños sellos de pasaporte translúcidos en el fondo, muy sutiles.
+
+✅ Resultado esperado
+
+Fotos integradas (sin fondo negro, marcos blancos o con gradiente).
+
+Botones elegantes y redondeados, con gradiente suave y hover glow.
+
+Título más compacto, máximo dos líneas.
+
+Stats más minimalistas y alineadas, con iconografía unificada.
+
+Fondo con dinamismo sutil (ondas o sellos, no plano).
