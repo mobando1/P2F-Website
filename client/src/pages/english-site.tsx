@@ -190,8 +190,17 @@ export default function EnglishSite() {
           <div className="hidden md:block max-w-6xl mx-auto">
             <div className="relative">
               
-              {/* Línea conectora horizontal con gradiente dinámico */}
-              <div className="absolute top-1/2 left-0 right-0 h-1 bg-gradient-to-r from-blue-900 via-blue-500 to-orange-400 transform -translate-y-1/2 z-0 rounded-full opacity-60" style={{background: 'linear-gradient(to right, #0A4A6E 0%, #1C7BB1 50%, #F59E1C 100%)'}}></div>
+              {/* Línea conectora horizontal ondulada con gradiente dinámico */}
+              <svg className="absolute top-1/2 left-0 right-0 transform -translate-y-1/2 z-0" style={{height: '20px', width: '100%'}} preserveAspectRatio="none" viewBox="0 0 100 10">
+                <defs>
+                  <linearGradient id="curvedGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                    <stop offset="0%" style={{stopColor: '#0A4A6E', stopOpacity: 0.7}} />
+                    <stop offset="50%" style={{stopColor: '#1C7BB1', stopOpacity: 0.7}} />
+                    <stop offset="100%" style={{stopColor: '#F59E1C', stopOpacity: 0.7}} />
+                  </linearGradient>
+                </defs>
+                <path d="M 0 5 Q 25 2 50 5 T 100 5" stroke="url(#curvedGradient)" strokeWidth="2" fill="none" strokeLinecap="round" />
+              </svg>
               
               {/* Grid de pasos */}
               <div className="grid grid-cols-3 gap-8 relative z-10">
@@ -270,8 +279,8 @@ export default function EnglishSite() {
           <div className="md:hidden max-w-lg mx-auto">
             <div className="relative">
               
-              {/* Línea vertical conectora con gradiente */}
-              <div className="absolute left-6 top-0 bottom-0 w-1 bg-gradient-to-b rounded-full opacity-60" style={{background: 'linear-gradient(to bottom, #0A4A6E 0%, #1C7BB1 50%, #F59E1C 100%)'}}></div>
+              {/* Línea vertical recta con gradiente */}
+              <div className="absolute left-6 top-0 bottom-0 w-1 bg-gradient-to-b rounded-full opacity-70" style={{background: 'linear-gradient(to bottom, #0A4A6E 0%, #1C7BB1 50%, #F59E1C 100%)'}}></div>
               
               <div className="space-y-12">
                 
