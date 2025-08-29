@@ -174,20 +174,7 @@ export default function EnglishSite() {
           </div>
         </div>
       </section>
-      {/* Virtual English Class Image */}
-      <section className="py-12 bg-gradient-to-b from-blue-50 to-white">
-        <div className="container mx-auto px-4">
-          <div className="flex justify-center">
-            <div className="w-full max-w-5xl">
-              <img 
-                src={englishClassImage} 
-                alt="Virtual English class with native instructor - Learn English online" 
-                className="w-full h-auto rounded-2xl shadow-2xl"
-              />
-            </div>
-          </div>
-        </div>
-      </section>
+      
       
       {/* Cómo Funciona - Timeline Visual */}
       <section id="como-funciona" className="py-20 bg-white">
