@@ -403,7 +403,7 @@ export default function EnglishSite() {
           <div className="max-w-5xl mx-auto grid md:grid-cols-3 gap-6">
             <Card className="border-2 hover:border-passport-blue transition-colors">
               <CardContent className="p-6 text-center">
-                <h3 className="text-xl font-bold text-gray-900 mb-4">1 Clase por Semana</h3>
+                <h3 className="text-xl font-bold text-gray-900 mb-4">Starter Flow</h3>
                 <div className="text-3xl font-bold text-passport-blue mb-2">$119.96</div>
                 <div className="text-gray-600 mb-1">por mes</div>
                 <div className="text-sm text-gray-500 mb-6">$29.99 por clase</div>
@@ -435,7 +435,7 @@ export default function EnglishSite() {
                   </li>
                 </ul>
                 <Button 
-                  onClick={() => handleBookingClick('adult')}
+                  onClick={() => window.open('STARTER_FLOW_PAYMENT_LINK_HERE', '_blank')}
                   className="w-full bg-passport-blue hover:bg-blue-700 text-white py-2 font-semibold"
                 >
                   Empezar Ahora
@@ -445,7 +445,7 @@ export default function EnglishSite() {
 
             <Card className="border-2 hover:border-passport-blue transition-colors">
               <CardContent className="p-6 text-center">
-                <h3 className="text-xl font-bold text-gray-900 mb-4">2 Clases por Semana</h3>
+                <h3 className="text-xl font-bold text-gray-900 mb-4">Momentum Plan</h3>
                 <div className="text-3xl font-bold text-passport-blue mb-2">$219.99</div>
                 <div className="text-gray-600 mb-1">por mes</div>
                 <div className="text-sm text-gray-500 mb-6">$27.50 por clase</div>
@@ -473,7 +473,7 @@ export default function EnglishSite() {
                   </li>
                 </ul>
                 <Button 
-                  onClick={() => handleBookingClick('adult')}
+                  onClick={() => window.open('MOMENTUM_PLAN_PAYMENT_LINK_HERE', '_blank')}
                   className="w-full bg-passport-blue hover:bg-blue-700 text-white py-2 font-semibold"
                 >
                   Elegir Este Plan
@@ -488,7 +488,7 @@ export default function EnglishSite() {
                 </div>
               </div>
               <CardContent className="p-6 text-center">
-                <h3 className="text-xl font-bold text-gray-900 mb-4">3 Clases por Semana</h3>
+                <h3 className="text-xl font-bold text-gray-900 mb-4">Fluency Boost</h3>
                 <div className="text-3xl font-bold text-passport-orange mb-2">$299.99</div>
                 <div className="text-gray-600 mb-1">por mes</div>
                 <div className="text-sm text-gray-500 mb-6">$24.99 por clase</div>
@@ -516,7 +516,7 @@ export default function EnglishSite() {
                   </li>
                 </ul>
                 <Button 
-                  onClick={() => handleBookingClick('adult')}
+                  onClick={() => window.open('FLUENCY_BOOST_PAYMENT_LINK_HERE', '_blank')}
                   className="w-full bg-passport-orange hover:bg-orange-600 text-white py-2 font-semibold"
                 >
                   Empezar Ahora
