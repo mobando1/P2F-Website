@@ -15,9 +15,9 @@ export default function Blog({ language }: BlogProps) {
     subtitle: "Accelerate your Spanish learning journey with our expert tips, cultural insights, and practical guides.",
     articles: [
       {
-        title: "Essential Business Spanish Phrases for Professionals",
+        title: "Essential Spanish Phrases for Business Environments",
         description: "Master the key phrases and expressions you need to succeed in Spanish-speaking business environments.",
-        category: "Business Spanish • 5 min read",
+        category: "Spanish for Companies • 5 min read",
         icon: MessageCircle
       },
       {
@@ -38,7 +38,7 @@ export default function Blog({ language }: BlogProps) {
       home: "Home",
       pricing: "Plans & Pricing",
       children: "Spanish for Children",
-      business: "Business Programs",
+      business: "Spanish for Companies",
       team: "Team",
       blog: "Blog"
     }
@@ -70,7 +70,7 @@ export default function Blog({ language }: BlogProps) {
       home: "Inicio",
       pricing: "Planes y Precios",
       children: "Inglés para Niños",
-      business: "Programas Empresariales",
+      business: "Inglés para Empresas",
       team: "Equipo",
       blog: "Blog"
     }

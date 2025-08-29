@@ -444,7 +444,7 @@ export default function SpanishSite() {
                     <div className="p-4 border-2 border-passport-blue rounded-lg bg-blue-50 hover:bg-blue-100 transition-colors cursor-pointer">
                       <div className="flex items-center mb-2">
                         <Building className="w-5 h-5 text-passport-blue mr-2" />
-                        <h4 className="font-semibold text-gray-900">Business Programs</h4>
+                        <h4 className="font-semibold text-gray-900">Spanish for Companies</h4>
                       </div>
                       <p className="text-sm text-gray-600 mb-3">Professional Spanish for corporate teams</p>
                     </div>
@@ -750,7 +750,7 @@ export default function SpanishSite() {
               </div>
             </Link>
             
-            {/* Business Spanish Programs - Diseño Premium */}
+            {/* Spanish for Companies Programs - Diseño Premium */}
             <Link href="/es/business" className="block group focus:outline-none focus:ring-4 focus:ring-amber-300 rounded-3xl">
               <div className="bg-white rounded-3xl shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 cursor-pointer overflow-hidden relative">
                 
@@ -778,7 +778,7 @@ export default function SpanishSite() {
                   
                   {/* Título corporativo */}
                   <h3 className="text-2xl md:text-3xl font-bold text-slate-900 mb-6 tracking-tight">
-                    Business Spanish Programs
+                    Spanish for Companies Programs
                   </h3>
                   
                   {/* Descripción */}
@@ -831,7 +831,7 @@ export default function SpanishSite() {
                   {/* Botón premium con brillo animado */}
                   <div className="inline-block">
                     <div className="bg-gradient-to-r from-amber-500 via-yellow-500 to-amber-600 hover:from-amber-600 hover:via-yellow-600 hover:to-amber-700 text-white px-10 py-4 rounded-xl font-bold text-lg hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 flex items-center gap-3 group relative overflow-hidden">
-                      <span className="relative z-10">Explore Business Programs</span>
+                      <span className="relative z-10">Explore Company Programs</span>
                       <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform relative z-10" />
                       {/* Efecto de brillo que cruza */}
                       <div className="absolute inset-0 -translate-x-full group-hover:translate-x-full bg-gradient-to-r from-transparent via-white/30 to-transparent transition-transform duration-700 ease-in-out"></div>

@@ -43,7 +43,7 @@ export default function Team({ language }: TeamProps) {
       home: "Home",
       pricing: "Plans & Pricing",
       children: "Spanish for Children",
-      business: "Business Programs",
+      business: "Spanish for Companies",
       team: "Team",
       blog: "Blog"
     }
@@ -80,7 +80,7 @@ export default function Team({ language }: TeamProps) {
       home: "Inicio",
       pricing: "Planes y Precios",
       children: "Inglés para Niños",
-      business: "Programas Empresariales",
+      business: "Inglés para Empresas",
       team: "Equipo",
       blog: "Blog"
     }

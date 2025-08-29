@@ -15,13 +15,13 @@ export default function NavigationDropdown({ language, currentPath }: Navigation
     programs: "Programs",
     adultSpanish: "Spanish for Adults",
     childrenSpanish: "Spanish for Children", 
-    businessSpanish: "Business Spanish"
+    businessSpanish: "Spanish for Companies"
   } : {
     // English site content (Spanish speakers learning English)
     programs: "Programas",
     adultEnglish: "Inglés para Adultos", 
     childrenEnglish: "Inglés para Niños",
-    businessEnglish: "Inglés Empresarial"
+    businessEnglish: "Inglés para Empresas"
   };
 
   const basePath = language === 'en' ? '/es' : '/en';

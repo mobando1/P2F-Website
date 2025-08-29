@@ -19,7 +19,7 @@ export default function Business({ language }: BusinessProps) {
   };
 
   const content = language === 'en' ? {
-    title: "Business Spanish Programs",
+    title: "Spanish for Companies Programs",
     subtitle: "Elevate your career and expand your business opportunities with professional Spanish training designed for the corporate world.",
     mainTitle: "Transform Your Business Communication",
     description: "Connect with Spanish-speaking clients, colleagues, and markets with confidence. Our business-focused curriculum covers industry-specific vocabulary and professional communication skills.",
@@ -32,12 +32,12 @@ export default function Business({ language }: BusinessProps) {
       home: "Home",
       pricing: "Plans & Pricing", 
       children: "Spanish for Children",
-      business: "Business Programs",
+      business: "Spanish for Companies",
       team: "Team",
       blog: "Blog"
     }
   } : {
-    title: "Programas Empresariales de Inglés",
+    title: "Programas de Inglés para Empresas",
     subtitle: "Eleva tu carrera y expande tus oportunidades de negocio con capacitación profesional en inglés diseñada para el mundo corporativo.",
     mainTitle: "Transforma tu Comunicación Empresarial",
     description: "Conéctate con clientes, colegas y mercados de habla inglesa con confianza. Nuestro currículo enfocado en negocios cubre vocabulario específico de la industria y habilidades de comunicación profesional.",
@@ -50,7 +50,7 @@ export default function Business({ language }: BusinessProps) {
       home: "Inicio",
       pricing: "Planes y Precios",
       children: "Inglés para Niños",
-      business: "Programas Empresariales",
+      business: "Inglés para Empresas",
       team: "Equipo",
       blog: "Blog"
     }
