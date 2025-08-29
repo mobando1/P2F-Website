@@ -159,18 +159,38 @@ const MobileCTA = ({
 };
 
 // Componente Popup Adaptativo de Email
-const EmailPopup = ({ selectedLanguage }: { selectedLanguage: 'spanish' | 'english' | null }) => {
+const EmailPopup = ({ 
+  selectedLanguage, 
+  currentLang, 
+  showInitial = true, 
+  showOnLanguageChange = false, 
+  onClose 
+}: { 
+  selectedLanguage: 'spanish' | 'english' | null;
+  currentLang: 'es' | 'en';
+  showInitial?: boolean;
+  showOnLanguageChange?: boolean;
+  onClose?: () => void;
+}) => {
   const [isVisible, setIsVisible] = useState(false);
   const [isClosing, setIsClosing] = useState(false);
 
   useEffect(() => {
-    // Mostrar popup después de 7 segundos
-    const timer = setTimeout(() => {
-      setIsVisible(true);
-    }, 7000);
+    if (showInitial) {
+      // Mostrar popup inicial después de 7 segundos
+      const timer = setTimeout(() => {
+        setIsVisible(true);
+      }, 7000);
+      return () => clearTimeout(timer);
+    }
+  }, [showInitial]);
 
-    return () => clearTimeout(timer);
-  }, []);
+  useEffect(() => {
+    if (showOnLanguageChange) {
+      // Mostrar popup inmediatamente cuando hay cambio de idioma
+      setIsVisible(true);
+    }
+  }, [showOnLanguageChange]);
 
   useEffect(() => {
     // Agregar el script de form_embed cuando el componente se monta
@@ -187,26 +207,30 @@ const EmailPopup = ({ selectedLanguage }: { selectedLanguage: 'spanish' | 'engli
     setTimeout(() => {
       setIsVisible(false);
       setIsClosing(false);
+      if (onClose) onClose();
     }, 300);
   };
 
   if (!isVisible) return null;
 
-  // Determinar el contenido del popup según el idioma seleccionado
-  const isSpanishSelected = selectedLanguage === 'spanish';
-  const isEnglishSelected = selectedLanguage === 'english';
+  // Determinar el contenido del popup según el idioma actual de la página
+  const isEnglishLang = currentLang === 'en';
   
-  // Si no hay selección, mostrar el popup genérico en español
+  // Contenido adaptado al idioma actual de la página
   const popupContent = {
-    title: isEnglishSelected 
+    title: isEnglishLang 
       ? "🎯 Special Offer - 10% OFF!" 
       : "🎯 ¡Oferta Especial - 10% de Descuento!",
-    subtitle: isEnglishSelected
+    subtitle: isEnglishLang
       ? "Get 10% discount on your first month of any plan!"
       : "¡Obtén 10% de descuento en tu primer mes de cualquier plan!",
-    description: isEnglishSelected
-      ? "Join thousands of students who are already learning with native instructors. Limited time offer!"
-      : "Únete a miles de estudiantes que ya están aprendiendo con instructores nativos. ¡Oferta por tiempo limitado!"
+    description: showOnLanguageChange
+      ? (isEnglishLang 
+          ? "Perfect timing! Since you're interested in this language, here's a special offer just for you!"
+          : "¡Momento perfecto! Como te interesa este idioma, ¡aquí tienes una oferta especial solo para ti!")
+      : (isEnglishLang
+          ? "Join thousands of students who are already learning with native instructors. Limited time offer!"
+          : "Únete a miles de estudiantes que ya están aprendiendo con instructores nativos. ¡Oferta por tiempo limitado!")
   };
 
   return (
@@ -287,6 +311,8 @@ export default function Landing() {
   const [detectedLanguage, setDetectedLanguage] = useState<string | null>(null);
   const [selectedLanguage, setSelectedLanguage] = useState<'spanish' | 'english' | null>(null);
   const [currentLang, setCurrentLang] = useState<'es' | 'en'>('es');
+  const [initialPopupClosed, setInitialPopupClosed] = useState(false);
+  const [languageChangedAfterClose, setLanguageChangedAfterClose] = useState(false);
 
   useEffect(() => {
     // Simple language detection based on browser language
@@ -311,6 +337,22 @@ export default function Landing() {
   const toggleLanguage = () => {
     setCurrentLang(currentLang === 'es' ? 'en' : 'es');
     setDetectedLanguage(currentLang === 'es' ? 'English' : 'español');
+    
+    // Si el popup inicial fue cerrado, marcar que hubo cambio de idioma
+    if (initialPopupClosed) {
+      setLanguageChangedAfterClose(true);
+    }
+  };
+
+  // Función para manejar el cierre del popup inicial
+  const handleInitialPopupClose = () => {
+    setInitialPopupClosed(true);
+    setLanguageChangedAfterClose(false);
+  };
+
+  // Función para manejar el cierre del popup por cambio de idioma
+  const handleLanguageChangePopupClose = () => {
+    setLanguageChangedAfterClose(false);
   };
 
   // Traducciones del contenido
@@ -856,7 +898,27 @@ export default function Landing() {
       <MobileCTA onLanguageSelect={handleLanguageSelection} />
       
       {/* Popup de Email Adaptativo */}
-      <EmailPopup selectedLanguage={selectedLanguage} />
+      {/* Popup inicial (aparece después de 7 segundos si no se ha cerrado) */}
+      {!initialPopupClosed && (
+        <EmailPopup 
+          selectedLanguage={selectedLanguage} 
+          currentLang={currentLang}
+          showInitial={true}
+          showOnLanguageChange={false}
+          onClose={handleInitialPopupClose}
+        />
+      )}
+      
+      {/* Popup por cambio de idioma (aparece cuando cambian idioma después de cerrar el inicial) */}
+      {languageChangedAfterClose && (
+        <EmailPopup 
+          selectedLanguage={selectedLanguage} 
+          currentLang={currentLang}
+          showInitial={false}
+          showOnLanguageChange={true}
+          onClose={handleLanguageChangePopupClose}
+        />
+      )}
     </div>
   );
 }
