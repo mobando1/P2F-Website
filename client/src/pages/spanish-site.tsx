@@ -173,8 +173,8 @@ export default function SpanishSite() {
           </div>
         </div>
       </section>
-      {/* How it Works - Enhanced Design */}
-      <section id="how-it-works" className="py-20 bg-gradient-to-b from-white to-gray-50">
+      {/* How it Works - Clean & Dynamic Design */}
+      <section id="how-it-works" className="py-24 bg-gradient-to-b from-slate-50 via-white to-slate-50">
         <div className="container mx-auto px-4">
           <div className="text-center mb-20">
             <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
@@ -185,115 +185,194 @@ export default function SpanishSite() {
             </p>
           </div>
 
-          {/* Desktop: Conectados con líneas */}
-          <div className="max-w-7xl mx-auto relative">
+          <div className="max-w-6xl mx-auto">
             
-            {/* Líneas conectoras - Solo desktop */}
-            <div className="hidden md:block absolute top-1/2 left-0 right-0 h-1 bg-gradient-to-r from-blue-200 via-green-200 to-orange-200 transform -translate-y-1/2 z-0"></div>
-            
-            <div className="grid md:grid-cols-3 gap-8 md:gap-4 relative z-10">
+            {/* Desktop: Layout en zigzag */}
+            <div className="hidden md:block space-y-16">
               
-              {/* Paso 1 - Azul (Confianza) */}
-              <div className="group cursor-pointer">
-                <Card className="text-center border-2 border-blue-100 hover:border-blue-300 hover:shadow-2xl hover:-translate-y-3 transition-all duration-300 bg-white relative overflow-hidden">
-                  
-                  {/* Número protagonista */}
-                  <div className="absolute -top-6 left-1/2 transform -translate-x-1/2 z-20">
-                    <div className="w-12 h-12 bg-gradient-to-br from-blue-500 to-blue-600 rounded-full flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-300">
-                      <span className="text-white font-black text-xl">1</span>
-                    </div>
-                  </div>
-                  
-                  <CardContent className="p-8 pt-12">
-                    {/* Ícono con gradiente y animación */}
-                    <div className="relative mb-8">
-                      <div className="w-20 h-20 bg-gradient-to-br from-blue-400 to-blue-600 rounded-full flex items-center justify-center mx-auto shadow-xl group-hover:shadow-2xl group-hover:-translate-y-1 transition-all duration-300 relative overflow-hidden">
-                        <Calendar className="w-10 h-10 text-white group-hover:scale-110 transition-transform duration-300" />
-                        {/* Efecto de brillo */}
-                        <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/20 to-transparent group-hover:animate-pulse"></div>
+              {/* Paso 1 - Left aligned */}
+              <div className="flex items-center gap-12">
+                <div className="flex-1 text-right">
+                  <div className="bg-white rounded-3xl p-8 shadow-lg hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 border border-blue-100 hover:border-blue-300 group cursor-pointer relative">
+                    
+                    {/* Número grande y protagonista */}
+                    <div className="absolute -left-6 top-1/2 transform -translate-y-1/2">
+                      <div className="w-16 h-16 bg-gradient-to-br from-blue-500 to-blue-700 rounded-full flex items-center justify-center shadow-xl group-hover:scale-110 group-hover:shadow-2xl transition-all duration-300">
+                        <span className="text-white font-black text-2xl">1</span>
                       </div>
                     </div>
                     
-                    <h3 className="text-xl md:text-2xl font-bold text-gray-900 mb-6 leading-tight">
-                      Schedule your class
-                    </h3>
-                    <p className="text-gray-700 leading-relaxed text-lg">
-                      Pick the time that works best for you. Available 24/7, even last minute bookings.
-                    </p>
-                  </CardContent>
-                </Card>
+                    <div className="ml-8">
+                      <h3 className="text-2xl font-bold text-gray-900 mb-4">
+                        Schedule your class
+                      </h3>
+                      <p className="text-gray-600 text-lg leading-relaxed mb-6">
+                        Pick the time that works best for you. Available 24/7, even last minute bookings.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+                
+                {/* Ícono central */}
+                <div className="flex-shrink-0">
+                  <div className="w-24 h-24 bg-gradient-to-br from-blue-400 to-blue-600 rounded-full flex items-center justify-center shadow-xl hover:shadow-2xl hover:scale-110 transition-all duration-300 group">
+                    <Calendar className="w-12 h-12 text-white group-hover:rotate-12 transition-transform duration-300" />
+                  </div>
+                </div>
+                
+                <div className="flex-1"></div>
               </div>
-
-              {/* Paso 2 - Verde (Conexión) */}
-              <div className="group cursor-pointer md:mt-8">
-                <Card className="text-center border-2 border-green-100 hover:border-green-300 hover:shadow-2xl hover:-translate-y-3 transition-all duration-300 bg-white relative overflow-hidden">
-                  
-                  {/* Número protagonista */}
-                  <div className="absolute -top-6 left-1/2 transform -translate-x-1/2 z-20">
-                    <div className="w-12 h-12 bg-gradient-to-br from-green-500 to-green-600 rounded-full flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-300">
-                      <span className="text-white font-black text-xl">2</span>
-                    </div>
+              
+              {/* Paso 2 - Right aligned */}
+              <div className="flex items-center gap-12">
+                <div className="flex-1"></div>
+                
+                {/* Ícono central */}
+                <div className="flex-shrink-0">
+                  <div className="w-24 h-24 bg-gradient-to-br from-green-400 to-green-600 rounded-full flex items-center justify-center shadow-xl hover:shadow-2xl hover:scale-110 transition-all duration-300 group relative">
+                    <VideoIcon className="w-12 h-12 text-white group-hover:scale-110 transition-transform duration-300" />
+                    {/* Efecto pulsante de play */}
+                    <div className="absolute inset-0 rounded-full bg-white/20 scale-0 group-hover:scale-110 group-hover:animate-ping transition-transform duration-300"></div>
                   </div>
-                  
-                  <CardContent className="p-8 pt-12">
-                    {/* Ícono con gradiente y animación especial */}
-                    <div className="relative mb-8">
-                      <div className="w-20 h-20 bg-gradient-to-br from-green-400 to-green-600 rounded-full flex items-center justify-center mx-auto shadow-xl group-hover:shadow-2xl group-hover:-translate-y-1 transition-all duration-300 relative overflow-hidden">
-                        <VideoIcon className="w-10 h-10 text-white group-hover:scale-110 transition-transform duration-300" />
-                        {/* Efecto de "play" pulsante */}
-                        <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/30 to-transparent opacity-0 group-hover:opacity-100 group-hover:animate-ping transition-opacity duration-300"></div>
+                </div>
+                
+                <div className="flex-1 text-left">
+                  <div className="bg-white rounded-3xl p-8 shadow-lg hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 border border-green-100 hover:border-green-300 group cursor-pointer relative">
+                    
+                    {/* Número grande y protagonista */}
+                    <div className="absolute -right-6 top-1/2 transform -translate-y-1/2">
+                      <div className="w-16 h-16 bg-gradient-to-br from-green-500 to-green-700 rounded-full flex items-center justify-center shadow-xl group-hover:scale-110 group-hover:shadow-2xl transition-all duration-300">
+                        <span className="text-white font-black text-2xl">2</span>
                       </div>
                     </div>
                     
-                    <h3 className="text-xl md:text-2xl font-bold text-gray-900 mb-6 leading-tight">
-                      Connect via video
-                    </h3>
-                    <p className="text-gray-700 leading-relaxed text-lg">
-                      Join your class through Google Meet from any device. Your instructor will be waiting for you.
-                    </p>
-                  </CardContent>
-                </Card>
+                    <div className="mr-8">
+                      <h3 className="text-2xl font-bold text-gray-900 mb-4">
+                        Connect via video
+                      </h3>
+                      <p className="text-gray-600 text-lg leading-relaxed mb-6">
+                        Join your class through Google Meet from any device. Your instructor will be waiting for you.
+                      </p>
+                    </div>
+                  </div>
+                </div>
               </div>
-
-              {/* Paso 3 - Naranja (Energía) */}
-              <div className="group cursor-pointer">
-                <Card className="text-center border-2 border-orange-100 hover:border-orange-300 hover:shadow-2xl hover:-translate-y-3 transition-all duration-300 bg-white relative overflow-hidden">
-                  
-                  {/* Número protagonista */}
-                  <div className="absolute -top-6 left-1/2 transform -translate-x-1/2 z-20">
-                    <div className="w-12 h-12 bg-gradient-to-br from-orange-500 to-orange-600 rounded-full flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-300">
-                      <span className="text-white font-black text-xl">3</span>
-                    </div>
-                  </div>
-                  
-                  <CardContent className="p-8 pt-12">
-                    {/* Ícono con gradiente y bounce animation */}
-                    <div className="relative mb-8">
-                      <div className="w-20 h-20 bg-gradient-to-br from-orange-400 to-orange-600 rounded-full flex items-center justify-center mx-auto shadow-xl group-hover:shadow-2xl group-hover:-translate-y-1 group-hover:animate-bounce transition-all duration-300 relative overflow-hidden">
-                        <MessageCircle className="w-10 h-10 text-white group-hover:scale-110 transition-transform duration-300" />
-                        {/* Efecto de ondas */}
-                        <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/20 to-transparent group-hover:animate-pulse"></div>
+              
+              {/* Paso 3 - Left aligned */}
+              <div className="flex items-center gap-12">
+                <div className="flex-1 text-right">
+                  <div className="bg-white rounded-3xl p-8 shadow-lg hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 border border-orange-100 hover:border-orange-300 group cursor-pointer relative">
+                    
+                    {/* Número grande y protagonista */}
+                    <div className="absolute -left-6 top-1/2 transform -translate-y-1/2">
+                      <div className="w-16 h-16 bg-gradient-to-br from-orange-500 to-orange-700 rounded-full flex items-center justify-center shadow-xl group-hover:scale-110 group-hover:shadow-2xl transition-all duration-300">
+                        <span className="text-white font-black text-2xl">3</span>
                       </div>
                     </div>
                     
-                    <h3 className="text-xl md:text-2xl font-bold text-gray-900 mb-6 leading-tight">
-                      Practice and improve
-                    </h3>
-                    <p className="text-gray-700 leading-relaxed text-lg">
-                      Real conversation with instant feedback. Your progress is automatically tracked.
-                    </p>
-                  </CardContent>
-                </Card>
+                    <div className="ml-8">
+                      <h3 className="text-2xl font-bold text-gray-900 mb-4">
+                        Practice and improve
+                      </h3>
+                      <p className="text-gray-600 text-lg leading-relaxed mb-6">
+                        Real conversation with instant feedback. Your progress is automatically tracked.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+                
+                {/* Ícono central */}
+                <div className="flex-shrink-0">
+                  <div className="w-24 h-24 bg-gradient-to-br from-orange-400 to-orange-600 rounded-full flex items-center justify-center shadow-xl hover:shadow-2xl hover:scale-110 hover:animate-bounce transition-all duration-300 group">
+                    <MessageCircle className="w-12 h-12 text-white group-hover:scale-110 transition-transform duration-300" />
+                  </div>
+                </div>
+                
+                <div className="flex-1"></div>
               </div>
               
             </div>
             
-            {/* Timeline vertical para móvil */}
-            <div className="md:hidden mt-12">
-              <div className="flex flex-col items-center space-y-8">
-                <div className="w-1 h-16 bg-gradient-to-b from-blue-400 to-green-400"></div>
-                <div className="w-1 h-16 bg-gradient-to-b from-green-400 to-orange-400"></div>
+            {/* Mobile: Timeline vertical con conectores */}
+            <div className="md:hidden space-y-8">
+              
+              {/* Paso 1 */}
+              <div className="flex items-start gap-6 group">
+                {/* Timeline con número */}
+                <div className="flex flex-col items-center flex-shrink-0">
+                  <div className="w-14 h-14 bg-gradient-to-br from-blue-500 to-blue-700 rounded-full flex items-center justify-center shadow-xl group-hover:scale-110 transition-transform duration-300">
+                    <span className="text-white font-black text-xl">1</span>
+                  </div>
+                  <div className="w-1 h-12 bg-gradient-to-b from-blue-400 to-green-400 mt-4"></div>
+                </div>
+                
+                {/* Contenido */}
+                <div className="bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex-1 border border-blue-100 hover:border-blue-300">
+                  <div className="flex items-center gap-4 mb-4">
+                    <div className="w-12 h-12 bg-gradient-to-br from-blue-400 to-blue-600 rounded-full flex items-center justify-center">
+                      <Calendar className="w-6 h-6 text-white" />
+                    </div>
+                    <h3 className="text-xl font-bold text-gray-900">
+                      Schedule your class
+                    </h3>
+                  </div>
+                  <p className="text-gray-600 leading-relaxed">
+                    Pick the time that works best for you. Available 24/7, even last minute bookings.
+                  </p>
+                </div>
               </div>
+              
+              {/* Paso 2 */}
+              <div className="flex items-start gap-6 group">
+                {/* Timeline con número */}
+                <div className="flex flex-col items-center flex-shrink-0">
+                  <div className="w-14 h-14 bg-gradient-to-br from-green-500 to-green-700 rounded-full flex items-center justify-center shadow-xl group-hover:scale-110 transition-transform duration-300">
+                    <span className="text-white font-black text-xl">2</span>
+                  </div>
+                  <div className="w-1 h-12 bg-gradient-to-b from-green-400 to-orange-400 mt-4"></div>
+                </div>
+                
+                {/* Contenido */}
+                <div className="bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex-1 border border-green-100 hover:border-green-300">
+                  <div className="flex items-center gap-4 mb-4">
+                    <div className="w-12 h-12 bg-gradient-to-br from-green-400 to-green-600 rounded-full flex items-center justify-center">
+                      <VideoIcon className="w-6 h-6 text-white" />
+                    </div>
+                    <h3 className="text-xl font-bold text-gray-900">
+                      Connect via video
+                    </h3>
+                  </div>
+                  <p className="text-gray-600 leading-relaxed">
+                    Join your class through Google Meet from any device. Your instructor will be waiting for you.
+                  </p>
+                </div>
+              </div>
+              
+              {/* Paso 3 */}
+              <div className="flex items-start gap-6 group">
+                {/* Timeline con número */}
+                <div className="flex flex-col items-center flex-shrink-0">
+                  <div className="w-14 h-14 bg-gradient-to-br from-orange-500 to-orange-700 rounded-full flex items-center justify-center shadow-xl group-hover:scale-110 transition-transform duration-300">
+                    <span className="text-white font-black text-xl">3</span>
+                  </div>
+                </div>
+                
+                {/* Contenido */}
+                <div className="bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex-1 border border-orange-100 hover:border-orange-300">
+                  <div className="flex items-center gap-4 mb-4">
+                    <div className="w-12 h-12 bg-gradient-to-br from-orange-400 to-orange-600 rounded-full flex items-center justify-center">
+                      <MessageCircle className="w-6 h-6 text-white" />
+                    </div>
+                    <h3 className="text-xl font-bold text-gray-900">
+                      Practice and improve
+                    </h3>
+                  </div>
+                  <p className="text-gray-600 leading-relaxed">
+                    Real conversation with instant feedback. Your progress is automatically tracked.
+                  </p>
+                </div>
+              </div>
+              
             </div>
             
           </div>
