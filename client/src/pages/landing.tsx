@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Globe, Star, Users, Clock, ArrowRight, CheckCircle } from "lucide-react";
 import passportLogo from "@assets/a1c5a1_9514ede9e3124d7a9adf78f5dcf07f28~mv2_1755803448396.png";
-import newLearningImage from "@assets/generated_images/Language_learning_photo_composition_f9db4f87.png";
+import newLearningImage from "@assets/generated_images/Professional_online_tutoring_video_call_5ad2c107.png";
 
 export default function Landing() {
   const [, navigate] = useLocation();
