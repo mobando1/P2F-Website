@@ -473,7 +473,7 @@ export default function SpanishSite() {
                   </li>
                 </ul>
                 <Button 
-                  onClick={() => window.open('MOMENTUM_PLAN_PAYMENT_LINK_HERE', '_blank')}
+                  onClick={() => window.open('https://buy.stripe.com/eVq28s80Qg2n2g401Ues002', '_blank')}
                   className="w-full bg-passport-orange hover:bg-orange-600 text-white py-2 font-semibold"
                 >
                   Choose This Plan
