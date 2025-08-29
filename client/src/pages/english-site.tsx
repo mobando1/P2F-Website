@@ -661,13 +661,8 @@ export default function EnglishSite() {
         </div>
       </section>
       
-      {/* Programas Especializados - New Design */}
-      <section className="py-20 bg-slate-50">
-        <div className="container mx-auto px-4">
-          <div className="max-w-6xl mx-auto space-y-20 md:space-y-24">
-            
-            {/* Inglés para Niños - Diseño Juguetón */}
-            <Link href="/en/children" className="block group focus:outline-none focus:ring-4 focus:ring-blue-300 rounded-3xl">
+
+      {/* Testimonials */}
               <div className="bg-white rounded-3xl shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 cursor-pointer overflow-hidden relative">
                 
                 {/* Header visual con degradado */}
