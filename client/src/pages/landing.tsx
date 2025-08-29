@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Globe, Star, Users, Clock, ArrowRight } from "lucide-react";
 import passportLogo from "@assets/a1c5a1_9514ede9e3124d7a9adf78f5dcf07f28~mv2_1755803448396.png";
-import onlineLearningImage from "@assets/generated_images/Online_language_learning_setup_dadfcf8f.png";
+import newLearningImage from "@assets/generated_images/Language_learning_photo_composition_f9db4f87.png";
 
 export default function Landing() {
   const [, navigate] = useLocation();
@@ -21,7 +21,7 @@ export default function Landing() {
   }, []);
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-pink-400 via-purple-400 to-indigo-400 overflow-hidden">
+    <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-orange-50 overflow-hidden">
       {/* Top Navigation Bar */}
       <div className="container mx-auto px-6 py-4">
         <div className="flex items-center justify-between">
@@ -29,7 +29,7 @@ export default function Landing() {
           
           {/* Language detection in top right */}
           {detectedLanguage && (
-            <div className="bg-white/20 backdrop-blur-sm rounded-lg px-3 py-1 text-white text-sm flex items-center">
+            <div className="bg-blue-100 border border-blue-200 rounded-lg px-3 py-1 text-blue-800 text-sm flex items-center">
               <Globe className="w-4 h-4 mr-2" />
               {detectedLanguage === 'español' ? 'Español' : 'English'}
             </div>
@@ -43,31 +43,43 @@ export default function Landing() {
           
           {/* Left Side - Hero Text */}
           <div className="space-y-8 animate-fade-in">
-            <h1 className="text-5xl md:text-7xl font-black text-white leading-tight">
-              Habla como un
-              <span className="block text-yellow-300 italic">nativo</span>
+            <h1 className="text-5xl md:text-7xl font-black leading-tight">
+              <span style={{color: '#0A4A6E'}}>Habla como un</span>
+              <span className="block italic" style={{color: '#F59E1C'}}>nativo</span>
             </h1>
             
-            <p className="text-xl md:text-2xl text-white/90 leading-relaxed max-w-lg">
+            <p className="text-xl md:text-2xl text-gray-700 leading-relaxed max-w-lg mb-4">
               Clases personalizadas 1-a-1 con instructores nativos
             </p>
+            
+            <div className="bg-blue-50 border border-blue-200 rounded-lg p-4 mb-6 max-w-lg">
+              <p className="text-blue-800 font-semibold text-lg">
+                Selecciona el idioma que quieres aprender:
+              </p>
+            </div>
 
-            {/* CTA Buttons - Preply Style */}
-            <div className="space-y-4">
+            {/* CTA Buttons - Prominent Brand Colors */}
+            <div className="space-y-6">
               <Button 
                 onClick={() => navigate('/es')}
-                className="bg-black hover:bg-gray-800 text-white px-10 py-5 text-xl font-bold rounded-full transition-all duration-300 hover:shadow-2xl transform hover:scale-105 w-full sm:w-auto"
+                className="w-full sm:w-auto px-12 py-6 text-2xl font-black rounded-2xl transition-all duration-300 hover:shadow-2xl transform hover:scale-105 border-4"
+                style={{backgroundColor: '#F59E1C', borderColor: '#ea580c', color: 'white'}}
+                onMouseEnter={(e) => e.currentTarget.style.backgroundColor = '#ea580c'}
+                onMouseLeave={(e) => e.currentTarget.style.backgroundColor = '#F59E1C'}
                 data-testid="button-learn-spanish"
               >
-                Learn Spanish →
+                🇪🇸 Learn Spanish →
               </Button>
               
               <Button 
                 onClick={() => navigate('/en')}
-                className="bg-white/20 hover:bg-white/30 text-white border-2 border-white/40 px-10 py-5 text-xl font-bold rounded-full transition-all duration-300 backdrop-blur-sm transform hover:scale-105 w-full sm:w-auto ml-0 sm:ml-4"
+                className="w-full sm:w-auto px-12 py-6 text-2xl font-black rounded-2xl transition-all duration-300 hover:shadow-2xl transform hover:scale-105 border-4 ml-0 sm:ml-6"
+                style={{backgroundColor: '#0A4A6E', borderColor: '#1C7BB1', color: 'white'}}
+                onMouseEnter={(e) => e.currentTarget.style.backgroundColor = '#1C7BB1'}
+                onMouseLeave={(e) => e.currentTarget.style.backgroundColor = '#0A4A6E'}
                 data-testid="button-aprende-ingles"
               >
-                Aprende Inglés →
+                🇺🇸 Aprende Inglés →
               </Button>
             </div>
           </div>
@@ -78,29 +90,29 @@ export default function Landing() {
               {/* Main large image */}
               <div className="relative z-10 bg-white rounded-3xl p-6 shadow-2xl transform rotate-3">
                 <img 
-                  src={onlineLearningImage} 
+                  src={newLearningImage} 
                   alt="Clases de idiomas virtuales 1-a-1" 
                   className="w-80 h-64 object-cover rounded-2xl"
                 />
               </div>
               
-              {/* Smaller overlapping image - simulating Preply's style */}
+              {/* Smaller overlapping image - Brand colors */}
               <div className="absolute -top-8 -left-8 z-20 bg-white rounded-2xl p-4 shadow-2xl transform -rotate-6">
-                <div className="w-32 h-32 bg-gradient-to-br from-blue-100 to-purple-100 rounded-2xl flex items-center justify-center">
+                <div className="w-32 h-32 bg-gradient-to-br from-blue-100 to-orange-100 rounded-2xl flex items-center justify-center">
                   <div className="text-center">
-                    <div className="w-16 h-16 bg-gradient-to-br from-blue-500 to-purple-500 rounded-full mx-auto mb-2 flex items-center justify-center">
+                    <div className="w-16 h-16 rounded-full mx-auto mb-2 flex items-center justify-center" style={{background: 'linear-gradient(135deg, #0A4A6E, #F59E1C)'}}>
                       <Users className="w-8 h-8 text-white" />
                     </div>
-                    <div className="text-sm font-bold text-gray-700">1K+ activos</div>
+                    <div className="text-sm font-bold" style={{color: '#0A4A6E'}}>1K+ activos</div>
                   </div>
                 </div>
               </div>
               
               {/* Third decorative element */}
-              <div className="absolute -bottom-4 -right-4 z-15 bg-yellow-300 rounded-xl p-3 shadow-xl">
+              <div className="absolute -bottom-4 -right-4 z-15 rounded-xl p-3 shadow-xl" style={{backgroundColor: '#F59E1C'}}>
                 <div className="flex items-center space-x-2">
-                  <Star className="w-6 h-6 text-yellow-600" />
-                  <span className="font-bold text-gray-800">4.9</span>
+                  <Star className="w-6 h-6 text-white" />
+                  <span className="font-bold text-white">4.9</span>
                 </div>
               </div>
             </div>
@@ -114,25 +126,25 @@ export default function Landing() {
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
             {/* Stat 1 */}
             <div>
-              <div className="text-2xl md:text-3xl font-bold text-gray-800">1,000+</div>
+              <div className="text-2xl md:text-3xl font-bold" style={{color: '#0A4A6E'}}>1,000+</div>
               <div className="text-sm text-gray-600">estudiantes activos</div>
             </div>
             
             {/* Stat 2 */}
             <div>
-              <div className="text-2xl md:text-3xl font-bold text-gray-800">300,000+</div>
+              <div className="text-2xl md:text-3xl font-bold" style={{color: '#F59E1C'}}>300,000+</div>
               <div className="text-sm text-gray-600">clases completadas</div>
             </div>
             
             {/* Stat 3 */}
             <div>
-              <div className="text-2xl md:text-3xl font-bold text-gray-800">40+</div>
+              <div className="text-2xl md:text-3xl font-bold" style={{color: '#0A4A6E'}}>40+</div>
               <div className="text-sm text-gray-600">idiomas disponibles</div>
             </div>
             
             {/* Stat 4 */}
             <div>
-              <div className="text-2xl md:text-3xl font-bold text-gray-800">4.9 ⭐</div>
+              <div className="text-2xl md:text-3xl font-bold" style={{color: '#F59E1C'}}>4.9 ⭐</div>
               <div className="text-sm text-gray-600">calificación promedio</div>
             </div>
           </div>
