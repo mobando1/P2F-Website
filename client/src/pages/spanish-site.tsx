@@ -190,8 +190,8 @@ export default function SpanishSite() {
           <div className="hidden md:block max-w-6xl mx-auto">
             <div className="relative">
               
-              {/* Línea conectora horizontal */}
-              <div className="absolute top-1/2 left-0 right-0 h-0.5 bg-gray-200 transform -translate-y-1/2 z-0"></div>
+              {/* Línea conectora horizontal con gradiente dinámico */}
+              <div className="absolute top-1/2 left-0 right-0 h-1 bg-gradient-to-r from-blue-900 via-blue-500 to-orange-400 transform -translate-y-1/2 z-0 rounded-full opacity-60" style={{background: 'linear-gradient(to right, #0A4A6E 0%, #1C7BB1 50%, #F59E1C 100%)'}}></div>
               
               {/* Grid de pasos */}
               <div className="grid grid-cols-3 gap-8 relative z-10">
@@ -200,11 +200,11 @@ export default function SpanishSite() {
                 <div className="text-center group">
                   <div className="relative mb-8">
                     {/* Círculo principal con ícono */}
-                    <div className="w-24 h-24 bg-gradient-to-br from-blue-800 to-blue-700 rounded-full flex items-center justify-center mx-auto relative group-hover:shadow-lg group-hover:-translate-y-1 transition-all duration-300" style={{backgroundColor: '#1E3A8A'}}>
+                    <div className="w-24 h-24 bg-gradient-to-br rounded-full flex items-center justify-center mx-auto relative group-hover:shadow-lg group-hover:-translate-y-1 transition-all duration-300 group-hover:shadow-blue-500/50" style={{background: 'linear-gradient(135deg, #0A4A6E 0%, #1C7BB1 100%)'}}>
                       <Calendar className="w-10 h-10 text-white group-hover:scale-110 transition-transform duration-200" />
                       
                       {/* Badge numérico en esquina superior derecha */}
-                      <div className="absolute -top-2 -right-2 w-8 h-8 bg-gradient-to-br from-blue-900 to-blue-800 rounded-full flex items-center justify-center group-hover:bg-blue-900 transition-colors duration-200" style={{backgroundColor: '#1E40AF'}}>
+                      <div className="absolute -top-2 -right-2 w-8 h-8 rounded-full flex items-center justify-center transition-colors duration-200" style={{background: 'linear-gradient(135deg, #083344 0%, #0A4A6E 100%)'}}>
                         <span className="text-white font-bold text-sm">1</span>
                       </div>
                     </div>
@@ -222,11 +222,11 @@ export default function SpanishSite() {
                 <div className="text-center group">
                   <div className="relative mb-8">
                     {/* Círculo principal con ícono */}
-                    <div className="w-24 h-24 bg-gradient-to-br from-sky-400 to-blue-500 rounded-full flex items-center justify-center mx-auto relative group-hover:shadow-lg group-hover:-translate-y-1 transition-all duration-300" style={{backgroundColor: '#3DB5E6'}}>
+                    <div className="w-24 h-24 bg-gradient-to-br rounded-full flex items-center justify-center mx-auto relative group-hover:shadow-lg group-hover:-translate-y-1 transition-all duration-300 group-hover:shadow-cyan-400/50" style={{background: 'linear-gradient(135deg, #1C7BB1 0%, #3DB5E6 100%)'}}>
                       <VideoIcon className="w-10 h-10 text-white group-hover:scale-110 transition-transform duration-200" />
                       
                       {/* Badge numérico en esquina superior derecha */}
-                      <div className="absolute -top-2 -right-2 w-8 h-8 bg-gradient-to-br from-sky-600 to-blue-600 rounded-full flex items-center justify-center group-hover:bg-sky-600 transition-colors duration-200" style={{backgroundColor: '#0EA5E9'}}>
+                      <div className="absolute -top-2 -right-2 w-8 h-8 rounded-full flex items-center justify-center transition-colors duration-200" style={{background: 'linear-gradient(135deg, #155e8a 0%, #1C7BB1 100%)'}}>
                         <span className="text-white font-bold text-sm">2</span>
                       </div>
                     </div>
@@ -244,11 +244,11 @@ export default function SpanishSite() {
                 <div className="text-center group">
                   <div className="relative mb-8">
                     {/* Círculo principal con ícono */}
-                    <div className="w-24 h-24 bg-gradient-to-br from-amber-500 to-orange-500 rounded-full flex items-center justify-center mx-auto relative group-hover:shadow-lg group-hover:-translate-y-1 transition-all duration-300" style={{backgroundColor: '#F59E0B'}}>
+                    <div className="w-24 h-24 bg-gradient-to-br rounded-full flex items-center justify-center mx-auto relative group-hover:shadow-lg group-hover:-translate-y-1 transition-all duration-300 group-hover:shadow-orange-400/50" style={{background: 'linear-gradient(135deg, #F59E1C 0%, #F9B949 100%)'}}>
                       <MessageCircle className="w-10 h-10 text-white group-hover:scale-110 transition-transform duration-200" />
                       
                       {/* Badge numérico en esquina superior derecha */}
-                      <div className="absolute -top-2 -right-2 w-8 h-8 bg-gradient-to-br from-amber-600 to-orange-600 rounded-full flex items-center justify-center group-hover:bg-amber-600 transition-colors duration-200" style={{backgroundColor: '#EA580C'}}>
+                      <div className="absolute -top-2 -right-2 w-8 h-8 rounded-full flex items-center justify-center transition-colors duration-200" style={{background: 'linear-gradient(135deg, #ea580c 0%, #F59E1C 100%)'}}>
                         <span className="text-white font-bold text-sm">3</span>
                       </div>
                     </div>
@@ -270,8 +270,8 @@ export default function SpanishSite() {
           <div className="md:hidden max-w-lg mx-auto">
             <div className="relative">
               
-              {/* Línea vertical conectora */}
-              <div className="absolute left-6 top-0 bottom-0 w-0.5 bg-gray-200"></div>
+              {/* Línea vertical conectora con gradiente */}
+              <div className="absolute left-6 top-0 bottom-0 w-1 bg-gradient-to-b rounded-full opacity-60" style={{background: 'linear-gradient(to bottom, #0A4A6E 0%, #1C7BB1 50%, #F59E1C 100%)'}}></div>
               
               <div className="space-y-12">
                 
@@ -279,11 +279,11 @@ export default function SpanishSite() {
                 <div className="flex items-start gap-6 group">
                   {/* Círculo con timeline */}
                   <div className="relative flex-shrink-0">
-                    <div className="w-12 h-12 bg-gradient-to-br from-blue-800 to-blue-700 rounded-full flex items-center justify-center relative group-hover:shadow-lg transition-all duration-300" style={{backgroundColor: '#1E3A8A'}}>
+                    <div className="w-12 h-12 rounded-full flex items-center justify-center relative group-hover:shadow-lg transition-all duration-300 group-hover:shadow-blue-500/50" style={{background: 'linear-gradient(135deg, #0A4A6E 0%, #1C7BB1 100%)'}}>
                       <Calendar className="w-6 h-6 text-white group-hover:scale-110 transition-transform duration-200" />
                       
                       {/* Badge numérico */}
-                      <div className="absolute -top-1 -right-1 w-6 h-6 bg-gradient-to-br from-blue-900 to-blue-800 rounded-full flex items-center justify-center group-hover:bg-blue-900 transition-colors duration-200" style={{backgroundColor: '#1E40AF'}}>
+                      <div className="absolute -top-1 -right-1 w-6 h-6 rounded-full flex items-center justify-center transition-colors duration-200" style={{background: 'linear-gradient(135deg, #083344 0%, #0A4A6E 100%)'}}>
                         <span className="text-white font-bold text-xs">1</span>
                       </div>
                     </div>
@@ -304,11 +304,11 @@ export default function SpanishSite() {
                 <div className="flex items-start gap-6 group">
                   {/* Círculo con timeline */}
                   <div className="relative flex-shrink-0">
-                    <div className="w-12 h-12 bg-gradient-to-br from-sky-400 to-blue-500 rounded-full flex items-center justify-center relative group-hover:shadow-lg transition-all duration-300" style={{backgroundColor: '#3DB5E6'}}>
+                    <div className="w-12 h-12 rounded-full flex items-center justify-center relative group-hover:shadow-lg transition-all duration-300 group-hover:shadow-cyan-400/50" style={{background: 'linear-gradient(135deg, #1C7BB1 0%, #3DB5E6 100%)'}}>
                       <VideoIcon className="w-6 h-6 text-white group-hover:scale-110 transition-transform duration-200" />
                       
                       {/* Badge numérico */}
-                      <div className="absolute -top-1 -right-1 w-6 h-6 bg-gradient-to-br from-sky-600 to-blue-600 rounded-full flex items-center justify-center group-hover:bg-sky-600 transition-colors duration-200" style={{backgroundColor: '#0EA5E9'}}>
+                      <div className="absolute -top-1 -right-1 w-6 h-6 rounded-full flex items-center justify-center transition-colors duration-200" style={{background: 'linear-gradient(135deg, #155e8a 0%, #1C7BB1 100%)'}}>
                         <span className="text-white font-bold text-xs">2</span>
                       </div>
                     </div>
@@ -329,11 +329,11 @@ export default function SpanishSite() {
                 <div className="flex items-start gap-6 group">
                   {/* Círculo con timeline */}
                   <div className="relative flex-shrink-0">
-                    <div className="w-12 h-12 bg-gradient-to-br from-amber-500 to-orange-500 rounded-full flex items-center justify-center relative group-hover:shadow-lg transition-all duration-300" style={{backgroundColor: '#F59E0B'}}>
+                    <div className="w-12 h-12 rounded-full flex items-center justify-center relative group-hover:shadow-lg transition-all duration-300 group-hover:shadow-orange-400/50" style={{background: 'linear-gradient(135deg, #F59E1C 0%, #F9B949 100%)'}}>
                       <MessageCircle className="w-6 h-6 text-white group-hover:scale-110 transition-transform duration-200" />
                       
                       {/* Badge numérico */}
-                      <div className="absolute -top-1 -right-1 w-6 h-6 bg-gradient-to-br from-amber-600 to-orange-600 rounded-full flex items-center justify-center group-hover:bg-amber-600 transition-colors duration-200" style={{backgroundColor: '#EA580C'}}>
+                      <div className="absolute -top-1 -right-1 w-6 h-6 rounded-full flex items-center justify-center transition-colors duration-200" style={{background: 'linear-gradient(135deg, #ea580c 0%, #F59E1C 100%)'}}>
                         <span className="text-white font-bold text-xs">3</span>
                       </div>
                     </div>
