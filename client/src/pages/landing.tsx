@@ -276,28 +276,55 @@ const EmailPopup = ({
             
             {/* Iframe del formulario */}
             <div className="w-full h-80 rounded-2xl overflow-hidden">
-              <iframe
-                src="https://api.leadconnectorhq.com/widget/form/kE3wnjGXhaeQvy1S6FPd"
-                style={{
-                  width: '100%',
-                  height: '100%',
-                  border: 'none',
-                  borderRadius: '20px'
-                }}
-                id="inline-kE3wnjGXhaeQvy1S6FPd"
-                data-layout="{'id':'INLINE'}"
-                data-trigger-type="alwaysShow"
-                data-trigger-value=""
-                data-activation-type="alwaysActivated"
-                data-activation-value=""
-                data-deactivation-type="neverDeactivate"
-                data-deactivation-value=""
-                data-form-name="Newsletter subscription - POP UP - CLASES DE INGLES - Copy"
-                data-height="466"
-                data-layout-iframe-id="inline-kE3wnjGXhaeQvy1S6FPd"
-                data-form-id="kE3wnjGXhaeQvy1S6FPd"
-                title="Newsletter subscription - POP UP - CLASES DE INGLES - Copy"
-              />
+              {showOnLanguageChange && isEnglishLang ? (
+                // Formulario para clases de español (cuando cambian a inglés)
+                <iframe
+                  src="https://api.leadconnectorhq.com/widget/form/r72pdx393rz9MNYsoTjZ"
+                  style={{
+                    width: '100%',
+                    height: '100%',
+                    border: 'none',
+                    borderRadius: '20px'
+                  }}
+                  id="inline-r72pdx393rz9MNYsoTjZ"
+                  data-layout="{'id':'INLINE'}"
+                  data-trigger-type="alwaysShow"
+                  data-trigger-value=""
+                  data-activation-type="alwaysActivated"
+                  data-activation-value=""
+                  data-deactivation-type="neverDeactivate"
+                  data-deactivation-value=""
+                  data-form-name="Newsletter subscription - POP UP - CLASES DE ESPAÑOL - LANDING"
+                  data-height="460"
+                  data-layout-iframe-id="inline-r72pdx393rz9MNYsoTjZ"
+                  data-form-id="r72pdx393rz9MNYsoTjZ"
+                  title="Newsletter subscription - POP UP - CLASES DE ESPAÑOL - LANDING"
+                />
+              ) : (
+                // Formulario por defecto para clases de inglés
+                <iframe
+                  src="https://api.leadconnectorhq.com/widget/form/kE3wnjGXhaeQvy1S6FPd"
+                  style={{
+                    width: '100%',
+                    height: '100%',
+                    border: 'none',
+                    borderRadius: '20px'
+                  }}
+                  id="inline-kE3wnjGXhaeQvy1S6FPd"
+                  data-layout="{'id':'INLINE'}"
+                  data-trigger-type="alwaysShow"
+                  data-trigger-value=""
+                  data-activation-type="alwaysActivated"
+                  data-activation-value=""
+                  data-deactivation-type="neverDeactivate"
+                  data-deactivation-value=""
+                  data-form-name="Newsletter subscription - POP UP - CLASES DE INGLES - Copy"
+                  data-height="466"
+                  data-layout-iframe-id="inline-kE3wnjGXhaeQvy1S6FPd"
+                  data-form-id="kE3wnjGXhaeQvy1S6FPd"
+                  title="Newsletter subscription - POP UP - CLASES DE INGLES - Copy"
+                />
+              )}
             </div>
           </div>
         </div>
