@@ -324,6 +324,23 @@ export default function Landing() {
       scrollIndicator: "Desliza ↓ para ver cómo funciona",
       learnSpanishBtn: "Learn Spanish",
       learnEnglishBtn: "Aprende Inglés",
+      // Estadísticas
+      stat1: "estudiantes activos",
+      stat2: "clases completadas", 
+      stat3: "idiomas disponibles",
+      stat4: "calificación promedio",
+      // Cómo funciona
+      howItWorksTitle: "¿Cómo funciona?",
+      howItWorksSubtitle: "En 3 sencillos pasos estarás conversando como un nativo",
+      step1Title: "Elige tu idioma",
+      step1Desc: "Selecciona el idioma que quieres aprender y tu nivel actual",
+      step2Title: "Conéctate por video",
+      step2Desc: "Programa tu clase y conéctate con un instructor nativo",
+      step3Title: "Practica y mejora",
+      step3Desc: "Recibe feedback en tiempo real y mejora tu fluidez",
+      // Testimonios
+      testimonialsTitle: "Lo que dicen nuestros estudiantes",
+      testimonialsSubtitle: "Más de 1,000 estudiantes han transformado su fluidez con nosotros",
       // Secciones adicionales
       ctaReady: "¿Listo? Elige tu idioma",
       ctaLike: "¿Te gusta el proceso? ¡Empezemos!",
@@ -347,6 +364,23 @@ export default function Landing() {
       scrollIndicator: "Scroll ↓ to see how it works",
       learnSpanishBtn: "Learn Spanish",
       learnEnglishBtn: "Learn English",
+      // Estadísticas
+      stat1: "active students",
+      stat2: "completed classes",
+      stat3: "available languages", 
+      stat4: "average rating",
+      // Cómo funciona
+      howItWorksTitle: "How it works?",
+      howItWorksSubtitle: "In 3 simple steps you'll be speaking like a native",
+      step1Title: "Choose your language",
+      step1Desc: "Select the language you want to learn and your current level",
+      step2Title: "Connect by video",
+      step2Desc: "Schedule your class and connect with a native instructor",
+      step3Title: "Practice and improve",
+      step3Desc: "Receive real-time feedback and improve your fluency",
+      // Testimonios
+      testimonialsTitle: "What our students say",
+      testimonialsSubtitle: "Over 1,000 students have transformed their fluency with us",
       // Secciones adicionales
       ctaReady: "Ready? Choose your language",
       ctaLike: "Like the process? Let's get started!",
@@ -508,7 +542,7 @@ export default function Landing() {
                   <Users className="w-8 h-8 text-white" />
                 </div>
                 <div className="text-4xl md:text-5xl font-black mb-2" style={{color: '#0A4A6E'}}>1,000+</div>
-                <div className="text-sm text-gray-600 font-medium">estudiantes activos</div>
+                <div className="text-sm text-gray-600 font-medium">{t.stat1}</div>
               </div>
               
               {/* Stat 2 */}
@@ -517,7 +551,7 @@ export default function Landing() {
                   <CheckCircle className="w-8 h-8 text-white" />
                 </div>
                 <div className="text-4xl md:text-5xl font-black mb-2" style={{color: '#F59E1C'}}>300K+</div>
-                <div className="text-sm text-gray-600 font-medium">clases completadas</div>
+                <div className="text-sm text-gray-600 font-medium">{t.stat2}</div>
               </div>
               
               {/* Stat 3 */}
@@ -526,7 +560,7 @@ export default function Landing() {
                   <Globe className="w-8 h-8 text-white" />
                 </div>
                 <div className="text-4xl md:text-5xl font-black mb-2" style={{color: '#0A4A6E'}}>40+</div>
-                <div className="text-sm text-gray-600 font-medium">idiomas disponibles</div>
+                <div className="text-sm text-gray-600 font-medium">{t.stat3}</div>
               </div>
               
               {/* Stat 4 */}
@@ -535,7 +569,7 @@ export default function Landing() {
                   <Star className="w-8 h-8 text-white fill-current" />
                 </div>
                 <div className="text-4xl md:text-5xl font-black mb-2" style={{color: '#F59E1C'}}>4.9</div>
-                <div className="text-sm text-gray-600 font-medium">calificación promedio</div>
+                <div className="text-sm text-gray-600 font-medium">{t.stat4}</div>
               </div>
             </div>
           </div>
@@ -550,10 +584,10 @@ export default function Landing() {
         <div className="container mx-auto px-6">
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-black mb-6" style={{color: '#0A4A6E'}}>
-              ¿Cómo funciona?
+              {t.howItWorksTitle}
             </h2>
             <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-              En 3 sencillos pasos estarás conversando como un nativo
+              {t.howItWorksSubtitle}
             </p>
           </div>
           
@@ -578,8 +612,8 @@ export default function Landing() {
                     background: '#F59E1C'
                   }}>1</div>
                 </div>
-                <h3 className="text-2xl font-bold mb-4" style={{color: '#0A4A6E'}}>Elige tu idioma</h3>
-                <p className="text-gray-600">Selecciona el idioma que quieres aprender y tu nivel actual</p>
+                <h3 className="text-2xl font-bold mb-4" style={{color: '#0A4A6E'}}>{t.step1Title}</h3>
+                <p className="text-gray-600">{t.step1Desc}</p>
               </div>
               
               {/* Paso 2 */}
@@ -594,8 +628,8 @@ export default function Landing() {
                     background: '#F59E1C'
                   }}>2</div>
                 </div>
-                <h3 className="text-2xl font-bold mb-4" style={{color: '#0A4A6E'}}>Conéctate por video</h3>
-                <p className="text-gray-600">Programa tu clase y conéctate con un instructor nativo</p>
+                <h3 className="text-2xl font-bold mb-4" style={{color: '#0A4A6E'}}>{t.step2Title}</h3>
+                <p className="text-gray-600">{t.step2Desc}</p>
               </div>
               
               {/* Paso 3 */}
@@ -610,8 +644,8 @@ export default function Landing() {
                     background: '#F59E1C'
                   }}>3</div>
                 </div>
-                <h3 className="text-2xl font-bold mb-4" style={{color: '#0A4A6E'}}>Practica y mejora</h3>
-                <p className="text-gray-600">Recibe feedback en tiempo real y mejora tu fluidez</p>
+                <h3 className="text-2xl font-bold mb-4" style={{color: '#0A4A6E'}}>{t.step3Title}</h3>
+                <p className="text-gray-600">{t.step3Desc}</p>
               </div>
             </div>
           </div>
@@ -620,12 +654,8 @@ export default function Landing() {
           <div className="md:hidden space-y-8">
             {[1, 2, 3].map((step, index) => {
               const icons = ['🌍', '📹', '💬'];
-              const titles = ['Elige tu idioma', 'Conéctate por video', 'Practica y mejora'];
-              const descriptions = [
-                'Selecciona el idioma que quieres aprender y tu nivel actual',
-                'Programa tu clase y conéctate con un instructor nativo', 
-                'Recibe feedback en tiempo real y mejora tu fluidez'
-              ];
+              const titles = [t.step1Title, t.step2Title, t.step3Title];
+              const descriptions = [t.step1Desc, t.step2Desc, t.step3Desc];
               
               return (
                 <div key={step} className="flex items-start gap-4">
@@ -665,10 +695,10 @@ export default function Landing() {
         <div className="container mx-auto px-6">
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-black mb-6" style={{color: '#0A4A6E'}}>
-              Lo que dicen nuestros estudiantes
+              {t.testimonialsTitle}
             </h2>
             <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-              Más de 1,000 estudiantes han transformado su fluidez con nosotros
+              {t.testimonialsSubtitle}
             </p>
           </div>
 
