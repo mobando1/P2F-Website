@@ -1,0 +1,161 @@
+1) Hero compacto (Above the fold)
+
+Título 2 líneas máx.: “Habla como un nativo” (nativo en #F59E1C).
+
+Subtítulo 1 línea.
+
+Visual: foto/ilustración videoclase, marco blanco con sombra (sin fondo negro).
+
+CTA primario doble: dos botones (Learn Spanish / Aprende Inglés) visibles.
+
+Debajo: micro-indicador “Desliza ↓ para ver cómo funciona”.
+
+→ Bloque CTA (Slim #1): banda fina con texto “¿Listo? Elige tu idioma” + los 2 CTAs pill.
+
+2) Cómo funciona (timeline)
+
+Timeline horizontal en desktop con línea ondulada sutil (5–10px) en gradiente #0A4A6E → #1C7BB1 → #F59E1C.
+
+3 pasos:
+
+Elige tu idioma (banderas)
+
+Conéctate por video (cámara)
+
+Practica y mejora (chat)
+
+Cada círculo: gradiente suave según paso, badge numérico pequeño en esquina sup. derecha.
+
+Mobile: timeline vertical recto con misma cromática.
+
+→ Bloque CTA (Slim #2): idéntico al anterior, pegado al final de la sección.
+
+3) Prueba social (reviews)
+
+Título: “Lo que dicen nuestros estudiantes”.
+
+Carrusel 6–9 reseñas (foto circular, nombre, país, rating, texto 2–3 líneas).
+
+1–2 video testimonios como cards destacadas con botón play.
+
+Estilo sobrio (sin emojis grandes). Naranja sol para estrellas, Azul noche en nombres.
+
+→ Bloque CTA (Slim #3).
+
+4) Instructores nativos
+
+Grid 2×3 (o 3×2) de perfiles: foto, nombre, país, especialidad.
+
+Chips de enfoque (Conversación / Exámenes / Empresarial).
+
+Mini card “Conoce a nuestros coaches” enlazando a catálogo.
+
+→ Bloque CTA (Slim #4).
+
+5) Beneficios / Resultados
+
+4 tarjetas con ícono lineal y titular corto:
+
+Confianza al hablar
+
+Plan 1-a-1
+
+Horarios 24/7
+
+Feedback en tiempo real
+
+Fondo alterno muy claro (#FDF8F3) con líneas de vuelo tenues.
+
+→ Bloque CTA (Slim #5).
+
+6) Demo / Muestra de clase
+
+Video 30–60s (poster limpio, botón play en #1C7BB1).
+
+Lista: “Qué verás en 1 min” (3 bullets).
+
+Nota breve de requisitos (cámara, micrófono, conexión).
+
+→ Bloque CTA (Slim #6).
+
+7) Planes (teaser)
+
+Dos cards: “Prueba gratis” y “Recomendado”.
+
+Bullets claros, precios si aplica, garantía en 1 línea.
+
+CTA en cada card + link “Ver todos los planes”.
+
+→ Bloque CTA (Slim #7).
+
+8) FAQ breve
+
+6–8 acordeones (niveles, horarios, cancelación, reprogramación, pagos, prueba).
+
+Llamado a soporte: ícono chat + enlace.
+
+→ Bloque CTA (Slim #8).
+
+9) CTA final grande
+
+Fondo con motivo de pasaporte sutil (sellos translúcidos + línea de vuelo azul→naranja).
+
+Título directo: “Empieza hoy”.
+
+Dos CTAs grandes (Learn Spanish / Aprende Inglés).
+
+Componente reutilizable: Bloque CTA Slim
+
+Banda de 72–88px de alto, fondo blanco, sombra sutil.
+
+Texto a la izquierda: “¿Listo? Elige tu idioma”.
+
+Derecha: 2 botones pill (Naranja sol y Azul cielo).
+
+En mobile: apilar texto arriba y botones abajo.
+
+Mobile: CTA fijo inferior
+
+Barra fija 64px, bordes redondeados arriba, blur + sombra.
+
+Dos botones comprimidos (icono de bandera + texto corto).
+
+Ocultarla cuando el usuario está viendo un bloque CTA Slim (evitar duplicidad).
+
+Micro-interacciones
+
+Botones: elevación + variación de gradiente al hover/tap; ripple sutil en mobile.
+
+Timeline: animación de flujo en la línea (desktop L→R; mobile Top→Bottom).
+
+Carrusel: auto-slide suave; pausa al hover; swipe en mobile.
+
+Aparecer por secciones con fade/slide muy moderado (no circos).
+
+Accesibilidad & rendimiento
+
+Contrastes AA, foco visible, roles ARIA en carrusel/accordion.
+
+Imágenes lazy-load, SVG para íconos, tamaños responsivos.
+
+Tamaños de toque ≥44px.
+
+Telemetría (eventos sugeridos)
+
+cta_language_click (context: hero/slim/mobile_sticky/final, lang: ES/EN)
+
+how_it_works_step_view (1/2/3)
+
+review_video_play (id)
+
+pricing_card_cta (plan)
+
+faq_open (question_id)
+
+Notas finales
+
+Mantener consistencia de estilo: flat minimalista, sombras suaves, sin fondos negros en imágenes.
+
+Evitar saturar con stickers; usar detalles de pasaporte con opacidad baja como textura sutil.
+
+Asegurar que cada sección termine con el bloque CTA Slim, reforzando la acción sin fricción.
