@@ -288,7 +288,7 @@ const EmailPopup = ({
             </p>
             
             {/* Iframe del formulario */}
-            <div className="w-full h-96 rounded-2xl overflow-hidden">
+            <div className="w-full h-80 rounded-2xl overflow-hidden">
               {showOnLanguageChange && isEnglishLang ? (
                 // Formulario para clases de español (cuando cambian a inglés)
                 <iframe
@@ -308,7 +308,7 @@ const EmailPopup = ({
                   data-deactivation-type="neverDeactivate"
                   data-deactivation-value=""
                   data-form-name="Newsletter subscription - POP UP - CLASES DE ESPAÑOL - LANDING"
-                  data-height="460"
+                  data-height="320"
                   data-layout-iframe-id="inline-r72pdx393rz9MNYsoTjZ"
                   data-form-id="r72pdx393rz9MNYsoTjZ"
                   title="Newsletter subscription - POP UP - CLASES DE ESPAÑOL - LANDING"
@@ -332,7 +332,7 @@ const EmailPopup = ({
                   data-deactivation-type="neverDeactivate"
                   data-deactivation-value=""
                   data-form-name="Newsletter subscription - POP UP - CLASES DE INGLES - Copy"
-                  data-height="466"
+                  data-height="320"
                   data-layout-iframe-id="inline-kE3wnjGXhaeQvy1S6FPd"
                   data-form-id="kE3wnjGXhaeQvy1S6FPd"
                   title="Newsletter subscription - POP UP - CLASES DE INGLES - Copy"
