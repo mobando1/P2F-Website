@@ -187,8 +187,11 @@ const EmailPopup = ({
 
   useEffect(() => {
     if (showOnLanguageChange) {
-      // Mostrar popup inmediatamente cuando hay cambio de idioma
-      setIsVisible(true);
+      // Mostrar popup después de 7 segundos cuando hay cambio de idioma
+      const timer = setTimeout(() => {
+        setIsVisible(true);
+      }, 7000);
+      return () => clearTimeout(timer);
     }
   }, [showOnLanguageChange]);
 
