@@ -199,14 +199,14 @@ const EmailPopup = ({ selectedLanguage }: { selectedLanguage: 'spanish' | 'engli
   // Si no hay selección, mostrar el popup genérico en español
   const popupContent = {
     title: isEnglishSelected 
-      ? "🎁 Claim Your 10% Discount Now!" 
-      : "🎁 ¡Reclama Tu 10% de Descuento Ahora!",
+      ? "🎯 Special Offer - 10% OFF!" 
+      : "🎯 ¡Oferta Especial - 10% de Descuento!",
     subtitle: isEnglishSelected
-      ? "Don't miss out! Get your discount before it expires"
-      : "¡No te quedes sin él! Obtén tu descuento antes de que expire",
+      ? "Get 10% discount on your first month of any plan!"
+      : "¡Obtén 10% de descuento en tu primer mes de cualquier plan!",
     description: isEnglishSelected
-      ? "⏰ Limited spots available • Native instructors waiting • First month 10% OFF"
-      : "⏰ Cupos limitados disponibles • Instructores nativos esperándote • Primer mes 10% MENOS"
+      ? "Join thousands of students who are already learning with native instructors. Limited time offer!"
+      : "Únete a miles de estudiantes que ya están aprendiendo con instructores nativos. ¡Oferta por tiempo limitado!"
   };
 
   return (
