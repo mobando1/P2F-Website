@@ -266,13 +266,6 @@ export default function Landing() {
                   className="w-80 h-64 md:w-[420px] md:h-[320px] object-cover rounded-2xl"
                 />
                 
-                {/* Small badge overlay */}
-                <div className="absolute -bottom-4 -left-4 bg-white rounded-full p-3 shadow-lg border-4 border-white">
-                  <div className="flex items-center gap-2">
-                    <div className="w-3 h-3 bg-green-500 rounded-full animate-pulse"></div>
-                    <span className="text-sm font-semibold" style={{color: '#0A4A6E'}}>En vivo</span>
-                  </div>
-                </div>
               </div>
             </div>
           </div>
