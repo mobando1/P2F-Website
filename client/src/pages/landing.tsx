@@ -149,7 +149,7 @@ export default function Landing() {
 
   return (
     <div className="min-h-screen overflow-hidden relative" style={{
-      background: '#ffffff'
+      background: 'linear-gradient(135deg, #f0f9ff 0%, #ffffff 50%, #fff7ed 100%)'
     }}>
 
       {/* Top Navigation Bar */}
@@ -173,216 +173,423 @@ export default function Landing() {
           
           {/* Left Side - Hero Text */}
           <div className="space-y-8 animate-fade-in">
-            <h1 className="text-4xl md:text-6xl font-black leading-tight mb-6">
-              <span style={{color: '#0A4A6E'}}>Learn faster with your best </span>
-              <span style={{color: '#F59E1C'}}>language tutor.</span>
+            <h1 className="text-5xl md:text-7xl font-black leading-tight mb-8">
+              <span style={{color: '#0A4A6E'}}>Habla como un </span>
+              <span className="italic text-6xl md:text-8xl" style={{color: '#F59E1C'}}>nativo</span>
             </h1>
             
-            <p className="text-xl md:text-2xl text-gray-600 leading-relaxed max-w-2xl mb-8">
-              Personalized 1-on-1 lessons with native speakers from around the world.
+            <p className="text-xl md:text-2xl text-gray-700 leading-relaxed max-w-lg mb-6">
+              Clases personalizadas 1-a-1 con instructores nativos
             </p>
-
-            {/* CTA principal - estilo Preply */}
-            <Button 
-              onClick={() => navigate('/es')}
-              className="px-8 py-4 text-lg font-semibold rounded-lg transition-all duration-300 hover:shadow-lg mb-4 mr-4"
-              style={{
-                background: '#F59E1C',
-                color: 'white'
-              }}
-              data-testid="button-get-started-spanish"
-            >
-              Learn Spanish
-            </Button>
             
-            <Button 
-              onClick={() => navigate('/en')}
-              className="px-8 py-4 text-lg font-semibold rounded-lg transition-all duration-300 hover:shadow-lg border-2"
-              style={{
-                background: 'transparent',
-                color: '#0A4A6E',
-                borderColor: '#0A4A6E'
-              }}
-              data-testid="button-get-started-english"
-            >
-              Aprende Inglés
-            </Button>
+            <div className="bg-blue-50 border border-blue-200 rounded-xl p-6 mb-8 max-w-lg">
+              <p className="text-blue-800 font-semibold text-lg">
+                Selecciona el idioma que quieres aprender:
+              </p>
+            </div>
+
+            {/* CTA Buttons - Elegant Pill Style con mejor espaciado */}
+            <div className="space-y-6">
+              <Button 
+                onClick={() => navigate('/es')}
+                className="w-full sm:w-auto px-12 py-6 text-2xl font-bold rounded-full transition-all duration-500 hover:shadow-2xl transform hover:scale-105 border-0 relative overflow-hidden group"
+                style={{
+                  background: 'linear-gradient(135deg, #F59E1C 0%, #fbbf24 100%)',
+                  color: 'white',
+                  boxShadow: '0 8px 32px rgba(245, 158, 28, 0.3)'
+                }}
+                data-testid="button-learn-spanish"
+              >
+                <span className="flex items-center justify-center gap-3">
+                  <span className="text-2xl">🇪🇸</span>
+                  <span>Learn Spanish</span>
+                  <ArrowRight className="w-6 h-6" />
+                </span>
+              </Button>
+              
+              <Button 
+                onClick={() => navigate('/en')}
+                className="w-full sm:w-auto px-12 py-6 text-2xl font-bold rounded-full transition-all duration-500 hover:shadow-2xl transform hover:scale-105 border-0 relative overflow-hidden group ml-0 sm:ml-6"
+                style={{
+                  background: 'linear-gradient(135deg, #0A4A6E 0%, #1C7BB1 100%)',
+                  color: 'white',
+                  boxShadow: '0 8px 32px rgba(10, 74, 110, 0.3)'
+                }}
+                data-testid="button-aprende-ingles"
+              >
+                <span className="flex items-center justify-center gap-3">
+                  <span className="text-2xl">🇺🇸</span>
+                  <span>Aprende Inglés</span>
+                  <ArrowRight className="w-6 h-6" />
+                </span>
+              </Button>
+            </div>
+
+            {/* Micro-indicador scroll */}
+            <div className="text-center mt-12 animate-bounce">
+              <p className="text-sm text-gray-600 mb-2">Desliza ↓ para ver cómo funciona</p>
+              <ChevronDown className="w-6 h-6 mx-auto" style={{color: '#0A4A6E'}} />
+            </div>
           </div>
 
-          {/* Right Side - Single Large Image like Preply */}
-          <div className="flex justify-center lg:justify-end animate-slide-right">
-            <div className="bg-white rounded-3xl p-4 shadow-2xl" style={{
-              background: 'linear-gradient(135deg, rgba(245, 158, 28, 0.05) 0%, rgba(10, 74, 110, 0.05) 100%)',
-              border: '3px solid white'
-            }}>
-              <img 
-                src={newLearningImage} 
-                alt="Clases de idiomas virtuales 1-a-1 con instructores nativos" 
-                className="w-96 h-80 md:w-[500px] md:h-[400px] object-cover rounded-2xl"
-              />
+          {/* Right Side - Improved Visual Design */}
+          <div className="flex justify-center lg:justify-end">
+            <div className="relative">
+              {/* Decorative background circle */}
+              <div className="absolute -top-6 -right-6 w-32 h-32 rounded-full opacity-20" style={{
+                background: 'linear-gradient(135deg, #F59E1C 0%, #fbbf24 100%)'
+              }}></div>
+              
+              <div className="bg-white rounded-3xl p-6 shadow-2xl hover:shadow-3xl transition-shadow duration-500" style={{
+                background: 'linear-gradient(135deg, rgba(245, 158, 28, 0.03) 0%, rgba(10, 74, 110, 0.03) 100%)',
+                border: '2px solid rgba(255, 255, 255, 0.8)'
+              }}>
+                <img 
+                  src={newLearningImage} 
+                  alt="Clases de idiomas virtuales 1-a-1 con instructores nativos" 
+                  className="w-80 h-64 md:w-[420px] md:h-[320px] object-cover rounded-2xl"
+                />
+                
+                {/* Small badge overlay */}
+                <div className="absolute -bottom-4 -left-4 bg-white rounded-full p-3 shadow-lg border-4 border-white">
+                  <div className="flex items-center gap-2">
+                    <div className="w-3 h-3 bg-green-500 rounded-full animate-pulse"></div>
+                    <span className="text-sm font-semibold" style={{color: '#0A4A6E'}}>En vivo</span>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
       </div>
 
-      {/* Estadísticas prominentes - estilo Preply */}
-      <div className="bg-gray-50 py-12">
+      {/* Primera sección después del hero - Estadísticas con mejor layout */}
+      <div className="bg-white py-20">
         <div className="container mx-auto px-6">
-          <div className="grid grid-cols-2 md:grid-cols-5 gap-8 text-center">
-            <div>
-              <div className="text-4xl md:text-5xl font-black mb-2" style={{color: '#0A4A6E'}}>1,000+</div>
-              <div className="text-gray-600 font-medium">Experienced tutors</div>
-            </div>
-            <div>
-              <div className="text-4xl md:text-5xl font-black mb-2" style={{color: '#0A4A6E'}}>300,000+</div>
-              <div className="text-gray-600 font-medium">5-star tutor reviews</div>
-            </div>
-            <div>
-              <div className="text-4xl md:text-5xl font-black mb-2" style={{color: '#0A4A6E'}}>40+</div>
-              <div className="text-gray-600 font-medium">Languages taught</div>
-            </div>
-            <div>
-              <div className="text-4xl md:text-5xl font-black mb-2" style={{color: '#0A4A6E'}}>180+</div>
-              <div className="text-gray-600 font-medium">Tutor nationalities</div>
-            </div>
-            <div>
-              <div className="text-4xl md:text-5xl font-black mb-2" style={{color: '#0A4A6E'}}>4.9</div>
-              <div className="text-gray-600 font-medium">on the App Store</div>
+          <div className="flex justify-center items-center">
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-12 text-center max-w-5xl">
+              {/* Stat 1 */}
+              <div className="flex flex-col items-center p-6 rounded-2xl hover:shadow-lg transition-all duration-300">
+                <div className="w-16 h-16 rounded-full flex items-center justify-center mb-4" style={{background: 'linear-gradient(135deg, #0A4A6E, #1C7BB1)'}}>
+                  <Users className="w-8 h-8 text-white" />
+                </div>
+                <div className="text-4xl md:text-5xl font-black mb-2" style={{color: '#0A4A6E'}}>1,000+</div>
+                <div className="text-sm text-gray-600 font-medium">estudiantes activos</div>
+              </div>
+              
+              {/* Stat 2 */}
+              <div className="flex flex-col items-center p-6 rounded-2xl hover:shadow-lg transition-all duration-300">
+                <div className="w-16 h-16 rounded-full flex items-center justify-center mb-4" style={{background: 'linear-gradient(135deg, #F59E1C, #fbbf24)'}}>
+                  <CheckCircle className="w-8 h-8 text-white" />
+                </div>
+                <div className="text-4xl md:text-5xl font-black mb-2" style={{color: '#F59E1C'}}>300K+</div>
+                <div className="text-sm text-gray-600 font-medium">clases completadas</div>
+              </div>
+              
+              {/* Stat 3 */}
+              <div className="flex flex-col items-center p-6 rounded-2xl hover:shadow-lg transition-all duration-300">
+                <div className="w-16 h-16 rounded-full flex items-center justify-center mb-4" style={{background: 'linear-gradient(135deg, #0A4A6E, #1C7BB1)'}}>
+                  <Globe className="w-8 h-8 text-white" />
+                </div>
+                <div className="text-4xl md:text-5xl font-black mb-2" style={{color: '#0A4A6E'}}>40+</div>
+                <div className="text-sm text-gray-600 font-medium">idiomas disponibles</div>
+              </div>
+              
+              {/* Stat 4 */}
+              <div className="flex flex-col items-center p-6 rounded-2xl hover:shadow-lg transition-all duration-300">
+                <div className="w-16 h-16 rounded-full flex items-center justify-center mb-4" style={{background: 'linear-gradient(135deg, #F59E1C, #fbbf24)'}}>
+                  <Star className="w-8 h-8 text-white fill-current" />
+                </div>
+                <div className="text-4xl md:text-5xl font-black mb-2" style={{color: '#F59E1C'}}>4.9</div>
+                <div className="text-sm text-gray-600 font-medium">calificación promedio</div>
+              </div>
             </div>
           </div>
         </div>
       </div>
       
-      {/* Sección principal - estilo Preply */}
-      <div className="py-20 bg-white">
-        <div className="container mx-auto px-6">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-black mb-4" style={{color: '#0A4A6E'}}>
-              Progress starts with the right tutor
-            </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              2M+ learners. Over 1,000 tutors. Progress that's personal (and proven).
-            </p>
-          </div>
-          
-          {/* Imagen central como Preply */}
-          <div className="flex justify-center mb-12">
-            <img 
-              src={newLearningImage} 
-              alt="Real person learning with tutor" 
-              className="w-full max-w-2xl h-80 object-cover rounded-2xl shadow-lg"
-            />
-          </div>
-          
-          <div className="text-center">
-            <h3 className="text-2xl font-bold mb-4" style={{color: '#0A4A6E'}}>
-              97% of learners say practicing with a real person is very important to their progress.
-            </h3>
-            <p className="text-gray-600 italic">From the 2025 Passport to Fluency Study</p>
-          </div>
-        </div>
-      </div>
+      {/* CTA Slim #1 */}
+      <CTASlim />
       
-      {/* Cómo funciona - simplificado estilo Preply */}
+      {/* Sección 2: Cómo funciona */}
       <div className="py-20 bg-gray-50">
         <div className="container mx-auto px-6">
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-black mb-6" style={{color: '#0A4A6E'}}>
-              How Passport to Fluency works:
+            <h2 className="text-4xl md:text-5xl font-black mb-6" style={{color: '#0A4A6E'}}>
+              ¿Cómo funciona?
             </h2>
+            <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+              En 3 sencillos pasos estarás conversando como un nativo
+            </p>
           </div>
           
-          {/* 3 pasos simplificados como Preply */}
-          <div className="grid md:grid-cols-3 gap-12">
-            <div className="text-center">
-              <div className="bg-white rounded-2xl p-6 mb-6 shadow-lg">
-                <img 
-                  src="https://images.unsplash.com/photo-1580489944761-15a19d654956?w=200&h=120&fit=crop&crop=face" 
-                  alt="Find your tutor" 
-                  className="w-full h-32 object-cover rounded-lg mb-4"
-                />
-                <div className="flex items-center justify-between">
+          {/* Timeline Desktop */}
+          <div className="hidden md:block relative">
+            {/* Línea ondulada */}
+            <div className="absolute top-1/2 left-0 right-0 h-2 -translate-y-1/2" style={{
+              background: 'linear-gradient(90deg, #0A4A6E 0%, #1C7BB1 50%, #F59E1C 100%)',
+              borderRadius: '10px'
+            }}></div>
+            
+            <div className="grid grid-cols-3 gap-8 relative z-10">
+              {/* Paso 1 */}
+              <div className="text-center">
+                <div className="relative inline-block mb-6">
+                  <div className="w-20 h-20 mx-auto rounded-full flex items-center justify-center bg-white shadow-lg" style={{
+                    background: 'linear-gradient(135deg, #0A4A6E 0%, #1C7BB1 100%)'
+                  }}>
+                    <span className="text-3xl">🌍</span>
+                  </div>
+                  <div className="absolute -top-2 -right-2 w-8 h-8 rounded-full flex items-center justify-center text-white font-bold text-sm" style={{
+                    background: '#F59E1C'
+                  }}>1</div>
+                </div>
+                <h3 className="text-2xl font-bold mb-4" style={{color: '#0A4A6E'}}>Elige tu idioma</h3>
+                <p className="text-gray-600">Selecciona el idioma que quieres aprender y tu nivel actual</p>
+              </div>
+              
+              {/* Paso 2 */}
+              <div className="text-center">
+                <div className="relative inline-block mb-6">
+                  <div className="w-20 h-20 mx-auto rounded-full flex items-center justify-center bg-white shadow-lg" style={{
+                    background: 'linear-gradient(135deg, #1C7BB1 0%, #F59E1C 100%)'
+                  }}>
+                    <span className="text-3xl">📹</span>
+                  </div>
+                  <div className="absolute -top-2 -right-2 w-8 h-8 rounded-full flex items-center justify-center text-white font-bold text-sm" style={{
+                    background: '#F59E1C'
+                  }}>2</div>
+                </div>
+                <h3 className="text-2xl font-bold mb-4" style={{color: '#0A4A6E'}}>Conéctate por video</h3>
+                <p className="text-gray-600">Programa tu clase y conéctate con un instructor nativo</p>
+              </div>
+              
+              {/* Paso 3 */}
+              <div className="text-center">
+                <div className="relative inline-block mb-6">
+                  <div className="w-20 h-20 mx-auto rounded-full flex items-center justify-center bg-white shadow-lg" style={{
+                    background: 'linear-gradient(135deg, #F59E1C 0%, #fbbf24 100%)'
+                  }}>
+                    <span className="text-3xl">💬</span>
+                  </div>
+                  <div className="absolute -top-2 -right-2 w-8 h-8 rounded-full flex items-center justify-center text-white font-bold text-sm" style={{
+                    background: '#F59E1C'
+                  }}>3</div>
+                </div>
+                <h3 className="text-2xl font-bold mb-4" style={{color: '#0A4A6E'}}>Practica y mejora</h3>
+                <p className="text-gray-600">Recibe feedback en tiempo real y mejora tu fluidez</p>
+              </div>
+            </div>
+          </div>
+          
+          {/* Timeline Mobile - Vertical */}
+          <div className="md:hidden space-y-8">
+            {[1, 2, 3].map((step, index) => {
+              const icons = ['🌍', '📹', '💬'];
+              const titles = ['Elige tu idioma', 'Conéctate por video', 'Practica y mejora'];
+              const descriptions = [
+                'Selecciona el idioma que quieres aprender y tu nivel actual',
+                'Programa tu clase y conéctate con un instructor nativo', 
+                'Recibe feedback en tiempo real y mejora tu fluidez'
+              ];
+              
+              return (
+                <div key={step} className="flex items-start gap-4">
+                  <div className="relative flex-shrink-0">
+                    <div className="w-16 h-16 rounded-full flex items-center justify-center" style={{
+                      background: step === 1 ? 'linear-gradient(135deg, #0A4A6E 0%, #1C7BB1 100%)' :
+                                  step === 2 ? 'linear-gradient(135deg, #1C7BB1 0%, #F59E1C 100%)' :
+                                              'linear-gradient(135deg, #F59E1C 0%, #fbbf24 100%)'
+                    }}>
+                      <span className="text-2xl">{icons[index]}</span>
+                    </div>
+                    <div className="absolute -top-1 -right-1 w-6 h-6 rounded-full flex items-center justify-center text-white font-bold text-xs" style={{
+                      background: '#F59E1C'
+                    }}>{step}</div>
+                    {step < 3 && (
+                      <div className="absolute top-16 left-1/2 w-1 h-8 -translate-x-1/2" style={{
+                        background: 'linear-gradient(180deg, #0A4A6E 0%, #F59E1C 100%)'
+                      }}></div>
+                    )}
+                  </div>
                   <div>
-                    <h4 className="font-bold text-sm" style={{color: '#0A4A6E'}}>Carmen</h4>
-                    <p className="text-xs text-gray-600">Spanish tutor</p>
-                  </div>
-                  <div className="flex items-center">
-                    <Star className="w-3 h-3 fill-current mr-1" style={{color: '#F59E1C'}} />
-                    <span className="text-xs">4.9</span>
+                    <h3 className="text-xl font-bold mb-2" style={{color: '#0A4A6E'}}>{titles[index]}</h3>
+                    <p className="text-gray-600">{descriptions[index]}</p>
                   </div>
                 </div>
-              </div>
-              <h3 className="text-xl font-bold mb-2" style={{color: '#0A4A6E'}}>1. Find your tutor.</h3>
-              <p className="text-gray-600">We'll connect you with a tutor who motivates, challenges, and supports you.</p>
-            </div>
-            
-            <div className="text-center">
-              <div className="bg-white rounded-2xl p-6 mb-6 shadow-lg">
-                <img 
-                  src={newLearningImage} 
-                  alt="Start learning" 
-                  className="w-full h-32 object-cover rounded-lg"
-                />
-              </div>
-              <h3 className="text-xl font-bold mb-2" style={{color: '#0A4A6E'}}>2. Start learning.</h3>
-              <p className="text-gray-600">Your tutor will tailor every lesson to your learning goals.</p>
-            </div>
-            
-            <div className="text-center">
-              <div className="bg-white rounded-2xl p-6 mb-6 shadow-lg">
-                <div className="h-32 bg-green-50 rounded-lg flex items-center justify-center">
-                  <div className="text-center">
-                    <div className="text-3xl mb-2">📈</div>
-                    <p className="text-sm font-semibold" style={{color: '#0A4A6E'}}>Progress Tracking</p>
+              );
+            })}
+          </div>
+        </div>
+      </div>
+      
+      {/* CTA Slim #2 */}
+      <CTASlim text="¿Te gusta el proceso? ¡Empezemos!" />
+      
+      {/* Sección 3: Prueba social - Reviews */}
+      <div className="py-20 bg-white">
+        <div className="container mx-auto px-6">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl md:text-5xl font-black mb-6" style={{color: '#0A4A6E'}}>
+              Lo que dicen nuestros estudiantes
+            </h2>
+            <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+              Más de 1,000 estudiantes han transformado su fluidez con nosotros
+            </p>
+          </div>
+
+          {/* Grid de testimonios */}
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
+            {[
+              {
+                name: "María González",
+                country: "🇲🇽 México",
+                rating: 5,
+                text: "En 3 meses pasé de básico a conversacional. Los instructores son increíbles y las clases muy dinámicas.",
+                image: "https://images.unsplash.com/photo-1494790108755-2616b612b642?w=64&h=64&fit=crop&crop=face"
+              },
+              {
+                name: "David Chen",
+                country: "🇺🇸 Estados Unidos", 
+                rating: 5,
+                text: "Aprender español nunca fue tan fácil. El método 1-a-1 hace toda la diferencia.",
+                image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=64&h=64&fit=crop&crop=face"
+              },
+              {
+                name: "Ana Rodríguez",
+                country: "🇨🇴 Colombia",
+                rating: 5,
+                text: "Perfect for busy professionals. I improved my English speaking confidence dramatically.",
+                image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=64&h=64&fit=crop&crop=face"
+              },
+              {
+                name: "James Wilson",
+                country: "🇬🇧 Reino Unido",
+                rating: 5,
+                text: "Los horarios flexibles me permitieron mantener mis clases incluso con mi trabajo demandante.",
+                image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=64&h=64&fit=crop&crop=face"
+              },
+              {
+                name: "Sofia Martínez",
+                country: "🇦🇷 Argentina",
+                rating: 5,
+                text: "My English pronunciation improved so much! Native speakers make all the difference.",
+                image: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=64&h=64&fit=crop&crop=face"
+              },
+              {
+                name: "Michael Johnson",
+                country: "🇨🇦 Canadá",
+                rating: 5,
+                text: "Excelente plataforma. En 6 meses logré el nivel que necesitaba para mi trabajo en México.",
+                image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=64&h=64&fit=crop&crop=face"
+              }
+            ].map((testimonial, index) => (
+              <div key={index} className="bg-gray-50 rounded-2xl p-6 hover:shadow-lg transition-all duration-300">
+                <div className="flex items-center mb-4">
+                  <img 
+                    src={testimonial.image} 
+                    alt={testimonial.name}
+                    className="w-12 h-12 rounded-full object-cover mr-4"
+                  />
+                  <div>
+                    <h4 className="font-bold" style={{color: '#0A4A6E'}}>{testimonial.name}</h4>
+                    <p className="text-sm text-gray-600">{testimonial.country}</p>
+                  </div>
+                  <div className="ml-auto flex">
+                    {[...Array(testimonial.rating)].map((_, i) => (
+                      <Star key={i} className="w-4 h-4 fill-current" style={{color: '#F59E1C'}} />
+                    ))}
                   </div>
                 </div>
+                <p className="text-gray-700 leading-relaxed">{testimonial.text}</p>
               </div>
-              <h3 className="text-xl font-bold mb-2" style={{color: '#0A4A6E'}}>3. Make progress every week.</h3>
-              <p className="text-gray-600">Build lasting confidence, one conversation at a time.</p>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      {/* CTA Final Grande - Con fondo de pasaporte */}
+      <div className="relative py-20 overflow-hidden" style={{
+        background: 'linear-gradient(135deg, #0A4A6E 0%, #1C7BB1 50%, #F59E1C 100%)'
+      }}>        
+        <div className="container mx-auto px-6 relative z-10">
+          <div className="text-center max-w-4xl mx-auto">
+            <h2 className="text-4xl md:text-6xl font-black text-white mb-8">
+              ¡Tu pasaporte a la fluidez te está esperando!
+            </h2>
+            <p className="text-xl md:text-2xl text-blue-100 mb-12 leading-relaxed">
+              Miles de estudiantes ya transformaron su vida profesional y personal. 
+              <br />
+              <strong>Tú puedes ser el siguiente.</strong>
+            </p>
+            
+            {/* CTAs grandes lado a lado */}
+            <div className="flex flex-col md:flex-row gap-6 justify-center items-center mb-8">
+              <Button 
+                onClick={() => navigate('/es')}
+                className="px-12 py-6 text-2xl font-bold rounded-full transition-all duration-300 hover:shadow-2xl hover:scale-105 border-0 bg-white"
+                style={{color: '#0A4A6E'}}
+                data-testid="final-cta-learn-spanish"
+              >
+                <span className="flex items-center gap-3">
+                  <span className="text-3xl">🇪🇸</span>
+                  <span>Learn Spanish</span>
+                  <ArrowRight className="w-8 h-8" />
+                </span>
+              </Button>
+              
+              <Button 
+                onClick={() => navigate('/en')}
+                className="px-12 py-6 text-2xl font-bold rounded-full transition-all duration-300 hover:shadow-2xl hover:scale-105 border-0 bg-white"
+                style={{color: '#0A4A6E'}}
+                data-testid="final-cta-aprende-ingles"
+              >
+                <span className="flex items-center gap-3">
+                  <span className="text-3xl">🇺🇸</span>
+                  <span>Aprende Inglés</span>
+                  <ArrowRight className="w-8 h-8" />
+                </span>
+              </Button>
+            </div>
+            
+            {/* Incentivos finales */}
+            <div className="grid md:grid-cols-3 gap-6 text-white">
+              <div className="flex items-center gap-3 justify-center">
+                <CheckCircle className="w-6 h-6 text-green-300 flex-shrink-0" />
+                <span>Primera clase GRATIS</span>
+              </div>
+              <div className="flex items-center gap-3 justify-center">
+                <CheckCircle className="w-6 h-6 text-green-300 flex-shrink-0" />
+                <span>50% descuento primer mes</span>
+              </div>
+              <div className="flex items-center gap-3 justify-center">
+                <CheckCircle className="w-6 h-6 text-green-300 flex-shrink-0" />
+                <span>Garantía de progreso 30 días</span>
+              </div>
             </div>
           </div>
         </div>
       </div>
       
-      {/* Garantía simple como Preply */}
-      <div className="py-16 bg-white">
-        <div className="container mx-auto px-6 text-center">
-          <h2 className="text-3xl font-bold mb-4" style={{color: '#0A4A6E'}}>
-            Lessons you'll love. Guaranteed.
-          </h2>
-          <p className="text-xl text-gray-600 mb-8">
-            Try another tutor for free if you're not satisfied.
-          </p>
-          
-          <Button 
-            onClick={() => navigate('/es')}
-            className="px-8 py-4 text-lg font-semibold rounded-lg transition-all duration-300 hover:shadow-lg mr-4"
-            style={{
-              background: '#F59E1C',
-              color: 'white'
-            }}
-          >
-            Get Started
-          </Button>
-        </div>
-      </div>
-      
-      {/* Footer simple como Preply */}
+      {/* Footer simple */}
       <div className="bg-white py-12 border-t border-gray-100">
         <div className="container mx-auto px-6">
           <div className="text-center">
             <div className="flex justify-center mb-6">
               <img src={passportLogo} alt="Passport to Fluency" className="h-12" />
             </div>
-            <p className="text-gray-600 mb-4">© 2024 Passport to Fluency. All rights reserved.</p>
+            <p className="text-gray-600 mb-4">© 2024 Passport to Fluency. Todos los derechos reservados.</p>
             <div className="flex justify-center gap-8 text-sm text-gray-500">
-              <a href="#" className="hover:text-gray-700 transition-colors">Terms & Conditions</a>
-              <a href="#" className="hover:text-gray-700 transition-colors">Privacy Policy</a>
-              <a href="#" className="hover:text-gray-700 transition-colors">Support</a>
+              <a href="#" className="hover:text-gray-700 transition-colors">Términos y Condiciones</a>
+              <a href="#" className="hover:text-gray-700 transition-colors">Política de Privacidad</a>
+              <a href="#" className="hover:text-gray-700 transition-colors">Soporte</a>
             </div>
           </div>
         </div>
       </div>
+      
+      {/* CTA móvil fijo */}
+      <MobileCTA />
     </div>
   );
 }
