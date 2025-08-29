@@ -28,6 +28,36 @@ export default function Landing() {
       <div className="absolute inset-0 opacity-10" style={{
         backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%230A4A6E' fill-opacity='0.1'%3E%3Ccircle cx='30' cy='30' r='3'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`
       }}></div>
+
+      {/* Decorative Passport Element - Top Right */}
+      <div className="absolute top-20 right-10 hidden lg:block opacity-20 animate-pulse">
+        <div className="w-32 h-40 bg-gradient-to-br from-blue-600 to-blue-800 rounded-lg shadow-2xl transform rotate-12" style={{
+          background: 'linear-gradient(135deg, #0A4A6E 0%, #1C7BB1 100%)'
+        }}>
+          <div className="p-4 text-center">
+            <div className="text-yellow-400 font-black text-sm mb-2">PASSPORT</div>
+            <div className="w-8 h-8 mx-auto mb-2 rounded-full border-2 border-yellow-400 flex items-center justify-center">
+              <Globe className="w-4 h-4 text-yellow-400" />
+            </div>
+            <div className="text-yellow-400 font-bold text-xs italic">Fluency</div>
+          </div>
+        </div>
+      </div>
+
+      {/* Decorative Passport Element - Bottom Left */}
+      <div className="absolute bottom-32 left-10 hidden lg:block opacity-15">
+        <div className="w-24 h-32 bg-gradient-to-br from-orange-500 to-orange-600 rounded-lg shadow-xl transform -rotate-12" style={{
+          background: 'linear-gradient(135deg, #F59E1C 0%, #ea580c 100%)'
+        }}>
+          <div className="p-3 text-center">
+            <div className="text-white font-black text-xs mb-1">PASSPORT</div>
+            <div className="w-6 h-6 mx-auto mb-1 rounded-full border-2 border-white flex items-center justify-center">
+              <Globe className="w-3 h-3 text-white" />
+            </div>
+            <div className="text-white font-bold text-xs italic">Fluency</div>
+          </div>
+        </div>
+      </div>
       {/* Top Navigation Bar */}
       <div className="container mx-auto px-6 py-4">
         <div className="flex items-center justify-between">
