@@ -174,20 +174,7 @@ export default function SpanishSite() {
           </div>
         </div>
       </section>
-      {/* Virtual Spanish Class Image */}
-      <section className="py-12 bg-gradient-to-b from-orange-50 to-white">
-        <div className="container mx-auto px-4">
-          <div className="flex justify-center">
-            <div className="w-full max-w-5xl">
-              <img 
-                src={spanishClassImage} 
-                alt="Virtual Spanish class with native instructor - Learn Spanish online" 
-                className="w-full h-auto rounded-2xl shadow-2xl"
-              />
-            </div>
-          </div>
-        </div>
-      </section>
+      
       
       {/* How it Works - Timeline Visual */}
       <section id="how-it-works" className="py-20 bg-white">
