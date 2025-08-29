@@ -96,7 +96,7 @@ export default function SpanishSite() {
                 <Link href="/es/pricing" className="text-gray-700 hover:text-passport-orange transition-colors">
                   Plans & Pricing
                 </Link>
-                <NavigationDropdown language="en" currentPath={location} />
+                <NavigationDropdown language="en" currentPath="/es" />
                 <Link href="/es/team" className="text-gray-700 hover:text-passport-orange transition-colors">
                   Team
                 </Link>

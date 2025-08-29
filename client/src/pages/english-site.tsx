@@ -96,7 +96,7 @@ export default function EnglishSite() {
                 <Link href="/en/pricing" className="text-gray-700 hover:text-passport-blue transition-colors">
                   Planes y Precios
                 </Link>
-                <NavigationDropdown language="es" currentPath={location} />
+                <NavigationDropdown language="es" currentPath="/en" />
                 <Link href="/en/team" className="text-gray-700 hover:text-passport-blue transition-colors">
                   Equipo
                 </Link>
@@ -660,9 +660,22 @@ export default function EnglishSite() {
           </div>
         </div>
       </section>
-      
 
-      {/* Testimonials */}
+      {/* Programs Section */}
+      <section id="ingles-para-ninos" className="py-20 bg-white">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl font-bold text-gray-900 mb-4">
+              Nuestros Programas Especializados
+            </h2>
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+              Ofrecemos programas diseñados específicamente para diferentes grupos de edad y necesidades profesionales.
+            </p>
+          </div>
+
+          <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-12 items-start">
+            {/* Inglés para Niños - Diseño Juguetón */}
+            <Link href="/en/children" className="block group focus:outline-none focus:ring-4 focus:ring-blue-300 rounded-3xl">
               <div className="bg-white rounded-3xl shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 cursor-pointer overflow-hidden relative">
                 
                 {/* Header visual con degradado */}
