@@ -6,6 +6,7 @@ import NewsletterSignup from "@/components/newsletter-signup";
 import DiscountPopup from "@/components/discount-popup";
 import HighLevelCalendar from "@/components/highlevel-calendar";
 import passportLogo from "@assets/a1c5a1_9514ede9e3124d7a9adf78f5dcf07f28~mv2_1755803448396.png";
+import englishClassImage from "@assets/generated_images/Virtual_English_language_class_a7fc49c2.png";
 import { useLocation, Link } from "wouter";
 import NavigationDropdown from "@/components/navigation-dropdown";
 import { 
@@ -152,7 +153,7 @@ export default function EnglishSite() {
               </div>
             </div>
 
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
               <Button 
                 onClick={() => handleBookingClick('adult')}
                 className="bg-passport-blue hover:bg-blue-700 text-white px-8 py-4 text-lg font-semibold"
@@ -173,7 +174,7 @@ export default function EnglishSite() {
           </div>
         </div>
       </section>
-      {/* Cómo Funciona - Timeline Visual */}
+      {/* Virtual English Class Image */}\n      <section className=\"py-12 bg-gradient-to-b from-blue-50 to-white\">\n        <div className=\"container mx-auto px-4\">\n          <div className=\"flex justify-center\">\n            <div className=\"w-full max-w-5xl\">\n              <img \n                src={englishClassImage} \n                alt=\"Virtual English class with native instructor - Learn English online\" \n                className=\"w-full h-auto rounded-2xl shadow-2xl\"\n              />\n            </div>\n          </div>\n        </div>\n      </section>\n      \n      {/* Cómo Funciona - Timeline Visual */}
       <section id="como-funciona" className="py-20 bg-white">
         <div className="container mx-auto px-4">
           {/* Header */}

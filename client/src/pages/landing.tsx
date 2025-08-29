@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Globe, Star, Users, Clock, ArrowRight, CheckCircle } from "lucide-react";
 import passportLogo from "@assets/a1c5a1_9514ede9e3124d7a9adf78f5dcf07f28~mv2_1755803448396.png";
+import onlineLearningImage from "@assets/generated_images/Online_language_learning_setup_dadfcf8f.png";
 
 export default function Landing() {
   const [, navigate] = useLocation();
@@ -70,6 +71,17 @@ export default function Landing() {
               Detectamos que hablas {detectedLanguage} • We detected your language is {detectedLanguage}
             </div>
           )}
+        </div>
+
+        {/* Online Learning Visual */}
+        <div className="flex justify-center mb-8">
+          <div className="w-full max-w-2xl">
+            <img 
+              src={onlineLearningImage} 
+              alt="Clases de idiomas virtuales 1-a-1 con instructores nativos" 
+              className="w-full h-auto rounded-2xl shadow-lg"
+            />
+          </div>
         </div>
 
         {/* Main Options - Moved up to be visible above the fold */}
