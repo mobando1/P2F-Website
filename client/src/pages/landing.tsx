@@ -288,7 +288,7 @@ const EmailPopup = ({
             </p>
             
             {/* Iframe del formulario */}
-            <div className="w-full h-80 rounded-2xl overflow-hidden">
+            <div className="w-full h-96 rounded-2xl overflow-hidden">
               {showOnLanguageChange && isEnglishLang ? (
                 // Formulario para clases de español (cuando cambian a inglés)
                 <iframe
