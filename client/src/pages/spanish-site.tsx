@@ -533,17 +533,27 @@ export default function SpanishSite() {
         <div className="container mx-auto px-4">
           <div className="max-w-6xl mx-auto space-y-20 md:space-y-24">
             
-            {/* Spanish for Children */}
+            {/* Spanish for Children - Diseño Juguetón */}
             <Link href="/es/children" className="block group focus:outline-none focus:ring-4 focus:ring-orange-300 rounded-3xl">
-              <div className="bg-white rounded-3xl p-10 md:p-16 shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 cursor-pointer">
-                <div className="text-center">
-                  {/* Ícono principal */}
-                  <div className="w-20 h-20 md:w-24 md:h-24 bg-gradient-to-br from-orange-100 to-orange-50 border-2 border-orange-200 rounded-full flex items-center justify-center mx-auto mb-8 group-hover:-translate-y-1 transition-transform duration-300">
-                    <Star className="w-10 h-10 md:w-12 md:h-12 text-orange-600" />
-                  </div>
+              <div className="bg-white rounded-3xl shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 cursor-pointer overflow-hidden relative">
+                
+                {/* Header visual con degradado */}
+                <div className="bg-gradient-to-r from-orange-400 via-orange-300 to-yellow-300 p-8 relative">
+                  {/* Stickers decorativos */}
+                  <div className="absolute top-4 left-6 text-2xl animate-bounce" style={{animationDelay: '0s', animationDuration: '3s'}}>✏️</div>
+                  <div className="absolute top-4 right-6 text-2xl animate-bounce" style={{animationDelay: '1s', animationDuration: '3s'}}>✨</div>
+                  <div className="absolute bottom-4 left-6 text-2xl animate-bounce" style={{animationDelay: '2s', animationDuration: '3s'}}>🎵</div>
+                  <div className="absolute bottom-4 right-6 text-2xl animate-bounce" style={{animationDelay: '0.5s', animationDuration: '3s'}}>📖</div>
                   
-                  {/* Título */}
-                  <h3 className="text-2xl md:text-3xl font-bold text-slate-900 mb-6">
+                  {/* Ícono principal grande */}
+                  <div className="w-20 h-20 md:w-24 md:h-24 bg-white rounded-full flex items-center justify-center mx-auto shadow-lg group-hover:-translate-y-1 transition-transform duration-300">
+                    <Star className="w-10 h-10 md:w-12 md:h-12 text-orange-500" />
+                  </div>
+                </div>
+                
+                <div className="p-10 md:p-16 text-center">
+                  {/* Título con fuente juguetona */}
+                  <h3 className="text-2xl md:text-3xl font-black text-slate-900 mb-6" style={{fontFamily: 'Fredoka One, cursive'}}>
                     Spanish for Children
                   </h3>
                   
@@ -552,22 +562,22 @@ export default function SpanishSite() {
                     Spark your child's love for Spanish with fun, interactive sessions designed specifically for young learners aged 5-17. Our experienced coaches make learning engaging through games, songs, and cultural activities.
                   </p>
                   
-                  {/* Chips */}
+                  {/* Chips juguetones */}
                   <div className="flex flex-wrap justify-center gap-3 mb-8 md:gap-4">
                     <div className="hidden md:flex flex-wrap justify-center gap-4">
-                      <span className="bg-white border-2 border-orange-200 text-orange-700 px-4 py-2 rounded-full text-sm font-medium hover:bg-orange-50 transition-colors flex items-center gap-2">
+                      <span className="bg-gradient-to-r from-orange-100 to-yellow-100 border-2 border-orange-200 text-orange-700 px-5 py-3 rounded-full text-sm font-bold hover:bg-gradient-to-r hover:from-orange-200 hover:to-yellow-200 transition-all duration-300 flex items-center gap-2 shadow-md">
                         <Users className="w-4 h-4" />
                         Ages 5-17
                       </span>
-                      <span className="bg-white border-2 border-orange-200 text-orange-700 px-4 py-2 rounded-full text-sm font-medium hover:bg-orange-50 transition-colors flex items-center gap-2">
+                      <span className="bg-gradient-to-r from-orange-100 to-yellow-100 border-2 border-orange-200 text-orange-700 px-5 py-3 rounded-full text-sm font-bold hover:bg-gradient-to-r hover:from-orange-200 hover:to-yellow-200 transition-all duration-300 flex items-center gap-2 shadow-md">
                         <Gamepad2 className="w-4 h-4" />
                         Interactive Games
                       </span>
-                      <span className="bg-white border-2 border-orange-200 text-orange-700 px-4 py-2 rounded-full text-sm font-medium hover:bg-orange-50 transition-colors flex items-center gap-2">
+                      <span className="bg-gradient-to-r from-orange-100 to-yellow-100 border-2 border-orange-200 text-orange-700 px-5 py-3 rounded-full text-sm font-bold hover:bg-gradient-to-r hover:from-orange-200 hover:to-yellow-200 transition-all duration-300 flex items-center gap-2 shadow-md">
                         <Globe className="w-4 h-4" />
                         Native Instructors
                       </span>
-                      <span className="bg-white border-2 border-orange-200 text-orange-700 px-4 py-2 rounded-full text-sm font-medium hover:bg-orange-50 transition-colors flex items-center gap-2">
+                      <span className="bg-gradient-to-r from-orange-100 to-yellow-100 border-2 border-orange-200 text-orange-700 px-5 py-3 rounded-full text-sm font-bold hover:bg-gradient-to-r hover:from-orange-200 hover:to-yellow-200 transition-all duration-300 flex items-center gap-2 shadow-md">
                         <Globe className="w-4 h-4" />
                         Cultural Learning
                       </span>
@@ -575,47 +585,66 @@ export default function SpanishSite() {
                     
                     {/* Mobile: Scroll horizontal */}
                     <div className="md:hidden flex gap-3 overflow-x-auto pb-2 snap-x snap-mandatory w-full">
-                      <span className="bg-white border-2 border-orange-200 text-orange-700 px-4 py-2 rounded-full text-sm font-medium hover:bg-orange-50 transition-colors flex items-center gap-2 snap-start flex-shrink-0">
+                      <span className="bg-gradient-to-r from-orange-100 to-yellow-100 border-2 border-orange-200 text-orange-700 px-5 py-3 rounded-full text-sm font-bold hover:bg-gradient-to-r hover:from-orange-200 hover:to-yellow-200 transition-all duration-300 flex items-center gap-2 shadow-md snap-start flex-shrink-0">
                         <Users className="w-4 h-4" />
                         Ages 5-17
                       </span>
-                      <span className="bg-white border-2 border-orange-200 text-orange-700 px-4 py-2 rounded-full text-sm font-medium hover:bg-orange-50 transition-colors flex items-center gap-2 snap-start flex-shrink-0">
+                      <span className="bg-gradient-to-r from-orange-100 to-yellow-100 border-2 border-orange-200 text-orange-700 px-5 py-3 rounded-full text-sm font-bold hover:bg-gradient-to-r hover:from-orange-200 hover:to-yellow-200 transition-all duration-300 flex items-center gap-2 shadow-md snap-start flex-shrink-0">
                         <Gamepad2 className="w-4 h-4" />
                         Interactive Games
                       </span>
-                      <span className="bg-white border-2 border-orange-200 text-orange-700 px-4 py-2 rounded-full text-sm font-medium hover:bg-orange-50 transition-colors flex items-center gap-2 snap-start flex-shrink-0">
+                      <span className="bg-gradient-to-r from-orange-100 to-yellow-100 border-2 border-orange-200 text-orange-700 px-5 py-3 rounded-full text-sm font-bold hover:bg-gradient-to-r hover:from-orange-200 hover:to-yellow-200 transition-all duration-300 flex items-center gap-2 shadow-md snap-start flex-shrink-0">
                         <Globe className="w-4 h-4" />
                         Native Instructors
                       </span>
-                      <span className="bg-white border-2 border-orange-200 text-orange-700 px-4 py-2 rounded-full text-sm font-medium hover:bg-orange-50 transition-colors flex items-center gap-2 snap-start flex-shrink-0">
+                      <span className="bg-gradient-to-r from-orange-100 to-yellow-100 border-2 border-orange-200 text-orange-700 px-5 py-3 rounded-full text-sm font-bold hover:bg-gradient-to-r hover:from-orange-200 hover:to-yellow-200 transition-all duration-300 flex items-center gap-2 shadow-md snap-start flex-shrink-0">
                         <Globe className="w-4 h-4" />
                         Cultural Learning
                       </span>
                     </div>
                   </div>
                   
-                  {/* Botón CTA */}
+                  {/* Botón tipo app para niños */}
                   <div className="inline-block">
-                    <div className="bg-orange-500 hover:bg-orange-600 text-white px-8 py-4 rounded-full font-semibold text-lg hover:shadow-lg hover:-translate-y-1 transition-all duration-300 flex items-center gap-3 group">
-                      Explore Kids Programs
-                      <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                    <div className="bg-gradient-to-r from-orange-500 via-red-500 to-orange-600 hover:from-orange-600 hover:via-red-600 hover:to-orange-700 text-white px-10 py-5 rounded-full font-bold text-xl hover:shadow-xl hover:-translate-y-2 hover:scale-105 transition-all duration-300 flex items-center gap-4 group relative overflow-hidden">
+                      <span className="relative z-10">Explore Kids Programs</span>
+                      <ArrowRight className="w-6 h-6 group-hover:translate-x-2 transition-transform duration-300 relative z-10" />
+                      {/* Efecto de rebote */}
+                      <div className="absolute inset-0 bg-gradient-to-r from-white/20 to-transparent opacity-0 group-hover:opacity-100 group-hover:animate-pulse transition-opacity"></div>
                     </div>
                   </div>
                 </div>
               </div>
             </Link>
             
-            {/* Business Spanish Programs */}
-            <Link href="/es/business" className="block group focus:outline-none focus:ring-4 focus:ring-blue-300 rounded-3xl">
-              <div className="bg-white rounded-3xl p-10 md:p-16 shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 cursor-pointer">
-                <div className="text-center">
-                  {/* Ícono principal */}
-                  <div className="w-20 h-20 md:w-24 md:h-24 bg-gradient-to-br from-blue-100 to-blue-50 border-2 border-blue-200 rounded-full flex items-center justify-center mx-auto mb-8 group-hover:-translate-y-1 transition-transform duration-300">
-                    <Briefcase className="w-10 h-10 md:w-12 md:h-12 text-blue-600" />
+            {/* Business Spanish Programs - Diseño Premium */}
+            <Link href="/es/business" className="block group focus:outline-none focus:ring-4 focus:ring-amber-300 rounded-3xl">
+              <div className="bg-white rounded-3xl shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 cursor-pointer overflow-hidden relative">
+                
+                {/* Franja superior dorada */}
+                <div className="bg-gradient-to-r from-amber-400 via-yellow-400 to-amber-500 h-2 w-full"></div>
+                
+                {/* Decoración geométrica de fondo */}
+                <div className="absolute inset-0 opacity-5">
+                  <div className="absolute top-10 left-10 w-32 h-32 border border-gray-200 rounded-full"></div>
+                  <div className="absolute bottom-10 right-10 w-24 h-24 border border-gray-200 rounded-lg rotate-45"></div>
+                  <div className="absolute top-1/2 left-1/4 w-16 h-16 border border-gray-200 rounded-full"></div>
+                  {/* Líneas diagonales sutiles */}
+                  <div className="absolute inset-0 opacity-30">
+                    <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-transparent via-gray-50 to-transparent transform rotate-12"></div>
+                  </div>
+                </div>
+                
+                <div className="p-10 md:p-16 text-center relative z-10">
+                  {/* Ícono principal premium */}
+                  <div className="w-20 h-20 md:w-24 md:h-24 bg-gradient-to-br from-amber-400 to-yellow-500 rounded-full flex items-center justify-center mx-auto mb-8 shadow-2xl group-hover:-translate-y-1 group-hover:shadow-3xl transition-all duration-300 relative">
+                    <Briefcase className="w-10 h-10 md:w-12 md:h-12 text-white" />
+                    {/* Sello profesional efecto */}
+                    <div className="absolute inset-0 rounded-full bg-gradient-to-tr from-transparent via-white/20 to-transparent"></div>
                   </div>
                   
-                  {/* Título */}
-                  <h3 className="text-2xl md:text-3xl font-bold text-slate-900 mb-6">
+                  {/* Título corporativo */}
+                  <h3 className="text-2xl md:text-3xl font-bold text-slate-900 mb-6 tracking-tight">
                     Business Spanish Programs
                   </h3>
                   
@@ -624,53 +653,55 @@ export default function SpanishSite() {
                     Transform your career with professional Spanish training designed for the corporate world. Perfect for executives, sales teams, and professionals working with Spanish-speaking markets.
                   </p>
                   
-                  {/* Chips */}
+                  {/* Chips corporativos */}
                   <div className="flex flex-wrap justify-center gap-3 mb-8 md:gap-4">
                     <div className="hidden md:flex flex-wrap justify-center gap-4">
-                      <span className="bg-white border-2 border-blue-200 text-blue-700 px-4 py-2 rounded-full text-sm font-medium hover:bg-blue-50 transition-colors flex items-center gap-2">
-                        <Stethoscope className="w-4 h-4" />
+                      <span className="bg-gradient-to-r from-gray-50 to-amber-50 border border-amber-200 text-amber-800 px-5 py-2 rounded-lg text-sm font-semibold hover:bg-gradient-to-r hover:from-amber-50 hover:to-amber-100 transition-all duration-300 flex items-center gap-2 shadow-sm">
+                        <Stethoscope className="w-4 h-4 stroke-1" />
                         Healthcare & Medical
                       </span>
-                      <span className="bg-white border-2 border-blue-200 text-blue-700 px-4 py-2 rounded-full text-sm font-medium hover:bg-blue-50 transition-colors flex items-center gap-2">
-                        <Home className="w-4 h-4" />
+                      <span className="bg-gradient-to-r from-gray-50 to-amber-50 border border-amber-200 text-amber-800 px-5 py-2 rounded-lg text-sm font-semibold hover:bg-gradient-to-r hover:from-amber-50 hover:to-amber-100 transition-all duration-300 flex items-center gap-2 shadow-sm">
+                        <Home className="w-4 h-4 stroke-1" />
                         Real Estate
                       </span>
-                      <span className="bg-white border-2 border-blue-200 text-blue-700 px-4 py-2 rounded-full text-sm font-medium hover:bg-blue-50 transition-colors flex items-center gap-2">
-                        <TrendingUp className="w-4 h-4" />
+                      <span className="bg-gradient-to-r from-gray-50 to-amber-50 border border-amber-200 text-amber-800 px-5 py-2 rounded-lg text-sm font-semibold hover:bg-gradient-to-r hover:from-amber-50 hover:to-amber-100 transition-all duration-300 flex items-center gap-2 shadow-sm">
+                        <TrendingUp className="w-4 h-4 stroke-1" />
                         Sales & Marketing
                       </span>
-                      <span className="bg-white border-2 border-blue-200 text-blue-700 px-4 py-2 rounded-full text-sm font-medium hover:bg-blue-50 transition-colors flex items-center gap-2">
-                        <Scale className="w-4 h-4" />
+                      <span className="bg-gradient-to-r from-gray-50 to-amber-50 border border-amber-200 text-amber-800 px-5 py-2 rounded-lg text-sm font-semibold hover:bg-gradient-to-r hover:from-amber-50 hover:to-amber-100 transition-all duration-300 flex items-center gap-2 shadow-sm">
+                        <Scale className="w-4 h-4 stroke-1" />
                         Legal & Law
                       </span>
                     </div>
                     
                     {/* Mobile: Scroll horizontal */}
                     <div className="md:hidden flex gap-3 overflow-x-auto pb-2 snap-x snap-mandatory w-full">
-                      <span className="bg-white border-2 border-blue-200 text-blue-700 px-4 py-2 rounded-full text-sm font-medium hover:bg-blue-50 transition-colors flex items-center gap-2 snap-start flex-shrink-0">
-                        <Stethoscope className="w-4 h-4" />
+                      <span className="bg-gradient-to-r from-gray-50 to-amber-50 border border-amber-200 text-amber-800 px-5 py-2 rounded-lg text-sm font-semibold hover:bg-gradient-to-r hover:from-amber-50 hover:to-amber-100 transition-all duration-300 flex items-center gap-2 shadow-sm snap-start flex-shrink-0">
+                        <Stethoscope className="w-4 h-4 stroke-1" />
                         Healthcare & Medical
                       </span>
-                      <span className="bg-white border-2 border-blue-200 text-blue-700 px-4 py-2 rounded-full text-sm font-medium hover:bg-blue-50 transition-colors flex items-center gap-2 snap-start flex-shrink-0">
-                        <Home className="w-4 h-4" />
+                      <span className="bg-gradient-to-r from-gray-50 to-amber-50 border border-amber-200 text-amber-800 px-5 py-2 rounded-lg text-sm font-semibold hover:bg-gradient-to-r hover:from-amber-50 hover:to-amber-100 transition-all duration-300 flex items-center gap-2 shadow-sm snap-start flex-shrink-0">
+                        <Home className="w-4 h-4 stroke-1" />
                         Real Estate
                       </span>
-                      <span className="bg-white border-2 border-blue-200 text-blue-700 px-4 py-2 rounded-full text-sm font-medium hover:bg-blue-50 transition-colors flex items-center gap-2 snap-start flex-shrink-0">
-                        <TrendingUp className="w-4 h-4" />
+                      <span className="bg-gradient-to-r from-gray-50 to-amber-50 border border-amber-200 text-amber-800 px-5 py-2 rounded-lg text-sm font-semibold hover:bg-gradient-to-r hover:from-amber-50 hover:to-amber-100 transition-all duration-300 flex items-center gap-2 shadow-sm snap-start flex-shrink-0">
+                        <TrendingUp className="w-4 h-4 stroke-1" />
                         Sales & Marketing
                       </span>
-                      <span className="bg-white border-2 border-blue-200 text-blue-700 px-4 py-2 rounded-full text-sm font-medium hover:bg-blue-50 transition-colors flex items-center gap-2 snap-start flex-shrink-0">
-                        <Scale className="w-4 h-4" />
+                      <span className="bg-gradient-to-r from-gray-50 to-amber-50 border border-amber-200 text-amber-800 px-5 py-2 rounded-lg text-sm font-semibold hover:bg-gradient-to-r hover:from-amber-50 hover:to-amber-100 transition-all duration-300 flex items-center gap-2 shadow-sm snap-start flex-shrink-0">
+                        <Scale className="w-4 h-4 stroke-1" />
                         Legal & Law
                       </span>
                     </div>
                   </div>
                   
-                  {/* Botón CTA */}
+                  {/* Botón premium con brillo animado */}
                   <div className="inline-block">
-                    <div className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 rounded-full font-semibold text-lg hover:shadow-lg hover:-translate-y-1 transition-all duration-300 flex items-center gap-3 group">
-                      Explore Business Programs
-                      <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                    <div className="bg-gradient-to-r from-amber-500 via-yellow-500 to-amber-600 hover:from-amber-600 hover:via-yellow-600 hover:to-amber-700 text-white px-10 py-4 rounded-xl font-bold text-lg hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 flex items-center gap-3 group relative overflow-hidden">
+                      <span className="relative z-10">Explore Business Programs</span>
+                      <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform relative z-10" />
+                      {/* Efecto de brillo que cruza */}
+                      <div className="absolute inset-0 -translate-x-full group-hover:translate-x-full bg-gradient-to-r from-transparent via-white/30 to-transparent transition-transform duration-700 ease-in-out"></div>
                     </div>
                   </div>
                 </div>

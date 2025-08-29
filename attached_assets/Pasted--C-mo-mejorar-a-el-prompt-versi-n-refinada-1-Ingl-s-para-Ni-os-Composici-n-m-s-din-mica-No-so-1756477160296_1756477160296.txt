@@ -1,0 +1,58 @@
+🔹 Cómo mejoraría el prompt (versión refinada)
+1. Inglés para Niños
+
+Composición más dinámica: No solo una caja blanca. Añade un header visual en la parte superior de la tarjeta con un fondo degradado azul–celeste, donde sobresalga un ícono grande (estrella/globo con carita).
+
+Stickers distribuidos estratégicamente:
+
+Superior izquierda → lápiz de colores ✏️
+
+Superior derecha → estrella sonriente ✨
+
+Inferior izquierda → nota musical 🎵
+
+Inferior derecha → libro abierto 📖
+
+Todos con sombra suave y estilo ilustración flat infantil.
+
+Tipografía: título con una fuente redondeada o más juguetona (tipo Baloo, Fredoka o Nunito Rounded), para diferenciarlo.
+
+Botón: más grande, como un “botón de app para niños”, con efecto de rebote en hover y gradiente azul–violeta, no solo azul plano.
+
+👉 Resultado esperado: una tarjeta que parece una mini portada de app educativa para niños, no solo un bloque de texto.
+
+2. Programas Empresariales de Inglés
+
+Composición premium: Fondo blanco con una franja lateral o superior en dorado/ámbar degradado, que sirva como marca visual distintiva.
+
+Decoración geométrica: líneas diagonales muy suaves en gris claro, círculos translúcidos o cuadrículas que se mezclen con el fondo (inspirado en dashboards o websites fintech tipo Stripe, HubSpot o Intercom).
+
+Ícono principal: maletín o edificio corporativo dentro de un círculo dorado/ámbar con sombra elegante. No plano, sino con sensación de “sello profesional”.
+
+Chips más serios: en lugar de redondeados tipo pill, hacerlos más rectangulares con esquinas suavemente redondeadas (corporativo). Íconos pequeños y sobrios (línea fina, sin emojis).
+
+Botón: estilo premium, rectangular con gradiente dorado–ámbar, con un leve brillo animado que cruza al hover (efecto “luxury brand”).
+
+👉 Resultado esperado: una tarjeta que transmite elegancia, exclusividad y profesionalismo, casi como si fuera una membresía VIP.
+
+3. Diferenciación aún más clara entre ambas
+
+Niños = visualmente juguetón, lleno de stickers, colorido, botones gorditos.
+
+Empresarial = limpio, sobrio, geométrico, dorado, serio.
+
+Que al verlas juntas no parezcan variaciones de la misma plantilla, sino dos mundos diferentes.
+
+4. Extra para darle más vida
+
+Animaciones:
+
+Niños → micro-movimiento de los stickers (como si flotaran levemente).
+
+Empresarial → animación muy sutil en las líneas geométricas (parallax ligero o efecto de movimiento diagonal al hover).
+
+Narrativa visual:
+
+Niños: que la tarjeta parezca un espacio de juego/aprendizaje.
+
+Empresarial: que parezca una presentación seria de servicios de consultoría.
