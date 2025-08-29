@@ -182,29 +182,25 @@ export default function Landing() {
               Clases personalizadas 1-a-1 con instructores nativos
             </p>
             
-            {/* Llamada de acción destacada */}
-            <div className="relative mb-8 max-w-lg">
-              {/* Fondo con gradiente animado */}
-              <div className="absolute inset-0 rounded-2xl opacity-20 animate-pulse" style={{
-                background: 'linear-gradient(135deg, #F59E1C 0%, #fbbf24 50%, #F59E1C 100%)',
-                backgroundSize: '200% 200%',
-                animation: 'gradient 3s ease infinite'
-              }}></div>
-              
-              <div className="relative bg-white border-2 rounded-2xl p-6 shadow-lg" style={{
-                borderColor: '#F59E1C',
-                boxShadow: '0 8px 25px rgba(245, 158, 28, 0.15)'
+            {/* Llamada de acción elegante */}
+            <div className="mb-8 max-w-lg">
+              <div className="relative bg-gradient-to-r from-blue-50 to-orange-50 border border-gray-200 rounded-2xl p-8 shadow-sm hover:shadow-md transition-shadow duration-300" style={{
+                background: 'linear-gradient(135deg, rgba(10, 74, 110, 0.08) 0%, rgba(245, 158, 28, 0.08) 100%)'
               }}>
-                <div className="flex items-center justify-center mb-3">
-                  <div className="w-3 h-3 rounded-full mr-3 animate-pulse" style={{background: '#F59E1C'}}></div>
-                  <span className="text-2xl font-black" style={{color: '#0A4A6E'}}>
-                    🎆 PASO IMPORTANTE 🎆
-                  </span>
-                  <div className="w-3 h-3 rounded-full ml-3 animate-pulse" style={{background: '#F59E1C'}}></div>
+                {/* Pequeño indicador visual */}
+                <div className="absolute top-4 right-4 w-3 h-3 rounded-full" style={{
+                  background: '#F59E1C',
+                  boxShadow: '0 0 0 4px rgba(245, 158, 28, 0.2)'
+                }}></div>
+                
+                <div className="text-center">
+                  <h3 className="text-xl font-bold mb-2" style={{color: '#0A4A6E'}}>
+                    Selecciona el idioma que quieres aprender:
+                  </h3>
+                  <p className="text-gray-600 text-sm">
+                    ↓ Elige tu próximo paso hacia la fluidez ↓
+                  </p>
                 </div>
-                <p className="text-xl font-bold text-center" style={{color: '#0A4A6E'}}>
-                  Selecciona el idioma que quieres aprender:
-                </p>
               </div>
             </div>
 
