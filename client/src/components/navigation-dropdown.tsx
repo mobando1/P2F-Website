@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 import { ChevronDown } from "lucide-react";
 import { Link } from "wouter";
 
@@ -9,6 +9,7 @@ interface NavigationDropdownProps {
 
 export default function NavigationDropdown({ language, currentPath }: NavigationDropdownProps) {
   const [isOpen, setIsOpen] = useState(false);
+  const timeoutRef = useRef<NodeJS.Timeout | null>(null);
 
   const content = language === 'en' ? {
     // Spanish site content (English speakers learning Spanish)
@@ -42,11 +43,34 @@ export default function NavigationDropdown({ language, currentPath }: Navigation
     currentPath === basePath
   );
 
+  const handleMouseEnter = () => {
+    if (timeoutRef.current) {
+      clearTimeout(timeoutRef.current);
+      timeoutRef.current = null;
+    }
+    setIsOpen(true);
+  };
+
+  const handleMouseLeave = () => {
+    timeoutRef.current = setTimeout(() => {
+      setIsOpen(false);
+    }, 150); // 150ms delay before closing
+  };
+
+  // Clean up timeout on unmount
+  useEffect(() => {
+    return () => {
+      if (timeoutRef.current) {
+        clearTimeout(timeoutRef.current);
+      }
+    };
+  }, []);
+
   return (
     <div 
       className="relative"
-      onMouseEnter={() => setIsOpen(true)}
-      onMouseLeave={() => setIsOpen(false)}
+      onMouseEnter={handleMouseEnter}
+      onMouseLeave={handleMouseLeave}
     >
       <button 
         className={`flex items-center space-x-1 transition-colors ${
@@ -56,6 +80,7 @@ export default function NavigationDropdown({ language, currentPath }: Navigation
               : 'text-passport-blue font-semibold'
             : 'text-gray-700 hover:text-passport-blue'
         }`}
+        onClick={() => setIsOpen(!isOpen)}
       >
         <span>{content.programs}</span>
         <ChevronDown className="w-4 h-4" />
@@ -63,9 +88,9 @@ export default function NavigationDropdown({ language, currentPath }: Navigation
 
       {isOpen && (
         <div 
-          className="absolute top-full left-0 mt-1 w-56 bg-white border border-gray-200 rounded-lg shadow-lg z-50"
-          onMouseEnter={() => setIsOpen(true)}
-          onMouseLeave={() => setIsOpen(false)}
+          className="absolute top-full left-0 mt-0 w-56 bg-white border border-gray-200 rounded-lg shadow-lg z-50"
+          onMouseEnter={handleMouseEnter}
+          onMouseLeave={handleMouseLeave}
         >
           <div className="py-2">
             {dropdownItems.map((item, index) => (
