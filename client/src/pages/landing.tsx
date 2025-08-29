@@ -286,6 +286,7 @@ export default function Landing() {
   const [, navigate] = useLocation();
   const [detectedLanguage, setDetectedLanguage] = useState<string | null>(null);
   const [selectedLanguage, setSelectedLanguage] = useState<'spanish' | 'english' | null>(null);
+  const [currentLang, setCurrentLang] = useState<'es' | 'en'>('es');
 
   useEffect(() => {
     // Simple language detection based on browser language
@@ -293,8 +294,10 @@ export default function Landing() {
     
     if (browserLanguage?.startsWith('es')) {
       setDetectedLanguage('español');
+      setCurrentLang('es');
     } else {
       setDetectedLanguage('English');
+      setCurrentLang('en');
     }
   }, []);
 
@@ -303,6 +306,38 @@ export default function Landing() {
     setSelectedLanguage(language);
     navigate(route);
   };
+
+  // Función para cambiar el idioma de la página
+  const toggleLanguage = () => {
+    setCurrentLang(currentLang === 'es' ? 'en' : 'es');
+    setDetectedLanguage(currentLang === 'es' ? 'English' : 'español');
+  };
+
+  // Traducciones del contenido
+  const content = {
+    es: {
+      heroTitle: "Habla como un",
+      heroTitleItalic: "nativo",
+      heroSubtitle: "Clases personalizadas 1-a-1 con instructores nativos",
+      selectLanguageTitle: "Selecciona el idioma que quieres aprender:",
+      selectLanguageSubtitle: "↓ Elige tu próximo paso hacia la fluidez ↓",
+      scrollIndicator: "Desliza ↓ para ver cómo funciona",
+      learnSpanishBtn: "Learn Spanish",
+      learnEnglishBtn: "Aprende Inglés",
+    },
+    en: {
+      heroTitle: "Speak like a",
+      heroTitleItalic: "native",
+      heroSubtitle: "Personalized 1-on-1 classes with native instructors",
+      selectLanguageTitle: "Select the language you want to learn:",
+      selectLanguageSubtitle: "↓ Choose your next step towards fluency ↓",
+      scrollIndicator: "Scroll ↓ to see how it works",
+      learnSpanishBtn: "Learn Spanish",
+      learnEnglishBtn: "Learn English",
+    }
+  };
+
+  const t = content[currentLang];
 
   return (
     <div className="min-h-screen overflow-hidden relative" style={{
@@ -314,12 +349,19 @@ export default function Landing() {
         <div className="flex items-center justify-between">
           <img src={passportLogo} alt="Passport to Fluency" className="h-16" />
           
-          {/* Language detection in top right */}
+          {/* Language toggle button */}
           {detectedLanguage && (
-            <div className="bg-blue-100 border border-blue-200 rounded-lg px-3 py-1 text-blue-800 text-sm flex items-center">
+            <button 
+              onClick={toggleLanguage}
+              className="bg-blue-100 border border-blue-200 rounded-lg px-3 py-1 text-blue-800 text-sm flex items-center hover:bg-blue-200 transition-colors duration-200 cursor-pointer"
+              data-testid="language-toggle-button"
+            >
               <Globe className="w-4 h-4 mr-2" />
-              {detectedLanguage === 'español' ? 'Español' : 'English'}
-            </div>
+              <span>{currentLang === 'es' ? 'Español' : 'English'}</span>
+              <span className="ml-2 text-xs opacity-60">
+                {currentLang === 'es' ? '→ EN' : '→ ES'}
+              </span>
+            </button>
           )}
         </div>
       </div>
@@ -331,12 +373,12 @@ export default function Landing() {
           {/* Left Side - Hero Text */}
           <div className="space-y-8 animate-fade-in">
             <h1 className="text-5xl md:text-7xl font-black leading-tight mb-8">
-              <span style={{color: '#0A4A6E'}}>Habla como un </span>
-              <span className="italic text-6xl md:text-8xl" style={{color: '#F59E1C'}}>nativo</span>
+              <span style={{color: '#0A4A6E'}}>{t.heroTitle} </span>
+              <span className="italic text-6xl md:text-8xl" style={{color: '#F59E1C'}}>{t.heroTitleItalic}</span>
             </h1>
             
             <p className="text-xl md:text-2xl text-gray-700 leading-relaxed max-w-lg mb-6">
-              Clases personalizadas 1-a-1 con instructores nativos
+              {t.heroSubtitle}
             </p>
             
             {/* Llamada de acción elegante */}
@@ -352,10 +394,10 @@ export default function Landing() {
                 
                 <div className="text-center">
                   <h3 className="text-xl font-bold mb-2" style={{color: '#0A4A6E'}}>
-                    Selecciona el idioma que quieres aprender:
+                    {t.selectLanguageTitle}
                   </h3>
                   <p className="text-gray-600 text-sm">
-                    ↓ Elige tu próximo paso hacia la fluidez ↓
+                    {t.selectLanguageSubtitle}
                   </p>
                 </div>
               </div>
@@ -375,7 +417,7 @@ export default function Landing() {
               >
                 <span className="flex items-center justify-center gap-3">
                   <span className="text-2xl">🇪🇸</span>
-                  <span>Learn Spanish</span>
+                  <span>{t.learnSpanishBtn}</span>
                   <ArrowRight className="w-6 h-6" />
                 </span>
               </Button>
@@ -392,7 +434,7 @@ export default function Landing() {
               >
                 <span className="flex items-center justify-center gap-3">
                   <span className="text-2xl">🇺🇸</span>
-                  <span>Aprende Inglés</span>
+                  <span>{t.learnEnglishBtn}</span>
                   <ArrowRight className="w-6 h-6" />
                 </span>
               </Button>
@@ -400,7 +442,7 @@ export default function Landing() {
 
             {/* Micro-indicador scroll */}
             <div className="text-center mt-12 animate-bounce">
-              <p className="text-sm text-gray-600 mb-2">Desliza ↓ para ver cómo funciona</p>
+              <p className="text-sm text-gray-600 mb-2">{t.scrollIndicator}</p>
               <ChevronDown className="w-6 h-6 mx-auto" style={{color: '#0A4A6E'}} />
             </div>
           </div>
