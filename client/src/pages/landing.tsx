@@ -174,12 +174,14 @@ const EmailPopup = ({
 }) => {
   const [isVisible, setIsVisible] = useState(false);
   const [isClosing, setIsClosing] = useState(false);
+  const [isReady, setIsReady] = useState(false);
 
   useEffect(() => {
     if (showInitial) {
       // Mostrar popup inicial después de 7 segundos
       const timer = setTimeout(() => {
-        setIsVisible(true);
+        setIsReady(true);
+        setTimeout(() => setIsVisible(true), 100); // Pequeña demora adicional
       }, 7000);
       return () => clearTimeout(timer);
     }
@@ -189,7 +191,8 @@ const EmailPopup = ({
     if (showOnLanguageChange) {
       // Mostrar popup después de 7 segundos cuando hay cambio de idioma
       const timer = setTimeout(() => {
-        setIsVisible(true);
+        setIsReady(true);
+        setTimeout(() => setIsVisible(true), 100); // Pequeña demora adicional
       }, 7000);
       return () => clearTimeout(timer);
     }
@@ -197,13 +200,20 @@ const EmailPopup = ({
 
   useEffect(() => {
     // Agregar el script de form_embed cuando el componente se monta
-    if (isVisible && !document.querySelector('script[src="https://link.msgsndr.com/js/form_embed.js"]')) {
-      const script = document.createElement('script');
-      script.src = 'https://link.msgsndr.com/js/form_embed.js';
-      script.async = true;
-      document.body.appendChild(script);
+    if (isReady) {
+      const existingScript = document.querySelector('script[src="https://link.msgsndr.com/js/form_embed.js"]');
+      if (!existingScript) {
+        const script = document.createElement('script');
+        script.src = 'https://link.msgsndr.com/js/form_embed.js';
+        script.async = true;
+        script.onload = () => {
+          // Script cargado, el iframe debería funcionar bien ahora
+          console.log('HighLevel form script loaded');
+        };
+        document.body.appendChild(script);
+      }
     }
-  }, [isVisible]);
+  }, [isReady]);
 
   const handleClose = () => {
     setIsClosing(true);
@@ -214,7 +224,7 @@ const EmailPopup = ({
     }, 300);
   };
 
-  if (!isVisible) return null;
+  if (!isVisible || !isReady) return null;
 
   // Determinar el contenido del popup según el idioma actual de la página
   const isEnglishLang = currentLang === 'en';
