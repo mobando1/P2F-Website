@@ -173,52 +173,129 @@ export default function EnglishSite() {
           </div>
         </div>
       </section>
-      {/* How it Works */}
-      <section id="como-funciona" className="py-20 bg-white">
+      {/* Cómo Funciona - Enhanced Design */}
+      <section id="como-funciona" className="py-20 bg-gradient-to-b from-white to-gray-50">
         <div className="container mx-auto px-4">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-gray-900 mb-4">
+          <div className="text-center mb-20">
+            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
               Cómo Funciona
             </h2>
-            <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+            <p className="text-xl md:text-2xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
               Solo 3 pasos simples para empezar a hablar inglés con confianza
             </p>
           </div>
 
-          <div className="max-w-5xl mx-auto grid md:grid-cols-3 gap-8">
-            <Card className="text-center border-2 hover:border-passport-blue transition-colors">
-              <CardContent className="p-8">
-                <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-6">
-                  <Calendar className="w-8 h-8 text-passport-blue" />
-                </div>
-                <h3 className="text-xl font-bold text-gray-900 mb-4">1. Agenda tu clase</h3>
-                <p className="text-gray-600">
-                  Elige el horario que mejor te convenga. Disponible 24/7, incluso de último momento.
-                </p>
-              </CardContent>
-            </Card>
+          {/* Desktop: Conectados con líneas */}
+          <div className="max-w-7xl mx-auto relative">
+            
+            {/* Líneas conectoras - Solo desktop */}
+            <div className="hidden md:block absolute top-1/2 left-0 right-0 h-1 bg-gradient-to-r from-blue-200 via-green-200 to-orange-200 transform -translate-y-1/2 z-0"></div>
+            
+            <div className="grid md:grid-cols-3 gap-8 md:gap-4 relative z-10">
+              
+              {/* Paso 1 - Azul (Confianza) */}
+              <div className="group cursor-pointer">
+                <Card className="text-center border-2 border-blue-100 hover:border-blue-300 hover:shadow-2xl hover:-translate-y-3 transition-all duration-300 bg-white relative overflow-hidden">
+                  
+                  {/* Número protagonista */}
+                  <div className="absolute -top-6 left-1/2 transform -translate-x-1/2 z-20">
+                    <div className="w-12 h-12 bg-gradient-to-br from-blue-500 to-blue-600 rounded-full flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-300">
+                      <span className="text-white font-black text-xl">1</span>
+                    </div>
+                  </div>
+                  
+                  <CardContent className="p-8 pt-12">
+                    {/* Ícono con gradiente y animación */}
+                    <div className="relative mb-8">
+                      <div className="w-20 h-20 bg-gradient-to-br from-blue-400 to-blue-600 rounded-full flex items-center justify-center mx-auto shadow-xl group-hover:shadow-2xl group-hover:-translate-y-1 transition-all duration-300 relative overflow-hidden">
+                        <Calendar className="w-10 h-10 text-white group-hover:scale-110 transition-transform duration-300" />
+                        {/* Efecto de brillo */}
+                        <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/20 to-transparent group-hover:animate-pulse"></div>
+                      </div>
+                    </div>
+                    
+                    <h3 className="text-xl md:text-2xl font-bold text-gray-900 mb-6 leading-tight">
+                      Agenda tu clase
+                    </h3>
+                    <p className="text-gray-700 leading-relaxed text-lg">
+                      Elige el horario que mejor te convenga. Disponible 24/7, incluso de último momento.
+                    </p>
+                  </CardContent>
+                </Card>
+              </div>
 
-            <Card className="text-center border-2 hover:border-passport-blue transition-colors">
-              <CardContent className="p-8">
-                <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-6">
-                  <VideoIcon className="w-8 h-8 text-passport-blue" />
-                </div>
-                <h3 className="text-xl font-bold text-gray-900 mb-4">2. Conecta por video</h3>
-                <p className="text-gray-600">Únete a tu clase por Google Meet desde cualquier dispositivo. Tu instructor te estará esperando.</p>
-              </CardContent>
-            </Card>
+              {/* Paso 2 - Verde (Conexión) */}
+              <div className="group cursor-pointer md:mt-8">
+                <Card className="text-center border-2 border-green-100 hover:border-green-300 hover:shadow-2xl hover:-translate-y-3 transition-all duration-300 bg-white relative overflow-hidden">
+                  
+                  {/* Número protagonista */}
+                  <div className="absolute -top-6 left-1/2 transform -translate-x-1/2 z-20">
+                    <div className="w-12 h-12 bg-gradient-to-br from-green-500 to-green-600 rounded-full flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-300">
+                      <span className="text-white font-black text-xl">2</span>
+                    </div>
+                  </div>
+                  
+                  <CardContent className="p-8 pt-12">
+                    {/* Ícono con gradiente y animación especial */}
+                    <div className="relative mb-8">
+                      <div className="w-20 h-20 bg-gradient-to-br from-green-400 to-green-600 rounded-full flex items-center justify-center mx-auto shadow-xl group-hover:shadow-2xl group-hover:-translate-y-1 transition-all duration-300 relative overflow-hidden">
+                        <VideoIcon className="w-10 h-10 text-white group-hover:scale-110 transition-transform duration-300" />
+                        {/* Efecto de "play" pulsante */}
+                        <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/30 to-transparent opacity-0 group-hover:opacity-100 group-hover:animate-ping transition-opacity duration-300"></div>
+                      </div>
+                    </div>
+                    
+                    <h3 className="text-xl md:text-2xl font-bold text-gray-900 mb-6 leading-tight">
+                      Conecta por video
+                    </h3>
+                    <p className="text-gray-700 leading-relaxed text-lg">
+                      Únete a tu clase por Google Meet desde cualquier dispositivo. Tu instructor te estará esperando.
+                    </p>
+                  </CardContent>
+                </Card>
+              </div>
 
-            <Card className="text-center border-2 hover:border-passport-blue transition-colors">
-              <CardContent className="p-8">
-                <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-6">
-                  <MessageCircle className="w-8 h-8 text-passport-blue" />
-                </div>
-                <h3 className="text-xl font-bold text-gray-900 mb-4">3. Practica y mejora</h3>
-                <p className="text-gray-600">
-                  Conversación real con retroalimentación instantánea. Tu progreso se guarda automáticamente.
-                </p>
-              </CardContent>
-            </Card>
+              {/* Paso 3 - Naranja (Energía) */}
+              <div className="group cursor-pointer">
+                <Card className="text-center border-2 border-orange-100 hover:border-orange-300 hover:shadow-2xl hover:-translate-y-3 transition-all duration-300 bg-white relative overflow-hidden">
+                  
+                  {/* Número protagonista */}
+                  <div className="absolute -top-6 left-1/2 transform -translate-x-1/2 z-20">
+                    <div className="w-12 h-12 bg-gradient-to-br from-orange-500 to-orange-600 rounded-full flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-300">
+                      <span className="text-white font-black text-xl">3</span>
+                    </div>
+                  </div>
+                  
+                  <CardContent className="p-8 pt-12">
+                    {/* Ícono con gradiente y bounce animation */}
+                    <div className="relative mb-8">
+                      <div className="w-20 h-20 bg-gradient-to-br from-orange-400 to-orange-600 rounded-full flex items-center justify-center mx-auto shadow-xl group-hover:shadow-2xl group-hover:-translate-y-1 group-hover:animate-bounce transition-all duration-300 relative overflow-hidden">
+                        <MessageCircle className="w-10 h-10 text-white group-hover:scale-110 transition-transform duration-300" />
+                        {/* Efecto de ondas */}
+                        <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/20 to-transparent group-hover:animate-pulse"></div>
+                      </div>
+                    </div>
+                    
+                    <h3 className="text-xl md:text-2xl font-bold text-gray-900 mb-6 leading-tight">
+                      Practica y mejora
+                    </h3>
+                    <p className="text-gray-700 leading-relaxed text-lg">
+                      Conversación real con retroalimentación instantánea. Tu progreso se guarda automáticamente.
+                    </p>
+                  </CardContent>
+                </Card>
+              </div>
+              
+            </div>
+            
+            {/* Timeline vertical para móvil */}
+            <div className="md:hidden mt-12">
+              <div className="flex flex-col items-center space-y-8">
+                <div className="w-1 h-16 bg-gradient-to-b from-blue-400 to-green-400"></div>
+                <div className="w-1 h-16 bg-gradient-to-b from-green-400 to-orange-400"></div>
+              </div>
+            </div>
+            
           </div>
         </div>
       </section>
