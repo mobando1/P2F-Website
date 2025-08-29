@@ -282,7 +282,7 @@ const EmailPopup = ({
           </div>
 
           {/* Contenido del popup */}
-          <div className="p-6 pb-2">
+          <div className="p-6 pb-0">
             <p className="text-gray-600 text-center mb-4 leading-relaxed">
               {popupContent.description}
             </p>
