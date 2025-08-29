@@ -188,7 +188,7 @@ export default function Landing() {
       {/* Top Navigation Bar */}
       <div className="container mx-auto px-6 py-4">
         <div className="flex items-center justify-between">
-          <img src={passportLogo} alt="Passport to Fluency" className="h-10" />
+          <img src={passportLogo} alt="Passport to Fluency" className="h-16" />
           
           {/* Language detection in top right */}
           {detectedLanguage && (
