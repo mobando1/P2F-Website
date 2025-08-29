@@ -363,7 +363,7 @@ export default function Landing() {
       selectLanguageSubtitle: "↓ Choose your next step towards fluency ↓",
       scrollIndicator: "Scroll ↓ to see how it works",
       learnSpanishBtn: "Learn Spanish",
-      learnEnglishBtn: "Learn English",
+      learnEnglishBtn: "Aprende Inglés",
       // Estadísticas
       stat1: "active students",
       stat2: "completed classes",
