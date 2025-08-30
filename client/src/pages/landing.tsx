@@ -175,56 +175,34 @@ const EmailPopup = ({
 }) => {
   const [isVisible, setIsVisible] = useState(false);
   const [isClosing, setIsClosing] = useState(false);
-  const [isReady, setIsReady] = useState(false);
-  const [contentLoaded, setContentLoaded] = useState(false);
+  const [scriptLoaded, setScriptLoaded] = useState(false);
 
+  // Cargar script una sola vez al inicio
   useEffect(() => {
-    if (showInitial) {
-      // Mostrar popup inicial después de 7 segundos
+    const existingScript = document.querySelector('script[src="https://link.msgsndr.com/js/form_embed.js"]');
+    if (!existingScript) {
+      const script = document.createElement('script');
+      script.src = 'https://link.msgsndr.com/js/form_embed.js';
+      script.async = true;
+      script.onload = () => {
+        setScriptLoaded(true);
+        console.log('HighLevel form script loaded');
+      };
+      document.body.appendChild(script);
+    } else {
+      setScriptLoaded(true);
+    }
+  }, []);
+
+  // Mostrar popup cuando se cumplen las condiciones
+  useEffect(() => {
+    if ((showInitial || showOnLanguageChange) && scriptLoaded) {
       const timer = setTimeout(() => {
-        setIsReady(true);
+        setIsVisible(true);
       }, 7000);
       return () => clearTimeout(timer);
     }
-  }, [showInitial]);
-
-  useEffect(() => {
-    if (showOnLanguageChange) {
-      // Mostrar popup después de 7 segundos cuando hay cambio de idioma
-      const timer = setTimeout(() => {
-        setIsReady(true);
-      }, 7000);
-      return () => clearTimeout(timer);
-    }
-  }, [showOnLanguageChange]);
-
-  // Solo mostrar cuando todo esté listo
-  useEffect(() => {
-    if (isReady && contentLoaded) {
-      setTimeout(() => setIsVisible(true), 200);
-    }
-  }, [isReady, contentLoaded]);
-
-  useEffect(() => {
-    // Agregar el script de form_embed cuando el componente se monta
-    if (isReady) {
-      const existingScript = document.querySelector('script[src="https://link.msgsndr.com/js/form_embed.js"]');
-      if (!existingScript) {
-        const script = document.createElement('script');
-        script.src = 'https://link.msgsndr.com/js/form_embed.js';
-        script.async = true;
-        script.onload = () => {
-          // Script cargado, marcar contenido como listo
-          setTimeout(() => setContentLoaded(true), 500);
-          console.log('HighLevel form script loaded');
-        };
-        document.body.appendChild(script);
-      } else {
-        // Script ya existe, marcar como listo
-        setTimeout(() => setContentLoaded(true), 300);
-      }
-    }
-  }, [isReady]);
+  }, [showInitial, showOnLanguageChange, scriptLoaded]);
 
   const handleClose = () => {
     setIsClosing(true);
@@ -235,7 +213,7 @@ const EmailPopup = ({
     }, 300);
   };
 
-  if (!isVisible || !isReady || !contentLoaded) return null;
+  if (!isVisible) return null;
 
   // Determinar el contenido del popup según el idioma actual de la página
   const isEnglishLang = currentLang === 'en';
@@ -261,14 +239,14 @@ const EmailPopup = ({
     <>
       {/* Overlay */}
       <div 
-        className={`fixed inset-0 bg-black transition-opacity duration-300 z-50 ${
+        className={`fixed inset-0 bg-black z-50 transition-opacity duration-500 ${
           isClosing ? 'opacity-0' : 'opacity-50'
         }`}
         onClick={handleClose}
       />
       
       {/* Popup Modal */}
-      <div className={`fixed inset-0 z-50 flex items-center justify-center p-4 transition-all duration-300 ${
+      <div className={`fixed inset-0 z-50 flex items-center justify-center p-4 transition-all duration-500 ${
         isClosing ? 'opacity-0 scale-95' : 'opacity-100 scale-100'
       }`}>
         <div className="bg-white rounded-3xl shadow-2xl max-w-md w-full mx-4 relative overflow-hidden"
