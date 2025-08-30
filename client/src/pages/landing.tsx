@@ -911,18 +911,19 @@ export default function Landing() {
                 {t.businessSubtitle}
               </p>
               
-              {/* Pregunta adicional */}
+              {/* Stats rápidas */}
               <p className="text-lg text-gray-600 mb-8 leading-relaxed">
                 {currentLang === 'es' 
-                  ? '¿Quieres que tu empresa cubra las clases de tus empleados? Refiere tu compañía ahora.' 
-                  : 'Do you want your employer to pay for your lessons? Refer your company now.'
+                  ? '+100 empresas ya confían en nosotros. 4.9 promedio en tutorías con 90% satisfacción.' 
+                  : '+100 companies already trust us. 4.9 average in tutoring with 90% satisfaction.'
                 }
               </p>
 
               {/* Botones CTAs */}
               <div className="flex flex-col sm:flex-row gap-4">
                 <Button 
-                  className="px-8 py-4 text-lg font-semibold rounded-xl bg-blue-500 hover:bg-blue-600 text-white border-0 transition-all duration-300"
+                  className="px-8 py-4 text-lg font-semibold rounded-xl text-white border-0 transition-all duration-300"
+                  style={{background: '#0A4A6E'}}
                   data-testid="business-book-demo"
                 >
                   {t.businessCta}
@@ -930,10 +931,11 @@ export default function Landing() {
                 
                 <Button 
                   variant="outline"
-                  className="px-8 py-4 text-lg font-semibold rounded-xl border-2 border-gray-300 text-gray-700 hover:border-gray-400 transition-all duration-300"
+                  className="px-8 py-4 text-lg font-semibold rounded-xl border-2 text-gray-700 hover:border-gray-400 transition-all duration-300"
+                  style={{borderColor: '#0A4A6E', color: '#0A4A6E'}}
                   data-testid="business-refer-company"
                 >
-                  {currentLang === 'es' ? 'Refiere tu empresa' : 'Refer your company'}
+                  {currentLang === 'es' ? 'Conocer más' : 'Learn more'}
                 </Button>
               </div>
             </div>
