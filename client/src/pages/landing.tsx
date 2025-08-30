@@ -531,10 +531,10 @@ export default function Landing() {
 
       {/* Hero Section - Preply Style Layout */}
       <div className="container mx-auto px-6 pb-8">
-        <div className="grid lg:grid-cols-2 gap-12 items-center h-[calc(100vh-200px)]">
+        <div className="grid lg:grid-cols-2 gap-12 items-center min-h-[calc(100vh-200px)]">
           
           {/* Left Side - Hero Text */}
-          <div className="space-y-8 animate-fade-in">
+          <div className="space-y-8 animate-fade-in order-1 lg:order-1">
             <h1 className="text-5xl md:text-7xl font-black leading-tight mb-8">
               <span style={{color: '#0A4A6E'}}>{t.heroTitle} </span>
               <span className="italic text-6xl md:text-8xl" style={{color: '#F59E1C'}}>{t.heroTitleItalic}</span>
@@ -611,7 +611,7 @@ export default function Landing() {
           </div>
 
           {/* Right Side - Improved Visual Design */}
-          <div className="flex justify-center lg:justify-end">
+          <div className="flex justify-center lg:justify-end order-2 lg:order-2 mt-8 lg:mt-0">
             <div className="relative">
               {/* Decorative background circle */}
               <div className="absolute -top-6 -right-6 w-32 h-32 rounded-full opacity-20" style={{
@@ -625,7 +625,7 @@ export default function Landing() {
                 <img 
                   src={newLearningImage} 
                   alt="Clases de idiomas virtuales 1-a-1 con instructores nativos" 
-                  className="w-80 h-64 md:w-[420px] md:h-[320px] object-cover rounded-2xl"
+                  className="w-72 h-56 sm:w-80 sm:h-64 md:w-[420px] md:h-[320px] object-cover rounded-2xl"
                 />
                 
               </div>
@@ -635,44 +635,44 @@ export default function Landing() {
       </div>
 
       {/* Primera sección después del hero - Estadísticas con mejor layout */}
-      <div className="bg-white py-20">
+      <div className="bg-white py-16 md:py-20 mt-8 md:mt-0">
         <div className="container mx-auto px-6">
           <div className="flex justify-center items-center">
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-12 text-center max-w-5xl">
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12 text-center max-w-5xl">
               {/* Stat 1 */}
-              <div className="flex flex-col items-center p-6 rounded-2xl hover:shadow-lg transition-all duration-300">
-                <div className="w-16 h-16 rounded-full flex items-center justify-center mb-4" style={{background: 'linear-gradient(135deg, #0A4A6E, #1C7BB1)'}}>
-                  <Users className="w-8 h-8 text-white" />
+              <div className="flex flex-col items-center p-4 md:p-6 rounded-2xl hover:shadow-lg transition-all duration-300">
+                <div className="w-12 h-12 md:w-16 md:h-16 rounded-full flex items-center justify-center mb-3 md:mb-4" style={{background: 'linear-gradient(135deg, #0A4A6E, #1C7BB1)'}}>
+                  <Users className="w-6 h-6 md:w-8 md:h-8 text-white" />
                 </div>
-                <div className="text-4xl md:text-5xl font-black mb-2" style={{color: '#0A4A6E'}}>1,000+</div>
-                <div className="text-sm text-gray-600 font-medium">{t.stat1}</div>
+                <div className="text-3xl md:text-4xl lg:text-5xl font-black mb-2" style={{color: '#0A4A6E'}}>1,000+</div>
+                <div className="text-xs md:text-sm text-gray-600 font-medium">{t.stat1}</div>
               </div>
               
               {/* Stat 2 */}
-              <div className="flex flex-col items-center p-6 rounded-2xl hover:shadow-lg transition-all duration-300">
-                <div className="w-16 h-16 rounded-full flex items-center justify-center mb-4" style={{background: 'linear-gradient(135deg, #F59E1C, #fbbf24)'}}>
-                  <CheckCircle className="w-8 h-8 text-white" />
+              <div className="flex flex-col items-center p-4 md:p-6 rounded-2xl hover:shadow-lg transition-all duration-300">
+                <div className="w-12 h-12 md:w-16 md:h-16 rounded-full flex items-center justify-center mb-3 md:mb-4" style={{background: 'linear-gradient(135deg, #F59E1C, #fbbf24)'}}>
+                  <CheckCircle className="w-6 h-6 md:w-8 md:h-8 text-white" />
                 </div>
-                <div className="text-4xl md:text-5xl font-black mb-2" style={{color: '#F59E1C'}}>300K+</div>
-                <div className="text-sm text-gray-600 font-medium">{t.stat2}</div>
+                <div className="text-3xl md:text-4xl lg:text-5xl font-black mb-2" style={{color: '#F59E1C'}}>300K+</div>
+                <div className="text-xs md:text-sm text-gray-600 font-medium">{t.stat2}</div>
               </div>
               
               {/* Stat 3 */}
-              <div className="flex flex-col items-center p-6 rounded-2xl hover:shadow-lg transition-all duration-300">
-                <div className="w-16 h-16 rounded-full flex items-center justify-center mb-4" style={{background: 'linear-gradient(135deg, #0A4A6E, #1C7BB1)'}}>
-                  <Globe className="w-8 h-8 text-white" />
+              <div className="flex flex-col items-center p-4 md:p-6 rounded-2xl hover:shadow-lg transition-all duration-300">
+                <div className="w-12 h-12 md:w-16 md:h-16 rounded-full flex items-center justify-center mb-3 md:mb-4" style={{background: 'linear-gradient(135deg, #0A4A6E, #1C7BB1)'}}>
+                  <Globe className="w-6 h-6 md:w-8 md:h-8 text-white" />
                 </div>
-                <div className="text-4xl md:text-5xl font-black mb-2" style={{color: '#0A4A6E'}}>40+</div>
-                <div className="text-sm text-gray-600 font-medium">{t.stat3}</div>
+                <div className="text-3xl md:text-4xl lg:text-5xl font-black mb-2" style={{color: '#0A4A6E'}}>40+</div>
+                <div className="text-xs md:text-sm text-gray-600 font-medium">{t.stat3}</div>
               </div>
               
               {/* Stat 4 */}
-              <div className="flex flex-col items-center p-6 rounded-2xl hover:shadow-lg transition-all duration-300">
-                <div className="w-16 h-16 rounded-full flex items-center justify-center mb-4" style={{background: 'linear-gradient(135deg, #F59E1C, #fbbf24)'}}>
-                  <Star className="w-8 h-8 text-white fill-current" />
+              <div className="flex flex-col items-center p-4 md:p-6 rounded-2xl hover:shadow-lg transition-all duration-300">
+                <div className="w-12 h-12 md:w-16 md:h-16 rounded-full flex items-center justify-center mb-3 md:mb-4" style={{background: 'linear-gradient(135deg, #F59E1C, #fbbf24)'}}>
+                  <Star className="w-6 h-6 md:w-8 md:h-8 text-white fill-current" />
                 </div>
-                <div className="text-4xl md:text-5xl font-black mb-2" style={{color: '#F59E1C'}}>4.9</div>
-                <div className="text-sm text-gray-600 font-medium">{t.stat4}</div>
+                <div className="text-3xl md:text-4xl lg:text-5xl font-black mb-2" style={{color: '#F59E1C'}}>4.9</div>
+                <div className="text-xs md:text-sm text-gray-600 font-medium">{t.stat4}</div>
               </div>
             </div>
           </div>
