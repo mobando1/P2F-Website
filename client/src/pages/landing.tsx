@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Globe, Star, Users, Clock, ArrowRight, CheckCircle, ChevronDown, BookOpen, Headphones, Award, TrendingUp, Play, Zap, Target, Shield, HelpCircle, Plus, Minus, X } from "lucide-react";
 import passportLogo from "@assets/a1c5a1_9514ede9e3124d7a9adf78f5dcf07f28~mv2_1755803448396.png";
 import newLearningImage from "@assets/generated_images/Student_learning_with_online_tutor_5c3a43c2.png";
+import corporateTeamImage from "@assets/generated_images/Corporate_team_video_conference_9293db31.png";
 
 // Componente FAQ Item
 const FAQItem = ({ question, answer }: { question: string; answer: string }) => {
@@ -433,6 +434,21 @@ export default function Landing() {
       // Testimonios
       testimonialsTitle: "Lo que dicen nuestros estudiantes",
       testimonialsSubtitle: "Más de 1,000 estudiantes han transformado su fluidez con nosotros",
+      // Empresas
+      businessTitle: "Inglés y Español para Equipos de Empresa",
+      businessSubtitle: "Programas corporativos personalizados que impulsan la comunicación global de tu equipo.",
+      businessStat1: "+100 empresas confían en nosotros",
+      businessStat2: "4.9 promedio en tutorías",
+      businessStat3: "90% de satisfacción",
+      businessBenefit1Title: "Flexibilidad 24/7",
+      businessBenefit1Desc: "Para equipos globales",
+      businessBenefit2Title: "Capacitación específica",
+      businessBenefit2Desc: "Por rol: ventas, legal, salud, tecnología",
+      businessBenefit3Title: "Reportes claros",
+      businessBenefit3Desc: "De progreso en dashboard interno",
+      businessBenefit4Title: "Escalabilidad completa",
+      businessBenefit4Desc: "Con ejercicios, módulos y seguimiento",
+      businessCta: "Conoce Programas Empresariales",
       // Secciones adicionales
       ctaReady: "¿Listo? Elige tu idioma",
       ctaLike: "¿Te gusta el proceso? ¡Empezemos!",
@@ -473,6 +489,21 @@ export default function Landing() {
       // Testimonios
       testimonialsTitle: "What our students say",
       testimonialsSubtitle: "Over 1,000 students have transformed their fluency with us",
+      // Empresas
+      businessTitle: "English and Spanish for Corporate Teams",
+      businessSubtitle: "Customized corporate programs that boost your team's global communication.",
+      businessStat1: "+100 companies trust us",
+      businessStat2: "4.9 average in tutoring",
+      businessStat3: "90% satisfaction rate",
+      businessBenefit1Title: "24/7 Flexibility",
+      businessBenefit1Desc: "For global teams",
+      businessBenefit2Title: "Role-specific training",
+      businessBenefit2Desc: "Sales, legal, healthcare, technology",
+      businessBenefit3Title: "Clear reports",
+      businessBenefit3Desc: "Progress tracking in internal dashboard",
+      businessBenefit4Title: "Complete scalability",
+      businessBenefit4Desc: "With exercises, modules and monitoring",
+      businessCta: "Book a Demo",
       // Secciones adicionales
       ctaReady: "Ready? Choose your language",
       ctaLike: "Like the process? Let's get started!",
@@ -860,6 +891,127 @@ export default function Landing() {
                 <p className="text-gray-700 leading-relaxed">{testimonial.text}</p>
               </div>
             ))}
+          </div>
+        </div>
+      </div>
+
+      {/* Sección Empresas */}
+      <div className="py-20 bg-gray-50">
+        <div className="container mx-auto px-6">
+          <div className="grid lg:grid-cols-2 gap-16 items-center">
+            {/* Contenido izquierdo */}
+            <div>
+              {/* Título + subtítulo */}
+              <div className="mb-12">
+                <h2 className="text-4xl md:text-5xl font-black mb-6" style={{color: '#0A4A6E'}}>
+                  {t.businessTitle}
+                </h2>
+                <p className="text-xl text-gray-600 leading-relaxed">
+                  {t.businessSubtitle}
+                </p>
+              </div>
+
+              {/* Orientación con datos */}
+              <div className="grid md:grid-cols-3 gap-6 mb-12">
+                <div className="flex items-center gap-3">
+                  <div className="w-12 h-12 rounded-full flex items-center justify-center" style={{background: 'linear-gradient(135deg, #0A4A6E, #1C7BB1)'}}>
+                    <Users className="w-6 h-6 text-white" />
+                  </div>
+                  <div>
+                    <div className="font-bold text-lg" style={{color: '#0A4A6E'}}>+100</div>
+                    <div className="text-sm text-gray-600">empresas confían</div>
+                  </div>
+                </div>
+                
+                <div className="flex items-center gap-3">
+                  <div className="w-12 h-12 rounded-full flex items-center justify-center" style={{background: 'linear-gradient(135deg, #F59E1C, #fbbf24)'}}>
+                    <Star className="w-6 h-6 text-white" />
+                  </div>
+                  <div>
+                    <div className="font-bold text-lg" style={{color: '#F59E1C'}}>4.9</div>
+                    <div className="text-sm text-gray-600">promedio tutorías</div>
+                  </div>
+                </div>
+                
+                <div className="flex items-center gap-3">
+                  <div className="w-12 h-12 rounded-full flex items-center justify-center" style={{background: 'linear-gradient(135deg, #0A4A6E, #1C7BB1)'}}>
+                    <CheckCircle className="w-6 h-6 text-white" />
+                  </div>
+                  <div>
+                    <div className="font-bold text-lg" style={{color: '#0A4A6E'}}>90%</div>
+                    <div className="text-sm text-gray-600">satisfacción</div>
+                  </div>
+                </div>
+              </div>
+
+              {/* Beneficios */}
+              <div className="grid md:grid-cols-2 gap-6 mb-8">
+                <div className="bg-white rounded-2xl p-6 hover:shadow-lg transition-all duration-300">
+                  <div className="w-12 h-12 rounded-full mb-4 flex items-center justify-center" style={{background: 'linear-gradient(135deg, #0A4A6E, #1C7BB1)'}}>
+                    <Clock className="w-6 h-6 text-white" />
+                  </div>
+                  <h3 className="font-bold text-lg mb-2" style={{color: '#0A4A6E'}}>{t.businessBenefit1Title}</h3>
+                  <p className="text-gray-600">{t.businessBenefit1Desc}</p>
+                </div>
+                
+                <div className="bg-white rounded-2xl p-6 hover:shadow-lg transition-all duration-300">
+                  <div className="w-12 h-12 rounded-full mb-4 flex items-center justify-center" style={{background: 'linear-gradient(135deg, #F59E1C, #fbbf24)'}}>
+                    <Target className="w-6 h-6 text-white" />
+                  </div>
+                  <h3 className="font-bold text-lg mb-2" style={{color: '#0A4A6E'}}>{t.businessBenefit2Title}</h3>
+                  <p className="text-gray-600">{t.businessBenefit2Desc}</p>
+                </div>
+                
+                <div className="bg-white rounded-2xl p-6 hover:shadow-lg transition-all duration-300">
+                  <div className="w-12 h-12 rounded-full mb-4 flex items-center justify-center" style={{background: 'linear-gradient(135deg, #0A4A6E, #1C7BB1)'}}>
+                    <TrendingUp className="w-6 h-6 text-white" />
+                  </div>
+                  <h3 className="font-bold text-lg mb-2" style={{color: '#0A4A6E'}}>{t.businessBenefit3Title}</h3>
+                  <p className="text-gray-600">{t.businessBenefit3Desc}</p>
+                </div>
+                
+                <div className="bg-white rounded-2xl p-6 hover:shadow-lg transition-all duration-300">
+                  <div className="w-12 h-12 rounded-full mb-4 flex items-center justify-center" style={{background: 'linear-gradient(135deg, #F59E1C, #fbbf24)'}}>
+                    <Zap className="w-6 h-6 text-white" />
+                  </div>
+                  <h3 className="font-bold text-lg mb-2" style={{color: '#0A4A6E'}}>{t.businessBenefit4Title}</h3>
+                  <p className="text-gray-600">{t.businessBenefit4Desc}</p>
+                </div>
+              </div>
+
+              {/* CTA final */}
+              <Button 
+                className="px-8 py-4 text-lg font-bold rounded-full transition-all duration-300 hover:shadow-xl hover:scale-105 border-0 text-white"
+                style={{background: 'linear-gradient(135deg, #0A4A6E 0%, #F59E1C 100%)'}}
+                data-testid="business-cta-button"
+              >
+                <span className="flex items-center gap-3">
+                  <span>{t.businessCta}</span>
+                  <ArrowRight className="w-5 h-5" />
+                </span>
+              </Button>
+            </div>
+
+            {/* Visual complementario */}
+            <div className="flex justify-center lg:justify-end">
+              <div className="relative">
+                {/* Decorative background circle */}
+                <div className="absolute -top-6 -right-6 w-32 h-32 rounded-full opacity-20" style={{
+                  background: 'linear-gradient(135deg, #F59E1C 0%, #fbbf24 100%)'
+                }}></div>
+                
+                <div className="bg-white rounded-3xl p-6 shadow-2xl hover:shadow-3xl transition-shadow duration-500" style={{
+                  background: 'linear-gradient(135deg, rgba(245, 158, 28, 0.03) 0%, rgba(10, 74, 110, 0.03) 100%)',
+                  border: '2px solid rgba(255, 255, 255, 0.8)'
+                }}>
+                  <img 
+                    src={corporateTeamImage} 
+                    alt="Equipo corporativo en videollamada global" 
+                    className="w-80 h-64 md:w-[420px] md:h-[320px] object-cover rounded-2xl"
+                  />
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
