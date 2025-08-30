@@ -175,34 +175,37 @@ const EmailPopup = ({
 }) => {
   const [isVisible, setIsVisible] = useState(false);
   const [isClosing, setIsClosing] = useState(false);
-  const [scriptLoaded, setScriptLoaded] = useState(false);
+  const [isFullyLoaded, setIsFullyLoaded] = useState(false);
 
-  // Cargar script una sola vez al inicio
+  // Inicializar popup cuando se cumplen las condiciones
   useEffect(() => {
-    const existingScript = document.querySelector('script[src="https://link.msgsndr.com/js/form_embed.js"]');
-    if (!existingScript) {
-      const script = document.createElement('script');
-      script.src = 'https://link.msgsndr.com/js/form_embed.js';
-      script.async = true;
-      script.onload = () => {
-        setScriptLoaded(true);
-        console.log('HighLevel form script loaded');
+    if (showInitial || showOnLanguageChange) {
+      // Primero asegurar que el script esté disponible
+      const ensureScriptLoaded = () => {
+        const existingScript = document.querySelector('script[src="https://link.msgsndr.com/js/form_embed.js"]');
+        if (!existingScript) {
+          const script = document.createElement('script');
+          script.src = 'https://link.msgsndr.com/js/form_embed.js';
+          script.async = true;
+          script.onload = () => {
+            console.log('HighLevel form script loaded');
+            setIsFullyLoaded(true);
+          };
+          document.body.appendChild(script);
+        } else {
+          setIsFullyLoaded(true);
+        }
       };
-      document.body.appendChild(script);
-    } else {
-      setScriptLoaded(true);
-    }
-  }, []);
 
-  // Mostrar popup cuando se cumplen las condiciones
-  useEffect(() => {
-    if ((showInitial || showOnLanguageChange) && scriptLoaded) {
+      // Mostrar popup después de 7 segundos
       const timer = setTimeout(() => {
+        ensureScriptLoaded();
         setIsVisible(true);
       }, 7000);
+
       return () => clearTimeout(timer);
     }
-  }, [showInitial, showOnLanguageChange, scriptLoaded]);
+  }, [showInitial, showOnLanguageChange]);
 
   const handleClose = () => {
     setIsClosing(true);
@@ -210,9 +213,10 @@ const EmailPopup = ({
       setIsVisible(false);
       setIsClosing(false);
       if (onClose) onClose();
-    }, 300);
+    }, 500);
   };
 
+  // No renderizar nada hasta que esté completamente listo
   if (!isVisible) return null;
 
   // Determinar el contenido del popup según el idioma actual de la página
@@ -236,21 +240,20 @@ const EmailPopup = ({
   };
 
   return (
-    <>
+    <div className={`fixed inset-0 z-50 flex items-center justify-center p-4 ${
+      isClosing ? 'animate-out fade-out zoom-out-95 duration-500' : 'animate-in fade-in zoom-in-95 duration-500'
+    }`}>
       {/* Overlay */}
       <div 
-        className={`fixed inset-0 bg-black z-50 transition-opacity duration-500 ${
+        className={`absolute inset-0 bg-black ${
           isClosing ? 'opacity-0' : 'opacity-50'
-        }`}
+        } transition-opacity duration-500`}
         onClick={handleClose}
       />
       
       {/* Popup Modal */}
-      <div className={`fixed inset-0 z-50 flex items-center justify-center p-4 transition-all duration-500 ${
-        isClosing ? 'opacity-0 scale-95' : 'opacity-100 scale-100'
-      }`}>
-        <div className="bg-white rounded-3xl shadow-2xl max-w-md w-full mx-4 relative overflow-hidden"
-             style={{ maxHeight: '90vh' }}>
+      <div className="bg-white rounded-3xl shadow-2xl max-w-md w-full mx-4 relative z-10 overflow-hidden"
+           style={{ maxHeight: '90vh' }}>
           
           {/* Header con gradiente de marca */}
           <div className="relative p-6 text-center text-white"
@@ -330,8 +333,7 @@ const EmailPopup = ({
             </div>
           </div>
         </div>
-      </div>
-    </>
+    </div>
   );
 };
 
