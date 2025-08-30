@@ -895,34 +895,82 @@ export default function Landing() {
         </div>
       </div>
 
-      {/* Sección Empresas - Estilo Preply */}
-      <div className="py-24 bg-white">
+      {/* Sección Empresas - Estilo Preply Mejorado */}
+      <div className="py-24 bg-gray-50">
         <div className="container mx-auto px-6">
           <div className="grid lg:grid-cols-2 gap-20 items-center">
             {/* Contenido izquierdo */}
             <div className="max-w-xl">
+              {/* Badge corporativo */}
+              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-blue-50 mb-6">
+                <div className="w-2 h-2 rounded-full" style={{backgroundColor: '#0A4A6E'}}></div>
+                <span className="text-sm font-semibold" style={{color: '#0A4A6E'}}>
+                  {currentLang === 'es' ? 'Soluciones Empresariales' : 'Enterprise Solutions'}
+                </span>
+              </div>
+
               {/* Título principal */}
               <h2 className="text-5xl md:text-6xl font-bold mb-8 leading-tight" style={{color: '#0A4A6E'}}>
                 {t.businessTitle}
               </h2>
               
               {/* Descripción */}
-              <p className="text-lg text-gray-600 mb-6 leading-relaxed">
+              <p className="text-xl text-gray-600 mb-8 leading-relaxed">
                 {t.businessSubtitle}
               </p>
               
-              {/* Stats rápidas */}
-              <p className="text-lg text-gray-600 mb-8 leading-relaxed">
-                {currentLang === 'es' 
-                  ? '+100 empresas ya confían en nosotros. 4.9 promedio en tutorías con 90% satisfacción.' 
-                  : '+100 companies already trust us. 4.9 average in tutoring with 90% satisfaction.'
-                }
-              </p>
+              {/* Stats destacadas */}
+              <div className="grid grid-cols-3 gap-6 mb-8 p-6 bg-white rounded-2xl shadow-sm">
+                <div className="text-center">
+                  <div className="text-2xl font-bold" style={{color: '#0A4A6E'}}>+100</div>
+                  <div className="text-sm text-gray-600">
+                    {currentLang === 'es' ? 'Empresas' : 'Companies'}
+                  </div>
+                </div>
+                <div className="text-center">
+                  <div className="text-2xl font-bold" style={{color: '#F59E1C'}}>4.9</div>
+                  <div className="text-sm text-gray-600">
+                    {currentLang === 'es' ? 'Calificación' : 'Rating'}
+                  </div>
+                </div>
+                <div className="text-center">
+                  <div className="text-2xl font-bold" style={{color: '#0A4A6E'}}>90%</div>
+                  <div className="text-sm text-gray-600">
+                    {currentLang === 'es' ? 'Satisfacción' : 'Satisfaction'}
+                  </div>
+                </div>
+              </div>
+
+              {/* Beneficios clave */}
+              <div className="space-y-4 mb-8">
+                {[
+                  {
+                    text: currentLang === 'es' 
+                      ? 'Capacitación especializada por industria' 
+                      : 'Industry-specific training programs'
+                  },
+                  {
+                    text: currentLang === 'es' 
+                      ? 'Horarios flexibles para equipos globales' 
+                      : 'Flexible schedules for global teams'
+                  },
+                  {
+                    text: currentLang === 'es' 
+                      ? 'Reportes detallados de progreso' 
+                      : 'Detailed progress reports'
+                  }
+                ].map((benefit, index) => (
+                  <div key={index} className="flex items-center gap-3">
+                    <CheckCircle className="w-5 h-5 text-green-500 flex-shrink-0" />
+                    <span className="text-gray-700">{benefit.text}</span>
+                  </div>
+                ))}
+              </div>
 
               {/* Botones CTAs */}
               <div className="flex flex-col sm:flex-row gap-4">
                 <Button 
-                  className="px-8 py-4 text-lg font-semibold rounded-xl text-white border-0 transition-all duration-300"
+                  className="px-8 py-4 text-lg font-semibold rounded-xl text-white border-0 transition-all duration-300 hover:shadow-lg"
                   style={{background: '#0A4A6E'}}
                   data-testid="business-book-demo"
                 >
@@ -931,22 +979,41 @@ export default function Landing() {
                 
                 <Button 
                   variant="outline"
-                  className="px-8 py-4 text-lg font-semibold rounded-xl border-2 text-gray-700 hover:border-gray-400 transition-all duration-300"
+                  className="px-8 py-4 text-lg font-semibold rounded-xl border-2 hover:bg-gray-50 transition-all duration-300"
                   style={{borderColor: '#0A4A6E', color: '#0A4A6E'}}
                   data-testid="business-refer-company"
                 >
-                  {currentLang === 'es' ? 'Conocer más' : 'Learn more'}
+                  {currentLang === 'es' ? 'Ver casos de éxito' : 'View success cases'}
                 </Button>
               </div>
             </div>
 
-            {/* Visual complementario */}
+            {/* Visual complementario mejorado */}
             <div className="flex justify-center lg:justify-end">
-              <img 
-                src={corporateTeamImage} 
-                alt="Equipo corporativo en videollamada global" 
-                className="w-full max-w-lg h-auto object-contain"
-              />
+              <div className="relative">
+                {/* Elementos decorativos sutiles */}
+                <div className="absolute -top-4 -left-4 w-24 h-24 rounded-full opacity-10" style={{
+                  background: 'linear-gradient(135deg, #0A4A6E, #F59E1C)'
+                }}></div>
+                
+                <div className="relative bg-white rounded-3xl p-8 shadow-xl">
+                  <img 
+                    src={corporateTeamImage} 
+                    alt="Equipo corporativo en videollamada global" 
+                    className="w-full max-w-lg h-auto object-contain rounded-2xl"
+                  />
+                  
+                  {/* Badge flotante */}
+                  <div className="absolute -bottom-4 -right-4 bg-white rounded-full p-4 shadow-lg">
+                    <div className="flex items-center gap-2">
+                      <div className="w-3 h-3 rounded-full bg-green-500"></div>
+                      <span className="text-sm font-semibold text-gray-700">
+                        {currentLang === 'es' ? 'En vivo' : 'Live'}
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
