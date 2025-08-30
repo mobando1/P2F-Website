@@ -895,122 +895,56 @@ export default function Landing() {
         </div>
       </div>
 
-      {/* Sección Empresas */}
-      <div className="py-20 bg-gray-50">
+      {/* Sección Empresas - Estilo Preply */}
+      <div className="py-24 bg-white">
         <div className="container mx-auto px-6">
-          <div className="grid lg:grid-cols-2 gap-16 items-center">
+          <div className="grid lg:grid-cols-2 gap-20 items-center">
             {/* Contenido izquierdo */}
-            <div>
-              {/* Título + subtítulo */}
-              <div className="mb-12">
-                <h2 className="text-4xl md:text-5xl font-black mb-6" style={{color: '#0A4A6E'}}>
-                  {t.businessTitle}
-                </h2>
-                <p className="text-xl text-gray-600 leading-relaxed">
-                  {t.businessSubtitle}
-                </p>
-              </div>
+            <div className="max-w-xl">
+              {/* Título principal */}
+              <h2 className="text-5xl md:text-6xl font-bold mb-8 leading-tight" style={{color: '#0A4A6E'}}>
+                {t.businessTitle}
+              </h2>
+              
+              {/* Descripción */}
+              <p className="text-lg text-gray-600 mb-6 leading-relaxed">
+                {t.businessSubtitle}
+              </p>
+              
+              {/* Pregunta adicional */}
+              <p className="text-lg text-gray-600 mb-8 leading-relaxed">
+                {currentLang === 'es' 
+                  ? '¿Quieres que tu empresa cubra las clases de tus empleados? Refiere tu compañía ahora.' 
+                  : 'Do you want your employer to pay for your lessons? Refer your company now.'
+                }
+              </p>
 
-              {/* Orientación con datos */}
-              <div className="grid md:grid-cols-3 gap-6 mb-12">
-                <div className="flex items-center gap-3">
-                  <div className="w-12 h-12 rounded-full flex items-center justify-center" style={{background: 'linear-gradient(135deg, #0A4A6E, #1C7BB1)'}}>
-                    <Users className="w-6 h-6 text-white" />
-                  </div>
-                  <div>
-                    <div className="font-bold text-lg" style={{color: '#0A4A6E'}}>+100</div>
-                    <div className="text-sm text-gray-600">empresas confían</div>
-                  </div>
-                </div>
+              {/* Botones CTAs */}
+              <div className="flex flex-col sm:flex-row gap-4">
+                <Button 
+                  className="px-8 py-4 text-lg font-semibold rounded-xl bg-blue-500 hover:bg-blue-600 text-white border-0 transition-all duration-300"
+                  data-testid="business-book-demo"
+                >
+                  {t.businessCta}
+                </Button>
                 
-                <div className="flex items-center gap-3">
-                  <div className="w-12 h-12 rounded-full flex items-center justify-center" style={{background: 'linear-gradient(135deg, #F59E1C, #fbbf24)'}}>
-                    <Star className="w-6 h-6 text-white" />
-                  </div>
-                  <div>
-                    <div className="font-bold text-lg" style={{color: '#F59E1C'}}>4.9</div>
-                    <div className="text-sm text-gray-600">promedio tutorías</div>
-                  </div>
-                </div>
-                
-                <div className="flex items-center gap-3">
-                  <div className="w-12 h-12 rounded-full flex items-center justify-center" style={{background: 'linear-gradient(135deg, #0A4A6E, #1C7BB1)'}}>
-                    <CheckCircle className="w-6 h-6 text-white" />
-                  </div>
-                  <div>
-                    <div className="font-bold text-lg" style={{color: '#0A4A6E'}}>90%</div>
-                    <div className="text-sm text-gray-600">satisfacción</div>
-                  </div>
-                </div>
+                <Button 
+                  variant="outline"
+                  className="px-8 py-4 text-lg font-semibold rounded-xl border-2 border-gray-300 text-gray-700 hover:border-gray-400 transition-all duration-300"
+                  data-testid="business-refer-company"
+                >
+                  {currentLang === 'es' ? 'Refiere tu empresa' : 'Refer your company'}
+                </Button>
               </div>
-
-              {/* Beneficios */}
-              <div className="grid md:grid-cols-2 gap-6 mb-8">
-                <div className="bg-white rounded-2xl p-6 hover:shadow-lg transition-all duration-300">
-                  <div className="w-12 h-12 rounded-full mb-4 flex items-center justify-center" style={{background: 'linear-gradient(135deg, #0A4A6E, #1C7BB1)'}}>
-                    <Clock className="w-6 h-6 text-white" />
-                  </div>
-                  <h3 className="font-bold text-lg mb-2" style={{color: '#0A4A6E'}}>{t.businessBenefit1Title}</h3>
-                  <p className="text-gray-600">{t.businessBenefit1Desc}</p>
-                </div>
-                
-                <div className="bg-white rounded-2xl p-6 hover:shadow-lg transition-all duration-300">
-                  <div className="w-12 h-12 rounded-full mb-4 flex items-center justify-center" style={{background: 'linear-gradient(135deg, #F59E1C, #fbbf24)'}}>
-                    <Target className="w-6 h-6 text-white" />
-                  </div>
-                  <h3 className="font-bold text-lg mb-2" style={{color: '#0A4A6E'}}>{t.businessBenefit2Title}</h3>
-                  <p className="text-gray-600">{t.businessBenefit2Desc}</p>
-                </div>
-                
-                <div className="bg-white rounded-2xl p-6 hover:shadow-lg transition-all duration-300">
-                  <div className="w-12 h-12 rounded-full mb-4 flex items-center justify-center" style={{background: 'linear-gradient(135deg, #0A4A6E, #1C7BB1)'}}>
-                    <TrendingUp className="w-6 h-6 text-white" />
-                  </div>
-                  <h3 className="font-bold text-lg mb-2" style={{color: '#0A4A6E'}}>{t.businessBenefit3Title}</h3>
-                  <p className="text-gray-600">{t.businessBenefit3Desc}</p>
-                </div>
-                
-                <div className="bg-white rounded-2xl p-6 hover:shadow-lg transition-all duration-300">
-                  <div className="w-12 h-12 rounded-full mb-4 flex items-center justify-center" style={{background: 'linear-gradient(135deg, #F59E1C, #fbbf24)'}}>
-                    <Zap className="w-6 h-6 text-white" />
-                  </div>
-                  <h3 className="font-bold text-lg mb-2" style={{color: '#0A4A6E'}}>{t.businessBenefit4Title}</h3>
-                  <p className="text-gray-600">{t.businessBenefit4Desc}</p>
-                </div>
-              </div>
-
-              {/* CTA final */}
-              <Button 
-                className="px-8 py-4 text-lg font-bold rounded-full transition-all duration-300 hover:shadow-xl hover:scale-105 border-0 text-white"
-                style={{background: 'linear-gradient(135deg, #0A4A6E 0%, #F59E1C 100%)'}}
-                data-testid="business-cta-button"
-              >
-                <span className="flex items-center gap-3">
-                  <span>{t.businessCta}</span>
-                  <ArrowRight className="w-5 h-5" />
-                </span>
-              </Button>
             </div>
 
             {/* Visual complementario */}
             <div className="flex justify-center lg:justify-end">
-              <div className="relative">
-                {/* Decorative background circle */}
-                <div className="absolute -top-6 -right-6 w-32 h-32 rounded-full opacity-20" style={{
-                  background: 'linear-gradient(135deg, #F59E1C 0%, #fbbf24 100%)'
-                }}></div>
-                
-                <div className="bg-white rounded-3xl p-6 shadow-2xl hover:shadow-3xl transition-shadow duration-500" style={{
-                  background: 'linear-gradient(135deg, rgba(245, 158, 28, 0.03) 0%, rgba(10, 74, 110, 0.03) 100%)',
-                  border: '2px solid rgba(255, 255, 255, 0.8)'
-                }}>
-                  <img 
-                    src={corporateTeamImage} 
-                    alt="Equipo corporativo en videollamada global" 
-                    className="w-80 h-64 md:w-[420px] md:h-[320px] object-cover rounded-2xl"
-                  />
-                </div>
-              </div>
+              <img 
+                src={corporateTeamImage} 
+                alt="Equipo corporativo en videollamada global" 
+                className="w-full max-w-lg h-auto object-contain"
+              />
             </div>
           </div>
         </div>
