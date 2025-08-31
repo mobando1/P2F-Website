@@ -925,23 +925,14 @@ export default function Landing() {
                 ))}
               </div>
 
-              {/* Botones CTAs */}
-              <div className="flex flex-col sm:flex-row gap-4">
+              {/* Botón CTA */}
+              <div className="flex justify-start">
                 <Button 
                   className="px-8 py-4 text-lg font-semibold rounded-xl text-white border-0 transition-all duration-300 hover:shadow-lg"
                   style={{background: '#0A4A6E'}}
                   data-testid="business-book-demo"
                 >
                   {t.businessCta}
-                </Button>
-                
-                <Button 
-                  variant="outline"
-                  className="px-8 py-4 text-lg font-semibold rounded-xl border-2 hover:bg-gray-50 transition-all duration-300"
-                  style={{borderColor: '#0A4A6E', color: '#0A4A6E'}}
-                  data-testid="business-refer-company"
-                >
-                  {currentLang === 'es' ? 'Ver casos de éxito' : 'View success cases'}
                 </Button>
               </div>
             </div>
