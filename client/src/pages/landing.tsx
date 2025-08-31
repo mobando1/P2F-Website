@@ -491,7 +491,7 @@ export default function Landing() {
       finalCtaSubtitle: "Thousands of students have already transformed their professional and personal lives.",
       finalCtaBold: "You could be next.",
       incentive1: "First class FREE",
-      incentive2: "Certified native teachers",
+      incentive2: "Experienced qualified teachers",
       incentive3: "30-day progress guarantee",
       footerRights: "© 2024 Passport2Fluency. All rights reserved.",
       footerTerms: "Terms and Conditions",
