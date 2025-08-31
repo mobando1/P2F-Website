@@ -899,28 +899,6 @@ export default function Landing() {
                 {t.businessSubtitle}
               </p>
               
-              {/* Stats destacadas */}
-              <div className="grid grid-cols-3 gap-6 mb-8 p-6 bg-white rounded-2xl shadow-sm">
-                <div className="text-center">
-                  <div className="text-2xl font-bold" style={{color: '#0A4A6E'}}>+100</div>
-                  <div className="text-sm text-gray-600">
-                    {currentLang === 'es' ? 'Empresas' : 'Companies'}
-                  </div>
-                </div>
-                <div className="text-center">
-                  <div className="text-2xl font-bold" style={{color: '#F59E1C'}}>4.9</div>
-                  <div className="text-sm text-gray-600">
-                    {currentLang === 'es' ? 'Calificación' : 'Rating'}
-                  </div>
-                </div>
-                <div className="text-center">
-                  <div className="text-2xl font-bold" style={{color: '#0A4A6E'}}>90%</div>
-                  <div className="text-sm text-gray-600">
-                    {currentLang === 'es' ? 'Satisfacción' : 'Satisfaction'}
-                  </div>
-                </div>
-              </div>
-
               {/* Beneficios clave */}
               <div className="space-y-4 mb-8">
                 {[
