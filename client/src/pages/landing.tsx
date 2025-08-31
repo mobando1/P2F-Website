@@ -400,7 +400,7 @@ export default function Landing() {
       // Estadísticas
       stat1: "estudiantes activos",
       stat2: "clases completadas", 
-      stat3: "idiomas disponibles",
+      stat3: "especialistas nativos",
       stat4: "calificación promedio",
       // Cómo funciona
       howItWorksTitle: "¿Cómo funciona?",
@@ -455,7 +455,7 @@ export default function Landing() {
       // Estadísticas
       stat1: "active students",
       stat2: "completed classes",
-      stat3: "available languages", 
+      stat3: "native specialists", 
       stat4: "average rating",
       // Cómo funciona
       howItWorksTitle: "How it works?",
@@ -644,7 +644,7 @@ export default function Landing() {
                 <div className="w-10 h-10 md:w-12 md:h-12 rounded-full flex items-center justify-center mb-3 md:mb-4" style={{background: 'linear-gradient(135deg, #0A4A6E, #1C7BB1)'}}>
                   <Users className="w-5 h-5 md:w-6 md:h-6 text-white" />
                 </div>
-                <div className="text-3xl md:text-4xl lg:text-5xl font-black mb-2" style={{color: '#0A4A6E'}}>1,000+</div>
+                <div className="text-3xl md:text-4xl lg:text-5xl font-black mb-2" style={{color: '#0A4A6E'}}>500+</div>
                 <div className="text-xs md:text-sm text-gray-600 font-medium">{t.stat1}</div>
               </div>
               
@@ -653,7 +653,7 @@ export default function Landing() {
                 <div className="w-10 h-10 md:w-12 md:h-12 rounded-full flex items-center justify-center mb-3 md:mb-4" style={{background: 'linear-gradient(135deg, #F59E1C, #fbbf24)'}}>
                   <CheckCircle className="w-5 h-5 md:w-6 md:h-6 text-white" />
                 </div>
-                <div className="text-3xl md:text-4xl lg:text-5xl font-black mb-2" style={{color: '#F59E1C'}}>300K+</div>
+                <div className="text-3xl md:text-4xl lg:text-5xl font-black mb-2" style={{color: '#F59E1C'}}>100K+</div>
                 <div className="text-xs md:text-sm text-gray-600 font-medium">{t.stat2}</div>
               </div>
               
@@ -662,7 +662,7 @@ export default function Landing() {
                 <div className="w-10 h-10 md:w-12 md:h-12 rounded-full flex items-center justify-center mb-3 md:mb-4" style={{background: 'linear-gradient(135deg, #0A4A6E, #1C7BB1)'}}>
                   <Globe className="w-5 h-5 md:w-6 md:h-6 text-white" />
                 </div>
-                <div className="text-3xl md:text-4xl lg:text-5xl font-black mb-2" style={{color: '#0A4A6E'}}>40+</div>
+                <div className="text-3xl md:text-4xl lg:text-5xl font-black mb-2" style={{color: '#0A4A6E'}}>EN-ES</div>
                 <div className="text-xs md:text-sm text-gray-600 font-medium">{t.stat3}</div>
               </div>
               
