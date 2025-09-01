@@ -6,6 +6,14 @@ import passportLogo from "@assets/a1c5a1_9514ede9e3124d7a9adf78f5dcf07f28~mv2_17
 import newLearningImage from "@assets/generated_images/Student_learning_with_online_tutor_5c3a43c2.png";
 import corporateTeamImage from "@assets/generated_images/Corporate_team_video_conference_9293db31.png";
 
+// Importar fotos de perfil naturales
+import mariaPhoto from "@assets/generated_images/Natural_Mexican_woman_profile_photo_a042573d.png";
+import davidPhoto from "@assets/generated_images/Natural_American_Asian_man_profile_e793c084.png";
+import anaPhoto from "@assets/generated_images/Natural_Colombian_woman_profile_photo_a01aa6f6.png";
+import jamesPhoto from "@assets/generated_images/Natural_British_man_profile_photo_54616502.png";
+import sofiaPhoto from "@assets/generated_images/Natural_Argentine_woman_profile_photo_05ca56e0.png";
+import michaelPhoto from "@assets/generated_images/Natural_Canadian_man_profile_photo_2ed22db8.png";
+
 // Componente FAQ Item
 const FAQItem = ({ question, answer }: { question: string; answer: string }) => {
   const [isOpen, setIsOpen] = useState(false);
@@ -812,7 +820,7 @@ export default function Landing() {
                 program: "Inglés para Adultos",
                 rating: 5,
                 text: "En 3 meses pasé de básico a conversacional. Los instructores son increíbles y las clases muy dinámicas.",
-                image: "https://images.unsplash.com/photo-1494790108755-2616b612b642?w=64&h=64&fit=crop&crop=face"
+                image: mariaPhoto
               },
               {
                 name: "David Chen",
@@ -820,7 +828,7 @@ export default function Landing() {
                 program: "Español para Adultos",
                 rating: 5,
                 text: "Aprender español nunca fue tan fácil. El método 1-a-1 hace toda la diferencia.",
-                image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=64&h=64&fit=crop&crop=face"
+                image: davidPhoto
               },
               {
                 name: "Ana Rodríguez",
@@ -828,7 +836,7 @@ export default function Landing() {
                 program: "Inglés Intensivo",
                 rating: 5,
                 text: "Perfect for busy professionals. I improved my English speaking confidence dramatically.",
-                image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=64&h=64&fit=crop&crop=face"
+                image: anaPhoto
               },
               {
                 name: "James Wilson",
@@ -836,7 +844,7 @@ export default function Landing() {
                 program: "Español Intensivo",
                 rating: 5,
                 text: "Los horarios flexibles me permitieron mantener mis clases incluso con mi trabajo demandante.",
-                image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=64&h=64&fit=crop&crop=face"
+                image: jamesPhoto
               },
               {
                 name: "Sofia Martínez",
@@ -844,7 +852,7 @@ export default function Landing() {
                 program: "Inglés para Adultos",
                 rating: 5,
                 text: "My English pronunciation improved so much! Native speakers make all the difference.",
-                image: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=64&h=64&fit=crop&crop=face"
+                image: sofiaPhoto
               },
               {
                 name: "Michael Johnson",
@@ -852,7 +860,7 @@ export default function Landing() {
                 program: "Español para Adultos",
                 rating: 5,
                 text: "Excelente plataforma. En 6 meses logré el nivel que necesitaba para mi trabajo en México.",
-                image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=64&h=64&fit=crop&crop=face"
+                image: michaelPhoto
               }
             ].map((testimonial, index) => (
               <div key={index} className="bg-gray-50 rounded-2xl p-6 hover:shadow-lg transition-all duration-300">
