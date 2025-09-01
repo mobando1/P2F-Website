@@ -26,6 +26,16 @@ export default function BlogMain() {
       category: 'Culture',
       image: worldImage,
       featured: false
+    },
+    {
+      id: 'financial-freedom-by-learning-spanish',
+      title: 'Financial Freedom by Learning Spanish',
+      excerpt: 'Learning Spanish can be a key tool for achieving financial freedom by opening opportunities in Spanish-speaking markets and accessing valuable financial resources and networks.',
+      date: '2024-12-05',
+      readTime: '4 min read',
+      category: 'Business',
+      image: passportImage,
+      featured: false
     }
   ];
 
