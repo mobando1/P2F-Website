@@ -76,6 +76,16 @@ export default function BlogMain() {
       category: 'Learning Tips',
       image: passportImage,
       featured: false
+    },
+    {
+      id: 'how-can-i-learn-spanish-quick-and-easy',
+      title: 'How Can I Learn Spanish Quick and Easy?',
+      excerpt: 'Need to become fluent in Spanish fast? Discover the proven methods and structured approach that can help you achieve Spanish fluency in record time.',
+      date: '2024-11-10',
+      readTime: '4 min read',
+      category: 'Learning Tips',
+      image: worldImage,
+      featured: false
     }
   ];
 
