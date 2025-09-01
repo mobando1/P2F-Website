@@ -8,6 +8,15 @@ import HighLevelCalendar from "@/components/highlevel-calendar";
 import passportLogo from "@assets/a1c5a1_9514ede9e3124d7a9adf78f5dcf07f28~mv2_1755803448396.png";
 import spanishClassImage from "@assets/generated_images/Virtual_Spanish_language_class_f68ba791.png";
 
+// Importar imágenes corporativas
+import passportImage from "@assets/Corporate Image Sept 2025 (6)_1756765151457.png";
+import airplaneImage from "@assets/Corporate Image Sept 2025 (7)_1756765151458.png";
+import airplaneCleanImage from "@assets/Corporate Image Sept 2025 (8)_1756765151458.png";
+import laptopImage from "@assets/Corporate Image Sept 2025 (9)_1756765151458.png";
+import worldImage from "@assets/Corporate Image Sept 2025 (10)_1756765151458.png";
+import bookImage from "@assets/Corporate Image Sept 2025 (11)_1756765151459.png";
+import passportVariantImage from "@assets/Corporate Image Sept 2025 (12)_1756765151459.png";
+
 // Importar fotos de testimonios americanos
 import benPhoto from "@assets/generated_images/Ben_Northrop_profile_photo_3a56904e.png";
 import jaclynPhoto from "@assets/generated_images/Jaclyn_Blohm_profile_photo_a6995607.png";
@@ -123,8 +132,31 @@ export default function SpanishSite() {
         </div>
       </header>
       {/* Hero Section */}
-      <section className="py-20 bg-gradient-to-b from-orange-50 to-white">
-        <div className="container mx-auto px-4">
+      <section className="relative py-20 bg-gradient-to-b from-orange-50 to-white overflow-hidden">
+        {/* Corporate background elements */}
+        <div className="absolute top-8 left-8 opacity-8 z-0 hidden md:block">
+          <img 
+            src={passportImage} 
+            alt="" 
+            className="w-32 h-32 object-contain transform rotate-12"
+          />
+        </div>
+        <div className="absolute bottom-8 right-8 opacity-10 z-0 hidden lg:block">
+          <img 
+            src={worldImage} 
+            alt="" 
+            className="w-40 h-40 object-contain"
+          />
+        </div>
+        <div className="absolute top-1/3 right-1/4 opacity-6 z-0 hidden xl:block">
+          <img 
+            src={bookImage} 
+            alt="" 
+            className="w-24 h-24 object-contain transform -rotate-12"
+          />
+        </div>
+        
+        <div className="container mx-auto px-4 relative z-10">
           <div className="max-w-4xl mx-auto text-center">
             <div className="mb-8">
               <div className="inline-flex items-center bg-orange-100 text-orange-800 rounded-full px-4 py-2 text-sm mb-6">

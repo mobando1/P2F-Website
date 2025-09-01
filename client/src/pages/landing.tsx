@@ -6,6 +6,15 @@ import passportLogo from "@assets/a1c5a1_9514ede9e3124d7a9adf78f5dcf07f28~mv2_17
 import newLearningImage from "@assets/generated_images/Student_learning_with_online_tutor_5c3a43c2.png";
 import corporateTeamImage from "@assets/generated_images/Corporate_team_video_conference_9293db31.png";
 
+// Importar imágenes corporativas
+import passportImage from "@assets/Corporate Image Sept 2025 (6)_1756765151457.png";
+import airplaneImage from "@assets/Corporate Image Sept 2025 (7)_1756765151458.png";
+import airplaneCleanImage from "@assets/Corporate Image Sept 2025 (8)_1756765151458.png";
+import laptopImage from "@assets/Corporate Image Sept 2025 (9)_1756765151458.png";
+import worldImage from "@assets/Corporate Image Sept 2025 (10)_1756765151458.png";
+import bookImage from "@assets/Corporate Image Sept 2025 (11)_1756765151459.png";
+import passportVariantImage from "@assets/Corporate Image Sept 2025 (12)_1756765151459.png";
+
 // Importar fotos de perfil naturales
 import mariaPhoto from "@assets/generated_images/Natural_Mexican_woman_profile_photo_a042573d.png";
 import davidPhoto from "@assets/generated_images/Natural_American_Asian_man_profile_e793c084.png";
@@ -616,15 +625,33 @@ export default function Landing() {
             </div>
           </div>
 
-          {/* Right Side - Improved Visual Design */}
+          {/* Right Side - Improved Visual Design with Corporate Elements */}
           <div className="flex justify-center lg:justify-end order-2 lg:order-2 mt-8 lg:mt-0">
             <div className="relative">
+              {/* Passport Corporate Image as floating background element */}
+              <div className="absolute -top-16 -left-12 opacity-10 z-0 hidden md:block">
+                <img 
+                  src={passportImage} 
+                  alt="" 
+                  className="w-40 h-40 object-contain transform rotate-12"
+                />
+              </div>
+              
+              {/* World/Globe image on the right */}
+              <div className="absolute -bottom-8 -right-8 opacity-15 z-0 hidden lg:block">
+                <img 
+                  src={worldImage} 
+                  alt="" 
+                  className="w-32 h-32 object-contain"
+                />
+              </div>
+              
               {/* Decorative background circle */}
               <div className="absolute -top-6 -right-6 w-32 h-32 rounded-full opacity-20" style={{
                 background: 'linear-gradient(135deg, #F59E1C 0%, #fbbf24 100%)'
               }}></div>
               
-              <div className="bg-white rounded-3xl p-6 shadow-2xl hover:shadow-3xl transition-shadow duration-500" style={{
+              <div className="bg-white rounded-3xl p-6 shadow-2xl hover:shadow-3xl transition-shadow duration-500 relative z-10" style={{
                 background: 'linear-gradient(135deg, rgba(245, 158, 28, 0.03) 0%, rgba(10, 74, 110, 0.03) 100%)',
                 border: '2px solid rgba(255, 255, 255, 0.8)'
               }}>
@@ -952,15 +979,33 @@ export default function Landing() {
               </div>
             </div>
 
-            {/* Visual complementario mejorado */}
+            {/* Visual complementario mejorado con elementos corporativos */}
             <div className="flex justify-center lg:justify-end">
               <div className="relative">
+                {/* Laptop corporate image as background element */}
+                <div className="absolute -top-8 -left-8 opacity-8 z-0">
+                  <img 
+                    src={laptopImage} 
+                    alt="" 
+                    className="w-36 h-36 object-contain transform -rotate-12"
+                  />
+                </div>
+                
+                {/* Airplane image for global reach */}
+                <div className="absolute -bottom-6 -right-6 opacity-12 z-0">
+                  <img 
+                    src={airplaneCleanImage} 
+                    alt="" 
+                    className="w-28 h-28 object-contain transform rotate-6"
+                  />
+                </div>
+                
                 {/* Elementos decorativos sutiles */}
                 <div className="absolute -top-4 -left-4 w-24 h-24 rounded-full opacity-10" style={{
                   background: 'linear-gradient(135deg, #0A4A6E, #F59E1C)'
                 }}></div>
                 
-                <div className="relative bg-white rounded-3xl p-8 shadow-xl">
+                <div className="relative bg-white rounded-3xl p-8 shadow-xl z-10">
                   <img 
                     src={corporateTeamImage} 
                     alt="Equipo corporativo en videollamada global" 
@@ -987,6 +1032,29 @@ export default function Landing() {
       <div className="relative py-20 overflow-hidden" style={{
         background: 'linear-gradient(135deg, #0A4A6E 0%, #1C7BB1 50%, #F59E1C 100%)'
       }}>        
+        {/* Passport background elements */}
+        <div className="absolute top-8 left-8 opacity-5 z-0 hidden md:block">
+          <img 
+            src={passportVariantImage} 
+            alt="" 
+            className="w-48 h-48 object-contain transform rotate-12"
+          />
+        </div>
+        <div className="absolute bottom-8 right-8 opacity-5 z-0 hidden lg:block">
+          <img 
+            src={bookImage} 
+            alt="" 
+            className="w-40 h-40 object-contain transform -rotate-12"
+          />
+        </div>
+        <div className="absolute top-1/2 left-1/4 opacity-3 z-0 hidden xl:block">
+          <img 
+            src={airplaneImage} 
+            alt="" 
+            className="w-32 h-32 object-contain transform rotate-45"
+          />
+        </div>
+        
         <div className="container mx-auto px-6 relative z-10">
           <div className="text-center max-w-4xl mx-auto">
             <h2 className="text-4xl md:text-6xl font-black text-white mb-8">

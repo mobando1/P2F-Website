@@ -3,6 +3,15 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import NavigationDropdown from "@/components/navigation-dropdown";
 import passportLogo from "@assets/a1c5a1_9514ede9e3124d7a9adf78f5dcf07f28~mv2_1755803448396.png";
+
+// Importar imágenes corporativas
+import passportImage from "@assets/Corporate Image Sept 2025 (6)_1756765151457.png";
+import airplaneImage from "@assets/Corporate Image Sept 2025 (7)_1756765151458.png";
+import airplaneCleanImage from "@assets/Corporate Image Sept 2025 (8)_1756765151458.png";
+import laptopImage from "@assets/Corporate Image Sept 2025 (9)_1756765151458.png";
+import worldImage from "@assets/Corporate Image Sept 2025 (10)_1756765151458.png";
+import bookImage from "@assets/Corporate Image Sept 2025 (11)_1756765151459.png";
+import passportVariantImage from "@assets/Corporate Image Sept 2025 (12)_1756765151459.png";
 import { Link } from "wouter";
 import { 
   Globe, Star, Users, Clock, ArrowRight, Calendar, 
@@ -201,8 +210,31 @@ export default function Adults({ language }: AdultsProps) {
       </nav>
 
       {/* Hero Section */}
-      <section className="py-20 bg-gradient-to-br from-passport-blue to-blue-700">
-        <div className="container mx-auto px-4">
+      <section className="relative py-20 bg-gradient-to-br from-passport-blue to-blue-700 overflow-hidden">
+        {/* Corporate background elements */}
+        <div className="absolute top-8 left-8 opacity-8 z-0 hidden md:block">
+          <img 
+            src={bookImage} 
+            alt="" 
+            className="w-28 h-28 object-contain transform rotate-12"
+          />
+        </div>
+        <div className="absolute bottom-8 right-8 opacity-6 z-0 hidden lg:block">
+          <img 
+            src={worldImage} 
+            alt="" 
+            className="w-36 h-36 object-contain transform -rotate-6"
+          />
+        </div>
+        <div className="absolute top-1/2 right-1/3 opacity-4 z-0 hidden xl:block">
+          <img 
+            src={airplaneCleanImage} 
+            alt="" 
+            className="w-32 h-32 object-contain transform rotate-45"
+          />
+        </div>
+        
+        <div className="container mx-auto px-4 relative z-10">
           <div className="max-w-4xl mx-auto text-center text-white">
             <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-blue-600 mb-6">
               <Users className="w-4 h-4" />
