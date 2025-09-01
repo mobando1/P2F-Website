@@ -633,7 +633,7 @@ export default function Landing() {
                 <img 
                   src={passportImage} 
                   alt="" 
-                  className="w-40 h-40 object-contain transform rotate-12"
+                  className="w-40 h-40 object-contain transform rotate-12 rounded-2xl"
                 />
               </div>
               
@@ -642,7 +642,7 @@ export default function Landing() {
                 <img 
                   src={worldImage} 
                   alt="" 
-                  className="w-32 h-32 object-contain"
+                  className="w-32 h-32 object-contain rounded-2xl"
                 />
               </div>
               
@@ -986,7 +986,7 @@ export default function Landing() {
                   <img 
                     src={laptopImage} 
                     alt="" 
-                    className="w-36 h-36 object-contain transform -rotate-12"
+                    className="w-36 h-36 object-contain transform -rotate-12 rounded-2xl"
                   />
                 </div>
                 
@@ -995,7 +995,7 @@ export default function Landing() {
                   <img 
                     src={airplaneCleanImage} 
                     alt="" 
-                    className="w-28 h-28 object-contain transform rotate-6"
+                    className="w-28 h-28 object-contain transform rotate-6 rounded-2xl"
                   />
                 </div>
                 
@@ -1036,21 +1036,21 @@ export default function Landing() {
           <img 
             src={passportVariantImage} 
             alt="" 
-            className="w-48 h-48 object-contain transform rotate-12"
+            className="w-48 h-48 object-contain transform rotate-12 rounded-2xl"
           />
         </div>
         <div className="absolute bottom-8 right-8 opacity-5 z-0 hidden lg:block">
           <img 
             src={bookImage} 
             alt="" 
-            className="w-40 h-40 object-contain transform -rotate-12"
+            className="w-40 h-40 object-contain transform -rotate-12 rounded-2xl"
           />
         </div>
         <div className="absolute top-1/2 left-1/4 opacity-3 z-0 hidden xl:block">
           <img 
             src={airplaneImage} 
             alt="" 
-            className="w-32 h-32 object-contain transform rotate-45"
+            className="w-32 h-32 object-contain transform rotate-45 rounded-2xl"
           />
         </div>
         

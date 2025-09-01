@@ -138,21 +138,21 @@ export default function EnglishSite() {
           <img 
             src={passportVariantImage} 
             alt="" 
-            className="w-32 h-32 object-contain transform -rotate-12"
+            className="w-32 h-32 object-contain transform -rotate-12 rounded-2xl"
           />
         </div>
         <div className="absolute bottom-8 left-8 opacity-10 z-0 hidden lg:block">
           <img 
             src={airplaneCleanImage} 
             alt="" 
-            className="w-36 h-36 object-contain transform rotate-6"
+            className="w-36 h-36 object-contain transform rotate-6 rounded-2xl"
           />
         </div>
         <div className="absolute top-1/3 left-1/4 opacity-6 z-0 hidden xl:block">
           <img 
             src={laptopImage} 
             alt="" 
-            className="w-28 h-28 object-contain transform rotate-12"
+            className="w-28 h-28 object-contain transform rotate-12 rounded-2xl"
           />
         </div>
         
