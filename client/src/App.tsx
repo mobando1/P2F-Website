@@ -29,7 +29,8 @@ function Router() {
       <Route path="/es/adults" component={() => <Adults language="en" />} />
       <Route path="/es/business" component={() => <Business language="en" />} />
       <Route path="/es/team" component={() => <Team language="en" />} />
-      <Route path="/es/blog" component={() => <Blog language="en" />} />
+      <Route path="/es/blog" component={BlogMain} />
+      <Route path="/es/blog/:id" component={BlogPost} />
       
       {/* English site pages (Spanish speakers learning English) */}
       <Route path="/en/pricing" component={() => <Pricing language="es" />} />
