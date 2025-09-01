@@ -1,5 +1,5 @@
 import { Link } from 'wouter';
-import { Calendar, Clock, ArrowRight, Users, Star } from 'lucide-react';
+import { Calendar, Clock, ArrowRight, Users, Star, Globe, Languages } from 'lucide-react';
 import { Button } from "@/components/ui/button";
 import passportLogo from '@assets/a1c5a1_9514ede9e3124d7a9adf78f5dcf07f28~mv2_1755803448396.png';
 import childrenLearningImage from '@assets/generated_images/Cartoon_children_learning_Spanish_perfect_spelling_24b4101c.png';
@@ -22,7 +22,9 @@ export default function BlogMain() {
       readTime: '5 min read',
       category: 'Education',
       image: childrenLearningImage,
-      featured: true
+      featured: true,
+      targetAudience: 'Learn Spanish', // For English speakers learning Spanish
+      audienceColor: 'passport-orange'
     },
     {
       id: 'learning-spanish-brings-you-closer-to-your-roots',
@@ -32,7 +34,9 @@ export default function BlogMain() {
       readTime: '4 min read',
       category: 'Culture',
       image: familyHeritageImage,
-      featured: false
+      featured: false,
+      targetAudience: 'Learn Spanish',
+      audienceColor: 'passport-orange'
     },
     {
       id: 'financial-freedom-by-learning-spanish',
@@ -42,7 +46,9 @@ export default function BlogMain() {
       readTime: '4 min read',
       category: 'Business',
       image: businessSuccessImage,
-      featured: false
+      featured: false,
+      targetAudience: 'Learn Spanish',
+      audienceColor: 'passport-orange'
     },
     {
       id: 'discover-the-beauty-of-barcelona',
@@ -52,7 +58,9 @@ export default function BlogMain() {
       readTime: '5 min read',
       category: 'Travel',
       image: barcelonaImage,
-      featured: false
+      featured: false,
+      targetAudience: 'Learn Spanish',
+      audienceColor: 'passport-orange'
     },
     {
       id: 'the-art-of-salsa-an-expression-of-passion-and-rhythm',
@@ -62,7 +70,9 @@ export default function BlogMain() {
       readTime: '4 min read',
       category: 'Culture',
       image: salsaCultureImage,
-      featured: false
+      featured: false,
+      targetAudience: 'Learn Spanish',
+      audienceColor: 'passport-orange'
     },
     {
       id: 'essential-spanish-phrases-for-travelers-your-ticket-to-fluent-communication',
@@ -72,7 +82,9 @@ export default function BlogMain() {
       readTime: '6 min read',
       category: 'Travel',
       image: travelPhrasesImage,
-      featured: false
+      featured: false,
+      targetAudience: 'Learn Spanish',
+      audienceColor: 'passport-orange'
     },
     {
       id: '6-quick-cheap-and-easy-hacks-to-learn-spanish-all-alone',
@@ -82,7 +94,9 @@ export default function BlogMain() {
       readTime: '5 min read',
       category: 'Learning Tips',
       image: independentLearningImage,
-      featured: false
+      featured: false,
+      targetAudience: 'Learn Spanish',
+      audienceColor: 'passport-orange'
     },
     {
       id: 'how-can-i-learn-spanish-quick-and-easy',
@@ -92,7 +106,9 @@ export default function BlogMain() {
       readTime: '4 min read',
       category: 'Learning Tips',
       image: fastLearningImage,
-      featured: false
+      featured: false,
+      targetAudience: 'Learn Spanish',
+      audienceColor: 'passport-orange'
     },
     {
       id: '5-secret-benefits-of-learning-spanish',
@@ -102,7 +118,9 @@ export default function BlogMain() {
       readTime: '6 min read',
       category: 'Education',
       image: bilingualBenefitsImage,
-      featured: false
+      featured: false,
+      targetAudience: 'Both Languages',
+      audienceColor: 'green-600'
     }
   ];
 
@@ -193,11 +211,19 @@ export default function BlogMain() {
                         {post.excerpt}
                       </p>
                       
-                      <div className="flex items-center text-gray-500 text-sm mb-6">
-                        <Calendar className="w-4 h-4 mr-2" />
-                        <span className="mr-4">{new Date(post.date).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}</span>
-                        <Clock className="w-4 h-4 mr-2" />
-                        <span>{post.readTime}</span>
+                      <div className="flex items-center mb-4 flex-wrap gap-3">
+                        <span className={`bg-${post.audienceColor} text-white px-3 py-1 rounded text-sm font-medium flex items-center`}>
+                          <Languages className="w-4 h-4 mr-1" />
+                          {post.targetAudience}
+                        </span>
+                        <span className="flex items-center text-gray-500 text-sm">
+                          <Calendar className="w-4 h-4 mr-1" />
+                          {new Date(post.date).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}
+                        </span>
+                        <span className="flex items-center text-gray-500 text-sm">
+                          <Clock className="w-4 h-4 mr-1" />
+                          {post.readTime}
+                        </span>
                       </div>
                       
                       <Link href={`/blog/${post.id}`}>
@@ -235,11 +261,18 @@ export default function BlogMain() {
                       className="w-full h-48 object-cover"
                     />
                     <div className="p-6">
-                      <div className="flex items-center mb-3">
+                      <div className="flex items-center mb-3 flex-wrap gap-2">
                         <span className="bg-passport-blue text-white px-2 py-1 rounded text-xs font-medium">
                           {post.category}
                         </span>
-                        <span className="ml-2 text-gray-500 text-xs">{post.readTime}</span>
+                        <span className={`bg-${post.audienceColor} text-white px-2 py-1 rounded text-xs font-medium flex items-center`}>
+                          <Languages className="w-3 h-3 mr-1" />
+                          {post.targetAudience}
+                        </span>
+                        <span className="text-gray-500 text-xs flex items-center">
+                          <Clock className="w-3 h-3 mr-1" />
+                          {post.readTime}
+                        </span>
                       </div>
                       
                       <h4 className="text-xl font-bold text-gray-900 mb-3">
