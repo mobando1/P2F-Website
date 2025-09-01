@@ -2,7 +2,7 @@ import { Link, useParams } from 'wouter';
 import { Calendar, Clock, ArrowLeft, ArrowRight, Share2, Users, Star } from 'lucide-react';
 import { Button } from "@/components/ui/button";
 import passportLogo from '@assets/a1c5a1_9514ede9e3124d7a9adf78f5dcf07f28~mv2_1755803448396.png';
-import childrenLearningImage from '@assets/generated_images/Children_learning_Spanish_cleanly_951a214d.png';
+import childrenLearningImage from '@assets/generated_images/Children_learning_Spanish_corrected_spelling_deeeb3a8.png';
 import familyHeritageImage from '@assets/generated_images/Family_cultural_heritage_connection_4f727054.png';
 import businessSuccessImage from '@assets/generated_images/Business_financial_success_bilingual_93661f06.png';
 import barcelonaImage from '@assets/generated_images/Barcelona_travel_cultural_exploration_1ff52e01.png';
