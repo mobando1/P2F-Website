@@ -184,6 +184,58 @@ const blogPosts = {
         </div>
       </div>
     `
+  },
+  'discover-the-beauty-of-barcelona': {
+    title: 'Discover the Beauty of Barcelona',
+    subtitle: 'Barcelona combines rich history, impressive architecture, and vibrant culture in one Mediterranean destination',
+    date: '2024-11-30',
+    readTime: '5 min read',
+    category: 'Travel',
+    author: 'Passport to Fluency Team',
+    heroImage: worldImage,
+    content: `
+      <div class="prose prose-lg max-w-none">
+        <img src="${worldImage}" alt="Beautiful Barcelona architecture" class="w-full h-64 md:h-96 object-cover rounded-2xl mb-8" />
+        
+        <p class="text-xl text-gray-700 mb-8 leading-relaxed">
+          Barcelona, a dynamic city located on the Mediterranean coast of Spain, is a fascinating destination that combines a rich history, impressive architecture, and a vibrant cultural scene. In this article, we will explore the unique charms of Barcelona and how learning Spanish can enrich your experience when visiting this incredible city.
+        </p>
+
+        <h2 class="text-3xl font-bold text-gray-900 mb-6 text-passport-blue">Architectural Marvels</h2>
+        
+        <div class="bg-blue-50 border-l-4 border-passport-blue p-6 mb-8 rounded-r-lg">
+          <h3 class="text-xl font-semibold text-gray-900 mb-3">Gaudí's Masterpieces</h3>
+          <p class="text-gray-700 leading-relaxed">
+            Known for its modernist architecture, Barcelona is home to some of Antoni Gaudí's most iconic masterpieces, such as the Sagrada Familia and Park Güell. These iconic monuments are not only impressive examples of architectural creativity but also reflect the city's unique identity and deep sense of history and culture.
+          </p>
+        </div>
+
+        <h2 class="text-3xl font-bold text-gray-900 mb-6 text-passport-orange">Diverse Experiences</h2>
+        
+        <div class="bg-orange-50 border-l-4 border-passport-orange p-6 mb-8 rounded-r-lg">
+          <h3 class="text-xl font-semibold text-gray-900 mb-3">Something for Everyone</h3>
+          <p class="text-gray-700 leading-relaxed">
+            In addition to its architectural heritage, Barcelona offers a wide range of activities for every taste. From relaxing on golden sandy beaches to exploring fascinating historic neighborhoods like the Gothic Quarter and El Born, there is something for everyone in this cosmopolitan city.
+          </p>
+        </div>
+
+        <h2 class="text-3xl font-bold text-gray-900 mb-6 text-green-600">Cultural Immersion Through Spanish</h2>
+        
+        <div class="bg-green-50 border-l-4 border-green-500 p-6 mb-8 rounded-r-lg">
+          <h3 class="text-xl font-semibold text-gray-900 mb-3">Authentic Local Experiences</h3>
+          <p class="text-gray-700 leading-relaxed">
+            Learning Spanish allows you to fully immerse yourself in Barcelona's culture and lifestyle. With Spanish, you can communicate with locals, explore local markets, and immerse yourself in the region's rich culinary tradition. Additionally, Spanish gives you the opportunity to participate in cultural festivals and community events, where you can experience the city's joy and spirit firsthand.
+          </p>
+        </div>
+
+        <div class="bg-gradient-to-r from-passport-blue/10 to-passport-orange/10 p-8 rounded-2xl mb-8">
+          <h3 class="text-2xl font-bold text-gray-900 mb-4 text-center">Your Barcelona Adventure Awaits</h3>
+          <p class="text-lg text-gray-700 leading-relaxed text-center">
+            So if you dream of exploring the cobbled streets of Barcelona, discovering its hidden treasures, and immersing yourself in its exciting culture, learning Spanish is the first step to making that dream a reality. Don't wait any longer to embark on this adventure and learn Spanish to discover the beauty of Barcelona in all its splendor!
+          </p>
+        </div>
+      </div>
+    `
   }
 };
 

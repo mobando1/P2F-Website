@@ -36,6 +36,16 @@ export default function BlogMain() {
       category: 'Business',
       image: passportImage,
       featured: false
+    },
+    {
+      id: 'discover-the-beauty-of-barcelona',
+      title: 'Discover the Beauty of Barcelona',
+      excerpt: 'Barcelona combines rich history, impressive architecture, and vibrant culture. Learn how Spanish can enrich your experience when visiting this incredible Mediterranean city.',
+      date: '2024-11-30',
+      readTime: '5 min read',
+      category: 'Travel',
+      image: worldImage,
+      featured: false
     }
   ];
 
