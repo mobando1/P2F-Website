@@ -148,16 +148,16 @@ export default function Pricing({ language }: PricingProps) {
             </p>
           </div>
 
-          <div className="max-w-5xl mx-auto grid md:grid-cols-3 gap-6">
+          <div className="max-w-5xl mx-auto grid md:grid-cols-3 gap-6 items-stretch">
             {/* Plan 1 */}
-            <Card className="border-2 hover:border-passport-orange transition-colors">
-              <CardContent className="p-6 text-center">
+            <Card className="border-2 hover:border-passport-orange transition-colors flex flex-col">
+              <CardContent className="p-6 text-center flex flex-col h-full">
                 <h3 className="text-xl font-bold text-gray-900 mb-4">{content.plan1.title}</h3>
                 <div className="text-3xl font-bold text-passport-orange mb-2">$119.96</div>
                 <div className="text-gray-600 mb-1">per month</div>
                 <div className="text-sm text-gray-500 mb-6">$29.99 per class</div>
                 <p className="text-sm text-gray-600 mb-6">{content.plan1.description}</p>
-                <ul className="text-left space-y-2 mb-8 text-sm">
+                <ul className="text-left space-y-2 flex-grow text-sm mb-8">
                   {content.plan1.features.map((feature, index) => (
                     <li key={index} className="flex items-center">
                       <CheckCircle className="w-4 h-4 text-green-500 mr-2" />
@@ -175,14 +175,14 @@ export default function Pricing({ language }: PricingProps) {
             </Card>
 
             {/* Plan 2 */}
-            <Card className="border-2 hover:border-passport-orange transition-colors">
-              <CardContent className="p-6 text-center">
+            <Card className="border-2 hover:border-passport-orange transition-colors flex flex-col">
+              <CardContent className="p-6 text-center flex flex-col h-full">
                 <h3 className="text-xl font-bold text-gray-900 mb-4">{content.plan2.title}</h3>
                 <div className="text-3xl font-bold text-passport-orange mb-2">$219.99</div>
                 <div className="text-gray-600 mb-1">per month</div>
                 <div className="text-sm text-gray-500 mb-6">$27.50 per class</div>
                 <p className="text-sm text-gray-600 mb-6">{content.plan2.description}</p>
-                <ul className="text-left space-y-2 mb-8 text-sm">
+                <ul className="text-left space-y-2 flex-grow text-sm mb-8">
                   {content.plan1.features.map((feature, index) => (
                     <li key={index} className="flex items-center">
                       <CheckCircle className="w-4 h-4 text-green-500 mr-2" />
@@ -200,19 +200,19 @@ export default function Pricing({ language }: PricingProps) {
             </Card>
 
             {/* Plan 3 */}
-            <Card className="border-2 border-passport-blue bg-blue-50 relative">
+            <Card className="border-2 border-passport-blue bg-blue-50 relative flex flex-col">
               <div className="absolute -top-3 left-1/2 transform -translate-x-1/2">
                 <div className="bg-passport-blue text-white px-3 py-1 rounded-full text-xs font-semibold">
                   MOST POPULAR
                 </div>
               </div>
-              <CardContent className="p-6 text-center">
+              <CardContent className="p-6 text-center flex flex-col h-full">
                 <h3 className="text-xl font-bold text-gray-900 mb-4">{content.plan3.title}</h3>
                 <div className="text-3xl font-bold text-passport-blue mb-2">$299.99</div>
                 <div className="text-gray-600 mb-1">per month</div>
                 <div className="text-sm text-gray-500 mb-6">$24.99 per class</div>
                 <p className="text-sm text-gray-600 mb-6">{content.plan3.description}</p>
-                <ul className="text-left space-y-2 mb-8 text-sm">
+                <ul className="text-left space-y-2 flex-grow text-sm mb-8">
                   {content.plan1.features.map((feature, index) => (
                     <li key={index} className="flex items-center">
                       <CheckCircle className="w-4 h-4 text-green-500 mr-2" />
