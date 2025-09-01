@@ -46,6 +46,16 @@ export default function BlogMain() {
       category: 'Travel',
       image: worldImage,
       featured: false
+    },
+    {
+      id: 'the-art-of-salsa-an-expression-of-passion-and-rhythm',
+      title: 'The Art of Salsa: An Expression of Passion and Rhythm',
+      excerpt: 'Salsa is more than music and dance; it\'s a cultural expression that encapsulates the passion and vibrant rhythm of the Latin community. Discover how Spanish enriches this experience.',
+      date: '2024-11-25',
+      readTime: '4 min read',
+      category: 'Culture',
+      image: passportImage,
+      featured: false
     }
   ];
 
