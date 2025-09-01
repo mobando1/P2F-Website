@@ -132,7 +132,7 @@ export default function EnglishSite() {
         </div>
       </header>
       {/* Hero Section */}
-      <section className="relative py-12 md:py-16 bg-gradient-to-b from-blue-50 to-white overflow-hidden">
+      <section className="relative py-8 md:py-12 bg-gradient-to-b from-blue-50 to-white overflow-hidden">
         {/* Corporate background elements */}
         <div className="absolute top-8 right-8 opacity-8 z-0 hidden md:block">
           <img 
@@ -214,10 +214,10 @@ export default function EnglishSite() {
       
       
       {/* Cómo Funciona - Timeline Visual */}
-      <section id="como-funciona" className="py-12 md:py-16 bg-white">
+      <section id="como-funciona" className="py-8 md:py-12 bg-white">
         <div className="container mx-auto px-4">
           {/* Header */}
-          <div className="text-center mb-10 md:mb-12">
+          <div className="text-center mb-6 md:mb-8">
             <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
               Cómo Funciona
             </h2>
@@ -396,9 +396,9 @@ export default function EnglishSite() {
         </div>
       </section>
       {/* Features */}
-      <section className="py-12 md:py-16 bg-gray-50">
+      <section className="py-8 md:py-12 bg-gray-50">
         <div className="container mx-auto px-4">
-          <div className="text-center mb-10 md:mb-12">
+          <div className="text-center mb-6 md:mb-8">
             <h2 className="text-4xl font-bold text-gray-900 mb-4">
               ¿Por qué elegir Passport to Fluency?
             </h2>
@@ -496,9 +496,9 @@ export default function EnglishSite() {
         </div>
       </section>
       {/* Booking Calendars */}
-      <section id="booking-calendars" className="py-12 md:py-16 bg-white">
+      <section id="booking-calendars" className="py-8 md:py-12 bg-white">
         <div className="container mx-auto px-4">
-          <div className="text-center mb-10 md:mb-12">
+          <div className="text-center mb-6 md:mb-8">
             <h2 className="text-4xl font-bold text-gray-900 mb-4">
               Agenda tu Clase de Prueba Gratuita
             </h2>
@@ -563,9 +563,9 @@ export default function EnglishSite() {
         </div>
       </section>
       {/* Planes y Precios */}
-      <section id="planes-precios" className="py-12 md:py-16 bg-white">
+      <section id="planes-precios" className="py-8 md:py-12 bg-white">
         <div className="container mx-auto px-4">
-          <div className="text-center mb-10 md:mb-12">
+          <div className="text-center mb-6 md:mb-8">
             <h2 className="text-4xl font-bold text-gray-900 mb-4">
               Encuentra el Plan Perfecto para Hablar Inglés con Confianza
             </h2>
@@ -703,9 +703,9 @@ export default function EnglishSite() {
 
 
       {/* Testimonials */}
-      <section id="testimonios" className="py-12 md:py-16 bg-gray-50">
+      <section id="testimonios" className="py-8 md:py-12 bg-gray-50">
         <div className="container mx-auto px-4">
-          <div className="text-center mb-10 md:mb-12">
+          <div className="text-center mb-6 md:mb-8">
             <h2 className="text-4xl font-bold text-gray-900 mb-4">
               Lo que dicen nuestros estudiantes
             </h2>
@@ -802,13 +802,13 @@ export default function EnglishSite() {
         </div>
       </section>
       {/* Newsletter Section */}
-      <section className="py-12 md:py-16 bg-white">
+      <section className="py-8 md:py-12 bg-white">
         <div className="container mx-auto px-4">
           <NewsletterSignup language="es" className="max-w-2xl mx-auto" />
         </div>
       </section>
       {/* Free Trial Section */}
-      <section className="py-12 md:py-16 bg-passport-blue">
+      <section className="py-8 md:py-12 bg-passport-blue">
         <div className="container mx-auto px-4 text-center">
           <h2 className="text-4xl font-bold text-white mb-6">
             ¿Listo para hablar inglés con confianza?
