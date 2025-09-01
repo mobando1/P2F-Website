@@ -712,8 +712,7 @@ export default function Landing() {
         </div>
       </div>
       
-      {/* CTA Slim #1 */}
-      <CTASlim text={t.ctaReady} onLanguageSelect={handleLanguageSelection} />
+      
       
       {/* Sección 2: Cómo funciona */}
       <div className="py-12 md:py-16 bg-gray-50">
