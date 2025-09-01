@@ -1,9 +1,7 @@
-import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { CheckCircle } from "lucide-react";
 import NavigationDropdown from "@/components/navigation-dropdown";
-import HighLevelCalendar from "@/components/highlevel-calendar";
 import passportLogo from "@assets/a1c5a1_9514ede9e3124d7a9adf78f5dcf07f28~mv2_1755803448396.png";
 import { Link } from "wouter";
 
@@ -12,12 +10,30 @@ interface PricingProps {
 }
 
 export default function Pricing({ language }: PricingProps) {
-  const [showCalendar, setShowCalendar] = useState(false);
-  const [calendarType, setCalendarType] = useState<'adult' | 'child'>('adult');
 
-  const handleBookingClick = (type: 'adult' | 'child') => {
-    setCalendarType(type);
-    setShowCalendar(true);
+  // Stripe payment links by language and plan
+  const getPaymentLink = (plan: number) => {
+    if (language === 'en') {
+      // Spanish site payment links (English speakers learning Spanish)
+      const links = [
+        'https://buy.stripe.com/14AaEYa8Y4jFcUI01Ues007', // Plan 1
+        'https://buy.stripe.com/aFa9AU80Q3fB9Iwg0Ses008', // Plan 2  
+        'https://buy.stripe.com/4gM28sa8Yg2nbQE8yqes009'  // Plan 3
+      ];
+      return links[plan - 1];
+    } else {
+      // English site payment links (Spanish speakers learning English)
+      const links = [
+        'https://buy.stripe.com/fZu5kE2Gw8zV2g49Cues004', // Plan 1
+        'https://buy.stripe.com/eVq28s80Qg2n2g401Ues002', // Plan 2
+        'https://buy.stripe.com/00w28s2Gw3fB1c0eWOes003'  // Plan 3
+      ];
+      return links[plan - 1];
+    }
+  };
+
+  const handlePaymentClick = (plan: number) => {
+    window.open(getPaymentLink(plan), '_blank');
   };
 
   const content = language === 'en' ? {
@@ -150,7 +166,7 @@ export default function Pricing({ language }: PricingProps) {
                   ))}
                 </ul>
                 <Button 
-                  onClick={() => handleBookingClick('adult')}
+                  onClick={() => handlePaymentClick(1)}
                   className="w-full bg-passport-orange hover:bg-orange-600 text-white py-2 font-semibold"
                 >
                   {content.cta}
@@ -175,7 +191,7 @@ export default function Pricing({ language }: PricingProps) {
                   ))}
                 </ul>
                 <Button 
-                  onClick={() => handleBookingClick('adult')}
+                  onClick={() => handlePaymentClick(2)}
                   className="w-full bg-passport-orange hover:bg-orange-600 text-white py-2 font-semibold"
                 >
                   Choose This Plan
@@ -205,7 +221,7 @@ export default function Pricing({ language }: PricingProps) {
                   ))}
                 </ul>
                 <Button 
-                  onClick={() => handleBookingClick('adult')}
+                  onClick={() => handlePaymentClick(3)}
                   className="w-full bg-passport-blue hover:bg-blue-700 text-white py-2 font-semibold"
                 >
                   {content.cta}
@@ -216,24 +232,6 @@ export default function Pricing({ language }: PricingProps) {
         </div>
       </section>
 
-      {/* Calendar Modal */}
-      {showCalendar && (
-        <div className="fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center p-4">
-          <div className="bg-white rounded-lg max-w-4xl w-full max-h-[90vh] overflow-auto relative">
-            <button 
-              onClick={() => setShowCalendar(false)}
-              className="absolute top-4 right-4 text-gray-500 hover:text-gray-700 z-10"
-            >
-              ✕
-            </button>
-            <HighLevelCalendar 
-              type={calendarType} 
-              language={language}
-              className="p-6"
-            />
-          </div>
-        </div>
-      )}
     </div>
   );
 }
