@@ -16,6 +16,16 @@ export default function BlogMain() {
       category: 'Education',
       image: passportImage,
       featured: true
+    },
+    {
+      id: 'learning-spanish-brings-you-closer-to-your-roots',
+      title: 'Learning Spanish Brings You Closer to Your Roots',
+      excerpt: 'Learning Spanish is not only a valuable skill but also a powerful tool for reconnecting with your cultural and familial roots. Discover how this language opens doors to deeper heritage understanding.',
+      date: '2024-12-10',
+      readTime: '4 min read',
+      category: 'Culture',
+      image: worldImage,
+      featured: false
     }
   ];
 
@@ -134,13 +144,50 @@ export default function BlogMain() {
             ))}
 
             {/* More Articles Section */}
-            <div className="text-center mb-12">
-              <h3 className="text-2xl md:text-3xl font-bold text-gray-900 mb-4">
+            <div className="mb-16">
+              <h3 className="text-2xl md:text-3xl font-bold text-gray-900 mb-8 text-center">
                 More Language Learning Articles
               </h3>
-              <p className="text-gray-600">
-                Coming soon: More expert insights and tips to accelerate your language learning journey
-              </p>
+              
+              <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                {blogPosts.filter(post => !post.featured).map(post => (
+                  <div key={post.id} className="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow">
+                    <img 
+                      src={post.image} 
+                      alt={post.title}
+                      className="w-full h-48 object-cover"
+                    />
+                    <div className="p-6">
+                      <div className="flex items-center mb-3">
+                        <span className="bg-passport-blue text-white px-2 py-1 rounded text-xs font-medium">
+                          {post.category}
+                        </span>
+                        <span className="ml-2 text-gray-500 text-xs">{post.readTime}</span>
+                      </div>
+                      
+                      <h4 className="text-xl font-bold text-gray-900 mb-3">
+                        {post.title}
+                      </h4>
+                      
+                      <p className="text-gray-600 mb-4 text-sm">
+                        {post.excerpt}
+                      </p>
+                      
+                      <div className="flex items-center justify-between">
+                        <span className="text-gray-500 text-xs">
+                          {new Date(post.date).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })}
+                        </span>
+                        <Link href={`/blog/${post.id}`}>
+                          <button className="text-passport-orange hover:text-orange-600 font-semibold text-sm flex items-center">
+                            Read More
+                            <ArrowRight className="w-4 h-4 ml-1" />
+                          </button>
+                        </Link>
+                      </div>
+                    </div>
+                  </div>
+                ))}
+              </div>
             </div>
 
             {/* Call to Action */}
