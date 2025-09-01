@@ -211,8 +211,6 @@ export default function EnglishSite() {
           </div>
         </div>
       </section>
-      
-      
       {/* Cómo Funciona - Timeline Visual */}
       <section id="como-funciona" className="py-8 md:py-12 bg-white">
         <div className="container mx-auto px-4">
@@ -700,8 +698,6 @@ export default function EnglishSite() {
           </div>
         </div>
       </section>
-
-
       {/* Testimonials */}
       <section id="testimonios" className="py-8 md:py-12 bg-gray-50">
         <div className="container mx-auto px-4">
@@ -881,7 +877,7 @@ export default function EnglishSite() {
             </div>
           </div>
           <div className="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
-            <p>&copy; 2025 Passport to Fluency. Todos los derechos reservados.</p>
+            <p>© 2025 Passport2Fluency. Todos los derechos reservados.</p>
           </div>
         </div>
       </footer>
