@@ -13,6 +13,8 @@ import Business from "@/pages/business";
 import Adults from "@/pages/adults";
 import Team from "@/pages/team";
 import Blog from "@/pages/blog";
+import BlogMain from "@/pages/blog-main";
+import BlogPost from "@/pages/blog-post";
 
 function Router() {
   return (
@@ -36,6 +38,10 @@ function Router() {
       <Route path="/en/business" component={() => <Business language="es" />} />
       <Route path="/en/team" component={() => <Team language="es" />} />
       <Route path="/en/blog" component={() => <Blog language="es" />} />
+      
+      {/* Independent Blog Routes */}
+      <Route path="/blog" component={BlogMain} />
+      <Route path="/blog/:id" component={BlogPost} />
       
       <Route component={NotFound} />
     </Switch>
