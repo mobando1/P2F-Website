@@ -647,8 +647,8 @@ export default function Landing() {
             <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12 text-center max-w-5xl">
               {/* Stat 1 */}
               <div className="flex flex-col items-center p-4 md:p-6 rounded-2xl hover:shadow-lg transition-all duration-300">
-                <div className="w-8 h-8 md:w-9 md:h-9 rounded-full flex items-center justify-center mb-3 md:mb-4" style={{background: 'linear-gradient(135deg, #0A4A6E, #1C7BB1)'}}>
-                  <Users className="w-4 h-4 md:w-4 md:h-4 text-white" />
+                <div className="w-6 h-6 md:w-7 md:h-7 rounded-full flex items-center justify-center mb-3 md:mb-4" style={{background: 'linear-gradient(135deg, #0A4A6E, #1C7BB1)'}}>
+                  <Users className="w-3 h-3 md:w-3.5 md:h-3.5 text-white" />
                 </div>
                 <div className="text-3xl md:text-4xl lg:text-5xl font-black mb-2" style={{color: '#0A4A6E'}}>500+</div>
                 <div className="text-xs md:text-sm text-gray-600 font-medium">{t.stat1}</div>
@@ -656,8 +656,8 @@ export default function Landing() {
               
               {/* Stat 2 */}
               <div className="flex flex-col items-center p-4 md:p-6 rounded-2xl hover:shadow-lg transition-all duration-300">
-                <div className="w-8 h-8 md:w-9 md:h-9 rounded-full flex items-center justify-center mb-3 md:mb-4" style={{background: 'linear-gradient(135deg, #F59E1C, #fbbf24)'}}>
-                  <CheckCircle className="w-4 h-4 md:w-4 md:h-4 text-white" />
+                <div className="w-6 h-6 md:w-7 md:h-7 rounded-full flex items-center justify-center mb-3 md:mb-4" style={{background: 'linear-gradient(135deg, #F59E1C, #fbbf24)'}}>
+                  <CheckCircle className="w-3 h-3 md:w-3.5 md:h-3.5 text-white" />
                 </div>
                 <div className="text-3xl md:text-4xl lg:text-5xl font-black mb-2" style={{color: '#F59E1C'}}>100K+</div>
                 <div className="text-xs md:text-sm text-gray-600 font-medium">{t.stat2}</div>
@@ -665,8 +665,8 @@ export default function Landing() {
               
               {/* Stat 3 */}
               <div className="flex flex-col items-center p-4 md:p-6 rounded-2xl hover:shadow-lg transition-all duration-300">
-                <div className="w-8 h-8 md:w-9 md:h-9 rounded-full flex items-center justify-center mb-3 md:mb-4" style={{background: 'linear-gradient(135deg, #0A4A6E, #1C7BB1)'}}>
-                  <Globe className="w-4 h-4 md:w-4 md:h-4 text-white" />
+                <div className="w-6 h-6 md:w-7 md:h-7 rounded-full flex items-center justify-center mb-3 md:mb-4" style={{background: 'linear-gradient(135deg, #0A4A6E, #1C7BB1)'}}>
+                  <Globe className="w-3 h-3 md:w-3.5 md:h-3.5 text-white" />
                 </div>
                 <div className="text-3xl md:text-4xl lg:text-5xl font-black mb-2" style={{color: '#0A4A6E'}}>EN-ES</div>
                 <div className="text-xs md:text-sm text-gray-600 font-medium">{t.stat3}</div>
@@ -674,8 +674,8 @@ export default function Landing() {
               
               {/* Stat 4 */}
               <div className="flex flex-col items-center p-4 md:p-6 rounded-2xl hover:shadow-lg transition-all duration-300">
-                <div className="w-8 h-8 md:w-9 md:h-9 rounded-full flex items-center justify-center mb-3 md:mb-4" style={{background: 'linear-gradient(135deg, #F59E1C, #fbbf24)'}}>
-                  <Star className="w-4 h-4 md:w-4 md:h-4 text-white fill-current" />
+                <div className="w-6 h-6 md:w-7 md:h-7 rounded-full flex items-center justify-center mb-3 md:mb-4" style={{background: 'linear-gradient(135deg, #F59E1C, #fbbf24)'}}>
+                  <Star className="w-3 h-3 md:w-3.5 md:h-3.5 text-white fill-current" />
                 </div>
                 <div className="text-3xl md:text-4xl lg:text-5xl font-black mb-2" style={{color: '#F59E1C'}}>4.9</div>
                 <div className="text-xs md:text-sm text-gray-600 font-medium">{t.stat4}</div>
