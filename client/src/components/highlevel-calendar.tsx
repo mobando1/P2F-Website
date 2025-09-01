@@ -117,7 +117,7 @@ export default function HighLevelCalendar({ language, type, className = "" }: Hi
         </div>
       ) : (
         <div className="calendar-container">
-          <div className="min-h-[700px]">
+          <div className="min-h-[800px]">
             {/* Show real HighLevel calendars - All 4 calendars now available */}
             {true ? (
               <div 
@@ -125,7 +125,7 @@ export default function HighLevelCalendar({ language, type, className = "" }: Hi
                   __html: `
                     <iframe 
                       src="${calendarUrls[type][language]}" 
-                      style="width: 100%;height: 700px;border:none;overflow: hidden;" 
+                      style="width: 100%;height: 800px;border:none;overflow: hidden;" 
                       scrolling="yes" 
                       id="${calendarUrls[type][language].split('/').pop()}_${Date.now()}"
                     ></iframe>

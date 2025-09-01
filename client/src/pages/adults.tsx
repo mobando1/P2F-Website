@@ -352,7 +352,7 @@ export default function Adults({ language }: AdultsProps) {
                         __html: `
                           <iframe 
                             src="${calendarUrl}" 
-                            style="width: 100%; height: 600px; border: none; border-radius: 8px;"
+                            style="width: 100%; height: 800px; border: none; border-radius: 8px;"
                             title="Book Your Free Discovery Session"
                           ></iframe>
                           <script src="https://link.msgsndr.com/js/form_embed.js" type="text/javascript"></script>
