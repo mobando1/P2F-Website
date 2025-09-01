@@ -216,21 +216,21 @@ export default function Adults({ language }: AdultsProps) {
           <img 
             src={bookImage} 
             alt="" 
-            className="w-28 h-28 object-contain transform rotate-12 rounded-2xl"
+            className="w-28 h-28 object-contain transform rotate-12 rounded-3xl"
           />
         </div>
         <div className="absolute bottom-8 right-8 opacity-6 z-0 hidden lg:block">
           <img 
             src={worldImage} 
             alt="" 
-            className="w-36 h-36 object-contain transform -rotate-6 rounded-2xl"
+            className="w-36 h-36 object-contain transform -rotate-6 rounded-3xl"
           />
         </div>
         <div className="absolute top-1/2 right-1/3 opacity-4 z-0 hidden xl:block">
           <img 
             src={airplaneCleanImage} 
             alt="" 
-            className="w-32 h-32 object-contain transform rotate-45 rounded-2xl"
+            className="w-32 h-32 object-contain transform rotate-45 rounded-3xl"
           />
         </div>
         
