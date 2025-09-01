@@ -37,9 +37,10 @@ function Router() {
       <Route path="/en/adults" component={() => <Adults language="es" />} />
       <Route path="/en/business" component={() => <Business language="es" />} />
       <Route path="/en/team" component={() => <Team language="es" />} />
-      <Route path="/en/blog" component={() => <Blog language="es" />} />
+      <Route path="/en/blog" component={BlogMain} />
+      <Route path="/en/blog/:id" component={BlogPost} />
       
-      {/* Independent Blog Routes */}
+      {/* Keep general blog routes for direct access */}
       <Route path="/blog" component={BlogMain} />
       <Route path="/blog/:id" component={BlogPost} />
       
