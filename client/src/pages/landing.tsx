@@ -809,6 +809,7 @@ export default function Landing() {
               {
                 name: "María González",
                 country: "🇲🇽 México",
+                program: "Inglés para Adultos",
                 rating: 5,
                 text: "En 3 meses pasé de básico a conversacional. Los instructores son increíbles y las clases muy dinámicas.",
                 image: "https://images.unsplash.com/photo-1494790108755-2616b612b642?w=64&h=64&fit=crop&crop=face"
@@ -816,6 +817,7 @@ export default function Landing() {
               {
                 name: "David Chen",
                 country: "🇺🇸 Estados Unidos", 
+                program: "Español para Adultos",
                 rating: 5,
                 text: "Aprender español nunca fue tan fácil. El método 1-a-1 hace toda la diferencia.",
                 image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=64&h=64&fit=crop&crop=face"
@@ -823,6 +825,7 @@ export default function Landing() {
               {
                 name: "Ana Rodríguez",
                 country: "🇨🇴 Colombia",
+                program: "Inglés Intensivo",
                 rating: 5,
                 text: "Perfect for busy professionals. I improved my English speaking confidence dramatically.",
                 image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=64&h=64&fit=crop&crop=face"
@@ -830,6 +833,7 @@ export default function Landing() {
               {
                 name: "James Wilson",
                 country: "🇬🇧 Reino Unido",
+                program: "Español Intensivo",
                 rating: 5,
                 text: "Los horarios flexibles me permitieron mantener mis clases incluso con mi trabajo demandante.",
                 image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=64&h=64&fit=crop&crop=face"
@@ -837,6 +841,7 @@ export default function Landing() {
               {
                 name: "Sofia Martínez",
                 country: "🇦🇷 Argentina",
+                program: "Inglés para Adultos",
                 rating: 5,
                 text: "My English pronunciation improved so much! Native speakers make all the difference.",
                 image: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=64&h=64&fit=crop&crop=face"
@@ -844,6 +849,7 @@ export default function Landing() {
               {
                 name: "Michael Johnson",
                 country: "🇨🇦 Canadá",
+                program: "Español para Adultos",
                 rating: 5,
                 text: "Excelente plataforma. En 6 meses logré el nivel que necesitaba para mi trabajo en México.",
                 image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=64&h=64&fit=crop&crop=face"
@@ -859,6 +865,9 @@ export default function Landing() {
                   <div>
                     <h4 className="font-bold" style={{color: '#0A4A6E'}}>{testimonial.name}</h4>
                     <p className="text-sm text-gray-600">{testimonial.country}</p>
+                    <p className="text-xs font-medium px-2 py-1 rounded-full bg-blue-100 text-blue-700 inline-block mt-1">
+                      {testimonial.program}
+                    </p>
                   </div>
                   <div className="ml-auto flex">
                     {[...Array(testimonial.rating)].map((_, i) => (
