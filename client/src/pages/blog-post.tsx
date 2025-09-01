@@ -288,6 +288,96 @@ const blogPosts = {
         </div>
       </div>
     `
+  },
+  'essential-spanish-phrases-for-travelers-your-ticket-to-fluent-communication': {
+    title: 'Essential Spanish Phrases for Travelers: Your Ticket to Fluent Communication',
+    subtitle: 'Planning a trip to a Spanish-speaking country? Master these essential phrases to navigate with confidence and connect with locals',
+    date: '2024-11-20',
+    readTime: '6 min read',
+    category: 'Travel',
+    author: 'Passport to Fluency Team',
+    heroImage: worldImage,
+    content: `
+      <div class="prose prose-lg max-w-none">
+        <img src="${worldImage}" alt="Spanish travel phrases" class="w-full h-64 md:h-96 object-cover rounded-2xl mb-8" />
+        
+        <p class="text-xl text-gray-700 mb-8 leading-relaxed">
+          Are you planning an exciting trip to a Spanish-speaking country? Whether you're strolling through the colorful streets of Barcelona or exploring the ancient ruins of Machu Picchu, having a basic understanding of Spanish can greatly enhance your travel experience. In this guide, we'll share 15 essential Spanish phrases for travelers, designed to help you navigate Spanish-speaking countries with ease and confidence.
+        </p>
+
+        <h2 class="text-3xl font-bold text-gray-900 mb-6 text-passport-blue">Greetings & Basic Politeness</h2>
+        
+        <div class="bg-blue-50 border-l-4 border-passport-blue p-6 mb-8 rounded-r-lg">
+          <div class="grid md:grid-cols-2 gap-4">
+            <div>
+              <h4 class="font-semibold text-gray-900 mb-2">Essential Greetings:</h4>
+              <ul class="text-gray-700 space-y-1">
+                <li><strong>¡Hola!</strong> - Hello!</li>
+                <li><strong>¡Buenos días!</strong> - Good morning!</li>
+                <li><strong>¡Buenas tardes!</strong> - Good afternoon!</li>
+                <li><strong>¡Buenas noches!</strong> - Good evening!</li>
+              </ul>
+            </div>
+            <div>
+              <h4 class="font-semibold text-gray-900 mb-2">Basic Communication:</h4>
+              <ul class="text-gray-700 space-y-1">
+                <li><strong>Sí</strong> - Yes</li>
+                <li><strong>No</strong> - No</li>
+                <li><strong>Por favor</strong> - Please</li>
+                <li><strong>Gracias</strong> - Thank you</li>
+                <li><strong>De nada</strong> - You're welcome</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <h2 class="text-3xl font-bold text-gray-900 mb-6 text-passport-orange">Getting Help & Emergency Phrases</h2>
+        
+        <div class="bg-orange-50 border-l-4 border-passport-orange p-6 mb-8 rounded-r-lg">
+          <h4 class="font-semibold text-gray-900 mb-3">When You Need Assistance:</h4>
+          <ul class="text-gray-700 space-y-2">
+            <li><strong>¿Puedes ayudarme?</strong> - Can you help me?</li>
+            <li><strong>Estoy perdido/a.</strong> - I'm lost.</li>
+            <li><strong>¿Dónde está el baño?</strong> - Where is the bathroom?</li>
+            <li><strong>Necesito un médico.</strong> - I need a doctor.</li>
+          </ul>
+        </div>
+
+        <h2 class="text-3xl font-bold text-gray-900 mb-6 text-green-600">Dining & Food</h2>
+        
+        <div class="bg-green-50 border-l-4 border-green-500 p-6 mb-8 rounded-r-lg">
+          <h4 class="font-semibold text-gray-900 mb-3">Restaurant Essentials:</h4>
+          <ul class="text-gray-700 space-y-2">
+            <li><strong>Me gustaría...</strong> - I would like...</li>
+            <li><strong>La cuenta, por favor.</strong> - The bill, please.</li>
+            <li><strong>¿Hay una opción vegetariana?</strong> - Is there a vegetarian option?</li>
+            <li><strong>¡Esto está delicioso!</strong> - This is delicious!</li>
+          </ul>
+        </div>
+
+        <h2 class="text-3xl font-bold text-gray-900 mb-6 text-purple-600">Transportation & Navigation</h2>
+        
+        <div class="bg-purple-50 border-l-4 border-purple-500 p-6 mb-8 rounded-r-lg">
+          <h4 class="font-semibold text-gray-900 mb-3">Getting Around:</h4>
+          <ul class="text-gray-700 space-y-2">
+            <li><strong>¿Dónde está...?</strong> - Where is...?</li>
+            <li><strong>¿Cuánto cuesta el taxi?</strong> - How much is the taxi fare?</li>
+            <li><strong>Necesito un boleto para...</strong> - I need a ticket to...</li>
+            <li><strong>¿Puedes recomendar un buen restaurante?</strong> - Can you recommend a good restaurant?</li>
+          </ul>
+        </div>
+
+        <div class="bg-gradient-to-r from-passport-blue/10 to-passport-orange/10 p-8 rounded-2xl mb-8">
+          <h3 class="text-2xl font-bold text-gray-900 mb-4 text-center">¡Buen Viaje! - Have a Great Trip!</h3>
+          <p class="text-lg text-gray-700 leading-relaxed text-center mb-4">
+            Mastering these essential Spanish phrases will not only make your travels smoother but also allow you to connect more deeply with the local culture and people. Whether you're ordering tapas in Madrid or bargaining at a street market in Mexico City, don't be afraid to practice these phrases and embrace the adventure of learning a new language.
+          </p>
+          <p class="text-center text-gray-600 italic">
+            By sharing these phrases, Passport2Fluency aims to empower travelers to engage with Spanish-speaking communities and foster cross-cultural understanding.
+          </p>
+        </div>
+      </div>
+    `
   }
 };
 

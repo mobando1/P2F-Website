@@ -56,6 +56,16 @@ export default function BlogMain() {
       category: 'Culture',
       image: passportImage,
       featured: false
+    },
+    {
+      id: 'essential-spanish-phrases-for-travelers-your-ticket-to-fluent-communication',
+      title: 'Essential Spanish Phrases for Travelers: Your Ticket to Fluent Communication',
+      excerpt: 'Planning a trip to a Spanish-speaking country? Learn 15 essential phrases that will help you navigate with ease and connect more deeply with local culture and people.',
+      date: '2024-11-20',
+      readTime: '6 min read',
+      category: 'Travel',
+      image: worldImage,
+      featured: false
     }
   ];
 
