@@ -1,5 +1,5 @@
 import { Link, useParams } from 'wouter';
-import { Calendar, Clock, ArrowLeft, ArrowRight, Share2, Users, Star } from 'lucide-react';
+import { Calendar, Clock, ArrowLeft, ArrowRight, Share2, Users, Star, Globe } from 'lucide-react';
 import { Button } from "@/components/ui/button";
 import passportLogo from '@assets/a1c5a1_9514ede9e3124d7a9adf78f5dcf07f28~mv2_1755803448396.png';
 import childrenLearningImage from '@assets/generated_images/Cartoon_children_learning_Spanish_perfect_spelling_24b4101c.png';
@@ -671,6 +671,31 @@ export default function BlogPost() {
               <Link href="/blog" className="text-passport-blue font-medium">
                 Blog
               </Link>
+              
+              {/* Translation Widget - Only in Blog */}
+              <div className="flex items-center space-x-2 border-l border-gray-200 pl-8">
+                <Globe className="w-4 h-4 text-gray-600" />
+                <select 
+                  className="text-sm text-gray-600 bg-transparent border-none cursor-pointer focus:outline-none"
+                  onChange={(e) => {
+                    const lang = e.target.value;
+                    if (lang === 'es') {
+                      const googleTranslateUrl = `https://translate.google.com/translate?sl=en&tl=es&u=${encodeURIComponent(window.location.href)}`;
+                      window.open(googleTranslateUrl, '_blank');
+                    } else if (lang === 'pt') {
+                      const googleTranslateUrl = `https://translate.google.com/translate?sl=en&tl=pt&u=${encodeURIComponent(window.location.href)}`;
+                      window.open(googleTranslateUrl, '_blank');
+                    }
+                    // Reset select after action
+                    e.target.value = 'en';
+                  }}
+                  defaultValue="en"
+                >
+                  <option value="en">🇺🇸 English</option>
+                  <option value="es">🇪🇸 Español</option>
+                  <option value="pt">🇧🇷 Português</option>
+                </select>
+              </div>
             </nav>
           </div>
         </div>
