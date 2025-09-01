@@ -668,7 +668,7 @@ export default function Landing() {
       </div>
 
       {/* Primera sección después del hero - Estadísticas con mejor layout */}
-      <div className="bg-white py-16 md:py-20 mt-8 md:mt-0">
+      <div className="bg-white py-8 md:py-12 mt-4 md:mt-0">
         <div className="container mx-auto px-6">
           <div className="flex justify-center items-center">
             <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12 text-center max-w-5xl">
@@ -716,9 +716,9 @@ export default function Landing() {
       <CTASlim text={t.ctaReady} onLanguageSelect={handleLanguageSelection} />
       
       {/* Sección 2: Cómo funciona */}
-      <div className="py-20 bg-gray-50">
+      <div className="py-12 md:py-16 bg-gray-50">
         <div className="container mx-auto px-6">
-          <div className="text-center mb-16">
+          <div className="text-center mb-10 md:mb-12">
             <h2 className="text-4xl md:text-5xl font-black mb-6" style={{color: '#0A4A6E'}}>
               {t.howItWorksTitle}
             </h2>
@@ -827,9 +827,9 @@ export default function Landing() {
       <CTASlim text={t.ctaLike} onLanguageSelect={handleLanguageSelection} />
       
       {/* Sección 3: Prueba social - Reviews */}
-      <div className="py-20 bg-white">
+      <div className="py-12 md:py-16 bg-white">
         <div className="container mx-auto px-6">
-          <div className="text-center mb-16">
+          <div className="text-center mb-10 md:mb-12">
             <h2 className="text-4xl md:text-5xl font-black mb-6" style={{color: '#0A4A6E'}}>
               {t.testimonialsTitle}
             </h2>
@@ -918,7 +918,7 @@ export default function Landing() {
       </div>
 
       {/* Sección Empresas - Estilo Preply Mejorado */}
-      <div className="py-24 bg-gray-50">
+      <div className="py-12 md:py-16 bg-gray-50">
         <div className="container mx-auto px-6">
           <div className="grid lg:grid-cols-2 gap-20 items-center">
             {/* Contenido izquierdo */}
@@ -1029,7 +1029,7 @@ export default function Landing() {
       </div>
 
       {/* CTA Final Grande - Con fondo de pasaporte */}
-      <div className="relative py-20 overflow-hidden" style={{
+      <div className="relative py-12 md:py-16 overflow-hidden" style={{
         background: 'linear-gradient(135deg, #0A4A6E 0%, #1C7BB1 50%, #F59E1C 100%)'
       }}>        
         {/* Passport background elements */}
@@ -1115,7 +1115,7 @@ export default function Landing() {
       </div>
       
       {/* Footer simple */}
-      <div className="bg-white py-12 border-t border-gray-100">
+      <div className="bg-white py-6 md:py-8 border-t border-gray-100">
         <div className="container mx-auto px-6">
           <div className="text-center">
             <div className="flex justify-center mb-6">

@@ -132,7 +132,7 @@ export default function SpanishSite() {
         </div>
       </header>
       {/* Hero Section */}
-      <section className="relative py-20 bg-gradient-to-b from-orange-50 to-white overflow-hidden">
+      <section className="relative py-12 md:py-16 bg-gradient-to-b from-orange-50 to-white overflow-hidden">
         {/* Corporate background elements */}
         <div className="absolute top-8 left-8 opacity-8 z-0 hidden md:block">
           <img 
@@ -214,10 +214,10 @@ export default function SpanishSite() {
       
       
       {/* How it Works - Timeline Visual */}
-      <section id="how-it-works" className="py-20 bg-white">
+      <section id="how-it-works" className="py-12 md:py-16 bg-white">
         <div className="container mx-auto px-4">
           {/* Header */}
-          <div className="text-center mb-16">
+          <div className="text-center mb-10 md:mb-12">
             <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
               How It Works
             </h2>
@@ -396,9 +396,9 @@ export default function SpanishSite() {
         </div>
       </section>
       {/* Features */}
-      <section className="py-20 bg-gray-50">
+      <section className="py-12 md:py-16 bg-gray-50">
         <div className="container mx-auto px-4">
-          <div className="text-center mb-16">
+          <div className="text-center mb-10 md:mb-12">
             <h2 className="text-4xl font-bold text-gray-900 mb-4">
               Why Choose Passport to Fluency?
             </h2>
@@ -496,9 +496,9 @@ export default function SpanishSite() {
         </div>
       </section>
       {/* Booking Calendars */}
-      <section id="booking-calendars" className="py-20 bg-white">
+      <section id="booking-calendars" className="py-12 md:py-16 bg-white">
         <div className="container mx-auto px-4">
-          <div className="text-center mb-16">
+          <div className="text-center mb-10 md:mb-12">
             <h2 className="text-4xl font-bold text-gray-900 mb-4">
               Schedule Your Free Trial Class
             </h2>
@@ -563,9 +563,9 @@ export default function SpanishSite() {
         </div>
       </section>
       {/* Plans & Pricing */}
-      <section id="plans-pricing" className="py-20 bg-white">
+      <section id="plans-pricing" className="py-12 md:py-16 bg-white">
         <div className="container mx-auto px-4">
-          <div className="text-center mb-16">
+          <div className="text-center mb-10 md:mb-12">
             <h2 className="text-4xl font-bold text-gray-900 mb-4">
               Find the Perfect Plan to Speak Spanish Confidently
             </h2>
@@ -703,9 +703,9 @@ export default function SpanishSite() {
       
 
       {/* Testimonials */}
-      <section id="testimonials" className="py-20 bg-gray-50">
+      <section id="testimonials" className="py-12 md:py-16 bg-gray-50">
         <div className="container mx-auto px-4">
-          <div className="text-center mb-16">
+          <div className="text-center mb-10 md:mb-12">
             <h2 className="text-4xl font-bold text-gray-900 mb-4">
               What Our Students Say
             </h2>
@@ -802,13 +802,13 @@ export default function SpanishSite() {
         </div>
       </section>
       {/* Newsletter Section */}
-      <section className="py-20 bg-white">
+      <section className="py-12 md:py-16 bg-white">
         <div className="container mx-auto px-4">
           <NewsletterSignup language="en" className="max-w-2xl mx-auto" />
         </div>
       </section>
       {/* Free Trial Section */}
-      <section className="py-20 bg-passport-orange">
+      <section className="py-12 md:py-16 bg-passport-orange">
         <div className="container mx-auto px-4 text-center">
           <h2 className="text-4xl font-bold text-white mb-6">
             Ready to speak Spanish with confidence?
