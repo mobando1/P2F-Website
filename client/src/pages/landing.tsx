@@ -646,39 +646,39 @@ export default function Landing() {
           <div className="flex justify-center items-center">
             <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12 text-center max-w-5xl">
               {/* Stat 1 */}
-              <div className="flex flex-col items-center p-4 md:p-6 rounded-2xl hover:shadow-lg transition-all duration-300">
+              <div className="flex flex-col items-center p-3 md:p-4 rounded-2xl hover:shadow-lg transition-all duration-300">
                 <div className="w-6 h-6 md:w-7 md:h-7 rounded-full flex items-center justify-center mb-3 md:mb-4" style={{background: 'linear-gradient(135deg, #0A4A6E, #1C7BB1)'}}>
                   <Users className="w-3 h-3 md:w-3.5 md:h-3.5 text-white" />
                 </div>
-                <div className="text-3xl md:text-4xl lg:text-5xl font-black mb-2" style={{color: '#0A4A6E'}}>500+</div>
-                <div className="text-xs md:text-sm text-gray-600 font-medium">{t.stat1}</div>
+                <div className="text-2xl md:text-3xl lg:text-4xl font-black mb-2" style={{color: '#0A4A6E'}}>500+</div>
+                <div className="text-xs md:text-xs text-gray-600 font-medium">{t.stat1}</div>
               </div>
               
               {/* Stat 2 */}
-              <div className="flex flex-col items-center p-4 md:p-6 rounded-2xl hover:shadow-lg transition-all duration-300">
+              <div className="flex flex-col items-center p-3 md:p-4 rounded-2xl hover:shadow-lg transition-all duration-300">
                 <div className="w-6 h-6 md:w-7 md:h-7 rounded-full flex items-center justify-center mb-3 md:mb-4" style={{background: 'linear-gradient(135deg, #F59E1C, #fbbf24)'}}>
                   <CheckCircle className="w-3 h-3 md:w-3.5 md:h-3.5 text-white" />
                 </div>
-                <div className="text-3xl md:text-4xl lg:text-5xl font-black mb-2" style={{color: '#F59E1C'}}>100K+</div>
-                <div className="text-xs md:text-sm text-gray-600 font-medium">{t.stat2}</div>
+                <div className="text-2xl md:text-3xl lg:text-4xl font-black mb-2" style={{color: '#F59E1C'}}>100K+</div>
+                <div className="text-xs md:text-xs text-gray-600 font-medium">{t.stat2}</div>
               </div>
               
               {/* Stat 3 */}
-              <div className="flex flex-col items-center p-4 md:p-6 rounded-2xl hover:shadow-lg transition-all duration-300">
+              <div className="flex flex-col items-center p-3 md:p-4 rounded-2xl hover:shadow-lg transition-all duration-300">
                 <div className="w-6 h-6 md:w-7 md:h-7 rounded-full flex items-center justify-center mb-3 md:mb-4" style={{background: 'linear-gradient(135deg, #0A4A6E, #1C7BB1)'}}>
                   <Globe className="w-3 h-3 md:w-3.5 md:h-3.5 text-white" />
                 </div>
-                <div className="text-3xl md:text-4xl lg:text-5xl font-black mb-2" style={{color: '#0A4A6E'}}>EN-ES</div>
-                <div className="text-xs md:text-sm text-gray-600 font-medium">{t.stat3}</div>
+                <div className="text-2xl md:text-3xl lg:text-4xl font-black mb-2" style={{color: '#0A4A6E'}}>EN-ES</div>
+                <div className="text-xs md:text-xs text-gray-600 font-medium">{t.stat3}</div>
               </div>
               
               {/* Stat 4 */}
-              <div className="flex flex-col items-center p-4 md:p-6 rounded-2xl hover:shadow-lg transition-all duration-300">
+              <div className="flex flex-col items-center p-3 md:p-4 rounded-2xl hover:shadow-lg transition-all duration-300">
                 <div className="w-6 h-6 md:w-7 md:h-7 rounded-full flex items-center justify-center mb-3 md:mb-4" style={{background: 'linear-gradient(135deg, #F59E1C, #fbbf24)'}}>
                   <Star className="w-3 h-3 md:w-3.5 md:h-3.5 text-white fill-current" />
                 </div>
-                <div className="text-3xl md:text-4xl lg:text-5xl font-black mb-2" style={{color: '#F59E1C'}}>4.9</div>
-                <div className="text-xs md:text-sm text-gray-600 font-medium">{t.stat4}</div>
+                <div className="text-2xl md:text-3xl lg:text-4xl font-black mb-2" style={{color: '#F59E1C'}}>4.9</div>
+                <div className="text-xs md:text-xs text-gray-600 font-medium">{t.stat4}</div>
               </div>
             </div>
           </div>
