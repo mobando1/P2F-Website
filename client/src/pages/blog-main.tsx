@@ -2,8 +2,15 @@ import { Link } from 'wouter';
 import { Calendar, Clock, ArrowRight, Users, Star } from 'lucide-react';
 import { Button } from "@/components/ui/button";
 import passportLogo from '@assets/a1c5a1_9514ede9e3124d7a9adf78f5dcf07f28~mv2_1755803448396.png';
-import passportImage from '@assets/Corporate Image Sept 2025 (6)_1756765151457.png';
-import worldImage from '@assets/Corporate Image Sept 2025 (7)_1756765151458.png';
+import childrenLearningImage from '@assets/generated_images/Children_learning_Spanish_education_aba68b78.png';
+import familyHeritageImage from '@assets/generated_images/Family_cultural_heritage_connection_4f727054.png';
+import businessSuccessImage from '@assets/generated_images/Business_financial_success_bilingual_93661f06.png';
+import barcelonaImage from '@assets/generated_images/Barcelona_travel_cultural_exploration_1ff52e01.png';
+import salsaCultureImage from '@assets/generated_images/Salsa_dancing_cultural_expression_1d332aa2.png';
+import travelPhrasesImage from '@assets/generated_images/Travel_Spanish_communication_phrases_e3ec1049.png';
+import independentLearningImage from '@assets/generated_images/Independent_Spanish_learning_methods_2fa8b756.png';
+import fastLearningImage from '@assets/generated_images/Fast_Spanish_learning_progress_d03b3343.png';
+import bilingualBenefitsImage from '@assets/generated_images/Hidden_benefits_bilingual_advantages_a26ab52f.png';
 
 export default function BlogMain() {
   const blogPosts = [
@@ -14,7 +21,7 @@ export default function BlogMain() {
       date: '2024-12-15',
       readTime: '5 min read',
       category: 'Education',
-      image: passportImage,
+      image: childrenLearningImage,
       featured: true
     },
     {
@@ -24,7 +31,7 @@ export default function BlogMain() {
       date: '2024-12-10',
       readTime: '4 min read',
       category: 'Culture',
-      image: worldImage,
+      image: familyHeritageImage,
       featured: false
     },
     {
@@ -34,7 +41,7 @@ export default function BlogMain() {
       date: '2024-12-05',
       readTime: '4 min read',
       category: 'Business',
-      image: passportImage,
+      image: businessSuccessImage,
       featured: false
     },
     {
@@ -44,7 +51,7 @@ export default function BlogMain() {
       date: '2024-11-30',
       readTime: '5 min read',
       category: 'Travel',
-      image: worldImage,
+      image: barcelonaImage,
       featured: false
     },
     {
@@ -54,7 +61,7 @@ export default function BlogMain() {
       date: '2024-11-25',
       readTime: '4 min read',
       category: 'Culture',
-      image: passportImage,
+      image: salsaCultureImage,
       featured: false
     },
     {
@@ -64,7 +71,7 @@ export default function BlogMain() {
       date: '2024-11-20',
       readTime: '6 min read',
       category: 'Travel',
-      image: worldImage,
+      image: travelPhrasesImage,
       featured: false
     },
     {
@@ -74,7 +81,7 @@ export default function BlogMain() {
       date: '2024-11-15',
       readTime: '5 min read',
       category: 'Learning Tips',
-      image: passportImage,
+      image: independentLearningImage,
       featured: false
     },
     {
@@ -84,7 +91,7 @@ export default function BlogMain() {
       date: '2024-11-10',
       readTime: '4 min read',
       category: 'Learning Tips',
-      image: worldImage,
+      image: fastLearningImage,
       featured: false
     },
     {
@@ -94,7 +101,7 @@ export default function BlogMain() {
       date: '2024-11-05',
       readTime: '6 min read',
       category: 'Education',
-      image: passportImage,
+      image: bilingualBenefitsImage,
       featured: false
     }
   ];
@@ -128,14 +135,14 @@ export default function BlogMain() {
         {/* Background decorations */}
         <div className="absolute top-8 right-8 opacity-8 z-0 hidden md:block">
           <img 
-            src={passportImage} 
+            src={childrenLearningImage} 
             alt="" 
             className="w-32 h-32 object-contain transform -rotate-12 rounded-3xl"
           />
         </div>
         <div className="absolute bottom-8 left-8 opacity-10 z-0 hidden lg:block">
           <img 
-            src={worldImage} 
+            src={businessSuccessImage} 
             alt="" 
             className="w-40 h-40 object-contain rounded-3xl"
           />

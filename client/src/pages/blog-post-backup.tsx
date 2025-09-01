@@ -20,10 +20,10 @@ const blogPosts = {
     readTime: '5 min read',
     category: 'Education',
     author: 'Passport to Fluency Team',
-    heroImage: childrenLearningImage,
+    heroImage: passportImage,
     content: `
       <div class="prose prose-lg max-w-none">
-        <img src="${childrenLearningImage}" alt="Children learning Spanish" class="w-full h-64 md:h-96 object-cover rounded-2xl mb-8" />
+        <img src="${passportImage}" alt="Children learning Spanish" class="w-full h-64 md:h-96 object-cover rounded-2xl mb-8" />
         
         <p class="text-xl text-gray-700 mb-8 leading-relaxed">
           In an increasingly globalized world, the ability to speak multiple languages is a significant advantage. Teaching Spanish to children is not only an excellent investment in their future careers but also offers a variety of cognitive, cultural, and social benefits that can enrich their lives profoundly. Here's why learning Spanish is one of the best ways to invest your children's time.
@@ -45,29 +45,44 @@ const blogPosts = {
           <p class="text-gray-700 leading-relaxed mb-4">
             Children who study a second language tend to perform better in other academic areas. Exposure to Spanish can enhance their skills in their native language, including better grammar understanding, a broader vocabulary, and stronger writing skills.
           </p>
-          <h3 class="text-xl font-semibold text-gray-900 mb-3">2. Enhanced Reading Skills</h3>
+        </div>
+
+        <div class="bg-orange-50 border-l-4 border-passport-orange p-6 mb-8 rounded-r-lg">
+          <h3 class="text-xl font-semibold text-gray-900 mb-3">2. Preparation for the Future</h3>
           <p class="text-gray-700 leading-relaxed">
-            The process of learning to read in multiple languages enhances overall reading comprehension skills. Students who learn Spanish often develop better analytical skills when reading in any language.
+            Knowing Spanish can open up many academic and professional opportunities in the future. Universities and employers value bilingual skills, and Spanish is one of the most widely spoken languages globally, making it highly valued in the global job market.
           </p>
         </div>
 
-        <h2 class="text-3xl font-bold text-gray-900 mb-6 text-green-600">Cultural and Social Benefits</h2>
+        <h2 class="text-3xl font-bold text-gray-900 mb-6 text-green-600">Social and Cultural Enrichment</h2>
         
         <div class="bg-green-50 border-l-4 border-green-500 p-6 mb-8 rounded-r-lg">
-          <h3 class="text-xl font-semibold text-gray-900 mb-3">1. Cultural Awareness</h3>
-          <p class="text-gray-700 leading-relaxed mb-4">
-            Learning Spanish opens the door to understanding rich Latino cultures from around the world. This cultural exposure helps children become more empathetic, open-minded, and globally aware individuals.
-          </p>
-          <h3 class="text-xl font-semibold text-gray-900 mb-3">2. Enhanced Communication Skills</h3>
+          <h3 class="text-xl font-semibold text-gray-900 mb-3">1. Enhanced Cultural Understanding</h3>
           <p class="text-gray-700 leading-relaxed">
-            Bilingual children tend to be better communicators overall. They develop stronger listening skills and are more adept at understanding non-verbal communication cues.
+            Learning Spanish exposes children to diverse cultures and perspectives from various parts of the world, improving their social skills and fostering tolerance and respect for other cultures.
+          </p>
+        </div>
+
+        <h2 class="text-3xl font-bold text-gray-900 mb-6 text-purple-600">Character Development</h2>
+        
+        <div class="bg-purple-50 border-l-4 border-purple-500 p-6 mb-6 rounded-r-lg">
+          <h3 class="text-xl font-semibold text-gray-900 mb-3">1. Encouraging Perseverance</h3>
+          <p class="text-gray-700 leading-relaxed">
+            Learning a new language is a challenge that requires patience, practice, and perseverance. By facing and overcoming these challenges, children can develop greater resilience and a strong work ethic that will benefit them in all areas of life.
+          </p>
+        </div>
+
+        <div class="bg-purple-50 border-l-4 border-purple-500 p-6 mb-8 rounded-r-lg">
+          <h3 class="text-xl font-semibold text-gray-900 mb-3">2. Self-Confidence</h3>
+          <p class="text-gray-700 leading-relaxed">
+            Mastering a new skill like Spanish can give children a great sense of achievement and boost their self-esteem. Knowing they can effectively communicate in another language can strengthen their confidence and motivation to learn other skills.
           </p>
         </div>
 
         <div class="bg-gradient-to-r from-passport-blue/10 to-passport-orange/10 p-8 rounded-2xl mb-8">
-          <h3 class="text-2xl font-bold text-gray-900 mb-4 text-center">Start Your Child's Spanish Journey Today</h3>
+          <h3 class="text-2xl font-bold text-gray-900 mb-4 text-center">The Investment That Keeps Giving</h3>
           <p class="text-lg text-gray-700 leading-relaxed text-center">
-            The earlier children start learning Spanish, the easier it becomes for them to master the language. At Passport to Fluency, we provide age-appropriate Spanish lessons designed specifically for young learners. Our native Spanish-speaking instructors create engaging and fun learning experiences that make language acquisition natural and enjoyable.
+            Investing time in learning Spanish is one of the best decisions you can make for your children's holistic development. The cognitive, academic, cultural, social, and personal benefits make this an invaluable investment for their future. It will not only better prepare them for an interconnected world but also enrich their lives in ways that extend beyond the educational realm!
           </p>
         </div>
       </div>
@@ -80,46 +95,46 @@ const blogPosts = {
     readTime: '4 min read',
     category: 'Culture',
     author: 'Passport to Fluency Team',
-    heroImage: familyHeritageImage,
+    heroImage: worldImage,
     content: `
       <div class="prose prose-lg max-w-none">
-        <img src="${familyHeritageImage}" alt="Cultural heritage connection" class="w-full h-64 md:h-96 object-cover rounded-2xl mb-8" />
+        <img src="${worldImage}" alt="Spanish cultural heritage" class="w-full h-64 md:h-96 object-cover rounded-2xl mb-8" />
         
         <p class="text-xl text-gray-700 mb-8 leading-relaxed">
-          Learning Spanish is not only a valuable skill but also a powerful tool for reconnecting with your cultural and familial roots. For many people with Latino heritage, mastering Spanish represents a bridge to their ancestry, traditions, and family stories that may have been lost over generations.
+          Learning Spanish is not only a valuable skill in today's globalized world but can also be a powerful tool for reconnecting with your cultural and familial roots. For many people, especially those living in countries where Spanish is not the primary language, learning this language can open doors to a deeper understanding of their heritage and a stronger connection to their cultural identity.
         </p>
 
-        <h2 class="text-3xl font-bold text-gray-900 mb-6 text-passport-blue">Reconnecting with Family History</h2>
+        <h2 class="text-3xl font-bold text-gray-900 mb-6 text-passport-blue">Bridging Generational Gaps</h2>
         
         <div class="bg-blue-50 border-l-4 border-passport-blue p-6 mb-8 rounded-r-lg">
-          <h3 class="text-xl font-semibold text-gray-900 mb-3">Breaking Down Language Barriers</h3>
+          <h3 class="text-xl font-semibold text-gray-900 mb-3">Connecting with Family Heritage</h3>
           <p class="text-gray-700 leading-relaxed">
-            Many second and third-generation Latino Americans find themselves in situations where they can understand some Spanish but cannot fully communicate with older family members. Learning Spanish fluently allows for deeper, more meaningful conversations with grandparents, aunts, uncles, and other relatives who may be more comfortable expressing themselves in their native language.
+            Speaking Spanish allows you to communicate with older relatives who may not speak your primary language. These relatives often hold stories, traditions, and ancestral knowledge that haven't been passed down to younger generations due to language barriers.
           </p>
         </div>
 
-        <h2 class="text-3xl font-bold text-gray-900 mb-6 text-passport-orange">Cultural Understanding and Identity</h2>
+        <h2 class="text-3xl font-bold text-gray-900 mb-6 text-passport-orange">Building Global Connections</h2>
         
         <div class="bg-orange-50 border-l-4 border-passport-orange p-6 mb-8 rounded-r-lg">
-          <h3 class="text-xl font-semibold text-gray-900 mb-3">Understanding Cultural Nuances</h3>
+          <h3 class="text-xl font-semibold text-gray-900 mb-3">A Global Community</h3>
           <p class="text-gray-700 leading-relaxed">
-            Language and culture are intrinsically linked. When you learn Spanish, you're not just learning vocabulary and grammar; you're gaining access to cultural expressions, humor, traditions, and ways of thinking that are embedded in the language. This understanding can help you connect more deeply with your heritage and feel more complete in your cultural identity.
+            Spanish is a language that unites millions of people worldwide. Learning it allows you to connect with a global community of Spanish speakers, facilitating friendships and professional networks. Moreover, it gives you the opportunity to contribute actively to your local community, especially in areas with a strong Hispanic presence, enriching both your personal and professional life.
           </p>
         </div>
 
-        <h2 class="text-3xl font-bold text-gray-900 mb-6 text-green-600">Preserving Family Traditions</h2>
+        <h2 class="text-3xl font-bold text-gray-900 mb-6 text-green-600">Cultural Identity and Pride</h2>
         
         <div class="bg-green-50 border-l-4 border-green-500 p-6 mb-8 rounded-r-lg">
-          <h3 class="text-xl font-semibold text-gray-900 mb-3">Passing on Heritage to Future Generations</h3>
+          <h3 class="text-xl font-semibold text-gray-900 mb-3">Honoring Your Ancestry</h3>
           <p class="text-gray-700 leading-relaxed">
-            By learning Spanish, you become a bridge between past and future generations. You can ensure that family recipes, stories, traditions, and cultural knowledge are preserved and passed down to your children and grandchildren. This creates a stronger sense of family continuity and cultural pride.
+            Learning Spanish allows you to access the rich Hispanic cultural heritage directly - from literature and music to traditions and values that have been passed down through generations. This connection helps strengthen your sense of identity and pride in your cultural background.
           </p>
         </div>
 
         <div class="bg-gradient-to-r from-passport-blue/10 to-passport-orange/10 p-8 rounded-2xl mb-8">
-          <h3 class="text-2xl font-bold text-gray-900 mb-4 text-center">Rediscover Your Heritage</h3>
+          <h3 class="text-2xl font-bold text-gray-900 mb-4 text-center">More Than Just a Language</h3>
           <p class="text-lg text-gray-700 leading-relaxed text-center">
-            Learning Spanish with Passport to Fluency isn't just about acquiring a new skill – it's about reconnecting with your roots and honoring your family's history. Our native Spanish instructors understand the cultural significance of this journey and can help you not just learn the language, but also understand the cultural context that makes your heritage so rich and meaningful.
+            It's much more than acquiring a new language skill; it's a gateway to your roots, a way to honor your ancestors, and a means to strengthen your cultural identity. Whether it's communicating with relatives, accessing the rich Hispanic cultural heritage, participating in meaningful traditions, or simply feeling more connected to your personal history, Spanish offers countless benefits that go beyond the pragmatic and touch the deeply personal and emotional aspects of life.
           </p>
         </div>
       </div>
@@ -132,30 +147,30 @@ const blogPosts = {
     readTime: '4 min read',
     category: 'Business',
     author: 'Passport to Fluency Team',
-    heroImage: businessSuccessImage,
+    heroImage: passportImage,
     content: `
       <div class="prose prose-lg max-w-none">
-        <img src="${businessSuccessImage}" alt="Business success and financial opportunities" class="w-full h-64 md:h-96 object-cover rounded-2xl mb-8" />
+        <img src="${passportImage}" alt="Financial success with Spanish" class="w-full h-64 md:h-96 object-cover rounded-2xl mb-8" />
         
         <p class="text-xl text-gray-700 mb-8 leading-relaxed">
-          Learning Spanish can be a key tool for achieving financial freedom by opening opportunities in Spanish-speaking markets and accessing valuable financial resources and networks. In today's globalized economy, bilingual professionals have significant advantages in building wealth and creating multiple income streams.
+          Learning Spanish can be a key tool for achieving financial freedom for several reasons. Mastering Spanish opens up opportunities in Spanish-speaking markets, allowing entrepreneurs and professionals to access a wide range of clients and business partners in more than 20 countries. This can translate into new sources of income and the possibility of diversifying investments.
         </p>
 
-        <h2 class="text-3xl font-bold text-gray-900 mb-6 text-passport-blue">Market Access and Opportunities</h2>
+        <h2 class="text-3xl font-bold text-gray-900 mb-6 text-passport-blue">Global Market Access</h2>
         
         <div class="bg-blue-50 border-l-4 border-passport-blue p-6 mb-8 rounded-r-lg">
           <h3 class="text-xl font-semibold text-gray-900 mb-3">Expanding Your Business Reach</h3>
           <p class="text-gray-700 leading-relaxed">
-            Spanish is the second most spoken language in the world by native speakers, opening doors to markets in over 20 countries. This linguistic ability allows you to tap into growing economies in Latin America and Spain, where you can find untapped business opportunities, lower competition, and emerging markets ripe for investment.
+            Mastering Spanish opens up opportunities in Spanish-speaking markets, allowing entrepreneurs and professionals to access a wide range of clients and business partners in more than 20 countries. This expanded reach can translate into new sources of income and the possibility of diversifying investments across different markets.
           </p>
         </div>
 
-        <h2 class="text-3xl font-bold text-gray-900 mb-6 text-passport-orange">Career Advancement</h2>
+        <h2 class="text-3xl font-bold text-gray-900 mb-6 text-passport-orange">Financial Education & Resources</h2>
         
         <div class="bg-orange-50 border-l-4 border-passport-orange p-6 mb-8 rounded-r-lg">
-          <h3 class="text-xl font-semibold text-gray-900 mb-3">Higher Earning Potential</h3>
+          <h3 class="text-xl font-semibold text-gray-900 mb-3">Access to Spanish Financial Knowledge</h3>
           <p class="text-gray-700 leading-relaxed">
-            Bilingual professionals often earn 5-20% more than their monolingual counterparts. Companies value employees who can communicate with Spanish-speaking clients, manage international projects, and help expand into Latin American markets. This language skill can be your competitive edge in salary negotiations and career advancement.
+            Knowledge of Spanish facilitates access to educational and financial resources available in this language, which is crucial for making informed decisions about investments, savings, and money management. Financial education is fundamental to avoiding costly mistakes and maximizing income returns, and many of the best financial resources and courses are available in Spanish.
           </p>
         </div>
 
@@ -184,10 +199,10 @@ const blogPosts = {
     readTime: '5 min read',
     category: 'Travel',
     author: 'Passport to Fluency Team',
-    heroImage: barcelonaImage,
+    heroImage: worldImage,
     content: `
       <div class="prose prose-lg max-w-none">
-        <img src="${barcelonaImage}" alt="Beautiful Barcelona architecture" class="w-full h-64 md:h-96 object-cover rounded-2xl mb-8" />
+        <img src="${worldImage}" alt="Beautiful Barcelona architecture" class="w-full h-64 md:h-96 object-cover rounded-2xl mb-8" />
         
         <p class="text-xl text-gray-700 mb-8 leading-relaxed">
           Barcelona, a dynamic city located on the Mediterranean coast of Spain, is a fascinating destination that combines a rich history, impressive architecture, and a vibrant cultural scene. In this article, we will explore the unique charms of Barcelona and how learning Spanish can enrich your experience when visiting this incredible city.
@@ -236,10 +251,10 @@ const blogPosts = {
     readTime: '4 min read',
     category: 'Culture',
     author: 'Passport to Fluency Team',
-    heroImage: salsaCultureImage,
+    heroImage: passportImage,
     content: `
       <div class="prose prose-lg max-w-none">
-        <img src="${salsaCultureImage}" alt="Salsa dancing culture" class="w-full h-64 md:h-96 object-cover rounded-2xl mb-8" />
+        <img src="${passportImage}" alt="Salsa dancing culture" class="w-full h-64 md:h-96 object-cover rounded-2xl mb-8" />
         
         <p class="text-xl text-gray-700 mb-8 leading-relaxed">
           Salsa is much more than a music genre and a dance form; it is a cultural expression that encapsulates the passion, joy, and vibrant rhythm of the Latin community. In this article, we will explore the history and significance of salsa, and how learning Spanish can further enrich the experience of immersing oneself in this exciting culture.
@@ -288,10 +303,10 @@ const blogPosts = {
     readTime: '6 min read',
     category: 'Travel',
     author: 'Passport to Fluency Team',
-    heroImage: travelPhrasesImage,
+    heroImage: worldImage,
     content: `
       <div class="prose prose-lg max-w-none">
-        <img src="${travelPhrasesImage}" alt="Spanish travel phrases" class="w-full h-64 md:h-96 object-cover rounded-2xl mb-8" />
+        <img src="${worldImage}" alt="Spanish travel phrases" class="w-full h-64 md:h-96 object-cover rounded-2xl mb-8" />
         
         <p class="text-xl text-gray-700 mb-8 leading-relaxed">
           Are you planning an exciting trip to a Spanish-speaking country? Whether you're strolling through the colorful streets of Barcelona or exploring the ancient ruins of Machu Picchu, having a basic understanding of Spanish can greatly enhance your travel experience. In this guide, we'll share 15 essential Spanish phrases for travelers, designed to help you navigate Spanish-speaking countries with ease and confidence.
@@ -378,10 +393,10 @@ const blogPosts = {
     readTime: '5 min read',
     category: 'Learning Tips',
     author: 'Passport to Fluency Team',
-    heroImage: independentLearningImage,
+    heroImage: passportImage,
     content: `
       <div class="prose prose-lg max-w-none">
-        <img src="${independentLearningImage}" alt="Learning Spanish independently" class="w-full h-64 md:h-96 object-cover rounded-2xl mb-8" />
+        <img src="${passportImage}" alt="Learning Spanish independently" class="w-full h-64 md:h-96 object-cover rounded-2xl mb-8" />
         
         <p class="text-xl text-gray-700 mb-8 leading-relaxed">
           Indeed, even with a bustling schedule and a limited budget, learning and practicing Spanish all alone is not at all impossible. Here are six practical hacks that will help you make progress in your Spanish learning journey, no matter how busy or budget-conscious you are.
@@ -454,10 +469,10 @@ const blogPosts = {
     readTime: '4 min read',
     category: 'Learning Tips',
     author: 'Passport to Fluency Team',
-    heroImage: fastLearningImage,
+    heroImage: worldImage,
     content: `
       <div class="prose prose-lg max-w-none">
-        <img src="${fastLearningImage}" alt="Quick Spanish learning methods" class="w-full h-64 md:h-96 object-cover rounded-2xl mb-8" />
+        <img src="${worldImage}" alt="Quick Spanish learning methods" class="w-full h-64 md:h-96 object-cover rounded-2xl mb-8" />
         
         <p class="text-xl text-gray-700 mb-8 leading-relaxed">
           You have a good job in Spain or any Spanish-speaking country, and one of the major issues you are encountering is the fastest way to learn Spanish. Lucky for you, you can be fluent in Spanish in record time, as we are here with the easiest way to learn Spanish. Without further ado, let's dive in to learn Spanish effectively.
@@ -545,10 +560,10 @@ const blogPosts = {
     readTime: '6 min read',
     category: 'Education',
     author: 'Passport to Fluency Team',
-    heroImage: bilingualBenefitsImage,
+    heroImage: passportImage,
     content: `
       <div class="prose prose-lg max-w-none">
-        <img src="${bilingualBenefitsImage}" alt="Benefits of learning Spanish" class="w-full h-64 md:h-96 object-cover rounded-2xl mb-8" />
+        <img src="${passportImage}" alt="Benefits of learning Spanish" class="w-full h-64 md:h-96 object-cover rounded-2xl mb-8" />
         
         <p class="text-xl text-gray-700 mb-8 leading-relaxed">
           If you are looking to get into a Spanish-speaking country or living in an area where Spanish is widely spoken, then it becomes crucial for you to learn Spanish within a short period of time! Let us explore some straight facts about the importance of learning Spanish and why it's important for you today to be fluent in the Spanish language.
@@ -633,15 +648,13 @@ const blogPosts = {
 export default function BlogPost() {
   const params = useParams();
   const postId = params.id;
-  
-  const post = blogPosts[postId as keyof typeof blogPosts];
-  
+  const post = postId ? blogPosts[postId as keyof typeof blogPosts] : null;
+
   if (!post) {
     return (
       <div className="min-h-screen bg-white flex items-center justify-center">
         <div className="text-center">
-          <h1 className="text-4xl font-bold text-gray-900 mb-4">Article Not Found</h1>
-          <p className="text-xl text-gray-600 mb-8">The article you're looking for doesn't exist.</p>
+          <h1 className="text-4xl font-bold text-gray-900 mb-4">Post Not Found</h1>
           <Link href="/blog">
             <Button className="bg-passport-blue hover:bg-blue-700 text-white">
               Back to Blog
@@ -676,31 +689,30 @@ export default function BlogPost() {
         </div>
       </header>
 
-      {/* Article Content */}
+      {/* Article */}
       <article className="py-8 md:py-12">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto">
-            {/* Breadcrumb */}
-            <nav className="mb-8">
-              <Link href="/blog" className="text-passport-blue hover:underline flex items-center">
+            
+            {/* Back to Blog */}
+            <Link href="/blog">
+              <button className="flex items-center text-passport-blue hover:text-blue-700 mb-8 transition-colors">
                 <ArrowLeft className="w-4 h-4 mr-2" />
                 Back to Blog
-              </Link>
-            </nav>
+              </button>
+            </Link>
 
             {/* Article Header */}
             <header className="mb-8">
-              <div className="flex items-center space-x-4 text-sm text-gray-600 mb-4">
-                <span className="bg-passport-blue/10 text-passport-blue px-3 py-1 rounded-full font-medium">
+              <div className="flex items-center mb-4">
+                <span className="bg-passport-blue text-white px-3 py-1 rounded-full text-sm font-medium mr-4">
                   {post.category}
                 </span>
-                <div className="flex items-center">
-                  <Calendar className="w-4 h-4 mr-1" />
-                  {post.date}
-                </div>
-                <div className="flex items-center">
-                  <Clock className="w-4 h-4 mr-1" />
-                  {post.readTime}
+                <div className="flex items-center text-gray-500 text-sm">
+                  <Calendar className="w-4 h-4 mr-2" />
+                  <span className="mr-4">{new Date(post.date).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}</span>
+                  <Clock className="w-4 h-4 mr-2" />
+                  <span>{post.readTime}</span>
                 </div>
               </div>
               
@@ -708,69 +720,105 @@ export default function BlogPost() {
                 {post.title}
               </h1>
               
-              <p className="text-xl text-gray-700 mb-6">
+              <p className="text-xl text-gray-600 mb-6">
                 {post.subtitle}
               </p>
               
-              <div className="flex items-center justify-between">
+              <div className="flex items-center justify-between py-6 border-t border-b border-gray-200">
                 <div className="flex items-center">
                   <div className="w-10 h-10 bg-passport-blue rounded-full flex items-center justify-center mr-3">
-                    <Users className="w-5 h-5 text-white" />
+                    <span className="text-white font-semibold">PT</span>
                   </div>
                   <div>
                     <p className="font-medium text-gray-900">{post.author}</p>
-                    <p className="text-sm text-gray-600">Language Learning Experts</p>
+                    <p className="text-sm text-gray-500">Language Learning Experts</p>
                   </div>
                 </div>
                 
-                <Button variant="outline" size="sm" className="flex items-center">
+                <button className="flex items-center text-gray-500 hover:text-passport-blue transition-colors">
                   <Share2 className="w-4 h-4 mr-2" />
                   Share
-                </Button>
+                </button>
               </div>
             </header>
 
-            {/* Hero Image */}
-            <div className="mb-8">
-              <img 
-                src={post.heroImage} 
-                alt={post.title}
-                className="w-full h-64 md:h-96 object-cover rounded-2xl"
-              />
-            </div>
-
             {/* Article Content */}
             <div 
-              className="prose prose-lg max-w-none"
+              className="prose prose-lg max-w-none mb-12"
               dangerouslySetInnerHTML={{ __html: post.content }}
             />
 
             {/* Call to Action */}
-            <div className="mt-12 p-8 bg-gradient-to-r from-passport-blue/10 to-passport-orange/10 rounded-2xl">
+            <div className="bg-gradient-to-r from-passport-blue to-passport-orange rounded-2xl p-8 md:p-12 text-center text-white mb-12">
+              <h3 className="text-2xl md:text-3xl font-bold mb-4">
+                Ready to Give Your Child the Gift of Spanish?
+              </h3>
+              <p className="text-lg mb-8 opacity-90 max-w-2xl mx-auto">
+                Join thousands of families who have chosen Passport to Fluency for their children's Spanish learning journey. Start with a free trial class today.
+              </p>
+              
+              <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                <Link href="/en">
+                  <Button className="bg-white text-passport-blue hover:bg-gray-100 px-8 py-3 font-semibold flex items-center">
+                    <Users className="w-5 h-5 mr-2" />
+                    Book Free Spanish Class
+                  </Button>
+                </Link>
+                <Link href="/en#spanish-for-children">
+                  <Button className="bg-transparent border-2 border-white text-white hover:bg-white hover:text-passport-blue px-8 py-3 font-semibold flex items-center">
+                    <Star className="w-5 h-5 mr-2" />
+                    Kids Spanish Program
+                  </Button>
+                </Link>
+              </div>
+            </div>
+
+            {/* Navigation */}
+            <div className="flex justify-between items-center py-8 border-t border-gray-200">
+              <Link href="/blog">
+                <button className="flex items-center text-passport-blue hover:text-blue-700 transition-colors">
+                  <ArrowLeft className="w-4 h-4 mr-2" />
+                  All Articles
+                </button>
+              </Link>
+              
               <div className="text-center">
-                <h3 className="text-2xl font-bold text-gray-900 mb-4">
-                  Ready to Start Your Spanish Journey?
-                </h3>
-                <p className="text-lg text-gray-700 mb-6">
-                  Join thousands of students who have transformed their lives through Spanish fluency with Passport to Fluency.
-                </p>
-                <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                  <Link href="/es/pricing">
-                    <Button className="bg-passport-blue hover:bg-blue-700 text-white">
-                      View Our Plans
-                    </Button>
-                  </Link>
-                  <Link href="/es">
-                    <Button variant="outline" className="border-passport-blue text-passport-blue hover:bg-passport-blue/10">
-                      Learn More
-                    </Button>
-                  </Link>
-                </div>
+                <p className="text-gray-500 text-sm">More articles coming soon</p>
+              </div>
+              
+              <div className="text-gray-400">
+                <ArrowRight className="w-4 h-4" />
               </div>
             </div>
           </div>
         </div>
       </article>
+
+      {/* Background decorations */}
+      <div className="absolute top-20 right-8 opacity-5 z-0 hidden lg:block">
+        <img 
+          src={worldImage} 
+          alt="" 
+          className="w-32 h-32 object-contain transform rotate-12 rounded-3xl"
+        />
+      </div>
+
+      {/* Footer */}
+      <footer className="bg-gray-900 text-white py-12">
+        <div className="container mx-auto px-4">
+          <div className="text-center">
+            <Link href="/">
+              <img src={passportLogo} alt="Passport to Fluency" className="h-10 brightness-0 invert mx-auto mb-4" />
+            </Link>
+            <p className="text-gray-400 mb-4">
+              Expert language learning insights and proven strategies for Spanish and English learners.
+            </p>
+            <div className="text-center text-gray-400">
+              <p>&copy; 2025 Passport2Fluency. All rights reserved.</p>
+            </div>
+          </div>
+        </div>
+      </footer>
     </div>
   );
 }
