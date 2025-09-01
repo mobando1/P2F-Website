@@ -677,7 +677,7 @@ export default function Landing() {
                 <div className="w-6 h-6 md:w-7 md:h-7 rounded-full flex items-center justify-center mb-3 md:mb-4" style={{background: 'linear-gradient(135deg, #0A4A6E, #1C7BB1)'}}>
                   <Users className="w-3 h-3 md:w-3.5 md:h-3.5 text-white" />
                 </div>
-                <div className="text-2xl md:text-3xl lg:text-4xl font-black mb-2" style={{color: '#0A4A6E'}}>500+</div>
+                <div className="text-xl md:text-2xl lg:text-3xl font-black mb-2" style={{color: '#0A4A6E'}}>500+</div>
                 <div className="text-xs md:text-xs text-gray-600 font-medium">{t.stat1}</div>
               </div>
               
@@ -686,7 +686,7 @@ export default function Landing() {
                 <div className="w-6 h-6 md:w-7 md:h-7 rounded-full flex items-center justify-center mb-3 md:mb-4" style={{background: 'linear-gradient(135deg, #F59E1C, #fbbf24)'}}>
                   <CheckCircle className="w-3 h-3 md:w-3.5 md:h-3.5 text-white" />
                 </div>
-                <div className="text-2xl md:text-3xl lg:text-4xl font-black mb-2" style={{color: '#F59E1C'}}>100K+</div>
+                <div className="text-xl md:text-2xl lg:text-3xl font-black mb-2" style={{color: '#F59E1C'}}>100K+</div>
                 <div className="text-xs md:text-xs text-gray-600 font-medium">{t.stat2}</div>
               </div>
               
@@ -695,7 +695,7 @@ export default function Landing() {
                 <div className="w-6 h-6 md:w-7 md:h-7 rounded-full flex items-center justify-center mb-3 md:mb-4" style={{background: 'linear-gradient(135deg, #0A4A6E, #1C7BB1)'}}>
                   <Globe className="w-3 h-3 md:w-3.5 md:h-3.5 text-white" />
                 </div>
-                <div className="text-2xl md:text-3xl lg:text-4xl font-black mb-2" style={{color: '#0A4A6E'}}>EN-ES</div>
+                <div className="text-xl md:text-2xl lg:text-3xl font-black mb-2" style={{color: '#0A4A6E'}}>EN-ES</div>
                 <div className="text-xs md:text-xs text-gray-600 font-medium">{t.stat3}</div>
               </div>
               
@@ -704,7 +704,7 @@ export default function Landing() {
                 <div className="w-6 h-6 md:w-7 md:h-7 rounded-full flex items-center justify-center mb-3 md:mb-4" style={{background: 'linear-gradient(135deg, #F59E1C, #fbbf24)'}}>
                   <Star className="w-3 h-3 md:w-3.5 md:h-3.5 text-white fill-current" />
                 </div>
-                <div className="text-2xl md:text-3xl lg:text-4xl font-black mb-2" style={{color: '#F59E1C'}}>4.9</div>
+                <div className="text-xl md:text-2xl lg:text-3xl font-black mb-2" style={{color: '#F59E1C'}}>4.9</div>
                 <div className="text-xs md:text-xs text-gray-600 font-medium">{t.stat4}</div>
               </div>
             </div>
