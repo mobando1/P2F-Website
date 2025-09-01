@@ -7,7 +7,7 @@ import familyHeritageImage from '@assets/generated_images/Family_cultural_herita
 import businessSuccessImage from '@assets/generated_images/Business_financial_success_bilingual_93661f06.png';
 import barcelonaImage from '@assets/generated_images/Barcelona_travel_cultural_exploration_1ff52e01.png';
 import salsaCultureImage from '@assets/generated_images/Salsa_dancing_cultural_expression_1d332aa2.png';
-import travelPhrasesImage from '@assets/generated_images/Travel_Spanish_communication_phrases_e3ec1049.png';
+import travelPhrasesImage from '@assets/generated_images/Travel_Spanish_phrases_corrected_text_bb02b0ef.png';
 import independentLearningImage from '@assets/generated_images/Independent_Spanish_learning_methods_2fa8b756.png';
 import fastLearningImage from '@assets/generated_images/Fast_Spanish_learning_progress_d03b3343.png';
 import bilingualBenefitsImage from '@assets/generated_images/Hidden_benefits_bilingual_advantages_a26ab52f.png';
