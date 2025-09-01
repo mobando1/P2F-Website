@@ -175,12 +175,11 @@ const EmailPopup = ({
 }) => {
   const [isVisible, setIsVisible] = useState(false);
   const [isClosing, setIsClosing] = useState(false);
-  const [isFullyLoaded, setIsFullyLoaded] = useState(false);
 
   // Inicializar popup cuando se cumplen las condiciones
   useEffect(() => {
     if (showInitial || showOnLanguageChange) {
-      // Primero asegurar que el script esté disponible
+      // Asegurar que el script esté disponible sin afectar el estado
       const ensureScriptLoaded = () => {
         const existingScript = document.querySelector('script[src="https://link.msgsndr.com/js/form_embed.js"]');
         if (!existingScript) {
@@ -189,17 +188,16 @@ const EmailPopup = ({
           script.async = true;
           script.onload = () => {
             console.log('HighLevel form script loaded');
-            setIsFullyLoaded(true);
           };
           document.body.appendChild(script);
-        } else {
-          setIsFullyLoaded(true);
         }
       };
 
+      // Cargar script inmediatamente
+      ensureScriptLoaded();
+      
       // Mostrar popup después de 7 segundos
       const timer = setTimeout(() => {
-        ensureScriptLoaded();
         setIsVisible(true);
       }, 7000);
 
@@ -241,13 +239,13 @@ const EmailPopup = ({
 
   return (
     <div className={`fixed inset-0 z-50 flex items-center justify-center p-4 ${
-      isClosing ? 'animate-out fade-out zoom-out-95 duration-500' : 'animate-in fade-in zoom-in-95 duration-500'
+      isClosing ? 'animate-out fade-out zoom-out-95 duration-500' : 'animate-in fade-in zoom-in-95 duration-700'
     }`}>
       {/* Overlay */}
       <div 
         className={`absolute inset-0 bg-black ${
           isClosing ? 'opacity-0' : 'opacity-50'
-        } transition-opacity duration-500`}
+        } transition-opacity duration-700`}
         onClick={handleClose}
       />
       
