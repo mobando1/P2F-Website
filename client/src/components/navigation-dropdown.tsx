@@ -28,19 +28,19 @@ export default function NavigationDropdown({ language, currentPath }: Navigation
   const basePath = language === 'en' ? '/es' : '/en';
   
   const dropdownItems = language === 'en' ? [
-    { label: content.adultSpanish, href: `${basePath}` },
+    { label: content.adultSpanish, href: `${basePath}/adults` },
     { label: content.childrenSpanish, href: `${basePath}/children` },
     { label: content.businessSpanish, href: `${basePath}/business` }
   ] : [
-    { label: content.adultEnglish, href: `${basePath}` },
+    { label: content.adultEnglish, href: `${basePath}/adults` },
     { label: content.childrenEnglish, href: `${basePath}/children` },
     { label: content.businessEnglish, href: `${basePath}/business` }
   ];
 
   const isActive = currentPath && typeof currentPath === 'string' && (
+    currentPath.includes('/adults') ||
     currentPath.includes('/children') || 
-    currentPath.includes('/business') || 
-    currentPath === basePath
+    currentPath.includes('/business')
   );
 
   const handleMouseEnter = () => {
