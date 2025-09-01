@@ -86,6 +86,16 @@ export default function BlogMain() {
       category: 'Learning Tips',
       image: worldImage,
       featured: false
+    },
+    {
+      id: '5-secret-benefits-of-learning-spanish',
+      title: '5 Secret Benefits of Learning Spanish',
+      excerpt: 'Discover the hidden advantages of becoming bilingual in Spanish that go beyond basic communication. From enhanced analytical skills to unique career opportunities.',
+      date: '2024-11-05',
+      readTime: '6 min read',
+      category: 'Education',
+      image: passportImage,
+      featured: false
     }
   ];
 
