@@ -865,7 +865,7 @@ export default function Landing() {
                   <div>
                     <h4 className="font-bold" style={{color: '#0A4A6E'}}>{testimonial.name}</h4>
                     <p className="text-sm text-gray-600">{testimonial.country}</p>
-                    <p className="text-xs font-medium px-2 py-1 rounded-full bg-blue-100 text-blue-700 inline-block mt-1">
+                    <p className="text-xs font-medium text-gray-500 italic mt-1">
                       {testimonial.program}
                     </p>
                   </div>
