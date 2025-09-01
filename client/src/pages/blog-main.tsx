@@ -66,6 +66,16 @@ export default function BlogMain() {
       category: 'Travel',
       image: worldImage,
       featured: false
+    },
+    {
+      id: '6-quick-cheap-and-easy-hacks-to-learn-spanish-all-alone',
+      title: '6 Quick, Cheap and Easy Hacks to Learn Spanish All Alone',
+      excerpt: 'Even with a busy schedule and limited budget, learning Spanish on your own is possible. Discover 6 practical methods to practice Spanish anywhere, anytime.',
+      date: '2024-11-15',
+      readTime: '5 min read',
+      category: 'Learning Tips',
+      image: passportImage,
+      featured: false
     }
   ];
 
