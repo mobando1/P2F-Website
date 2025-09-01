@@ -7,6 +7,11 @@ import DiscountPopup from "@/components/discount-popup";
 import HighLevelCalendar from "@/components/highlevel-calendar";
 import passportLogo from "@assets/a1c5a1_9514ede9e3124d7a9adf78f5dcf07f28~mv2_1755803448396.png";
 import spanishClassImage from "@assets/generated_images/Virtual_Spanish_language_class_f68ba791.png";
+
+// Importar fotos de testimonios americanos
+import benPhoto from "@assets/generated_images/Ben_Northrop_profile_photo_3a56904e.png";
+import jaclynPhoto from "@assets/generated_images/Jaclyn_Blohm_profile_photo_a6995607.png";
+import rebeccaPhoto from "@assets/generated_images/Rebecca_Unrath_profile_photo_db7568cc.png";
 import { useLocation, Link } from "wouter";
 import NavigationDropdown from "@/components/navigation-dropdown";
 import { 
@@ -677,52 +682,88 @@ export default function SpanishSite() {
           <div className="max-w-6xl mx-auto grid md:grid-cols-3 gap-8">
             <Card className="bg-white">
               <CardContent className="p-6">
-                <div className="flex text-yellow-400 mb-4">
-                  <Star className="w-5 h-5 fill-current" />
-                  <Star className="w-5 h-5 fill-current" />
-                  <Star className="w-5 h-5 fill-current" />
-                  <Star className="w-5 h-5 fill-current" />
-                  <Star className="w-5 h-5 fill-current" />
+                <div className="flex items-center mb-4">
+                  <img 
+                    src={benPhoto} 
+                    alt="Ben Northrop"
+                    className="w-12 h-12 rounded-full object-cover mr-4"
+                  />
+                  <div>
+                    <div className="font-semibold text-gray-900">Ben Northrop</div>
+                    <div className="text-sm text-gray-600">🇺🇸 San Diego</div>
+                    <div className="text-xs font-medium text-gray-500 italic mt-1">
+                      Español para Adultos
+                    </div>
+                  </div>
+                  <div className="ml-auto flex text-yellow-400">
+                    <Star className="w-4 h-4 fill-current" />
+                    <Star className="w-4 h-4 fill-current" />
+                    <Star className="w-4 h-4 fill-current" />
+                    <Star className="w-4 h-4 fill-current" />
+                    <Star className="w-4 h-4 fill-current" />
+                  </div>
                 </div>
-                <p className="text-gray-700 mb-4">
+                <p className="text-gray-700">
                   "I decided to learn Spanish because most of my friends were from all over South America. When we would go out salsa dancing, everyone was speaking Spanish, and I wanted to join in! Passport2Fluency personalizes lessons for my specific needs!"
                 </p>
-                <div className="font-semibold text-gray-900">Ben Northrop</div>
-                <div className="text-sm text-gray-600">Professional, San Diego</div>
               </CardContent>
             </Card>
 
             <Card className="bg-white">
               <CardContent className="p-6">
-                <div className="flex text-yellow-400 mb-4">
-                  <Star className="w-5 h-5 fill-current" />
-                  <Star className="w-5 h-5 fill-current" />
-                  <Star className="w-5 h-5 fill-current" />
-                  <Star className="w-5 h-5 fill-current" />
-                  <Star className="w-5 h-5 fill-current" />
+                <div className="flex items-center mb-4">
+                  <img 
+                    src={jaclynPhoto} 
+                    alt="Jaclyn Blohm"
+                    className="w-12 h-12 rounded-full object-cover mr-4"
+                  />
+                  <div>
+                    <div className="font-semibold text-gray-900">Jaclyn Blohm</div>
+                    <div className="text-sm text-gray-600">🇺🇸 Corpus Christi</div>
+                    <div className="text-xs font-medium text-gray-500 italic mt-1">
+                      Español Intensivo
+                    </div>
+                  </div>
+                  <div className="ml-auto flex text-yellow-400">
+                    <Star className="w-4 h-4 fill-current" />
+                    <Star className="w-4 h-4 fill-current" />
+                    <Star className="w-4 h-4 fill-current" />
+                    <Star className="w-4 h-4 fill-current" />
+                    <Star className="w-4 h-4 fill-current" />
+                  </div>
                 </div>
-                <p className="text-gray-700 mb-4">
+                <p className="text-gray-700">
                   "I wanted to improve my Spanish to communicate with my family members and for travel. I chose Passport2fluency because I needed something virtual. My wonderful instructor Valentina makes things clear and sets me up for success!"
                 </p>
-                <div className="font-semibold text-gray-900">Jaclyn Blohm</div>
-                <div className="text-sm text-gray-600">Business Owner, Corpus Christi</div>
               </CardContent>
             </Card>
 
             <Card className="bg-white">
               <CardContent className="p-6">
-                <div className="flex text-yellow-400 mb-4">
-                  <Star className="w-5 h-5 fill-current" />
-                  <Star className="w-5 h-5 fill-current" />
-                  <Star className="w-5 h-5 fill-current" />
-                  <Star className="w-5 h-5 fill-current" />
-                  <Star className="w-5 h-5 fill-current" />
+                <div className="flex items-center mb-4">
+                  <img 
+                    src={rebeccaPhoto} 
+                    alt="Rebecca Unrath"
+                    className="w-12 h-12 rounded-full object-cover mr-4"
+                  />
+                  <div>
+                    <div className="font-semibold text-gray-900">Rebecca Unrath</div>
+                    <div className="text-sm text-gray-600">🇺🇸 New Jersey</div>
+                    <div className="text-xs font-medium text-gray-500 italic mt-1">
+                      Español para Niños
+                    </div>
+                  </div>
+                  <div className="ml-auto flex text-yellow-400">
+                    <Star className="w-4 h-4 fill-current" />
+                    <Star className="w-4 h-4 fill-current" />
+                    <Star className="w-4 h-4 fill-current" />
+                    <Star className="w-4 h-4 fill-current" />
+                    <Star className="w-4 h-4 fill-current" />
+                  </div>
                 </div>
-                <p className="text-gray-700 mb-4">
+                <p className="text-gray-700">
                   "As a parent with Argentine and Cuban heritage, it was important that my twins maintain a strong connection to their roots and learn Spanish fluently. The interactive lessons and culturally relevant content have truly captivated my kids' interest."
                 </p>
-                <div className="font-semibold text-gray-900">Rebecca Unrath</div>
-                <div className="text-sm text-gray-600">Mother, New Jersey</div>
               </CardContent>
             </Card>
           </div>

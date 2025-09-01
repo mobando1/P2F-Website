@@ -7,6 +7,11 @@ import DiscountPopup from "@/components/discount-popup";
 import HighLevelCalendar from "@/components/highlevel-calendar";
 import passportLogo from "@assets/a1c5a1_9514ede9e3124d7a9adf78f5dcf07f28~mv2_1755803448396.png";
 import englishClassImage from "@assets/generated_images/Virtual_English_language_class_a7fc49c2.png";
+
+// Importar fotos de testimonios latinos
+import mariaPhoto from "@assets/generated_images/María_González_profile_photo_452eb39f.png";
+import carlosPhoto from "@assets/generated_images/Carlos_Mendoza_profile_photo_e93c28e4.png";
+import anaPhoto from "@assets/generated_images/Ana_Rodriguez_profile_photo_f1c9b450.png";
 import { useLocation, Link } from "wouter";
 import NavigationDropdown from "@/components/navigation-dropdown";
 import { 
@@ -868,52 +873,88 @@ export default function EnglishSite() {
           <div className="max-w-6xl mx-auto grid md:grid-cols-3 gap-8">
             <Card className="bg-white">
               <CardContent className="p-6">
-                <div className="flex text-yellow-400 mb-4">
-                  <Star className="w-5 h-5 fill-current" />
-                  <Star className="w-5 h-5 fill-current" />
-                  <Star className="w-5 h-5 fill-current" />
-                  <Star className="w-5 h-5 fill-current" />
-                  <Star className="w-5 h-5 fill-current" />
+                <div className="flex items-center mb-4">
+                  <img 
+                    src={mariaPhoto} 
+                    alt="María González"
+                    className="w-12 h-12 rounded-full object-cover mr-4"
+                  />
+                  <div>
+                    <div className="font-semibold text-gray-900">María González</div>
+                    <div className="text-sm text-gray-600">🇲🇽 Ciudad de México</div>
+                    <div className="text-xs font-medium text-gray-500 italic mt-1">
+                      Inglés para Adultos
+                    </div>
+                  </div>
+                  <div className="ml-auto flex text-yellow-400">
+                    <Star className="w-4 h-4 fill-current" />
+                    <Star className="w-4 h-4 fill-current" />
+                    <Star className="w-4 h-4 fill-current" />
+                    <Star className="w-4 h-4 fill-current" />
+                    <Star className="w-4 h-4 fill-current" />
+                  </div>
                 </div>
-                <p className="text-gray-700 mb-4">
+                <p className="text-gray-700">
                   "Necesitaba mejorar mi inglés para avanzar en mi carrera. Con Passport2Fluency, mi confianza al hablar inglés mejoró increíblemente en solo 3 meses. ¡Ahora puedo participar en reuniones internacionales sin problemas!"
                 </p>
-                <div className="font-semibold text-gray-900">María González</div>
-                <div className="text-sm text-gray-600">Ingeniera, Ciudad de México</div>
               </CardContent>
             </Card>
 
             <Card className="bg-white">
               <CardContent className="p-6">
-                <div className="flex text-yellow-400 mb-4">
-                  <Star className="w-5 h-5 fill-current" />
-                  <Star className="w-5 h-5 fill-current" />
-                  <Star className="w-5 h-5 fill-current" />
-                  <Star className="w-5 h-5 fill-current" />
-                  <Star className="w-5 h-5 fill-current" />
+                <div className="flex items-center mb-4">
+                  <img 
+                    src={anaPhoto} 
+                    alt="Ana Rodríguez"
+                    className="w-12 h-12 rounded-full object-cover mr-4"
+                  />
+                  <div>
+                    <div className="font-semibold text-gray-900">Ana Rodríguez</div>
+                    <div className="text-sm text-gray-600">🇦🇷 Los Angeles</div>
+                    <div className="text-xs font-medium text-gray-500 italic mt-1">
+                      Inglés para Niños
+                    </div>
+                  </div>
+                  <div className="ml-auto flex text-yellow-400">
+                    <Star className="w-4 h-4 fill-current" />
+                    <Star className="w-4 h-4 fill-current" />
+                    <Star className="w-4 h-4 fill-current" />
+                    <Star className="w-4 h-4 fill-current" />
+                    <Star className="w-4 h-4 fill-current" />
+                  </div>
                 </div>
-                <p className="text-gray-700 mb-4">
+                <p className="text-gray-700">
                   "Mis hijos estudian en una escuela bilingüe y yo no podía ayudarlos con sus tareas en inglés. Después de 6 meses con Passport2Fluency, ahora puedo ayudarlos y hasta leer cuentos en inglés. ¡Es increíble!"
                 </p>
-                <div className="font-semibold text-gray-900">Ana Rodríguez</div>
-                <div className="text-sm text-gray-600">Madre, Los Angeles</div>
               </CardContent>
             </Card>
 
             <Card className="bg-white">
               <CardContent className="p-6">
-                <div className="flex text-yellow-400 mb-4">
-                  <Star className="w-5 h-5 fill-current" />
-                  <Star className="w-5 h-5 fill-current" />
-                  <Star className="w-5 h-5 fill-current" />
-                  <Star className="w-5 h-5 fill-current" />
-                  <Star className="w-5 h-5 fill-current" />
+                <div className="flex items-center mb-4">
+                  <img 
+                    src={carlosPhoto} 
+                    alt="Carlos Mendoza"
+                    className="w-12 h-12 rounded-full object-cover mr-4"
+                  />
+                  <div>
+                    <div className="font-semibold text-gray-900">Carlos Mendoza</div>
+                    <div className="text-sm text-gray-600">🇨🇴 Phoenix</div>
+                    <div className="text-xs font-medium text-gray-500 italic mt-1">
+                      Inglés Intensivo
+                    </div>
+                  </div>
+                  <div className="ml-auto flex text-yellow-400">
+                    <Star className="w-4 h-4 fill-current" />
+                    <Star className="w-4 h-4 fill-current" />
+                    <Star className="w-4 h-4 fill-current" />
+                    <Star className="w-4 h-4 fill-current" />
+                    <Star className="w-4 h-4 fill-current" />
+                  </div>
                 </div>
-                <p className="text-gray-700 mb-4">
+                <p className="text-gray-700">
                   "Tengo un restaurante y muchos clientes hablan inglés. Antes perdía ventas porque no podía comunicarme bien. Ahora, después de estudiar con Passport2Fluency, mis ventas han aumentado 40% ¡y tengo más confianza!"
                 </p>
-                <div className="font-semibold text-gray-900">Carlos Mendoza</div>
-                <div className="text-sm text-gray-600">Empresario, Phoenix</div>
               </CardContent>
             </Card>
           </div>
