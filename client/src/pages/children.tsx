@@ -7,6 +7,10 @@ import HighLevelCalendar from "@/components/highlevel-calendar";
 import passportLogo from "@assets/a1c5a1_9514ede9e3124d7a9adf78f5dcf07f28~mv2_1755803448396.png";
 import calendarIcon from "@assets/generated_images/Calendar_icon_white_background_1a7f669e.png";
 import rebeccaPhoto from "@assets/WhatsApp Image Jul 4 2023 from Passport2Fluency (1)_1756923954354.jpeg";
+import bookIcon from "@assets/generated_images/Cartoon_educational_book_icon_6e4a85c7.png";
+import toysIcon from "@assets/generated_images/Cartoon_educational_toys_icon_dceed503.png";
+import teacherIcon from "@assets/generated_images/Cartoon_friendly_teacher_icon_776e2c55.png";
+import cultureIcon from "@assets/generated_images/Cartoon_cultural_connection_icon_cb9b9c82.png";
 import { Link } from "wouter";
 
 interface ChildrenProps {
@@ -166,15 +170,37 @@ export default function Children({ language }: ChildrenProps) {
               </div>
 
               <ul className="space-y-4 mb-8">
-                {content.features.map((feature, index) => (
-                  <li key={index} className="flex items-start">
-                    <CheckCircle className="w-6 h-6 text-green-500 mr-3 mt-1 flex-shrink-0" />
-                    <div>
-                      <h4 className="font-semibold text-gray-900">{feature.title}</h4>
-                      <p className="text-gray-600">{feature.description}</p>
-                    </div>
-                  </li>
-                ))}
+                {content.features.map((feature, index) => {
+                  // Map each feature to its corresponding cartoon icon
+                  const getFeatureIcon = (title: string) => {
+                    if (title.includes('Age-Appropriate') || title.includes('Plan de Estudios')) {
+                      return bookIcon;
+                    } else if (title.includes('Games') || title.includes('Juegos')) {
+                      return toysIcon;
+                    } else if (title.includes('Instructors') || title.includes('Instructores')) {
+                      return teacherIcon;
+                    } else if (title.includes('Cultural') || title.includes('Conexión')) {
+                      return cultureIcon;
+                    }
+                    return bookIcon; // fallback
+                  };
+
+                  return (
+                    <li key={index} className="flex items-start">
+                      <div className="w-8 h-8 mr-3 mt-1 flex-shrink-0">
+                        <img 
+                          src={getFeatureIcon(feature.title)} 
+                          alt={feature.title}
+                          className="w-full h-full object-contain"
+                        />
+                      </div>
+                      <div>
+                        <h4 className="font-semibold text-gray-900">{feature.title}</h4>
+                        <p className="text-gray-600">{feature.description}</p>
+                      </div>
+                    </li>
+                  );
+                })}
               </ul>
 
               <Button 
