@@ -213,6 +213,35 @@ export default function Children({ language }: ChildrenProps) {
         </div>
       </section>
 
+      {/* Calendar Booking Section */}
+      <section id="booking" className="py-20 bg-white">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-12">
+            <h2 className="text-4xl font-bold text-gray-900 mb-4">
+              {language === 'en' 
+                ? 'Schedule Your Child\'s Free Spanish Class' 
+                : 'Agenda la Clase Gratuita de Inglés para tu Hijo'
+              }
+            </h2>
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+              {language === 'en'
+                ? 'Book a 40-minute trial session with our specialized children\'s instructors. No commitment required.'
+                : 'Reserva una sesión de prueba de 40 minutos con nuestros instructores especializados en niños. Sin compromiso requerido.'
+              }
+            </p>
+          </div>
+
+          <div className="max-w-4xl mx-auto">
+            <div className="bg-white rounded-2xl shadow-lg p-8">
+              <HighLevelCalendar 
+                type="child" 
+                language={language}
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Calendar Modal */}
       {showCalendar && (
         <div className="fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center p-4">
