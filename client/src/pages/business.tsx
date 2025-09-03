@@ -5,7 +5,7 @@ import { CheckCircle, Users, Building, Star } from "lucide-react";
 import NavigationDropdown from "@/components/navigation-dropdown";
 import HighLevelCalendar from "@/components/highlevel-calendar";
 import passportLogo from "@assets/a1c5a1_9514ede9e3124d7a9adf78f5dcf07f28~mv2_1755803448396.png";
-import briefcaseIcon from "@assets/generated_images/Cartoon_business_briefcase_icon_7da42ce2.png";
+import briefcaseIcon from "@assets/generated_images/Serious_brown_business_briefcase_5cc96a9a.png";
 import { Link } from "wouter";
 
 interface BusinessProps {
@@ -118,8 +118,7 @@ export default function Business({ language }: BusinessProps) {
                     <img 
                       src={briefcaseIcon} 
                       alt="Professional Business Briefcase" 
-                      className="w-full h-full object-contain animate-slide-in-left filter brightness-75 contrast-125 sepia-50"
-                      style={{filter: 'brightness(0.8) contrast(1.2) sepia(0.3) saturate(1.5) hue-rotate(20deg)'}}
+                      className="w-full h-full object-contain animate-slide-in-left"
                     />
                   </div>
                   <h2 className="text-2xl font-bold text-gray-900 mb-4">
