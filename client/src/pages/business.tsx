@@ -6,6 +6,7 @@ import NavigationDropdown from "@/components/navigation-dropdown";
 import HighLevelCalendar from "@/components/highlevel-calendar";
 import passportLogo from "@assets/a1c5a1_9514ede9e3124d7a9adf78f5dcf07f28~mv2_1755803448396.png";
 import briefcaseIcon from "@assets/generated_images/Serious_brown_business_briefcase_5cc96a9a.png";
+import michaelPhoto from "@assets/generated_images/Michael_Thompson_executive_headshot_ab0afc4c.png";
 import { Link } from "wouter";
 
 interface BusinessProps {
@@ -197,8 +198,21 @@ export default function Business({ language }: BusinessProps) {
                   <p className="text-lg text-gray-700 mb-6 italic">
                     "{content.successStory.text}"
                   </p>
-                  <div className="font-semibold text-gray-900">{content.successStory.name}</div>
-                  <div className="text-sm text-gray-600">{content.successStory.role}</div>
+                  <div className="flex items-center">
+                    {content.successStory.name === 'Michael Thompson' && (
+                      <div className="w-16 h-16 mr-4 flex-shrink-0">
+                        <img 
+                          src={michaelPhoto} 
+                          alt="Michael Thompson"
+                          className="w-full h-full object-cover rounded-full border-2 border-gray-200"
+                        />
+                      </div>
+                    )}
+                    <div>
+                      <div className="font-semibold text-gray-900">{content.successStory.name}</div>
+                      <div className="text-sm text-gray-600">{content.successStory.role}</div>
+                    </div>
+                  </div>
                 </div>
                 <div className="bg-gradient-to-br from-green-50 to-blue-50 rounded-xl p-6">
                   <h4 className="font-semibold text-gray-900 mb-4">
