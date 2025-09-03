@@ -144,16 +144,35 @@ export default function Children({ language }: ChildrenProps) {
       </nav>
 
       {/* Hero Section */}
-      <section className={`py-20 bg-gradient-to-b from-${colorScheme === 'orange' ? 'orange' : 'blue'}-50 to-white`}>
-        <div className="container mx-auto px-4">
+      <section className={`py-20 bg-gradient-to-b from-${colorScheme === 'orange' ? 'orange' : 'blue'}-50 to-white relative overflow-hidden`}>
+        <div className="container mx-auto px-4 relative z-20">
           <div className="text-center mb-16">
-            <h1 className="text-4xl font-bold text-gray-900 mb-4">
+            <h1 className="text-4xl font-bold text-gray-900 mb-4 relative z-30">
               {content.title}
             </h1>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto relative z-30">
               {content.subtitle}
             </p>
           </div>
+        </div>
+        
+        {/* Background Banner with Pixar Kids */}
+        <div className="absolute inset-0 z-10 flex items-center justify-center pointer-events-none">
+          <div className="w-full h-full max-w-6xl relative">
+            <img 
+              src={pixarLearningIcon} 
+              alt="Kids Learning Background"
+              className="w-full h-full object-contain opacity-15 scale-[2] animate-pulse"
+              style={{
+                filter: 'blur(2px)',
+                maskImage: 'radial-gradient(ellipse at center, rgba(0,0,0,0.8) 20%, rgba(0,0,0,0.4) 50%, rgba(0,0,0,0.1) 80%, rgba(0,0,0,0) 100%)',
+                WebkitMaskImage: 'radial-gradient(ellipse at center, rgba(0,0,0,0.8) 20%, rgba(0,0,0,0.4) 50%, rgba(0,0,0,0.1) 80%, rgba(0,0,0,0) 100%)'
+              }}
+            />
+          </div>
+        </div>
+        
+        <div className="container mx-auto px-4 relative z-20">
 
           <div className="max-w-6xl mx-auto grid lg:grid-cols-2 gap-12 items-center">
             {/* Content */}
