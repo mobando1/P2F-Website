@@ -5,6 +5,7 @@ import { CheckCircle, Star } from "lucide-react";
 import NavigationDropdown from "@/components/navigation-dropdown";
 import HighLevelCalendar from "@/components/highlevel-calendar";
 import passportLogo from "@assets/a1c5a1_9514ede9e3124d7a9adf78f5dcf07f28~mv2_1755803448396.png";
+import calendarIcon from "@assets/generated_images/Animated_cartoon_calendar_icon_551d7314.png";
 import { Link } from "wouter";
 
 interface ChildrenProps {
@@ -221,8 +222,12 @@ export default function Children({ language }: ChildrenProps) {
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
             <div className="flex items-center justify-center mb-6">
-              <div className={`w-16 h-16 bg-passport-${colorScheme === 'orange' ? 'orange' : 'blue'} rounded-full flex items-center justify-center`}>
-                <Star className="w-8 h-8 text-white" />
+              <div className="w-20 h-20 animate-bounce">
+                <img 
+                  src={calendarIcon} 
+                  alt="Calendario Animado" 
+                  className="w-full h-full object-contain"
+                />
               </div>
             </div>
             <h2 className="text-4xl font-bold text-gray-900 mb-4">
