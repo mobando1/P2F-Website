@@ -120,12 +120,12 @@ export default function Children({ language }: ChildrenProps) {
         <img 
           src={pixarLearningIcon} 
           alt="Kids Learning Background"
-          className="w-full h-full object-cover opacity-5"
+          className="w-full h-full object-cover opacity-15"
           style={{
-            filter: 'blur(3px)',
-            transform: 'scale(1.2)',
-            maskImage: 'radial-gradient(ellipse at center, rgba(0,0,0,0.3) 10%, rgba(0,0,0,0.15) 40%, rgba(0,0,0,0.05) 70%, rgba(0,0,0,0) 100%)',
-            WebkitMaskImage: 'radial-gradient(ellipse at center, rgba(0,0,0,0.3) 10%, rgba(0,0,0,0.15) 40%, rgba(0,0,0,0.05) 70%, rgba(0,0,0,0) 100%)'
+            filter: 'blur(2px)',
+            transform: 'scale(1.3)',
+            maskImage: 'radial-gradient(ellipse at center, rgba(0,0,0,0.5) 20%, rgba(0,0,0,0.3) 50%, rgba(0,0,0,0.1) 80%, rgba(0,0,0,0) 100%)',
+            WebkitMaskImage: 'radial-gradient(ellipse at center, rgba(0,0,0,0.5) 20%, rgba(0,0,0,0.3) 50%, rgba(0,0,0,0.1) 80%, rgba(0,0,0,0) 100%)'
           }}
         />
       </div>
