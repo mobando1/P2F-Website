@@ -153,8 +153,8 @@ export default function Business({ language }: BusinessProps) {
                     </h3>
                     <p className="text-sm text-gray-600">
                       {language === 'en' 
-                        ? 'Train your CEO and leaders to be better communicators' 
-                        : 'Entrena a tu CEO y líderes para ser mejores comunicadores'
+                        ? 'One-on-one Spanish classes for your executives and leaders' 
+                        : 'Clases de inglés uno-a-uno para tus ejecutivos y líderes'
                       }
                     </p>
                   </div>
@@ -176,8 +176,8 @@ export default function Business({ language }: BusinessProps) {
                     </h3>
                     <p className="text-sm text-gray-600">
                       {language === 'en' 
-                        ? 'Train your entire team for better business communication' 
-                        : 'Entrena a todo tu equipo para mejor comunicación empresarial'
+                        ? 'Group Spanish classes for your entire team or department' 
+                        : 'Clases grupales de inglés para todo tu equipo o departamento'
                       }
                     </p>
                   </div>
