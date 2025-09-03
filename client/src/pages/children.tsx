@@ -11,6 +11,7 @@ import bookIcon from "@assets/generated_images/Book_icon_solid_white_background_
 import toysIcon from "@assets/generated_images/Toys_icon_solid_white_background_e60ae0d8.png";
 import teacherIcon from "@assets/generated_images/Teacher_icon_solid_white_background_f311719a.png";
 import cultureIcon from "@assets/generated_images/Globe_icon_solid_white_background_1a61e293.png";
+import pixarLearningIcon from "@assets/generated_images/Pixar_style_learning_kids_icon_110edb05.png";
 import { Link } from "wouter";
 
 interface ChildrenProps {
@@ -158,8 +159,12 @@ export default function Children({ language }: ChildrenProps) {
             {/* Content */}
             <div>
               <div className="mb-8">
-                <div className={`w-16 h-16 bg-passport-${colorScheme === 'orange' ? 'orange' : 'blue'} rounded-full flex items-center justify-center mb-4`}>
-                  <Star className="w-8 h-8 text-white" />
+                <div className="w-16 h-16 mb-4 transform hover:scale-110 transition-transform duration-300">
+                  <img 
+                    src={pixarLearningIcon} 
+                    alt="Fun Interactive Learning"
+                    className="w-full h-full object-contain rounded-2xl"
+                  />
                 </div>
                 <h2 className="text-3xl font-bold text-gray-900 mb-4">
                   {content.mainTitle}
