@@ -15,7 +15,10 @@ export default function Children({ language }: ChildrenProps) {
   const [showCalendar, setShowCalendar] = useState(false);
 
   const handleBookingClick = () => {
-    setShowCalendar(true);
+    const bookingSection = document.getElementById('booking');
+    if (bookingSection) {
+      bookingSection.scrollIntoView({ behavior: 'smooth' });
+    }
   };
 
   const content = language === 'en' ? {
