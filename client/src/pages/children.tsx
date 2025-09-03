@@ -196,7 +196,7 @@ export default function Children({ language }: ChildrenProps) {
                           <img 
                             src={getFeatureIcon(feature.title)} 
                             alt={feature.title}
-                            className="w-12 h-12 object-contain"
+                            className="w-16 h-16 object-contain"
                           />
                         </div>
                       </div>
