@@ -156,7 +156,7 @@ export default function Children({ language }: ChildrenProps) {
       </nav>
 
       {/* Hero Section */}
-      <section className={`py-20 pb-0 bg-gradient-to-b from-${colorScheme === 'orange' ? 'orange' : 'blue'}-50/80 via-white/60 to-transparent relative`} style={{ zIndex: 10 }}>
+      <section className={`py-20 pb-32 bg-gradient-to-b from-${colorScheme === 'orange' ? 'orange' : 'blue'}-50/80 via-${colorScheme === 'orange' ? 'orange' : 'blue'}-30/60 via-white/40 to-transparent relative`} style={{ zIndex: 10 }}>
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
             <h1 className="text-4xl font-bold text-gray-900 mb-4">
@@ -281,11 +281,11 @@ export default function Children({ language }: ChildrenProps) {
         </div>
       </section>
 
-      {/* Transition Fade */}
-      <div className="h-24 bg-gradient-to-b from-transparent to-white/80 relative" style={{ zIndex: 10 }}></div>
+      {/* Extended Transition Fade */}
+      <div className="h-48 bg-gradient-to-b from-transparent via-white/30 to-white/80 relative -mt-32" style={{ zIndex: 10 }}></div>
       
       {/* Calendar Booking Section */}
-      <section id="booking" className="py-20 pt-0 bg-white/80 relative" style={{ zIndex: 10 }}>
+      <section id="booking" className="py-20 pt-16 bg-white/80 relative" style={{ zIndex: 10 }}>
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
             <div className="flex items-center justify-center mb-6">
