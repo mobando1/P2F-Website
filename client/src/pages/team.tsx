@@ -15,22 +15,34 @@ export default function Team({ language }: TeamProps) {
     subtitle: "Learn from experienced native instructors from across Latin America who are passionate about sharing their language and culture.",
     instructors: [
       {
-        name: "Maria Rodriguez",
+        name: "Carolina Perilla",
         role: "Lead Instructor • Colombia",
-        description: "Master's in Education with 8+ years teaching Spanish to professionals. Specializes in business communication and cultural immersion.",
-        credentials: "💼 Business Spanish Expert • 🎓 M.Ed Universidad Nacional"
+        description: "Master's in Spanish Literature with 10+ years teaching Spanish to professionals. Specializes in advanced grammar and Latin American cultural immersion.",
+        credentials: "💼 Advanced Spanish Expert • 🎓 M.A. Literatura Universidad Javeriana"
       },
       {
-        name: "Carlos Martinez", 
-        role: "Children's Specialist • Mexico",
-        description: "Former elementary teacher with a passion for making Spanish fun and engaging for young learners through games and storytelling.",
-        credentials: "🌟 Kids Spanish Expert • 🎯 Interactive Learning Methods"
+        name: "Evelyn Salcedo", 
+        role: "Business Spanish Specialist • Venezuela",
+        description: "Former corporate trainer with expertise in business Spanish and professional communication. Helps executives master workplace Spanish.",
+        credentials: "🌟 Corporate Training Expert • 🎯 Business Communication Methods"
       },
       {
-        name: "Ana Gutierrez",
-        role: "Cultural Expert • Argentina", 
-        description: "Linguistics graduate focused on cultural nuances and regional variations. Helps students understand Spanish-speaking cultures.",
-        credentials: "🌍 Cultural Immersion • 📚 B.A. Linguistics"
+        name: "Felipe Rodríguez",
+        role: "Conversation Expert • Colombia", 
+        description: "Certified Spanish teacher focused on conversational fluency and pronunciation. Creates dynamic speaking environments for rapid improvement.",
+        credentials: "🌍 Conversation Specialist • 📚 DELE Certified Instructor"
+      },
+      {
+        name: "Gloria Cardona",
+        role: "Children's Specialist • Colombia",
+        description: "Elementary education specialist with 8+ years making Spanish fun for kids. Expert in interactive games and storytelling methods.",
+        credentials: "🎈 Kids Spanish Expert • 🎭 Interactive Learning Specialist"
+      },
+      {
+        name: "Johanna Pacheco",
+        role: "Cultural Immersion Expert • Colombia",
+        description: "Anthropology graduate specializing in Colombian and Latin American culture. Helps students understand regional dialects and customs.",
+        credentials: "🌎 Cultural Expert • 📖 B.A. Anthropology Universidad Nacional"
       }
     ],
     whyDifferent: "Why Our Instructors Make the Difference",
@@ -52,22 +64,34 @@ export default function Team({ language }: TeamProps) {
     subtitle: "Aprende con instructores nativos americanos experimentados que son apasionados por compartir su idioma y cultura.",
     instructors: [
       {
-        name: "Sarah Johnson",
-        role: "Instructora Principal • Estados Unidos",
-        description: "Maestría en Educación con más de 8 años enseñando inglés a profesionales. Se especializa en comunicación empresarial e inmersión cultural.",
-        credentials: "💼 Experta en Inglés de Negocios • 🎓 M.Ed Harvard University"
+        name: "Carolina Perilla",
+        role: "Instructora Principal • Colombia",
+        description: "Maestría en Literatura Española con más de 10 años enseñando inglés a profesionales. Se especializa en gramática avanzada e inmersión cultural americana.",
+        credentials: "💼 Experta en Inglés Avanzado • 🎓 M.A. Literatura Universidad Javeriana"
       },
       {
-        name: "Michael Davis",
-        role: "Especialista en Niños • Estados Unidos",
-        description: "Ex-maestro de primaria con pasión por hacer el inglés divertido y atractivo para jóvenes estudiantes a través de juegos y cuentos.",
-        credentials: "🌟 Experto en Inglés para Niños • 🎯 Métodos de Aprendizaje Interactivo"
+        name: "Evelyn Salcedo",
+        role: "Especialista en Inglés de Negocios • Venezuela",
+        description: "Ex-entrenadora corporativa con experiencia en inglés empresarial y comunicación profesional. Ayuda a ejecutivos a dominar el inglés laboral.",
+        credentials: "🌟 Experta en Capacitación Corporativa • 🎯 Métodos de Comunicación Empresarial"
       },
       {
-        name: "Jennifer Wilson",
-        role: "Experta Cultural • Estados Unidos",
-        description: "Graduada en Lingüística enfocada en matices culturales americanos. Ayuda a estudiantes a entender la cultura estadounidense.",
-        credentials: "🌍 Inmersión Cultural • 📚 B.A. Lingüística"
+        name: "Felipe Rodríguez",
+        role: "Experto en Conversación • Colombia",
+        description: "Instructor certificado enfocado en fluidez conversacional y pronunciación. Crea ambientes dinámicos para mejorar rápidamente el inglés hablado.",
+        credentials: "🌍 Especialista en Conversación • 📚 Instructor Certificado TOEFL"
+      },
+      {
+        name: "Gloria Cardona",
+        role: "Especialista en Niños • Colombia",
+        description: "Especialista en educación primaria con más de 8 años haciendo el inglés divertido para niños. Experta en juegos interactivos y métodos de narración.",
+        credentials: "🎈 Experta en Inglés para Niños • 🎭 Especialista en Aprendizaje Interactivo"
+      },
+      {
+        name: "Johanna Pacheco",
+        role: "Experta en Inmersión Cultural • Colombia",
+        description: "Graduada en Antropología especializada en cultura americana. Ayuda a estudiantes a entender dialectos regionales y costumbres estadounidenses.",
+        credentials: "🌎 Experta Cultural • 📖 B.A. Antropología Universidad Nacional"
       }
     ],
     whyDifferent: "Por Qué Nuestros Instructores Hacen la Diferencia",
@@ -130,10 +154,10 @@ export default function Team({ language }: TeamProps) {
             </p>
           </div>
 
-          <div className="max-w-6xl mx-auto grid md:grid-cols-3 gap-8 mb-16">
+          <div className="max-w-6xl mx-auto grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
             {content.instructors.map((instructor, index) => {
-              const bgColors = ['bg-gradient-to-br from-passport-blue to-blue-600', 'bg-gradient-to-br from-passport-orange to-orange-600', 'bg-gradient-to-br from-green-500 to-green-600'];
-              const icons = [Users, Star, Globe];
+              const bgColors = ['bg-gradient-to-br from-passport-blue to-blue-600', 'bg-gradient-to-br from-passport-orange to-orange-600', 'bg-gradient-to-br from-green-500 to-green-600', 'bg-gradient-to-br from-purple-500 to-purple-600', 'bg-gradient-to-br from-pink-500 to-pink-600'];
+              const icons = [Users, Star, Globe, Users, Star];
               const Icon = icons[index];
               
               return (
