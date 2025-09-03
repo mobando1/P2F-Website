@@ -116,21 +116,19 @@ export default function Children({ language }: ChildrenProps) {
   return (
     <div className="min-h-screen bg-white relative">
       {/* Full Page Background */}
-      <div className="fixed inset-0 z-0 pointer-events-none">
+      <div className="fixed inset-0 pointer-events-none" style={{ zIndex: 1 }}>
         <img 
           src={pixarLearningIcon} 
           alt="Kids Learning Background"
-          className="w-full h-full object-cover opacity-15"
+          className="w-full h-full object-contain opacity-20"
           style={{
-            filter: 'blur(2px)',
-            transform: 'scale(1.3)',
-            maskImage: 'radial-gradient(ellipse at center, rgba(0,0,0,0.5) 20%, rgba(0,0,0,0.3) 50%, rgba(0,0,0,0.1) 80%, rgba(0,0,0,0) 100%)',
-            WebkitMaskImage: 'radial-gradient(ellipse at center, rgba(0,0,0,0.5) 20%, rgba(0,0,0,0.3) 50%, rgba(0,0,0,0.1) 80%, rgba(0,0,0,0) 100%)'
+            filter: 'blur(1px)',
+            transform: 'scale(1.5)'
           }}
         />
       </div>
       {/* Navigation */}
-      <nav className="bg-white shadow-sm border-b relative z-50">
+      <nav className="bg-white shadow-sm border-b relative" style={{ zIndex: 100 }}>
         <div className="container mx-auto px-4">
           <div className="flex items-center justify-between h-16">
             <div className="flex items-center space-x-4">
@@ -158,7 +156,7 @@ export default function Children({ language }: ChildrenProps) {
       </nav>
 
       {/* Hero Section */}
-      <section className={`py-20 bg-gradient-to-b from-${colorScheme === 'orange' ? 'orange' : 'blue'}-50 to-white relative z-10`}>
+      <section className={`py-20 bg-gradient-to-b from-${colorScheme === 'orange' ? 'orange' : 'blue'}-50 to-white relative`} style={{ zIndex: 10 }}>
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
             <h1 className="text-4xl font-bold text-gray-900 mb-4">
@@ -284,7 +282,7 @@ export default function Children({ language }: ChildrenProps) {
       </section>
 
       {/* Calendar Booking Section */}
-      <section id="booking" className="py-20 bg-white relative z-10">
+      <section id="booking" className="py-20 bg-white relative" style={{ zIndex: 10 }}>
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
             <div className="flex items-center justify-center mb-6">
@@ -341,7 +339,7 @@ export default function Children({ language }: ChildrenProps) {
       )}
 
       {/* Footer */}
-      <footer className="bg-gray-900 text-white py-12 relative z-10">
+      <footer className="bg-gray-900 text-white py-12 relative" style={{ zIndex: 10 }}>
         <div className="container mx-auto px-4">
           <div className="text-center">
             <Link href={basePath}>
