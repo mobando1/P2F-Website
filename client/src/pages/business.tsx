@@ -148,9 +148,15 @@ export default function Business({ language }: BusinessProps) {
                 <CardContent className="p-6">
                   <div className="text-center mb-6">
                     <Users className="w-12 h-12 text-passport-blue mx-auto mb-4" />
-                    <h3 className="text-xl font-bold text-gray-900">
+                    <h3 className="text-xl font-bold text-gray-900 mb-2">
                       {language === 'en' ? 'Individual Executive Coaching' : 'Coaching Ejecutivo Individual'}
                     </h3>
+                    <p className="text-sm text-gray-600">
+                      {language === 'en' 
+                        ? 'Train your CEO and leaders to be better communicators' 
+                        : 'Entrena a tu CEO y líderes para ser mejores comunicadores'
+                      }
+                    </p>
                   </div>
                   <Button 
                     onClick={handleBookingClick}
@@ -165,9 +171,15 @@ export default function Business({ language }: BusinessProps) {
                 <CardContent className="p-6">
                   <div className="text-center mb-6">
                     <Building className="w-12 h-12 text-passport-orange mx-auto mb-4" />
-                    <h3 className="text-xl font-bold text-gray-900">
+                    <h3 className="text-xl font-bold text-gray-900 mb-2">
                       {language === 'en' ? 'Corporate Team Training' : 'Capacitación Corporativa de Equipos'}
                     </h3>
+                    <p className="text-sm text-gray-600">
+                      {language === 'en' 
+                        ? 'Train your entire team for better business communication' 
+                        : 'Entrena a todo tu equipo para mejor comunicación empresarial'
+                      }
+                    </p>
                   </div>
                   <Button 
                     onClick={handleBookingClick}
