@@ -120,9 +120,9 @@ export default function Children({ language }: ChildrenProps) {
         <img 
           src={pixarLearningIcon} 
           alt="Kids Learning Background"
-          className="w-full h-full object-contain opacity-15"
+          className="w-full h-full object-contain opacity-10"
           style={{
-            filter: 'blur(1px)',
+            filter: 'blur(1.5px)',
             transform: 'scale(2)'
           }}
         />
