@@ -114,11 +114,12 @@ export default function Business({ language }: BusinessProps) {
             <div className="bg-white rounded-2xl p-8 shadow-lg mb-12">
               <div className="grid md:grid-cols-2 gap-8 items-center">
                 <div>
-                  <div className="w-16 h-16 flex items-center justify-center mb-6">
+                  <div className="w-24 h-24 flex items-center justify-center mb-6 overflow-hidden">
                     <img 
                       src={briefcaseIcon} 
-                      alt="Business Briefcase" 
-                      className="w-full h-full object-contain"
+                      alt="Professional Business Briefcase" 
+                      className="w-full h-full object-contain animate-slide-in-left filter brightness-75 contrast-125 sepia-50"
+                      style={{filter: 'brightness(0.8) contrast(1.2) sepia(0.3) saturate(1.5) hue-rotate(20deg)'}}
                     />
                   </div>
                   <h2 className="text-2xl font-bold text-gray-900 mb-4">

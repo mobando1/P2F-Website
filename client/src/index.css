@@ -204,6 +204,22 @@ html {
   scroll-behavior: smooth;
 }
 
+/* Professional Briefcase Animation */
+@keyframes slide-in-left {
+  0% {
+    opacity: 0;
+    transform: translateX(-100px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.animate-slide-in-left {
+  animation: slide-in-left 1.5s ease-out forwards;
+}
+
 /* Enhanced Landing Page Animations */
 @keyframes fade-in {
   from {
