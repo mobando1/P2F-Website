@@ -114,9 +114,23 @@ export default function Children({ language }: ChildrenProps) {
   const colorScheme = language === 'en' ? 'orange' : 'blue';
 
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-white relative">
+      {/* Full Page Background */}
+      <div className="fixed inset-0 z-0 pointer-events-none">
+        <img 
+          src={pixarLearningIcon} 
+          alt="Kids Learning Background"
+          className="w-full h-full object-cover opacity-5"
+          style={{
+            filter: 'blur(3px)',
+            transform: 'scale(1.2)',
+            maskImage: 'radial-gradient(ellipse at center, rgba(0,0,0,0.3) 10%, rgba(0,0,0,0.15) 40%, rgba(0,0,0,0.05) 70%, rgba(0,0,0,0) 100%)',
+            WebkitMaskImage: 'radial-gradient(ellipse at center, rgba(0,0,0,0.3) 10%, rgba(0,0,0,0.15) 40%, rgba(0,0,0,0.05) 70%, rgba(0,0,0,0) 100%)'
+          }}
+        />
+      </div>
       {/* Navigation */}
-      <nav className="bg-white shadow-sm border-b">
+      <nav className="bg-white shadow-sm border-b relative z-50">
         <div className="container mx-auto px-4">
           <div className="flex items-center justify-between h-16">
             <div className="flex items-center space-x-4">
@@ -144,35 +158,19 @@ export default function Children({ language }: ChildrenProps) {
       </nav>
 
       {/* Hero Section */}
-      <section className={`py-20 bg-gradient-to-b from-${colorScheme === 'orange' ? 'orange' : 'blue'}-50 to-white relative overflow-hidden`}>
-        <div className="container mx-auto px-4 relative z-20">
+      <section className={`py-20 bg-gradient-to-b from-${colorScheme === 'orange' ? 'orange' : 'blue'}-50 to-white relative z-10`}>
+        <div className="container mx-auto px-4">
           <div className="text-center mb-16">
-            <h1 className="text-4xl font-bold text-gray-900 mb-4 relative z-30">
+            <h1 className="text-4xl font-bold text-gray-900 mb-4">
               {content.title}
             </h1>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto relative z-30">
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
               {content.subtitle}
             </p>
           </div>
         </div>
         
-        {/* Background Banner with Pixar Kids */}
-        <div className="absolute inset-0 z-10 flex items-center justify-center pointer-events-none">
-          <div className="w-full h-full max-w-6xl relative">
-            <img 
-              src={pixarLearningIcon} 
-              alt="Kids Learning Background"
-              className="w-full h-full object-contain opacity-15 scale-[2] animate-pulse"
-              style={{
-                filter: 'blur(2px)',
-                maskImage: 'radial-gradient(ellipse at center, rgba(0,0,0,0.8) 20%, rgba(0,0,0,0.4) 50%, rgba(0,0,0,0.1) 80%, rgba(0,0,0,0) 100%)',
-                WebkitMaskImage: 'radial-gradient(ellipse at center, rgba(0,0,0,0.8) 20%, rgba(0,0,0,0.4) 50%, rgba(0,0,0,0.1) 80%, rgba(0,0,0,0) 100%)'
-              }}
-            />
-          </div>
-        </div>
-        
-        <div className="container mx-auto px-4 relative z-20">
+        <div className="container mx-auto px-4">
 
           <div className="max-w-6xl mx-auto grid lg:grid-cols-2 gap-12 items-center">
             {/* Content */}
@@ -286,7 +284,7 @@ export default function Children({ language }: ChildrenProps) {
       </section>
 
       {/* Calendar Booking Section */}
-      <section id="booking" className="py-20 bg-white">
+      <section id="booking" className="py-20 bg-white relative z-10">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
             <div className="flex items-center justify-center mb-6">
@@ -343,7 +341,7 @@ export default function Children({ language }: ChildrenProps) {
       )}
 
       {/* Footer */}
-      <footer className="bg-gray-900 text-white py-12">
+      <footer className="bg-gray-900 text-white py-12 relative z-10">
         <div className="container mx-auto px-4">
           <div className="text-center">
             <Link href={basePath}>
