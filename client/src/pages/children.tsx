@@ -120,10 +120,10 @@ export default function Children({ language }: ChildrenProps) {
         <img 
           src={pixarLearningIcon} 
           alt="Kids Learning Background"
-          className="w-full h-full object-contain opacity-20"
+          className="w-full h-full object-contain opacity-30"
           style={{
-            filter: 'blur(1px)',
-            transform: 'scale(1.5)'
+            filter: 'blur(0.5px)',
+            transform: 'scale(2)'
           }}
         />
       </div>
@@ -156,7 +156,7 @@ export default function Children({ language }: ChildrenProps) {
       </nav>
 
       {/* Hero Section */}
-      <section className={`py-20 bg-gradient-to-b from-${colorScheme === 'orange' ? 'orange' : 'blue'}-50 to-white relative`} style={{ zIndex: 10 }}>
+      <section className={`py-20 bg-gradient-to-b from-${colorScheme === 'orange' ? 'orange' : 'blue'}-50/80 to-white/80 relative`} style={{ zIndex: 10 }}>
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
             <h1 className="text-4xl font-bold text-gray-900 mb-4">
@@ -282,7 +282,7 @@ export default function Children({ language }: ChildrenProps) {
       </section>
 
       {/* Calendar Booking Section */}
-      <section id="booking" className="py-20 bg-white relative" style={{ zIndex: 10 }}>
+      <section id="booking" className="py-20 bg-white/80 relative" style={{ zIndex: 10 }}>
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
             <div className="flex items-center justify-center mb-6">
