@@ -249,6 +249,26 @@ export default function Business({ language }: BusinessProps) {
           </div>
         </div>
       )}
+
+      {/* Footer */}
+      <footer className="bg-gray-900 text-white py-12">
+        <div className="container mx-auto px-4">
+          <div className="text-center">
+            <Link href={language === 'en' ? '/es' : '/en'}>
+              <img src={passportLogo} alt="Passport to Fluency" className="h-10 brightness-0 invert mx-auto mb-4" />
+            </Link>
+            <p className="text-gray-400 mb-4">
+              {language === 'en' 
+                ? 'Professional Spanish training for companies and executives, 24/7.'
+                : 'Capacitación profesional en inglés para empresas y ejecutivos, 24/7.'
+              }
+            </p>
+            <div className="text-center text-gray-400">
+              <p>&copy; 2025 Passport2Fluency. {language === 'en' ? 'All rights reserved.' : 'Todos los derechos reservados.'}</p>
+            </div>
+          </div>
+        </div>
+      </footer>
     </div>
   );
 }
