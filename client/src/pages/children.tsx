@@ -7,10 +7,10 @@ import HighLevelCalendar from "@/components/highlevel-calendar";
 import passportLogo from "@assets/a1c5a1_9514ede9e3124d7a9adf78f5dcf07f28~mv2_1755803448396.png";
 import calendarIcon from "@assets/generated_images/Calendar_icon_white_background_1a7f669e.png";
 import rebeccaPhoto from "@assets/WhatsApp Image Jul 4 2023 from Passport2Fluency (1)_1756923954354.jpeg";
-import bookIcon from "@assets/generated_images/Cartoon_educational_book_icon_6e4a85c7.png";
-import toysIcon from "@assets/generated_images/Cartoon_educational_toys_icon_dceed503.png";
-import teacherIcon from "@assets/generated_images/Cartoon_friendly_teacher_icon_776e2c55.png";
-import cultureIcon from "@assets/generated_images/Cartoon_cultural_connection_icon_cb9b9c82.png";
+import bookIcon from "@assets/generated_images/Cartoon_book_transparent_background_e176152c.png";
+import toysIcon from "@assets/generated_images/Cartoon_toys_transparent_background_6b42d714.png";
+import teacherIcon from "@assets/generated_images/Cartoon_teacher_transparent_background_a921238c.png";
+import cultureIcon from "@assets/generated_images/Cartoon_culture_transparent_background_0fc65009.png";
 import { Link } from "wouter";
 
 interface ChildrenProps {
@@ -169,7 +169,7 @@ export default function Children({ language }: ChildrenProps) {
                 </p>
               </div>
 
-              <ul className="space-y-4 mb-8">
+              <div className="grid grid-cols-2 gap-6 mb-8">
                 {content.features.map((feature, index) => {
                   // Map each feature to its corresponding cartoon icon
                   const getFeatureIcon = (title: string) => {
@@ -186,22 +186,26 @@ export default function Children({ language }: ChildrenProps) {
                   };
 
                   return (
-                    <li key={index} className="flex items-start">
-                      <div className="w-8 h-8 mr-3 mt-1 flex-shrink-0">
-                        <img 
-                          src={getFeatureIcon(feature.title)} 
-                          alt={feature.title}
-                          className="w-full h-full object-contain"
-                        />
+                    <div 
+                      key={index} 
+                      className={`bg-white rounded-xl p-6 shadow-sm border-2 border-gray-100 hover:border-${colorScheme === 'orange' ? 'orange' : 'blue'}-200 transition-all duration-300 transform hover:scale-105 hover:shadow-md animate-fade-in-up`}
+                      style={{ animationDelay: `${index * 100}ms` }}
+                    >
+                      <div className="text-center mb-4">
+                        <div className="w-16 h-16 mx-auto mb-3 transform hover:scale-110 transition-transform duration-300">
+                          <img 
+                            src={getFeatureIcon(feature.title)} 
+                            alt={feature.title}
+                            className="w-full h-full object-contain drop-shadow-lg"
+                          />
+                        </div>
+                        <h4 className="font-bold text-gray-900 text-sm leading-tight mb-2">{feature.title}</h4>
+                        <p className="text-gray-600 text-xs leading-relaxed">{feature.description}</p>
                       </div>
-                      <div>
-                        <h4 className="font-semibold text-gray-900">{feature.title}</h4>
-                        <p className="text-gray-600">{feature.description}</p>
-                      </div>
-                    </li>
+                    </div>
                   );
                 })}
-              </ul>
+              </div>
 
               <Button 
                 onClick={handleBookingClick}
