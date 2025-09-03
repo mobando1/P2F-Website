@@ -5,7 +5,7 @@ import { CheckCircle, Star } from "lucide-react";
 import NavigationDropdown from "@/components/navigation-dropdown";
 import HighLevelCalendar from "@/components/highlevel-calendar";
 import passportLogo from "@assets/a1c5a1_9514ede9e3124d7a9adf78f5dcf07f28~mv2_1755803448396.png";
-import calendarIcon from "@assets/generated_images/Animated_cartoon_calendar_icon_551d7314.png";
+import calendarIcon from "@assets/generated_images/Calendar_icon_white_background_1a7f669e.png";
 import { Link } from "wouter";
 
 interface ChildrenProps {
@@ -273,6 +273,26 @@ export default function Children({ language }: ChildrenProps) {
           </div>
         </div>
       )}
+
+      {/* Footer */}
+      <footer className="bg-gray-900 text-white py-12">
+        <div className="container mx-auto px-4">
+          <div className="text-center">
+            <Link href={basePath}>
+              <img src={passportLogo} alt="Passport to Fluency" className="h-10 brightness-0 invert mx-auto mb-4" />
+            </Link>
+            <p className="text-gray-400 mb-4">
+              {language === 'en' 
+                ? 'Spanish classes for children with native Latin American instructors, 24/7.'
+                : 'Clases de inglés para niños con instructores nativos americanos, 24/7.'
+              }
+            </p>
+            <div className="text-center text-gray-400">
+              <p>&copy; 2025 Passport2Fluency. {language === 'en' ? 'All rights reserved.' : 'Todos los derechos reservados.'}</p>
+            </div>
+          </div>
+        </div>
+      </footer>
     </div>
   );
 }
