@@ -220,6 +220,11 @@ export default function Children({ language }: ChildrenProps) {
       <section id="booking" className="py-20 bg-white">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
+            <div className="flex items-center justify-center mb-6">
+              <div className={`w-16 h-16 bg-passport-${colorScheme === 'orange' ? 'orange' : 'blue'} rounded-full flex items-center justify-center`}>
+                <Star className="w-8 h-8 text-white" />
+              </div>
+            </div>
             <h2 className="text-4xl font-bold text-gray-900 mb-4">
               {language === 'en' 
                 ? 'Schedule Your Child\'s Free Spanish Class' 

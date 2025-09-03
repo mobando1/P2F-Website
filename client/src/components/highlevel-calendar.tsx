@@ -94,16 +94,6 @@ export default function HighLevelCalendar({ language, type, className = "" }: Hi
 
   return (
     <div className={`bg-white rounded-lg shadow-lg p-6 ${className}`}>
-      <div className="text-center mb-6 min-h-[180px] flex flex-col justify-between">
-        <div>
-          <div className="flex items-center justify-center mb-4">
-            <div className="w-12 h-12 bg-passport-blue rounded-full flex items-center justify-center">
-              <Calendar className="w-6 h-6 text-white" />
-            </div>
-          </div>
-          
-        </div>
-      </div>
 
       {isLoading ? (
         <div className="flex items-center justify-center py-12">
