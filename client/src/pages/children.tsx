@@ -7,10 +7,10 @@ import HighLevelCalendar from "@/components/highlevel-calendar";
 import passportLogo from "@assets/a1c5a1_9514ede9e3124d7a9adf78f5dcf07f28~mv2_1755803448396.png";
 import calendarIcon from "@assets/generated_images/Calendar_icon_white_background_1a7f669e.png";
 import rebeccaPhoto from "@assets/WhatsApp Image Jul 4 2023 from Passport2Fluency (1)_1756923954354.jpeg";
-import bookIcon from "@assets/generated_images/Book_icon_solid_white_background_da0744d6.png";
-import toysIcon from "@assets/generated_images/Toys_icon_solid_white_background_e60ae0d8.png";
-import teacherIcon from "@assets/generated_images/Teacher_icon_solid_white_background_f311719a.png";
-import cultureIcon from "@assets/generated_images/Globe_icon_solid_white_background_1a61e293.png";
+import bookIcon from "@assets/generated_images/Book_icon_in_white_circle_8fdb1d3c.png";
+import toysIcon from "@assets/generated_images/Toys_icon_in_white_circle_48596c33.png";
+import teacherIcon from "@assets/generated_images/Teacher_icon_in_white_circle_7b5eeed1.png";
+import cultureIcon from "@assets/generated_images/Globe_icon_in_white_circle_ecbdd8a8.png";
 import { Link } from "wouter";
 
 interface ChildrenProps {
