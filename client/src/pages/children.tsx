@@ -6,6 +6,7 @@ import NavigationDropdown from "@/components/navigation-dropdown";
 import HighLevelCalendar from "@/components/highlevel-calendar";
 import passportLogo from "@assets/a1c5a1_9514ede9e3124d7a9adf78f5dcf07f28~mv2_1755803448396.png";
 import calendarIcon from "@assets/generated_images/Calendar_icon_white_background_1a7f669e.png";
+import rebeccaPhoto from "@assets/WhatsApp Image Jul 4 2023 from Passport2Fluency (1)_1756923954354.jpeg";
 import { Link } from "wouter";
 
 interface ChildrenProps {
@@ -198,8 +199,21 @@ export default function Children({ language }: ChildrenProps) {
               <p className="text-gray-700 mb-6 text-lg italic">
                 "{content.testimonial.text}"
               </p>
-              <div className="font-semibold text-gray-900">{content.testimonial.name}</div>
-              <div className="text-sm text-gray-600">{content.testimonial.role}</div>
+              <div className="flex items-center">
+                {content.testimonial.name === 'Rebecca Unrath' && (
+                  <div className="w-16 h-16 mr-4 flex-shrink-0">
+                    <img 
+                      src={rebeccaPhoto} 
+                      alt="Rebecca Unrath and family"
+                      className="w-full h-full object-cover rounded-full border-2 border-gray-200"
+                    />
+                  </div>
+                )}
+                <div>
+                  <div className="font-semibold text-gray-900">{content.testimonial.name}</div>
+                  <div className="text-sm text-gray-600">{content.testimonial.role}</div>
+                </div>
+              </div>
             </div>
           </div>
 
