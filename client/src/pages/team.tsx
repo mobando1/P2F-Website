@@ -3,6 +3,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Users, Star, Globe } from "lucide-react";
 import NavigationDropdown from "@/components/navigation-dropdown";
 import passportLogo from "@assets/a1c5a1_9514ede9e3124d7a9adf78f5dcf07f28~mv2_1755803448396.png";
+import carolinaPhoto from "@assets/WhatsApp Image 2025-09-03 at 12.02.07_1756923396368.jpeg";
 import { Link } from "wouter";
 
 interface TeamProps {
@@ -159,13 +160,24 @@ export default function Team({ language }: TeamProps) {
               const bgColors = ['bg-gradient-to-br from-passport-blue to-blue-600', 'bg-gradient-to-br from-passport-orange to-orange-600', 'bg-gradient-to-br from-green-500 to-green-600', 'bg-gradient-to-br from-purple-500 to-purple-600', 'bg-gradient-to-br from-pink-500 to-pink-600'];
               const icons = [Users, Star, Globe, Users, Star];
               const Icon = icons[index];
+              const photos = [carolinaPhoto, null, null, null, null];
               
               return (
                 <Card key={index} className="text-center hover:shadow-lg transition-shadow">
                   <CardContent className="p-6">
-                    <div className={`w-24 h-24 ${bgColors[index]} rounded-full flex items-center justify-center mx-auto mb-4`}>
-                      <Icon className="w-12 h-12 text-white" />
-                    </div>
+                    {photos[index] ? (
+                      <div className="w-24 h-24 mx-auto mb-4">
+                        <img 
+                          src={photos[index]} 
+                          alt={instructor.name}
+                          className="w-full h-full object-cover rounded-full border-4 border-white shadow-lg"
+                        />
+                      </div>
+                    ) : (
+                      <div className={`w-24 h-24 ${bgColors[index]} rounded-full flex items-center justify-center mx-auto mb-4`}>
+                        <Icon className="w-12 h-12 text-white" />
+                      </div>
+                    )}
                     <h3 className="text-xl font-bold text-gray-900 mb-2">{instructor.name}</h3>
                     <p className="text-passport-orange font-semibold mb-3">{instructor.role}</p>
                     <p className="text-gray-600 mb-4">
