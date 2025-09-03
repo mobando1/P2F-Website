@@ -7,10 +7,10 @@ import HighLevelCalendar from "@/components/highlevel-calendar";
 import passportLogo from "@assets/a1c5a1_9514ede9e3124d7a9adf78f5dcf07f28~mv2_1755803448396.png";
 import calendarIcon from "@assets/generated_images/Calendar_icon_white_background_1a7f669e.png";
 import rebeccaPhoto from "@assets/WhatsApp Image Jul 4 2023 from Passport2Fluency (1)_1756923954354.jpeg";
-import bookIcon from "@assets/generated_images/Cartoon_book_transparent_background_e176152c.png";
-import toysIcon from "@assets/generated_images/Cartoon_toys_transparent_background_6b42d714.png";
-import teacherIcon from "@assets/generated_images/Cartoon_teacher_transparent_background_a921238c.png";
-import cultureIcon from "@assets/generated_images/Cartoon_culture_transparent_background_0fc65009.png";
+import bookIcon from "@assets/generated_images/Book_icon_no_background_a257e9d6.png";
+import toysIcon from "@assets/generated_images/Toys_icon_no_background_ea7a2028.png";
+import teacherIcon from "@assets/generated_images/Teacher_icon_no_background_ed036ebd.png";
+import cultureIcon from "@assets/generated_images/Globe_icon_no_background_6016608e.png";
 import { Link } from "wouter";
 
 interface ChildrenProps {
@@ -169,7 +169,7 @@ export default function Children({ language }: ChildrenProps) {
                 </p>
               </div>
 
-              <div className="grid grid-cols-2 gap-6 mb-8">
+              <div className="grid grid-cols-2 gap-8 mb-8">
                 {content.features.map((feature, index) => {
                   // Map each feature to its corresponding cartoon icon
                   const getFeatureIcon = (title: string) => {
@@ -188,20 +188,18 @@ export default function Children({ language }: ChildrenProps) {
                   return (
                     <div 
                       key={index} 
-                      className={`bg-white rounded-xl p-6 shadow-sm border-2 border-gray-100 hover:border-${colorScheme === 'orange' ? 'orange' : 'blue'}-200 transition-all duration-300 transform hover:scale-105 hover:shadow-md animate-fade-in-up`}
-                      style={{ animationDelay: `${index * 100}ms` }}
+                      className="text-center animate-fade-in-up"
+                      style={{ animationDelay: `${index * 150}ms` }}
                     >
-                      <div className="text-center mb-4">
-                        <div className="w-16 h-16 mx-auto mb-3 transform hover:scale-110 transition-transform duration-300">
-                          <img 
-                            src={getFeatureIcon(feature.title)} 
-                            alt={feature.title}
-                            className="w-full h-full object-contain drop-shadow-lg"
-                          />
-                        </div>
-                        <h4 className="font-bold text-gray-900 text-sm leading-tight mb-2">{feature.title}</h4>
-                        <p className="text-gray-600 text-xs leading-relaxed">{feature.description}</p>
+                      <div className="w-20 h-20 mx-auto mb-4 transform hover:scale-110 transition-transform duration-300">
+                        <img 
+                          src={getFeatureIcon(feature.title)} 
+                          alt={feature.title}
+                          className="w-full h-full object-contain"
+                        />
                       </div>
+                      <h4 className="font-bold text-gray-900 text-base leading-tight mb-3">{feature.title}</h4>
+                      <p className="text-gray-600 text-sm leading-relaxed">{feature.description}</p>
                     </div>
                   );
                 })}
