@@ -101,13 +101,8 @@ export default function HighLevelCalendar({ language, type, className = "" }: Hi
               <Calendar className="w-6 h-6 text-white" />
             </div>
           </div>
-          <h3 className="text-2xl font-bold text-gray-900 mb-2 min-h-[80px] flex items-center justify-center">
-            {t.title}
-          </h3>
+          
         </div>
-        <p className="text-gray-600">
-          {t.subtitle}
-        </p>
       </div>
 
       {isLoading ? (
