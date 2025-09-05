@@ -523,8 +523,8 @@ export default function SpanishSite() {
                   Professional conversation, business Spanish, and cultural immersion
                 </p>
               </div>
-              <div className="flex-1 max-h-[500px] overflow-hidden">
-                <HighLevelCalendar language="en" type="adult" className="bg-white scale-90 origin-top" />
+              <div className="flex-1 min-h-[600px] overflow-visible">
+                <HighLevelCalendar language="en" type="adult" className="bg-white scale-95 origin-top" />
               </div>
             </div>
 
@@ -543,8 +543,8 @@ export default function SpanishSite() {
                   Fun, interactive learning designed specifically for children ages 5-17
                 </p>
               </div>
-              <div className="flex-1 max-h-[500px] overflow-hidden">
-                <HighLevelCalendar language="en" type="child" className="bg-white scale-90 origin-top" />
+              <div className="flex-1 min-h-[600px] overflow-visible">
+                <HighLevelCalendar language="en" type="child" className="bg-white scale-95 origin-top" />
               </div>
             </div>
           </div>
