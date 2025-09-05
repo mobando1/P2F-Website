@@ -1046,13 +1046,6 @@ export default function Landing() {
             className="w-40 h-40 object-contain transform -rotate-12 rounded-3xl"
           />
         </div>
-        <div className="absolute top-1/2 left-1/4 opacity-3 z-0 hidden xl:block">
-          <img 
-            src={airplaneImage} 
-            alt="" 
-            className="w-32 h-32 object-contain transform rotate-45 rounded-3xl"
-          />
-        </div>
         
         <div className="container mx-auto px-6 relative z-10">
           <div className="text-center max-w-4xl mx-auto">
