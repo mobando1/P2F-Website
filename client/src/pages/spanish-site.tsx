@@ -747,7 +747,13 @@ export default function SpanishSite() {
                   <img 
                     src={jaclynPhoto} 
                     alt="Jaclyn Blohm"
-                    className="w-12 h-12 rounded-full object-cover mr-4"
+                    className="w-12 h-12 rounded-full mr-4"
+                    style={{
+                      objectFit: 'cover',
+                      objectPosition: 'center 30%',
+                      transform: 'scale(1.2)',
+                      transformOrigin: 'center'
+                    }}
                   />
                   <div>
                     <div className="font-semibold text-gray-900">Jaclyn Blohm</div>
