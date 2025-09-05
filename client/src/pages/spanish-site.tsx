@@ -19,7 +19,7 @@ import passportVariantImage from "@assets/Corporate Image Sept 2025 (12)_1756765
 
 // Importar fotos de testimonios americanos
 import benPhoto from "@assets/My Project from Passport2Fluency_1757071035990.png";
-import jaclynPhoto from "@assets/generated_images/Jaclyn_Blohm_profile_photo_a6995607.png";
+import jaclynPhoto from "@assets/Screenshot Mar 6 9 54 AM from Passport2Fluency (1)_1757071113091.jpg";
 import rebeccaPhoto from "@assets/generated_images/Rebecca_Unrath_profile_photo_db7568cc.png";
 import { useLocation, Link } from "wouter";
 import NavigationDropdown from "@/components/navigation-dropdown";
