@@ -18,7 +18,7 @@ import bookImage from "@assets/Corporate Image Sept 2025 (11)_1756765151459.png"
 import passportVariantImage from "@assets/Corporate Image Sept 2025 (12)_1756765151459.png";
 
 // Importar fotos de testimonios americanos
-import benPhoto from "@assets/generated_images/Ben_Northrop_profile_photo_3a56904e.png";
+import benPhoto from "@assets/My Project from Passport2Fluency_1757071035990.png";
 import jaclynPhoto from "@assets/generated_images/Jaclyn_Blohm_profile_photo_a6995607.png";
 import rebeccaPhoto from "@assets/generated_images/Rebecca_Unrath_profile_photo_db7568cc.png";
 import { useLocation, Link } from "wouter";
