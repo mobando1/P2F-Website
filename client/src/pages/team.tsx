@@ -19,8 +19,8 @@ export default function Team({ language }: TeamProps) {
       {
         name: "Carolina Perilla",
         role: "Lead Instructor • Colombia",
-        description: "Master's in Spanish Literature with 10+ years teaching Spanish to professionals. Specializes in advanced grammar and Latin American cultural immersion.",
-        credentials: "💼 Advanced Spanish Expert • 🎓 M.A. Literatura Universidad Javeriana"
+        description: "International Relations graduate with a Master's in English Teaching Methodology and 15+ years of experience. Currently pursuing a Doctorate in Educational Sciences. Specializes in bilingual education and cross-cultural communication.",
+        credentials: "🎓 Doctorate Student Educational Sciences • 🌍 Trilingual (Spanish/English C1/French B2) • 📚 M.A. English Teaching Methodology"
       },
       {
         name: "Evelyn Salcedo", 
@@ -68,8 +68,8 @@ export default function Team({ language }: TeamProps) {
       {
         name: "Carolina Perilla",
         role: "Instructora Principal • Colombia",
-        description: "Maestría en Literatura Española con más de 10 años enseñando inglés a profesionales. Se especializa en gramática avanzada e inmersión cultural americana.",
-        credentials: "💼 Experta en Inglés Avanzado • 🎓 M.A. Literatura Universidad Javeriana"
+        description: "Licenciada en Relaciones Internacionales con Maestría en Didáctica del Inglés y 15+ años de experiencia. Actualmente cursando Doctorado en Ciencias de la Educación. Se especializa en educación bilingüe y comunicación intercultural.",
+        credentials: "🎓 Doctoranda en Ciencias de la Educación • 🌍 Trilingüe (Español/Inglés C1/Francés B2) • 📚 M.A. Didáctica del Inglés"
       },
       {
         name: "Evelyn Salcedo",
