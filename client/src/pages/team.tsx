@@ -5,6 +5,7 @@ import NavigationDropdown from "@/components/navigation-dropdown";
 import passportLogo from "@assets/a1c5a1_9514ede9e3124d7a9adf78f5dcf07f28~mv2_1755803448396.png";
 import gloriaPhoto from "@assets/WhatsApp Image 2025-09-03 at 12.02.07_1756923396368.jpeg";
 import carolinaPhoto from "@assets/WhatsApp Image 2025-09-03 at 11.55.04_1756923430351.jpeg";
+import felipePhoto from "@assets/WhatsApp Image 2025-09-11 at 17.14.57_1757644653196.jpeg";
 import { Link } from "wouter";
 
 interface TeamProps {
@@ -29,10 +30,10 @@ export default function Team({ language }: TeamProps) {
         credentials: "🌟 Corporate Training Expert • 🎯 Business Communication Methods"
       },
       {
-        name: "Felipe Rodríguez",
-        role: "Conversation Expert • Colombia", 
-        description: "Certified Spanish teacher focused on conversational fluency and pronunciation. Creates dynamic speaking environments for rapid improvement.",
-        credentials: "🌍 Conversation Specialist • 📚 DELE Certified Instructor"
+        name: "Diego Felipe Rodríguez Martínez",
+        role: "Spanish Instructor & Education Specialist • Colombia", 
+        description: "Physical Education professor with a Master's in Physical Culture Pedagogy and currently pursuing a PhD in Education. Expert in creating engaging, active learning environments for Spanish instruction.",
+        credentials: "🎓 PhD Student in Education • 🏃‍♂️ M.A. Physical Culture Pedagogy • 📚 Spanish & Physical Education Specialist"
       },
       {
         name: "Gloria Cardona",
@@ -78,10 +79,10 @@ export default function Team({ language }: TeamProps) {
         credentials: "🌟 Experta en Capacitación Corporativa • 🎯 Métodos de Comunicación Empresarial"
       },
       {
-        name: "Felipe Rodríguez",
-        role: "Experto en Conversación • Colombia",
-        description: "Instructor certificado enfocado en fluidez conversacional y pronunciación. Crea ambientes dinámicos para mejorar rápidamente el inglés hablado.",
-        credentials: "🌍 Especialista en Conversación • 📚 Instructor Certificado TOEFL"
+        name: "Diego Felipe Rodríguez Martínez",
+        role: "Instructor de Inglés y Especialista en Educación • Colombia",
+        description: "Profesor de Educación Física con Maestría en Pedagogía de la Cultura Física y actualmente estudiante de PhD en Educación. Experto en crear ambientes de aprendizaje activos y dinámicos para la enseñanza del inglés.",
+        credentials: "🎓 Estudiante de PhD en Educación • 🏃‍♂️ M.A. Pedagogía de la Cultura Física • 📚 Especialista en Inglés y Educación Física"
       },
       {
         name: "Gloria Cardona",
