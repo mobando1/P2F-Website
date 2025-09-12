@@ -6,6 +6,7 @@ import passportLogo from "@assets/a1c5a1_9514ede9e3124d7a9adf78f5dcf07f28~mv2_17
 import gloriaPhoto from "@assets/WhatsApp Image 2025-09-03 at 12.02.07_1756923396368.jpeg";
 import carolinaPhoto from "@assets/WhatsApp Image 2025-09-03 at 11.55.04_1756923430351.jpeg";
 import felipePhoto from "@assets/WhatsApp Image 2025-09-11 at 17.14.57_1757644653196.jpeg";
+import evelynPhoto from "@assets/WhatsApp Image 2025-09-11 at 17.26.34_1757644698073.jpeg";
 import { Link } from "wouter";
 
 interface TeamProps {
@@ -25,9 +26,9 @@ export default function Team({ language }: TeamProps) {
       },
       {
         name: "Evelyn Salcedo", 
-        role: "Business Spanish Specialist • Venezuela",
-        description: "Former corporate trainer with expertise in business Spanish and professional communication. Helps executives master workplace Spanish.",
-        credentials: "🌟 Corporate Training Expert • 🎯 Business Communication Methods"
+        role: "Spanish Language Specialist • Venezuela",
+        description: "Passionate about languages and connecting people across cultures. 5+ years of experience teaching Spanish and English to children, youth, and adults. Helps students discover and enjoy Spanish through natural, practical, and fluent learning methods.",
+        credentials: "🌍 Cultural Connection Expert • 📚 5+ Years Multi-Age Teaching • 🎯 Natural Language Learning Specialist"
       },
       {
         name: "Diego Felipe Rodríguez Martínez",
@@ -74,9 +75,9 @@ export default function Team({ language }: TeamProps) {
       },
       {
         name: "Evelyn Salcedo",
-        role: "Especialista en Inglés de Negocios • Venezuela",
-        description: "Ex-entrenadora corporativa con experiencia en inglés empresarial y comunicación profesional. Ayuda a ejecutivos a dominar el inglés laboral.",
-        credentials: "🌟 Experta en Capacitación Corporativa • 🎯 Métodos de Comunicación Empresarial"
+        role: "Especialista en Idiomas • Venezuela",
+        description: "¡Hola! Me apasiona el mundo de los idiomas y la magia de conectar con personas de diferentes culturas. Desde hace 5 años acompaño a niños, jóvenes y adultos en su camino de aprendizaje de inglés y español. Mi objetivo es que aprendas de manera natural, práctica y fluida.",
+        credentials: "🌍 Experta en Conexión Cultural • 📚 5+ Años Enseñando Multi-Edades • 🎯 Especialista en Aprendizaje Natural"
       },
       {
         name: "Diego Felipe Rodríguez Martínez",
