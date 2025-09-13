@@ -159,6 +159,13 @@ export default function EnglishSite() {
                         <div className="text-gray-700 py-2 text-lg mb-2">Programas</div>
                         <div className="pl-4 space-y-3">
                           <Link 
+                            href="/en" 
+                            className="block text-gray-600 hover:text-passport-blue transition-colors"
+                            onClick={() => setIsMobileMenuOpen(false)}
+                          >
+                            Inglés para Adultos
+                          </Link>
+                          <Link 
                             href="/en/children" 
                             className="block text-gray-600 hover:text-passport-blue transition-colors"
                             onClick={() => setIsMobileMenuOpen(false)}
