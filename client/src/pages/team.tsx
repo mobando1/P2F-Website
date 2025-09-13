@@ -273,6 +273,11 @@ export default function Team({ language }: TeamProps) {
                           src={photos[index]} 
                           alt={instructor.name}
                           className="w-full h-full object-cover rounded-full border-4 border-white shadow-lg"
+                          style={{
+                            objectPosition: index === 0 ? 'center 20%' : // Carolina - centrar cara más arriba
+                                          index === 2 ? 'center 30%' : // Felipe - centrar cara
+                                          'center center'  // Otros - posición normal
+                          }}
                           data-testid={`img-instructor-${instructor.name.toLowerCase().replace(/\s+/g, '-')}`}
                         />
                       </div>
