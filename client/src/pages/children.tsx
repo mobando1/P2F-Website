@@ -1,7 +1,12 @@
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import { CheckCircle, Star } from "lucide-react";
+import {
+  Sheet,
+  SheetContent,
+  SheetTrigger,
+} from "@/components/ui/sheet";
+import { CheckCircle, Star, Menu } from "lucide-react";
 import NavigationDropdown from "@/components/navigation-dropdown";
 import HighLevelCalendar from "@/components/highlevel-calendar";
 import passportLogo from "@assets/a1c5a1_9514ede9e3124d7a9adf78f5dcf07f28~mv2_1755803448396.png";
@@ -20,6 +25,7 @@ interface ChildrenProps {
 
 export default function Children({ language }: ChildrenProps) {
   const [showCalendar, setShowCalendar] = useState(false);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   const handleBookingClick = () => {
     const bookingSection = document.getElementById('booking');
@@ -136,20 +142,112 @@ export default function Children({ language }: ChildrenProps) {
                 <img src={passportLogo} alt="Passport to Fluency" className="h-10 w-auto" />
               </Link>
             </div>
-            <div className="hidden md:flex items-center space-x-8">
-              <Link href={basePath} className="text-gray-700 hover:text-passport-blue">
-                {content.nav.home}
-              </Link>
-              <Link href={`${basePath}/pricing`} className="text-gray-700 hover:text-passport-blue">
-                {content.nav.pricing}
-              </Link>
-              <NavigationDropdown language={language} currentPath={`${basePath}/children`} />
-              <Link href={`${basePath}/team`} className="text-gray-700 hover:text-passport-blue">
-                {content.nav.team}
-              </Link>
-              <Link href={`${basePath}/blog`} className="text-gray-700 hover:text-passport-blue">
-                {content.nav.blog}
-              </Link>
+            <div className="flex items-center space-x-4">
+              {/* Desktop Navigation */}
+              <div className="hidden md:flex items-center space-x-8">
+                <Link href={basePath} className="text-gray-700 hover:text-passport-blue">
+                  {content.nav.home}
+                </Link>
+                <Link href={`${basePath}/pricing`} className="text-gray-700 hover:text-passport-blue">
+                  {content.nav.pricing}
+                </Link>
+                <NavigationDropdown language={language} currentPath={`${basePath}/children`} />
+                <Link href={`${basePath}/team`} className="text-gray-700 hover:text-passport-blue">
+                  {content.nav.team}
+                </Link>
+                <Link href={`${basePath}/blog`} className="text-gray-700 hover:text-passport-blue">
+                  {content.nav.blog}
+                </Link>
+              </div>
+              
+              {/* Language Toggle Button - Always Visible */}
+              <Button 
+                onClick={() => window.location.href = language === 'en' ? '/en' : '/es'}
+                variant="outline" 
+                size="sm"
+                className={`border-passport-${language === 'en' ? 'blue' : 'orange'} text-passport-${language === 'en' ? 'blue' : 'orange'} hover:bg-passport-${language === 'en' ? 'blue' : 'orange'} hover:text-white`}
+              >
+                {language === 'en' ? '🇺🇸 Learn English' : '🇪🇸 Aprende Español'}
+              </Button>
+              
+              {/* Mobile Menu Button */}
+              <div className="md:hidden">
+                <Sheet open={isMobileMenuOpen} onOpenChange={setIsMobileMenuOpen}>
+                  <SheetTrigger asChild>
+                    <Button variant="ghost" size="sm" className="p-2">
+                      <Menu className="h-5 w-5" />
+                    </Button>
+                  </SheetTrigger>
+                  <SheetContent side="right" className="w-72">
+                    <div className="flex flex-col space-y-6 mt-8">
+                      <Link 
+                        href={basePath}
+                        className="text-gray-700 hover:text-passport-blue transition-colors py-2 text-lg border-b border-gray-100"
+                        onClick={() => setIsMobileMenuOpen(false)}
+                      >
+                        {content.nav.home}
+                      </Link>
+                      
+                      <Link 
+                        href={`${basePath}/pricing`}
+                        className="text-gray-700 hover:text-passport-blue transition-colors py-2 text-lg border-b border-gray-100"
+                        onClick={() => setIsMobileMenuOpen(false)}
+                      >
+                        {content.nav.pricing}
+                      </Link>
+                      
+                      <div className="border-b border-gray-100 pb-2">
+                        <div className="text-gray-700 py-2 text-lg mb-2">Programs</div>
+                        <div className="pl-4 space-y-3">
+                          <Link 
+                            href={`${basePath}/children`}
+                            className="block text-gray-600 hover:text-passport-blue transition-colors"
+                            onClick={() => setIsMobileMenuOpen(false)}
+                          >
+                            {content.nav.children}
+                          </Link>
+                          <Link 
+                            href={`${basePath}/business`}
+                            className="block text-gray-600 hover:text-passport-blue transition-colors"
+                            onClick={() => setIsMobileMenuOpen(false)}
+                          >
+                            {content.nav.business}
+                          </Link>
+                        </div>
+                      </div>
+                      
+                      <Link 
+                        href={`${basePath}/team`}
+                        className="text-gray-700 hover:text-passport-blue transition-colors py-2 text-lg border-b border-gray-100"
+                        onClick={() => setIsMobileMenuOpen(false)}
+                      >
+                        {content.nav.team}
+                      </Link>
+                      
+                      <Link 
+                        href={`${basePath}/blog`}
+                        className="text-gray-700 hover:text-passport-blue transition-colors py-2 text-lg border-b border-gray-100"
+                        onClick={() => setIsMobileMenuOpen(false)}
+                      >
+                        {content.nav.blog}
+                      </Link>
+                      
+                      {/* Language Switch in Mobile Menu */}
+                      <Button 
+                        onClick={() => {
+                          setIsMobileMenuOpen(false);
+                          window.location.href = language === 'en' ? '/en' : '/es';
+                        }}
+                        variant="outline" 
+                        size="sm"
+                        className={`border-passport-${language === 'en' ? 'blue' : 'orange'} text-passport-${language === 'en' ? 'blue' : 'orange'} hover:bg-passport-${language === 'en' ? 'blue' : 'orange'} hover:text-white mt-4`}
+                      >
+                        {language === 'en' ? '🇺🇸 Learn English' : '🇪🇸 Aprende Español'}
+                      </Button>
+                    </div>
+                  </SheetContent>
+                </Sheet>
+              </div>
             </div>
           </div>
         </div>
