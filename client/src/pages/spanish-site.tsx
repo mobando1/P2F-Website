@@ -1,6 +1,11 @@
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
+import {
+  Sheet,
+  SheetContent,
+  SheetTrigger,
+} from "@/components/ui/sheet";
 import BookingForm from "@/components/booking-form";
 import NewsletterSignup from "@/components/newsletter-signup";
 import DiscountPopup from "@/components/discount-popup";
@@ -27,12 +32,13 @@ import {
   Globe, Star, Users, Clock, ArrowRight, Calendar, 
   Headphones, VideoIcon, CheckCircle, MessageCircle,
   Facebook, Instagram, Linkedin, Youtube, Mail, Phone, Building,
-  Gamepad2, Briefcase, Stethoscope, Home, TrendingUp, Scale
+  Gamepad2, Briefcase, Stethoscope, Home, TrendingUp, Scale, Menu
 } from "lucide-react";
 
 export default function SpanishSite() {
   // Removed modal state - now using integrated calendars
   const [showDiscountPopup, setShowDiscountPopup] = useState(false);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [, navigate] = useLocation();
 
   // Show discount popup after 7 seconds or on scroll for Spanish learners
@@ -106,7 +112,8 @@ export default function SpanishSite() {
                 onClick={goToLanding}
               />
             </div>
-            <div className="flex items-center space-x-6">
+            <div className="flex items-center space-x-4">
+              {/* Desktop Navigation */}
               <nav className="hidden md:flex items-center space-x-6">
                 <Link href="/es/pricing" className="text-gray-700 hover:text-passport-orange transition-colors">
                   Plans & Pricing
@@ -119,6 +126,8 @@ export default function SpanishSite() {
                   Blog
                 </Link>
               </nav>
+              
+              {/* Language Toggle Button - Always Visible */}
               <Button 
                 onClick={goToEnglishSite}
                 variant="outline" 
@@ -127,6 +136,64 @@ export default function SpanishSite() {
               >
                 🇺🇸 Learn English
               </Button>
+              
+              {/* Mobile Menu Button */}
+              <div className="md:hidden">
+                <Sheet open={isMobileMenuOpen} onOpenChange={setIsMobileMenuOpen}>
+                  <SheetTrigger asChild>
+                    <Button variant="ghost" size="sm" className="p-2">
+                      <Menu className="h-5 w-5" />
+                    </Button>
+                  </SheetTrigger>
+                  <SheetContent side="right" className="w-72">
+                    <div className="flex flex-col space-y-6 mt-8">
+                      <Link 
+                        href="/es/pricing" 
+                        className="text-gray-700 hover:text-passport-orange transition-colors py-2 text-lg border-b border-gray-100"
+                        onClick={() => setIsMobileMenuOpen(false)}
+                      >
+                        Plans & Pricing
+                      </Link>
+                      
+                      <div className="border-b border-gray-100 pb-2">
+                        <div className="text-gray-700 py-2 text-lg mb-2">Programs</div>
+                        <div className="pl-4 space-y-3">
+                          <Link 
+                            href="/es/children" 
+                            className="block text-gray-600 hover:text-passport-orange transition-colors"
+                            onClick={() => setIsMobileMenuOpen(false)}
+                          >
+                            Spanish for Children
+                          </Link>
+                          <Link 
+                            href="/es/business" 
+                            className="block text-gray-600 hover:text-passport-orange transition-colors"
+                            onClick={() => setIsMobileMenuOpen(false)}
+                          >
+                            Spanish for Companies
+                          </Link>
+                        </div>
+                      </div>
+                      
+                      <Link 
+                        href="/es/team" 
+                        className="text-gray-700 hover:text-passport-orange transition-colors py-2 text-lg border-b border-gray-100"
+                        onClick={() => setIsMobileMenuOpen(false)}
+                      >
+                        Team
+                      </Link>
+                      
+                      <Link 
+                        href="/es/blog" 
+                        className="text-gray-700 hover:text-passport-orange transition-colors py-2 text-lg border-b border-gray-100"
+                        onClick={() => setIsMobileMenuOpen(false)}
+                      >
+                        Blog
+                      </Link>
+                    </div>
+                  </SheetContent>
+                </Sheet>
+              </div>
             </div>
           </div>
         </div>
