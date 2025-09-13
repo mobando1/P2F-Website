@@ -192,6 +192,13 @@ export default function Team({ language }: TeamProps) {
                         <div className="text-gray-700 py-2 text-lg mb-2">{language === 'en' ? 'Programs' : 'Programas'}</div>
                         <div className="pl-4 space-y-3">
                           <Link 
+                            href={basePath}
+                            className="block text-gray-600 hover:text-passport-blue transition-colors"
+                            onClick={() => setIsMobileMenuOpen(false)}
+                          >
+                            {language === 'en' ? 'Spanish for Adults' : 'English for Adults'}
+                          </Link>
+                          <Link 
                             href={`${basePath}/children`}
                             className="block text-gray-600 hover:text-passport-blue transition-colors"
                             onClick={() => setIsMobileMenuOpen(false)}
