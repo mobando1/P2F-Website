@@ -6,7 +6,6 @@ import {
   SheetContent,
   SheetTrigger,
 } from "@/components/ui/sheet";
-import BookingForm from "@/components/booking-form";
 import NewsletterSignup from "@/components/newsletter-signup";
 import DiscountPopup from "@/components/discount-popup";
 import HighLevelCalendar from "@/components/highlevel-calendar";
