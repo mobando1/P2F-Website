@@ -9,3 +9,13 @@ out
 coverage
 .replit
 replit.nix
+
+# Build output
+dist
+build
+.next
+out
+
+# Replit assets (usually not source code)
+attached_assets
+.local
