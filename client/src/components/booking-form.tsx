@@ -104,7 +104,7 @@ export default function BookingForm({ t, language, studentType, onClose }: Booki
               {t('booking.selectDateTime')}
             </h4>
             
-            <div className="grid md:grid-cols-2 gap-6">
+            <div className="grid md:grid-cols-2 gap-4 md:gap-6">
               <div>
                 <Calendar
                   mode="single"
@@ -119,7 +119,7 @@ export default function BookingForm({ t, language, studentType, onClose }: Booki
                 <h5 className="font-semibold text-gray-700 text-sm mb-3">
                   {t('booking.availableTimes')}
                 </h5>
-                <div className="grid grid-cols-2 gap-2">
+                <div className="grid grid-cols-2 gap-3">
                   {timeSlots.map((time) => (
                     <Button
                       key={time}

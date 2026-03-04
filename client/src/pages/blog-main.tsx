@@ -198,12 +198,12 @@ export default function BlogMain() {
               Language Learning Insights
             </div>
             
-            <h1 className="text-4xl md:text-6xl font-bold text-gray-900 mb-6">
+            <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-6xl font-bold text-gray-900 mb-6">
               <span className="text-passport-blue">Language Learning</span><br />
               <span className="italic text-passport-orange">Blog</span>
             </h1>
             
-            <p className="text-xl md:text-2xl text-gray-700 mb-8 max-w-3xl mx-auto">
+            <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-gray-700 mb-8 max-w-3xl mx-auto">
               Expert tips, cultural insights, and proven strategies to accelerate your language learning journey.
             </p>
           </div>

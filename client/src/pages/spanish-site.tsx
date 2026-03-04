@@ -238,17 +238,17 @@ export default function SpanishSite() {
               </div>
             </div>
             
-            <h1 className="text-5xl md:text-7xl font-bold text-gray-900 mb-6">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-bold text-gray-900 mb-6">
               <span className="text-passport-orange">Speak Spanish</span><br />
               <span className="italic text-passport-blue">like a native</span>
             </h1>
             
-            <p className="text-xl md:text-2xl text-gray-700 mb-8 max-w-3xl mx-auto">
+            <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-gray-700 mb-8 max-w-3xl mx-auto">
               Personalized 1-on-1 classes with native Latin American instructors. 
               <span className="font-semibold"> Available 24/7, from anywhere.</span>
             </p>
 
-            <div className="flex flex-wrap justify-center gap-6 mb-12 text-sm text-gray-600">
+            <div className="flex flex-wrap justify-center gap-3 sm:gap-4 md:gap-6 mb-6 sm:mb-8 md:mb-12 text-sm text-gray-600">
               <div className="flex items-center">
                 <Users className="w-4 h-4 mr-1 text-passport-orange" />
                 <strong className="text-gray-900">1,000+</strong> English speakers learning
@@ -291,10 +291,10 @@ export default function SpanishSite() {
         <div className="container mx-auto px-4">
           {/* Header */}
           <div className="text-center mb-6 md:mb-8">
-            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
               How It Works
             </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <p className="text-base sm:text-lg md:text-xl text-gray-600 max-w-3xl mx-auto">
               Just 3 simple steps to start speaking Spanish with confidence
             </p>
           </div>
@@ -472,12 +472,12 @@ export default function SpanishSite() {
       <section className="py-8 md:py-12 bg-gray-50">
         <div className="container mx-auto px-4">
           <div className="text-center mb-6 md:mb-8">
-            <h2 className="text-4xl font-bold text-gray-900 mb-4">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-4">
               Why Choose Passport to Fluency?
             </h2>
           </div>
 
-          <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-12 items-center">
+          <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-6 md:gap-12 items-center">
             <div>
               <ul className="space-y-6">
                 <li className="flex items-start">
@@ -572,15 +572,15 @@ export default function SpanishSite() {
       <section id="booking-calendars" className="py-8 md:py-12 bg-white">
         <div className="container mx-auto px-4">
           <div className="text-center mb-6 md:mb-8">
-            <h2 className="text-4xl font-bold text-gray-900 mb-4">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-4">
               Schedule Your Free Trial Class
             </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <p className="text-base sm:text-lg md:text-xl text-gray-600 max-w-3xl mx-auto">
               Choose the program that best fits your needs. Same pricing, specialized teaching approach for each age group.
             </p>
           </div>
 
-          <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-8 items-start">
+          <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-4 md:gap-8 items-start">
             {/* Adult Calendar */}
             <div className="bg-gray-50 rounded-2xl p-6 h-full flex flex-col">
               <div className="text-center mb-4 min-h-[140px] flex flex-col justify-between">
@@ -639,10 +639,10 @@ export default function SpanishSite() {
       <section id="plans-pricing" className="py-8 md:py-12 bg-white">
         <div className="container mx-auto px-4">
           <div className="text-center mb-6 md:mb-8">
-            <h2 className="text-4xl font-bold text-gray-900 mb-4">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-4">
               Find the Perfect Plan to Speak Spanish Confidently
             </h2>
-            <p className="text-xl text-gray-600">
+            <p className="text-base sm:text-lg md:text-xl text-gray-600">
               Personalized 1-on-1 coaching with native Latin American instructors. No contracts or fine print. Cancel anytime.
             </p>
           </div>
@@ -779,12 +779,12 @@ export default function SpanishSite() {
       <section id="testimonials" className="py-8 md:py-12 bg-gray-50">
         <div className="container mx-auto px-4">
           <div className="text-center mb-6 md:mb-8">
-            <h2 className="text-4xl font-bold text-gray-900 mb-4">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-4">
               What Our Students Say
             </h2>
           </div>
 
-          <div className="max-w-6xl mx-auto grid md:grid-cols-3 gap-8">
+          <div className="max-w-6xl mx-auto grid md:grid-cols-3 gap-4 md:gap-8">
             <Card className="bg-white">
               <CardContent className="p-6">
                 <div className="flex items-center mb-4">
@@ -889,7 +889,7 @@ export default function SpanishSite() {
       {/* Free Trial Section */}
       <section className="py-8 md:py-12 bg-passport-orange">
         <div className="container mx-auto px-4 text-center">
-          <h2 className="text-4xl font-bold text-white mb-6">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-6">
             Ready to speak Spanish with confidence?
           </h2>
           <p className="text-xl text-orange-100 mb-8 max-w-2xl mx-auto">
@@ -921,7 +921,7 @@ export default function SpanishSite() {
       {/* Footer */}
       <footer className="bg-gray-900 text-white py-12">
         <div className="container mx-auto px-4">
-          <div className="grid md:grid-cols-4 gap-8">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-8">
             <div>
               <img src={passportLogo} alt="Passport to Fluency" className="h-10 brightness-0 invert mb-4" />
               <p className="text-gray-400">

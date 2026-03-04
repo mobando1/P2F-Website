@@ -93,8 +93,8 @@ export default function NewsletterSignup({ language, className = "" }: Newslette
 
         {/* Use real HighLevel forms for both languages */}
         {language === 'en' ? (
-          <div className="min-h-[400px]">
-            <div 
+          <div className="min-h-[300px] md:min-h-[400px]">
+            <div
               dangerouslySetInnerHTML={{
                 __html: `
                   <iframe
@@ -120,8 +120,8 @@ export default function NewsletterSignup({ language, className = "" }: Newslette
             />
           </div>
         ) : (
-          <div className="min-h-[400px]">
-            <div 
+          <div className="min-h-[300px] md:min-h-[400px]">
+            <div
               dangerouslySetInnerHTML={{
                 __html: `
                   <iframe

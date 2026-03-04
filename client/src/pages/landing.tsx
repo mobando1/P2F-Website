@@ -550,12 +550,12 @@ export default function Landing() {
           
           {/* Left Side - Hero Text */}
           <div className="space-y-8 animate-fade-in order-1 lg:order-1">
-            <h1 className="text-5xl md:text-7xl font-black leading-tight mb-8">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-black leading-tight mb-8">
               <span style={{color: '#0A4A6E'}}>{t.heroTitle} </span>
-              <span className="italic text-6xl md:text-8xl" style={{color: '#F59E1C'}}>{t.heroTitleItalic}</span>
+              <span className="italic text-4xl sm:text-5xl md:text-6xl lg:text-8xl" style={{color: '#F59E1C'}}>{t.heroTitleItalic}</span>
             </h1>
-            
-            <p className="text-xl md:text-2xl text-gray-700 leading-relaxed max-w-lg mb-6">
+
+            <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-gray-700 leading-relaxed max-w-lg mb-6">
               {t.heroSubtitle}
             </p>
             
@@ -585,7 +585,7 @@ export default function Landing() {
             <div className="space-y-6">
               <Button 
                 onClick={() => handleLanguageSelection('spanish', '/es')}
-                className="w-full sm:w-auto px-12 py-6 text-2xl font-bold rounded-full transition-all duration-500 hover:shadow-2xl transform hover:scale-105 border-0 relative overflow-hidden group"
+                className="w-full sm:w-auto px-6 py-4 text-lg sm:px-12 sm:py-6 sm:text-2xl font-bold rounded-full transition-all duration-500 hover:shadow-2xl transform hover:scale-105 border-0 relative overflow-hidden group"
                 style={{
                   background: 'linear-gradient(135deg, #F59E1C 0%, #fbbf24 100%)',
                   color: 'white',
@@ -602,7 +602,7 @@ export default function Landing() {
               
               <Button 
                 onClick={() => handleLanguageSelection('english', '/en')}
-                className="w-full sm:w-auto px-12 py-6 text-2xl font-bold rounded-full transition-all duration-500 hover:shadow-2xl transform hover:scale-105 border-0 relative overflow-hidden group ml-0 sm:ml-6"
+                className="w-full sm:w-auto px-6 py-4 text-lg sm:px-12 sm:py-6 sm:text-2xl font-bold rounded-full transition-all duration-500 hover:shadow-2xl transform hover:scale-105 border-0 relative overflow-hidden group ml-0 sm:ml-6"
                 style={{
                   background: 'linear-gradient(135deg, #0A4A6E 0%, #1C7BB1 100%)',
                   color: 'white',
@@ -671,7 +671,7 @@ export default function Landing() {
       <div className="bg-white py-4 md:py-6 mt-2 md:mt-0">
         <div className="container mx-auto px-6">
           <div className="flex justify-center items-center">
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12 text-center max-w-5xl">
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 md:gap-8 lg:gap-12 text-center max-w-5xl">
               {/* Stat 1 */}
               <div className="flex flex-col items-center p-3 md:p-4 rounded-2xl hover:shadow-lg transition-all duration-300">
                 <div className="w-6 h-6 md:w-7 md:h-7 rounded-full flex items-center justify-center mb-3 md:mb-4" style={{background: 'linear-gradient(135deg, #0A4A6E, #1C7BB1)'}}>
@@ -718,10 +718,10 @@ export default function Landing() {
       <div className="py-8 md:py-12 bg-gray-50">
         <div className="container mx-auto px-6">
           <div className="text-center mb-6 md:mb-8">
-            <h2 className="text-4xl md:text-5xl font-black mb-6" style={{color: '#0A4A6E'}}>
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-black mb-6" style={{color: '#0A4A6E'}}>
               {t.howItWorksTitle}
             </h2>
-            <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+            <p className="text-base sm:text-lg md:text-xl text-gray-600 max-w-2xl mx-auto">
               {t.howItWorksSubtitle}
             </p>
           </div>
@@ -829,10 +829,10 @@ export default function Landing() {
       <div className="py-8 md:py-12 bg-white">
         <div className="container mx-auto px-6">
           <div className="text-center mb-6 md:mb-8">
-            <h2 className="text-4xl md:text-5xl font-black mb-6" style={{color: '#0A4A6E'}}>
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-black mb-6" style={{color: '#0A4A6E'}}>
               {t.testimonialsTitle}
             </h2>
-            <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+            <p className="text-base sm:text-lg md:text-xl text-gray-600 max-w-2xl mx-auto">
               {t.testimonialsSubtitle}
             </p>
           </div>
@@ -931,12 +931,12 @@ export default function Landing() {
               </div>
 
               {/* Título principal */}
-              <h2 className="text-5xl md:text-6xl font-bold mb-8 leading-tight" style={{color: '#0A4A6E'}}>
+              <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-8 leading-tight" style={{color: '#0A4A6E'}}>
                 {t.businessTitle}
               </h2>
               
               {/* Descripción */}
-              <p className="text-xl text-gray-600 mb-8 leading-relaxed">
+              <p className="text-base sm:text-lg md:text-xl text-gray-600 mb-8 leading-relaxed">
                 {t.businessSubtitle}
               </p>
               
@@ -1049,7 +1049,7 @@ export default function Landing() {
         
         <div className="container mx-auto px-6 relative z-10">
           <div className="text-center max-w-4xl mx-auto">
-            <h2 className="text-4xl md:text-6xl font-black text-white mb-8">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-6xl font-black text-white mb-8">
               {t.finalCtaTitle}
             </h2>
             <p className="text-xl md:text-2xl text-blue-100 mb-12 leading-relaxed">

@@ -238,17 +238,17 @@ export default function EnglishSite() {
               </div>
             </div>
             
-            <h1 className="text-5xl md:text-7xl font-bold text-gray-900 mb-6">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-bold text-gray-900 mb-6">
               <span className="text-passport-blue">Habla Inglés</span><br />
               <span className="italic text-passport-orange">como un nativo</span>
             </h1>
             
-            <p className="text-xl md:text-2xl text-gray-700 mb-8 max-w-3xl mx-auto">
+            <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-gray-700 mb-8 max-w-3xl mx-auto">
               Clases personalizadas 1-a-1 con instructores nativos americanos. 
               <span className="font-semibold"> Disponible 24/7, desde cualquier lugar.</span>
             </p>
 
-            <div className="flex flex-wrap justify-center gap-6 mb-12 text-sm text-gray-600">
+            <div className="flex flex-wrap justify-center gap-3 sm:gap-4 md:gap-6 mb-6 sm:mb-8 md:mb-12 text-sm text-gray-600">
               <div className="flex items-center">
                 <Users className="w-4 h-4 mr-1 text-passport-blue" />
                 <strong className="text-gray-900">1,000+</strong> estudiantes latinos
@@ -289,10 +289,10 @@ export default function EnglishSite() {
         <div className="container mx-auto px-4">
           {/* Header */}
           <div className="text-center mb-6 md:mb-8">
-            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
               Cómo Funciona
             </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <p className="text-base sm:text-lg md:text-xl text-gray-600 max-w-3xl mx-auto">
               Solo 3 pasos simples para empezar a hablar inglés con confianza
             </p>
           </div>
@@ -470,12 +470,12 @@ export default function EnglishSite() {
       <section className="py-8 md:py-12 bg-gray-50">
         <div className="container mx-auto px-4">
           <div className="text-center mb-6 md:mb-8">
-            <h2 className="text-4xl font-bold text-gray-900 mb-4">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-4">
               ¿Por qué elegir Passport to Fluency?
             </h2>
           </div>
 
-          <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-12 items-center">
+          <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-6 md:gap-12 items-center">
             <div>
               <ul className="space-y-6">
                 <li className="flex items-start">
@@ -570,15 +570,15 @@ export default function EnglishSite() {
       <section id="booking-calendars" className="py-8 md:py-12 bg-white">
         <div className="container mx-auto px-4">
           <div className="text-center mb-6 md:mb-8">
-            <h2 className="text-4xl font-bold text-gray-900 mb-4">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-4">
               Agenda tu Clase de Prueba Gratuita
             </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <p className="text-base sm:text-lg md:text-xl text-gray-600 max-w-3xl mx-auto">
               Elige el programa que mejor se adapte a tus necesidades. Mismo precio, enfoque de enseñanza especializado para cada grupo de edad.
             </p>
           </div>
 
-          <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-12 items-start">
+          <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-6 md:gap-12 items-start">
             {/* Adult Calendar */}
             <div className="bg-gray-50 rounded-2xl p-8 h-full flex flex-col">
               <div className="text-center mb-6 min-h-[160px] flex flex-col justify-between">
@@ -637,10 +637,10 @@ export default function EnglishSite() {
       <section id="planes-precios" className="py-8 md:py-12 bg-white">
         <div className="container mx-auto px-4">
           <div className="text-center mb-6 md:mb-8">
-            <h2 className="text-4xl font-bold text-gray-900 mb-4">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-4">
               Encuentra el Plan Perfecto para Hablar Inglés con Confianza
             </h2>
-            <p className="text-xl text-gray-600">
+            <p className="text-base sm:text-lg md:text-xl text-gray-600">
               Clases personalizadas 1-a-1 con instructores nativos americanos. Sin contratos ni letras pequeñas. Cancela cuando quieras.
             </p>
           </div>
@@ -775,12 +775,12 @@ export default function EnglishSite() {
       <section id="testimonios" className="py-8 md:py-12 bg-gray-50">
         <div className="container mx-auto px-4">
           <div className="text-center mb-6 md:mb-8">
-            <h2 className="text-4xl font-bold text-gray-900 mb-4">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-4">
               Lo que dicen nuestros estudiantes
             </h2>
           </div>
 
-          <div className="max-w-6xl mx-auto grid md:grid-cols-3 gap-8">
+          <div className="max-w-6xl mx-auto grid md:grid-cols-3 gap-4 md:gap-8">
             <Card className="bg-white">
               <CardContent className="p-6">
                 <div className="flex items-center mb-4">
@@ -879,7 +879,7 @@ export default function EnglishSite() {
       {/* Free Trial Section */}
       <section className="py-8 md:py-12 bg-passport-blue">
         <div className="container mx-auto px-4 text-center">
-          <h2 className="text-4xl font-bold text-white mb-6">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-6">
             ¿Listo para hablar inglés con confianza?
           </h2>
           <p className="text-xl text-blue-100 mb-8 max-w-2xl mx-auto">
@@ -911,7 +911,7 @@ export default function EnglishSite() {
       {/* Footer */}
       <footer className="bg-gray-900 text-white py-12">
         <div className="container mx-auto px-4">
-          <div className="grid md:grid-cols-4 gap-8">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-8">
             <div>
               <img src={passportLogo} alt="Passport to Fluency" className="h-10 brightness-0 invert mb-4" />
               <p className="text-gray-400">

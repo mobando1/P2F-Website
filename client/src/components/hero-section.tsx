@@ -33,14 +33,14 @@ export default function HeroSection({ t, onBookingClick, onPlansClick, language 
             <div className="flex flex-col sm:flex-row gap-4 animate-fade-in">
               <Button 
                 onClick={onBookingClick}
-                className="passport-orange text-white px-8 py-4 rounded-lg font-semibold text-lg hover:bg-orange-600 transition-all duration-200 transform hover:scale-105"
+                className="passport-orange text-white px-4 py-3 sm:px-8 sm:py-4 rounded-lg font-semibold text-lg hover:bg-orange-600 transition-all duration-200 transform hover:scale-105"
               >
                 {t('hero.ctaPrimary')}
               </Button>
               <Button 
                 onClick={onPlansClick}
                 variant="outline"
-                className="border-2 border-white text-white px-8 py-4 rounded-lg font-semibold text-lg hover:bg-white hover:text-passport-blue transition-all duration-200"
+                className="border-2 border-white text-white px-4 py-3 sm:px-8 sm:py-4 rounded-lg font-semibold text-lg hover:bg-white hover:text-passport-blue transition-all duration-200"
               >
                 {t('hero.ctaSecondary')}
               </Button>

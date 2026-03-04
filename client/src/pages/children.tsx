@@ -264,10 +264,10 @@ export default function Children({ language }: ChildrenProps) {
       <section className={`py-20 pb-32 bg-gradient-to-b from-${colorScheme === 'orange' ? 'orange' : 'blue'}-50/80 via-${colorScheme === 'orange' ? 'orange' : 'blue'}-30/60 via-white/40 to-transparent relative`} style={{ zIndex: 10 }}>
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
-            <h1 className="text-4xl font-bold text-gray-900 mb-4">
+            <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-4">
               {content.title}
             </h1>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <p className="text-base sm:text-lg md:text-xl text-gray-600 max-w-3xl mx-auto">
               {content.subtitle}
             </p>
           </div>
@@ -294,7 +294,7 @@ export default function Children({ language }: ChildrenProps) {
                 </p>
               </div>
 
-              <div className="grid grid-cols-2 gap-8 mb-8">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 md:gap-8 mb-8">
                 {content.features.map((feature, index) => {
                   // Map each feature to its corresponding cartoon icon
                   const getFeatureIcon = (title: string) => {
@@ -402,13 +402,13 @@ export default function Children({ language }: ChildrenProps) {
                 />
               </div>
             </div>
-            <h2 className="text-4xl font-bold text-gray-900 mb-4">
-              {language === 'en' 
-                ? 'Schedule Your Child\'s Free Spanish Class' 
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+              {language === 'en'
+                ? 'Schedule Your Child\'s Free Spanish Class'
                 : 'Agenda la Clase Gratuita de Inglés para tu Hijo'
               }
             </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <p className="text-base sm:text-lg md:text-xl text-gray-600 max-w-3xl mx-auto">
               {language === 'en'
                 ? 'Book a 40-minute trial session with our specialized children\'s instructors. No commitment required.'
                 : 'Reserva una sesión de prueba de 40 minutos con nuestros instructores especializados en niños. Sin compromiso requerido.'

@@ -102,25 +102,13 @@ export default function HighLevelCalendar({ language, type, className = "" }: Hi
         </div>
       ) : (
         <div className="calendar-container">
-          <div className="min-h-[800px]">
-            {/* Show real HighLevel calendars - All 4 calendars now available */}
-            {true ? (
-              <div 
-                dangerouslySetInnerHTML={{
-                  __html: `
-                    <iframe 
-                      src="${calendarUrls[type][language]}" 
-                      style="width: 100%;height: 800px;border:none;overflow: hidden;" 
-                      scrolling="yes" 
-                      id="${calendarUrls[type][language].split('/').pop()}_${Date.now()}"
-                    ></iframe>
-                    <script src="https://link.msgsndr.com/js/form_embed.js" type="text/javascript"></script>
-                  `
-                }}
-              />
-            ) : (
-              <CalendarFallback />
-            )}
+          <div className="min-h-[500px] md:min-h-[800px]">
+            <iframe
+              src={calendarUrl}
+              className="w-full h-[500px] md:h-[800px] border-none"
+              scrolling="yes"
+              title="Booking Calendar"
+            />
           </div>
         </div>
       )}

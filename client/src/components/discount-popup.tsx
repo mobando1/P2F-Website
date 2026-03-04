@@ -117,14 +117,14 @@ export default function DiscountPopup({ language, onClose, onSubscribe }: Discou
         {/* Timer removed as requested */}
         {/* HighLevel form integration for discount popup */}
         <div className="space-y-4">
-          <div className="min-h-[350px] -mx-2 -mb-2">
+          <div className="min-h-[280px] sm:min-h-[350px] -mx-2 -mb-2">
             {language === 'es' ? (
               <div 
                 dangerouslySetInnerHTML={{
                   __html: `
                     <iframe
                       src="https://api.leadconnectorhq.com/widget/form/4jKIDLnqJmvyS6yhYdly"
-                      style="width:100%;height:350px;border:none;border-radius:12px"
+                      style="width:100%;height:100%;min-height:280px;border:none;border-radius:12px"
                       id="inline-4jKIDLnqJmvyS6yhYdly" 
                       data-layout="{'id':'INLINE'}"
                       data-trigger-type="alwaysShow"
@@ -149,7 +149,7 @@ export default function DiscountPopup({ language, onClose, onSubscribe }: Discou
                   __html: `
                     <iframe
                       src="https://api.leadconnectorhq.com/widget/form/FTuj7n9Kp5GYdlbLyyI7"
-                      style="width:100%;height:350px;border:none;border-radius:12px"
+                      style="width:100%;height:100%;min-height:280px;border:none;border-radius:12px"
                       id="inline-FTuj7n9Kp5GYdlbLyyI7" 
                       data-layout="{'id':'INLINE'}"
                       data-trigger-type="alwaysShow"
@@ -174,7 +174,7 @@ export default function DiscountPopup({ language, onClose, onSubscribe }: Discou
           <button
             type="button"
             onClick={onClose}
-            className="w-full text-gray-500 hover:text-gray-700 text-sm py-2 transition-colors"
+            className="w-full text-gray-500 hover:text-gray-700 text-sm py-3 transition-colors"
           >
             {t.noThanks}
           </button>
