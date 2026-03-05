@@ -33,12 +33,12 @@ const FAQItem = ({ question, answer }: { question: string; answer: string }) => 
         className="w-full p-6 text-left flex items-center justify-between hover:bg-gray-50 transition-colors duration-200"
         onClick={() => setIsOpen(!isOpen)}
       >
-        <span className="font-semibold text-lg pr-4" style={{color: '#0A4A6E'}}>{question}</span>
+        <span className="font-semibold text-lg pr-4 text-passport-blue">{question}</span>
         <div className="flex-shrink-0">
           {isOpen ? (
-            <Minus className="w-5 h-5" style={{color: '#F59E1C'}} />
+            <Minus className="w-5 h-5 text-passport-orange" />
           ) : (
-            <Plus className="w-5 h-5" style={{color: '#F59E1C'}} />
+            <Plus className="w-5 h-5 text-passport-orange" />
           )}
         </div>
       </button>
@@ -75,7 +75,7 @@ const CTASlim = ({
     }}>
       <div className="container mx-auto px-6">
         <div className="flex flex-col md:flex-row items-center justify-between gap-4">
-          <p className="text-lg font-semibold" style={{color: '#0A4A6E'}}>
+          <p className="text-lg font-semibold text-passport-blue">
             {text}
           </p>
           <div className="flex flex-col sm:flex-row gap-4">
@@ -150,8 +150,7 @@ const MobileCTA = ({
       <div className="flex gap-3">
         <Button 
           onClick={() => handleClick('spanish', '/es')}
-          className="flex-1 py-4 text-lg font-bold rounded-full border-0 bg-white transition-all duration-300"
-          style={{color: '#0A4A6E'}}
+          className="flex-1 py-4 text-lg font-bold rounded-full border-0 bg-white transition-all duration-300 text-passport-blue"
           data-testid="mobile-cta-learn-spanish"
         >
           <span className="flex items-center justify-center gap-2">
@@ -162,8 +161,7 @@ const MobileCTA = ({
         
         <Button 
           onClick={() => handleClick('english', '/en')}
-          className="flex-1 py-4 text-lg font-bold rounded-full border-0 bg-white transition-all duration-300"
-          style={{color: '#0A4A6E'}}
+          className="flex-1 py-4 text-lg font-bold rounded-full border-0 bg-white transition-all duration-300 text-passport-blue"
           data-testid="mobile-cta-aprende-ingles"
         >
           <span className="flex items-center justify-center gap-2">
@@ -551,8 +549,8 @@ export default function Landing() {
           {/* Left Side - Hero Text */}
           <div className="space-y-8 animate-fade-in order-1 lg:order-1">
             <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-black leading-tight mb-8">
-              <span style={{color: '#0A4A6E'}}>{t.heroTitle} </span>
-              <span className="italic text-4xl sm:text-5xl md:text-6xl lg:text-8xl" style={{color: '#F59E1C'}}>{t.heroTitleItalic}</span>
+              <span className="text-passport-blue">{t.heroTitle} </span>
+              <span className="italic text-4xl sm:text-5xl md:text-6xl lg:text-8xl text-passport-orange">{t.heroTitleItalic}</span>
             </h1>
 
             <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-gray-700 leading-relaxed max-w-lg mb-6">
@@ -571,7 +569,7 @@ export default function Landing() {
                 }}></div>
                 
                 <div className="text-center">
-                  <h3 className="text-xl font-bold mb-2" style={{color: '#0A4A6E'}}>
+                  <h3 className="text-xl font-bold mb-2 text-passport-blue">
                     {t.selectLanguageTitle}
                   </h3>
                   <p className="text-gray-600 text-sm">
@@ -621,7 +619,7 @@ export default function Landing() {
             {/* Micro-indicador scroll */}
             <div className="text-center mt-12 animate-bounce">
               <p className="text-sm text-gray-600 mb-2">{t.scrollIndicator}</p>
-              <ChevronDown className="w-6 h-6 mx-auto" style={{color: '#0A4A6E'}} />
+              <ChevronDown className="w-6 h-6 mx-auto text-passport-blue" />
             </div>
           </div>
 
@@ -630,19 +628,21 @@ export default function Landing() {
             <div className="relative">
               {/* Passport Corporate Image as floating background element */}
               <div className="absolute -top-16 -left-12 opacity-10 z-0 hidden md:block">
-                <img 
-                  src={passportImage} 
-                  alt="" 
+                <img
+                  src={passportImage}
+                  alt=""
                   className="w-40 h-40 object-contain transform rotate-12 rounded-3xl"
+                  loading="lazy"
                 />
               </div>
               
               {/* World/Globe image on the right */}
               <div className="absolute -bottom-8 -right-8 opacity-15 z-0 hidden lg:block">
-                <img 
-                  src={worldImage} 
-                  alt="" 
+                <img
+                  src={worldImage}
+                  alt=""
                   className="w-32 h-32 object-contain rounded-3xl"
+                  loading="lazy"
                 />
               </div>
               
@@ -677,7 +677,7 @@ export default function Landing() {
                 <div className="w-6 h-6 md:w-7 md:h-7 rounded-full flex items-center justify-center mb-3 md:mb-4" style={{background: 'linear-gradient(135deg, #0A4A6E, #1C7BB1)'}}>
                   <Users className="w-3 h-3 md:w-3.5 md:h-3.5 text-white" />
                 </div>
-                <div className="text-xl md:text-2xl lg:text-3xl font-black mb-2" style={{color: '#0A4A6E'}}>500+</div>
+                <div className="text-xl md:text-2xl lg:text-3xl font-black mb-2 text-passport-blue">500+</div>
                 <div className="text-xs md:text-xs text-gray-600 font-medium">{t.stat1}</div>
               </div>
               
@@ -686,7 +686,7 @@ export default function Landing() {
                 <div className="w-6 h-6 md:w-7 md:h-7 rounded-full flex items-center justify-center mb-3 md:mb-4" style={{background: 'linear-gradient(135deg, #F59E1C, #fbbf24)'}}>
                   <CheckCircle className="w-3 h-3 md:w-3.5 md:h-3.5 text-white" />
                 </div>
-                <div className="text-xl md:text-2xl lg:text-3xl font-black mb-2" style={{color: '#F59E1C'}}>100K+</div>
+                <div className="text-xl md:text-2xl lg:text-3xl font-black mb-2 text-passport-orange">100K+</div>
                 <div className="text-xs md:text-xs text-gray-600 font-medium">{t.stat2}</div>
               </div>
               
@@ -695,7 +695,7 @@ export default function Landing() {
                 <div className="w-6 h-6 md:w-7 md:h-7 rounded-full flex items-center justify-center mb-3 md:mb-4" style={{background: 'linear-gradient(135deg, #0A4A6E, #1C7BB1)'}}>
                   <Globe className="w-3 h-3 md:w-3.5 md:h-3.5 text-white" />
                 </div>
-                <div className="text-xl md:text-2xl lg:text-3xl font-black mb-2" style={{color: '#0A4A6E'}}>EN-ES</div>
+                <div className="text-xl md:text-2xl lg:text-3xl font-black mb-2 text-passport-blue">EN-ES</div>
                 <div className="text-xs md:text-xs text-gray-600 font-medium">{t.stat3}</div>
               </div>
               
@@ -704,7 +704,7 @@ export default function Landing() {
                 <div className="w-6 h-6 md:w-7 md:h-7 rounded-full flex items-center justify-center mb-3 md:mb-4" style={{background: 'linear-gradient(135deg, #F59E1C, #fbbf24)'}}>
                   <Star className="w-3 h-3 md:w-3.5 md:h-3.5 text-white fill-current" />
                 </div>
-                <div className="text-xl md:text-2xl lg:text-3xl font-black mb-2" style={{color: '#F59E1C'}}>4.9</div>
+                <div className="text-xl md:text-2xl lg:text-3xl font-black mb-2 text-passport-orange">4.9</div>
                 <div className="text-xs md:text-xs text-gray-600 font-medium">{t.stat4}</div>
               </div>
             </div>
@@ -718,7 +718,7 @@ export default function Landing() {
       <div className="py-8 md:py-12 bg-gray-50">
         <div className="container mx-auto px-6">
           <div className="text-center mb-6 md:mb-8">
-            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-black mb-6" style={{color: '#0A4A6E'}}>
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-black mb-6 text-passport-blue">
               {t.howItWorksTitle}
             </h2>
             <p className="text-base sm:text-lg md:text-xl text-gray-600 max-w-2xl mx-auto">
@@ -747,7 +747,7 @@ export default function Landing() {
                     background: '#F59E1C'
                   }}>1</div>
                 </div>
-                <h3 className="text-2xl font-bold mb-4" style={{color: '#0A4A6E'}}>{t.step1Title}</h3>
+                <h3 className="text-2xl font-bold mb-4 text-passport-blue">{t.step1Title}</h3>
                 <p className="text-gray-600">{t.step1Desc}</p>
               </div>
               
@@ -763,7 +763,7 @@ export default function Landing() {
                     background: '#F59E1C'
                   }}>2</div>
                 </div>
-                <h3 className="text-2xl font-bold mb-4" style={{color: '#0A4A6E'}}>{t.step2Title}</h3>
+                <h3 className="text-2xl font-bold mb-4 text-passport-blue">{t.step2Title}</h3>
                 <p className="text-gray-600">{t.step2Desc}</p>
               </div>
               
@@ -779,7 +779,7 @@ export default function Landing() {
                     background: '#F59E1C'
                   }}>3</div>
                 </div>
-                <h3 className="text-2xl font-bold mb-4" style={{color: '#0A4A6E'}}>{t.step3Title}</h3>
+                <h3 className="text-2xl font-bold mb-4 text-passport-blue">{t.step3Title}</h3>
                 <p className="text-gray-600">{t.step3Desc}</p>
               </div>
             </div>
@@ -812,7 +812,7 @@ export default function Landing() {
                     )}
                   </div>
                   <div>
-                    <h3 className="text-xl font-bold mb-2" style={{color: '#0A4A6E'}}>{titles[index]}</h3>
+                    <h3 className="text-xl font-bold mb-2 text-passport-blue">{titles[index]}</h3>
                     <p className="text-gray-600">{descriptions[index]}</p>
                   </div>
                 </div>
@@ -829,7 +829,7 @@ export default function Landing() {
       <div className="py-8 md:py-12 bg-white">
         <div className="container mx-auto px-6">
           <div className="text-center mb-6 md:mb-8">
-            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-black mb-6" style={{color: '#0A4A6E'}}>
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-black mb-6 text-passport-blue">
               {t.testimonialsTitle}
             </h2>
             <p className="text-base sm:text-lg md:text-xl text-gray-600 max-w-2xl mx-auto">
@@ -891,13 +891,14 @@ export default function Landing() {
             ].map((testimonial, index) => (
               <div key={index} className="bg-gray-50 rounded-2xl p-6 hover:shadow-lg transition-all duration-300">
                 <div className="flex items-center mb-4">
-                  <img 
-                    src={testimonial.image} 
+                  <img
+                    src={testimonial.image}
                     alt={testimonial.name}
                     className="w-12 h-12 rounded-full object-cover mr-4"
+                    loading="lazy"
                   />
                   <div>
-                    <h4 className="font-bold" style={{color: '#0A4A6E'}}>{testimonial.name}</h4>
+                    <h4 className="font-bold text-passport-blue">{testimonial.name}</h4>
                     <p className="text-sm text-gray-600">{testimonial.country}</p>
                     <p className="text-xs font-medium text-gray-500 italic mt-1">
                       {testimonial.program}
@@ -905,7 +906,7 @@ export default function Landing() {
                   </div>
                   <div className="ml-auto flex">
                     {[...Array(testimonial.rating)].map((_, i) => (
-                      <Star key={i} className="w-4 h-4 fill-current" style={{color: '#F59E1C'}} />
+                      <Star key={i} className="w-4 h-4 fill-current text-passport-orange" />
                     ))}
                   </div>
                 </div>
@@ -925,13 +926,13 @@ export default function Landing() {
               {/* Badge corporativo */}
               <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-blue-50 mb-6">
                 <div className="w-2 h-2 rounded-full" style={{backgroundColor: '#0A4A6E'}}></div>
-                <span className="text-sm font-semibold" style={{color: '#0A4A6E'}}>
+                <span className="text-sm font-semibold text-passport-blue">
                   {currentLang === 'es' ? 'Soluciones Empresariales' : 'Enterprise Solutions'}
                 </span>
               </div>
 
               {/* Título principal */}
-              <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-8 leading-tight" style={{color: '#0A4A6E'}}>
+              <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-8 leading-tight text-passport-blue">
                 {t.businessTitle}
               </h2>
               
@@ -983,19 +984,21 @@ export default function Landing() {
               <div className="relative">
                 {/* Laptop corporate image as background element */}
                 <div className="absolute -top-8 -left-8 opacity-8 z-0">
-                  <img 
-                    src={laptopImage} 
-                    alt="" 
+                  <img
+                    src={laptopImage}
+                    alt=""
                     className="w-36 h-36 object-contain transform -rotate-12 rounded-3xl"
+                    loading="lazy"
                   />
                 </div>
                 
                 {/* Airplane image for global reach */}
                 <div className="absolute -bottom-6 -right-6 opacity-12 z-0">
-                  <img 
-                    src={airplaneCleanImage} 
-                    alt="" 
+                  <img
+                    src={airplaneCleanImage}
+                    alt=""
                     className="w-28 h-28 object-contain transform rotate-6 rounded-3xl"
+                    loading="lazy"
                   />
                 </div>
                 
@@ -1005,10 +1008,11 @@ export default function Landing() {
                 }}></div>
                 
                 <div className="relative bg-white rounded-3xl p-8 shadow-xl z-10">
-                  <img 
-                    src={corporateTeamImage} 
-                    alt="Equipo corporativo en videollamada global" 
+                  <img
+                    src={corporateTeamImage}
+                    alt="Equipo corporativo en videollamada global"
                     className="w-full max-w-lg h-auto object-contain rounded-2xl"
+                    loading="lazy"
                   />
                   
                   {/* Badge flotante */}
@@ -1033,17 +1037,19 @@ export default function Landing() {
       }}>        
         {/* Passport background elements */}
         <div className="absolute top-8 left-8 opacity-5 z-0 hidden md:block">
-          <img 
-            src={passportVariantImage} 
-            alt="" 
+          <img
+            src={passportVariantImage}
+            alt=""
             className="w-48 h-48 object-contain transform rotate-12 rounded-3xl"
+            loading="lazy"
           />
         </div>
         <div className="absolute bottom-8 right-8 opacity-5 z-0 hidden lg:block">
-          <img 
-            src={bookImage} 
-            alt="" 
+          <img
+            src={bookImage}
+            alt=""
             className="w-40 h-40 object-contain transform -rotate-12 rounded-3xl"
+            loading="lazy"
           />
         </div>
         
@@ -1062,8 +1068,7 @@ export default function Landing() {
             <div className="flex flex-col md:flex-row gap-6 justify-center items-center mb-8">
               <Button 
                 onClick={() => handleLanguageSelection('spanish', '/es')}
-                className="px-12 py-6 text-2xl font-bold rounded-full transition-all duration-300 hover:shadow-2xl hover:scale-105 border-0 bg-white"
-                style={{color: '#0A4A6E'}}
+                className="px-12 py-6 text-2xl font-bold rounded-full transition-all duration-300 hover:shadow-2xl hover:scale-105 border-0 bg-white text-passport-blue"
                 data-testid="final-cta-learn-spanish"
               >
                 <span className="flex items-center gap-3">
@@ -1075,8 +1080,7 @@ export default function Landing() {
               
               <Button 
                 onClick={() => handleLanguageSelection('english', '/en')}
-                className="px-12 py-6 text-2xl font-bold rounded-full transition-all duration-300 hover:shadow-2xl hover:scale-105 border-0 bg-white"
-                style={{color: '#0A4A6E'}}
+                className="px-12 py-6 text-2xl font-bold rounded-full transition-all duration-300 hover:shadow-2xl hover:scale-105 border-0 bg-white text-passport-blue"
                 data-testid="final-cta-aprende-ingles"
               >
                 <span className="flex items-center gap-3">
@@ -1111,7 +1115,7 @@ export default function Landing() {
         <div className="container mx-auto px-6">
           <div className="text-center">
             <div className="flex justify-center mb-6">
-              <img src={passportLogo} alt="Passport to Fluency" className="h-12" />
+              <img src={passportLogo} alt="Passport to Fluency" className="h-12" loading="lazy" />
             </div>
             <p className="text-gray-600 mb-4">{t.footerRights}</p>
             <div className="flex justify-center gap-8 text-sm text-gray-500">

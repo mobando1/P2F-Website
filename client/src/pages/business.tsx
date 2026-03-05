@@ -116,10 +116,11 @@ export default function Business({ language }: BusinessProps) {
               <div className="grid md:grid-cols-2 gap-8 items-center">
                 <div>
                   <div className="w-24 h-24 flex items-center justify-center mb-6 overflow-hidden">
-                    <img 
-                      src={briefcaseIcon} 
-                      alt="Professional Business Briefcase" 
+                    <img
+                      src={briefcaseIcon}
+                      alt="Professional Business Briefcase"
                       className="w-full h-full object-contain animate-slide-in-left"
+                      loading="lazy"
                     />
                   </div>
                   <h2 className="text-2xl font-bold text-gray-900 mb-4">
@@ -213,10 +214,11 @@ export default function Business({ language }: BusinessProps) {
                   <div className="flex items-center">
                     {content.successStory.name === 'Michael Thompson' && (
                       <div className="w-16 h-16 mr-4 flex-shrink-0">
-                        <img 
-                          src={michaelPhoto} 
+                        <img
+                          src={michaelPhoto}
                           alt="Michael Thompson"
                           className="w-full h-full object-cover rounded-full border-2 border-gray-200"
+                          loading="lazy"
                         />
                       </div>
                     )}
@@ -281,10 +283,10 @@ export default function Business({ language }: BusinessProps) {
         <div className="container mx-auto px-4">
           <div className="text-center">
             <Link href={language === 'en' ? '/es' : '/en'}>
-              <img src={passportLogo} alt="Passport to Fluency" className="h-10 brightness-0 invert mx-auto mb-4" />
+              <img src={passportLogo} alt="Passport to Fluency" className="h-10 brightness-0 invert mx-auto mb-4" loading="lazy" />
             </Link>
             <p className="text-gray-400 mb-4">
-              {language === 'en' 
+              {language === 'en'
                 ? 'Professional Spanish training for companies and executives, 24/7.'
                 : 'Capacitación profesional en inglés para empresas y ejecutivos, 24/7.'
               }

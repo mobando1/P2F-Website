@@ -23,7 +23,7 @@ const blogPosts = {
     heroImage: childrenLearningImage,
     content: `
       <div class="prose prose-lg max-w-none">
-        <img src="${childrenLearningImage}" alt="Children learning Spanish" class="w-full h-64 md:h-96 object-cover rounded-2xl mb-8" />
+        <img src="${childrenLearningImage}" alt="Children learning Spanish" class="w-full h-64 md:h-96 object-cover rounded-2xl mb-8" loading="lazy" />
         
         <p class="text-xl text-gray-700 mb-8 leading-relaxed">
           In an increasingly globalized world, the ability to speak multiple languages is a significant advantage. Teaching Spanish to children is not only an excellent investment in their future careers but also offers a variety of cognitive, cultural, and social benefits that can enrich their lives profoundly. Here's why learning Spanish is one of the best ways to invest your children's time.
@@ -83,7 +83,7 @@ const blogPosts = {
     heroImage: familyHeritageImage,
     content: `
       <div class="prose prose-lg max-w-none">
-        <img src="${familyHeritageImage}" alt="Cultural heritage connection" class="w-full h-64 md:h-96 object-cover rounded-2xl mb-8" />
+        <img src="${familyHeritageImage}" alt="Cultural heritage connection" class="w-full h-64 md:h-96 object-cover rounded-2xl mb-8" loading="lazy" />
         
         <p class="text-xl text-gray-700 mb-8 leading-relaxed">
           Learning Spanish is not only a valuable skill but also a powerful tool for reconnecting with your cultural and familial roots. For many people with Latino heritage, mastering Spanish represents a bridge to their ancestry, traditions, and family stories that may have been lost over generations.
@@ -135,7 +135,7 @@ const blogPosts = {
     heroImage: businessSuccessImage,
     content: `
       <div class="prose prose-lg max-w-none">
-        <img src="${businessSuccessImage}" alt="Business success and financial opportunities" class="w-full h-64 md:h-96 object-cover rounded-2xl mb-8" />
+        <img src="${businessSuccessImage}" alt="Business success and financial opportunities" class="w-full h-64 md:h-96 object-cover rounded-2xl mb-8" loading="lazy" />
         
         <p class="text-xl text-gray-700 mb-8 leading-relaxed">
           Learning Spanish can be a key tool for achieving financial freedom by opening opportunities in Spanish-speaking markets and accessing valuable financial resources and networks. In today's globalized economy, bilingual professionals have significant advantages in building wealth and creating multiple income streams.
@@ -187,7 +187,7 @@ const blogPosts = {
     heroImage: barcelonaImage,
     content: `
       <div class="prose prose-lg max-w-none">
-        <img src="${barcelonaImage}" alt="Beautiful Barcelona architecture" class="w-full h-64 md:h-96 object-cover rounded-2xl mb-8" />
+        <img src="${barcelonaImage}" alt="Beautiful Barcelona architecture" class="w-full h-64 md:h-96 object-cover rounded-2xl mb-8" loading="lazy" />
         
         <p class="text-xl text-gray-700 mb-8 leading-relaxed">
           Barcelona, a dynamic city located on the Mediterranean coast of Spain, is a fascinating destination that combines a rich history, impressive architecture, and a vibrant cultural scene. In this article, we will explore the unique charms of Barcelona and how learning Spanish can enrich your experience when visiting this incredible city.
@@ -239,7 +239,7 @@ const blogPosts = {
     heroImage: salsaCultureImage,
     content: `
       <div class="prose prose-lg max-w-none">
-        <img src="${salsaCultureImage}" alt="Salsa dancing culture" class="w-full h-64 md:h-96 object-cover rounded-2xl mb-8" />
+        <img src="${salsaCultureImage}" alt="Salsa dancing culture" class="w-full h-64 md:h-96 object-cover rounded-2xl mb-8" loading="lazy" />
         
         <p class="text-xl text-gray-700 mb-8 leading-relaxed">
           Salsa is much more than a music genre and a dance form; it is a cultural expression that encapsulates the passion, joy, and vibrant rhythm of the Latin community. In this article, we will explore the history and significance of salsa, and how learning Spanish can further enrich the experience of immersing oneself in this exciting culture.
@@ -291,7 +291,7 @@ const blogPosts = {
     heroImage: travelPhrasesImage,
     content: `
       <div class="prose prose-lg max-w-none">
-        <img src="${travelPhrasesImage}" alt="Spanish travel phrases" class="w-full h-64 md:h-96 object-cover rounded-2xl mb-8" />
+        <img src="${travelPhrasesImage}" alt="Spanish travel phrases" class="w-full h-64 md:h-96 object-cover rounded-2xl mb-8" loading="lazy" />
         
         <p class="text-xl text-gray-700 mb-8 leading-relaxed">
           Are you planning an exciting trip to a Spanish-speaking country? Whether you're strolling through the colorful streets of Barcelona or exploring the ancient ruins of Machu Picchu, having a basic understanding of Spanish can greatly enhance your travel experience. In this guide, we'll share 15 essential Spanish phrases for travelers, designed to help you navigate Spanish-speaking countries with ease and confidence.
@@ -381,7 +381,7 @@ const blogPosts = {
     heroImage: independentLearningImage,
     content: `
       <div class="prose prose-lg max-w-none">
-        <img src="${independentLearningImage}" alt="Learning Spanish independently" class="w-full h-64 md:h-96 object-cover rounded-2xl mb-8" />
+        <img src="${independentLearningImage}" alt="Learning Spanish independently" class="w-full h-64 md:h-96 object-cover rounded-2xl mb-8" loading="lazy" />
         
         <p class="text-xl text-gray-700 mb-8 leading-relaxed">
           Indeed, even with a bustling schedule and a limited budget, learning and practicing Spanish all alone is not at all impossible. Here are six practical hacks that will help you make progress in your Spanish learning journey, no matter how busy or budget-conscious you are.
@@ -457,7 +457,7 @@ const blogPosts = {
     heroImage: fastLearningImage,
     content: `
       <div class="prose prose-lg max-w-none">
-        <img src="${fastLearningImage}" alt="Quick Spanish learning methods" class="w-full h-64 md:h-96 object-cover rounded-2xl mb-8" />
+        <img src="${fastLearningImage}" alt="Quick Spanish learning methods" class="w-full h-64 md:h-96 object-cover rounded-2xl mb-8" loading="lazy" />
         
         <p class="text-xl text-gray-700 mb-8 leading-relaxed">
           You have a good job in Spain or any Spanish-speaking country, and one of the major issues you are encountering is the fastest way to learn Spanish. Lucky for you, you can be fluent in Spanish in record time, as we are here with the easiest way to learn Spanish. Without further ado, let's dive in to learn Spanish effectively.
@@ -548,7 +548,7 @@ const blogPosts = {
     heroImage: bilingualBenefitsImage,
     content: `
       <div class="prose prose-lg max-w-none">
-        <img src="${bilingualBenefitsImage}" alt="Benefits of learning Spanish" class="w-full h-64 md:h-96 object-cover rounded-2xl mb-8" />
+        <img src="${bilingualBenefitsImage}" alt="Benefits of learning Spanish" class="w-full h-64 md:h-96 object-cover rounded-2xl mb-8" loading="lazy" />
         
         <p class="text-xl text-gray-700 mb-8 leading-relaxed">
           If you are looking to get into a Spanish-speaking country or living in an area where Spanish is widely spoken, then it becomes crucial for you to learn Spanish within a short period of time! Let us explore some straight facts about the importance of learning Spanish and why it's important for you today to be fluent in the Spanish language.
@@ -757,10 +757,11 @@ export default function BlogPost() {
 
             {/* Hero Image */}
             <div className="mb-8">
-              <img 
-                src={post.heroImage} 
+              <img
+                src={post.heroImage}
                 alt={post.title}
                 className="w-full h-64 md:h-96 object-cover rounded-2xl"
+                loading="lazy"
               />
             </div>
 

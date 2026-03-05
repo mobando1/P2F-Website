@@ -123,10 +123,11 @@ export default function Children({ language }: ChildrenProps) {
     <div className="min-h-screen bg-white relative">
       {/* Full Page Background */}
       <div className="fixed inset-0 pointer-events-none" style={{ zIndex: 1 }}>
-        <img 
-          src={pixarLearningIcon} 
+        <img
+          src={pixarLearningIcon}
           alt="Kids Learning Background"
           className="w-full h-full object-contain opacity-10"
+          loading="lazy"
           style={{
             filter: 'blur(1.5px)',
             transform: 'scale(2)'
@@ -280,10 +281,11 @@ export default function Children({ language }: ChildrenProps) {
             <div>
               <div className="mb-8">
                 <div className="w-16 h-16 mb-4 transform hover:scale-110 transition-transform duration-300">
-                  <img 
-                    src={pixarLearningIcon} 
+                  <img
+                    src={pixarLearningIcon}
                     alt="Fun Interactive Learning"
                     className="w-full h-full object-contain rounded-2xl"
+                    loading="lazy"
                   />
                 </div>
                 <h2 className="text-3xl font-bold text-gray-900 mb-4">
@@ -318,10 +320,11 @@ export default function Children({ language }: ChildrenProps) {
                     >
                       <div className="w-20 h-20 mx-auto mb-4 transform hover:scale-110 transition-transform duration-300">
                         <div className="w-full h-full bg-white rounded-full shadow-lg flex items-center justify-center">
-                          <img 
-                            src={getFeatureIcon(feature.title)} 
+                          <img
+                            src={getFeatureIcon(feature.title)}
                             alt={feature.title}
                             className="w-16 h-16 object-contain"
+                            loading="lazy"
                           />
                         </div>
                       </div>
@@ -357,10 +360,11 @@ export default function Children({ language }: ChildrenProps) {
               <div className="flex items-center">
                 {content.testimonial.name === 'Rebecca Unrath' && (
                   <div className="w-16 h-16 mr-4 flex-shrink-0">
-                    <img 
-                      src={rebeccaPhoto} 
+                    <img
+                      src={rebeccaPhoto}
                       alt="Rebecca Unrath and family"
                       className="w-full h-full object-cover rounded-full border-2 border-gray-200"
+                      loading="lazy"
                     />
                   </div>
                 )}
@@ -395,10 +399,11 @@ export default function Children({ language }: ChildrenProps) {
           <div className="text-center mb-12">
             <div className="flex items-center justify-center mb-6">
               <div className="w-20 h-20 animate-bounce">
-                <img 
-                  src={calendarIcon} 
-                  alt="Calendario Animado" 
+                <img
+                  src={calendarIcon}
+                  alt="Calendario Animado"
                   className="w-full h-full object-contain"
+                  loading="lazy"
                 />
               </div>
             </div>
@@ -451,10 +456,10 @@ export default function Children({ language }: ChildrenProps) {
         <div className="container mx-auto px-4">
           <div className="text-center">
             <Link href={basePath}>
-              <img src={passportLogo} alt="Passport to Fluency" className="h-10 brightness-0 invert mx-auto mb-4" />
+              <img src={passportLogo} alt="Passport to Fluency" className="h-10 brightness-0 invert mx-auto mb-4" loading="lazy" />
             </Link>
             <p className="text-gray-400 mb-4">
-              {language === 'en' 
+              {language === 'en'
                 ? 'Spanish classes for children with native Latin American instructors, 24/7.'
                 : 'Clases de inglés para niños con instructores nativos americanos, 24/7.'
               }

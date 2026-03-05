@@ -60,10 +60,11 @@ export default function TestimonialsSection({ t, language }: TestimonialsSection
               className="bg-white p-8 rounded-2xl shadow-lg hover:shadow-xl transition-shadow duration-300 animate-fade-in"
               style={{ animationDelay: `${index * 100}ms` }}
             >
-              <img 
+              <img
                 src={testimonial.image}
                 alt={`${testimonial.name} testimonial`}
                 className="w-20 h-20 rounded-full mx-auto mb-6 object-cover"
+                loading="lazy"
               />
               <h3 className="text-lg font-semibold text-passport-gray mb-2 text-center">
                 {testimonial.name}

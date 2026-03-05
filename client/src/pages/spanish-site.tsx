@@ -208,24 +208,27 @@ export default function SpanishSite() {
       <section className="relative py-8 md:py-12 bg-gradient-to-b from-orange-50 to-white overflow-hidden">
         {/* Corporate background elements */}
         <div className="absolute top-8 left-8 opacity-8 z-0 hidden md:block">
-          <img 
-            src={passportImage} 
-            alt="" 
+          <img
+            src={passportImage}
+            alt=""
             className="w-32 h-32 object-contain transform rotate-12 rounded-3xl"
+            loading="lazy"
           />
         </div>
         <div className="absolute bottom-8 right-8 opacity-10 z-0 hidden lg:block">
-          <img 
-            src={worldImage} 
-            alt="" 
+          <img
+            src={worldImage}
+            alt=""
             className="w-40 h-40 object-contain rounded-3xl"
+            loading="lazy"
           />
         </div>
         <div className="absolute top-1/3 right-1/4 opacity-6 z-0 hidden xl:block">
-          <img 
-            src={bookImage} 
-            alt="" 
+          <img
+            src={bookImage}
+            alt=""
             className="w-24 h-24 object-contain transform -rotate-12 rounded-3xl"
+            loading="lazy"
           />
         </div>
         
@@ -788,10 +791,11 @@ export default function SpanishSite() {
             <Card className="bg-white">
               <CardContent className="p-6">
                 <div className="flex items-center mb-4">
-                  <img 
-                    src={benPhoto} 
+                  <img
+                    src={benPhoto}
                     alt="Ben Northrop"
                     className="w-12 h-12 rounded-full object-cover mr-4"
+                    loading="lazy"
                   />
                   <div>
                     <div className="font-semibold text-gray-900">Ben Northrop</div>
@@ -817,8 +821,8 @@ export default function SpanishSite() {
             <Card className="bg-white">
               <CardContent className="p-6">
                 <div className="flex items-center mb-4">
-                  <img 
-                    src={jaclynPhoto} 
+                  <img
+                    src={jaclynPhoto}
                     alt="Jaclyn Blohm"
                     className="w-12 h-12 rounded-full mr-4"
                     style={{
@@ -827,6 +831,7 @@ export default function SpanishSite() {
                       transform: 'scale(1.2)',
                       transformOrigin: 'center'
                     }}
+                    loading="lazy"
                   />
                   <div>
                     <div className="font-semibold text-gray-900">Jaclyn Blohm</div>
@@ -852,10 +857,11 @@ export default function SpanishSite() {
             <Card className="bg-white">
               <CardContent className="p-6">
                 <div className="flex items-center mb-4">
-                  <img 
-                    src={rebeccaPhoto} 
+                  <img
+                    src={rebeccaPhoto}
                     alt="Rebecca Unrath"
                     className="w-12 h-12 rounded-full object-cover mr-4"
+                    loading="lazy"
                   />
                   <div>
                     <div className="font-semibold text-gray-900">Rebecca Unrath</div>
@@ -923,7 +929,7 @@ export default function SpanishSite() {
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-8">
             <div>
-              <img src={passportLogo} alt="Passport to Fluency" className="h-10 brightness-0 invert mb-4" />
+              <img src={passportLogo} alt="Passport to Fluency" className="h-10 brightness-0 invert mb-4" loading="lazy" />
               <p className="text-gray-400">
                 Learn Spanish with native Latin American instructors, 24/7.
               </p>

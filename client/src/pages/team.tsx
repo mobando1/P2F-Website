@@ -276,8 +276,8 @@ export default function Team({ language }: TeamProps) {
                   <CardContent className="p-6">
                     {photos[index] ? (
                       <div className="w-24 h-24 mx-auto mb-4">
-                        <img 
-                          src={photos[index]} 
+                        <img
+                          src={photos[index]}
                           alt={instructor.name}
                           className="w-full h-full object-cover rounded-full border-4 border-white shadow-lg"
                           style={{
@@ -286,6 +286,7 @@ export default function Team({ language }: TeamProps) {
                                           'center center'  // Otros - posición normal
                           }}
                           data-testid={`img-instructor-${instructor.name.toLowerCase().replace(/\s+/g, '-')}`}
+                          loading="lazy"
                         />
                       </div>
                     ) : (

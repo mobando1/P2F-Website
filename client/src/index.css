@@ -54,8 +54,8 @@
   --spacing: 0.25rem;
   
   /* Passport to Fluency Brand Colors */
-  --passport-blue: hsl(201, 59%, 41%);
-  --passport-orange: hsl(35, 85%, 53%);
+  --passport-blue: #0A4A6E;
+  --passport-orange: #F59E1C;
   --passport-gray: hsl(0, 0%, 20%);
   --passport-light: hsl(210, 20%, 98%);
 }
@@ -104,8 +104,8 @@
   --shadow-lg: 0px 2px 0px 0px hsl(202.8169, 89.1213%, 53.1373%, 0.00), 0px 4px 6px -1px hsl(202.8169, 89.1213%, 53.1373%, 0.00);
   --shadow-xl: 0px 2px 0px 0px hsl(202.8169, 89.1213%, 53.1373%, 0.00), 0px 8px 10px -1px hsl(202.8169, 89.1213%, 53.1373%, 0.00);
   --shadow-2xl: 0px 2px 0px 0px hsl(202.8169, 89.1213%, 53.1373%, 0.00);
-  --passport-blue: hsl(201, 59%, 41%);
-  --passport-orange: hsl(35, 85%, 53%);
+  --passport-blue: #0A4A6E;
+  --passport-orange: #F59E1C;
   --passport-gray: hsl(0, 0%, 80%);
   --passport-light: hsl(210, 20%, 8%);
 }

@@ -208,24 +208,27 @@ export default function EnglishSite() {
       <section className="relative py-8 md:py-12 bg-gradient-to-b from-blue-50 to-white overflow-hidden">
         {/* Corporate background elements */}
         <div className="absolute top-8 right-8 opacity-8 z-0 hidden md:block">
-          <img 
-            src={passportVariantImage} 
-            alt="" 
+          <img
+            src={passportVariantImage}
+            alt=""
             className="w-32 h-32 object-contain transform -rotate-12 rounded-3xl"
+            loading="lazy"
           />
         </div>
         <div className="absolute bottom-8 left-8 opacity-10 z-0 hidden lg:block">
-          <img 
-            src={airplaneCleanImage} 
-            alt="" 
+          <img
+            src={airplaneCleanImage}
+            alt=""
             className="w-36 h-36 object-contain transform rotate-6 rounded-3xl"
+            loading="lazy"
           />
         </div>
         <div className="absolute top-1/3 left-1/4 opacity-6 z-0 hidden xl:block">
-          <img 
-            src={laptopImage} 
-            alt="" 
+          <img
+            src={laptopImage}
+            alt=""
             className="w-28 h-28 object-contain transform rotate-12 rounded-3xl"
+            loading="lazy"
           />
         </div>
         
@@ -784,10 +787,11 @@ export default function EnglishSite() {
             <Card className="bg-white">
               <CardContent className="p-6">
                 <div className="flex items-center mb-4">
-                  <img 
-                    src={mariaPhoto} 
+                  <img
+                    src={mariaPhoto}
                     alt="María González"
                     className="w-12 h-12 rounded-full object-cover mr-4"
+                    loading="lazy"
                   />
                   <div>
                     <div className="font-semibold text-gray-900">María González</div>
@@ -813,10 +817,11 @@ export default function EnglishSite() {
             <Card className="bg-white">
               <CardContent className="p-6">
                 <div className="flex items-center mb-4">
-                  <img 
-                    src={anaPhoto} 
+                  <img
+                    src={anaPhoto}
                     alt="Ana Rodríguez"
                     className="w-12 h-12 rounded-full object-cover mr-4"
+                    loading="lazy"
                   />
                   <div>
                     <div className="font-semibold text-gray-900">Ana Rodríguez</div>
@@ -842,10 +847,11 @@ export default function EnglishSite() {
             <Card className="bg-white">
               <CardContent className="p-6">
                 <div className="flex items-center mb-4">
-                  <img 
-                    src={carlosPhoto} 
+                  <img
+                    src={carlosPhoto}
                     alt="Carlos Mendoza"
                     className="w-12 h-12 rounded-full object-cover mr-4"
+                    loading="lazy"
                   />
                   <div>
                     <div className="font-semibold text-gray-900">Carlos Mendoza</div>
@@ -913,7 +919,7 @@ export default function EnglishSite() {
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-8">
             <div>
-              <img src={passportLogo} alt="Passport to Fluency" className="h-10 brightness-0 invert mb-4" />
+              <img src={passportLogo} alt="Passport to Fluency" className="h-10 brightness-0 invert mb-4" loading="lazy" />
               <p className="text-gray-400">
                 Aprende inglés con instructores nativos americanos, 24/7.
               </p>

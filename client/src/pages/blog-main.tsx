@@ -177,17 +177,19 @@ export default function BlogMain() {
       <section className="relative py-8 md:py-12 bg-gradient-to-b from-blue-50 to-white overflow-hidden">
         {/* Background decorations */}
         <div className="absolute top-8 right-8 opacity-8 z-0 hidden md:block">
-          <img 
-            src={childrenLearningImage} 
-            alt="" 
+          <img
+            src={childrenLearningImage}
+            alt=""
             className="w-32 h-32 object-contain transform -rotate-12 rounded-3xl"
+            loading="lazy"
           />
         </div>
         <div className="absolute bottom-8 left-8 opacity-10 z-0 hidden lg:block">
-          <img 
-            src={businessSuccessImage} 
-            alt="" 
+          <img
+            src={businessSuccessImage}
+            alt=""
             className="w-40 h-40 object-contain rounded-3xl"
+            loading="lazy"
           />
         </div>
 
@@ -260,10 +262,11 @@ export default function BlogMain() {
                     </div>
                     
                     <div className="order-first lg:order-last">
-                      <img 
-                        src={post.image} 
+                      <img
+                        src={post.image}
                         alt={post.title}
                         className="w-full h-64 lg:h-80 object-cover rounded-2xl shadow-lg"
+                        loading="lazy"
                       />
                     </div>
                   </div>
@@ -280,10 +283,11 @@ export default function BlogMain() {
               <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
                 {blogPosts.filter(post => !post.featured).map(post => (
                   <div key={post.id} className="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow">
-                    <img 
-                      src={post.image} 
+                    <img
+                      src={post.image}
                       alt={post.title}
                       className="w-full h-48 object-cover"
+                      loading="lazy"
                     />
                     <div className="p-6">
                       <div className="flex items-center mb-3 flex-wrap gap-2">
@@ -358,7 +362,7 @@ export default function BlogMain() {
         <div className="container mx-auto px-4">
           <div className="text-center">
             <Link href="/">
-              <img src={passportLogo} alt="Passport to Fluency" className="h-10 brightness-0 invert mx-auto mb-4" />
+              <img src={passportLogo} alt="Passport to Fluency" className="h-10 brightness-0 invert mx-auto mb-4" loading="lazy" />
             </Link>
             <p className="text-gray-400 mb-4">
               Expert language learning insights and proven strategies for Spanish and English learners.
