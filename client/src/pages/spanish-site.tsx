@@ -8,7 +8,7 @@ import {
 } from "@/components/ui/sheet";
 import NewsletterSignup from "@/components/newsletter-signup";
 import DiscountPopup from "@/components/discount-popup";
-import HighLevelCalendar from "@/components/highlevel-calendar";
+import BookingCTA from "@/components/booking-cta";
 import passportLogo from "@assets/a1c5a1_9514ede9e3124d7a9adf78f5dcf07f28~mv2_1755803448396.png";
 import spanishClassImage from "@assets/generated_images/Virtual_Spanish_language_class_f68ba791.png";
 
@@ -27,8 +27,9 @@ import jaclynPhoto from "@assets/Screenshot Mar 6 9 54 AM from Passport2Fluency 
 import rebeccaPhoto from "@assets/WhatsApp Image Jul 4 2023 from Passport2Fluency (1)_1757071144459.jpeg";
 import { useLocation, Link } from "wouter";
 import NavigationDropdown from "@/components/navigation-dropdown";
-import { 
-  Globe, Star, Users, Clock, ArrowRight, Calendar, 
+import { FadeIn, StaggerContainer, StaggerItem } from "@/components/motion";
+import {
+  Globe, Star, Users, Clock, ArrowRight, Calendar,
   Headphones, VideoIcon, CheckCircle, MessageCircle,
   Facebook, Instagram, Linkedin, Youtube, Mail, Phone, Building,
   Gamepad2, Briefcase, Stethoscope, Home, TrendingUp, Scale, Menu
@@ -79,9 +80,8 @@ export default function SpanishSite() {
   };
 
   const handleDiscountSubscribe = (email: string) => {
-    // TODO: Integrate with HighLevel newsletter
+    // TODO: Integrate with newsletter provider
     localStorage.setItem('discountPopupShown', 'true');
-    console.log('Discount subscription:', email);
   };
 
   const handleDiscountClose = () => {
@@ -241,49 +241,55 @@ export default function SpanishSite() {
               </div>
             </div>
             
-            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-bold text-gray-900 mb-6">
-              <span className="text-passport-orange">Speak Spanish</span><br />
-              <span className="italic text-passport-blue">like a native</span>
-            </h1>
-            
-            <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-gray-700 mb-8 max-w-3xl mx-auto">
-              Personalized 1-on-1 classes with native Latin American instructors. 
-              <span className="font-semibold"> Available 24/7, from anywhere.</span>
-            </p>
+            <FadeIn>
+              <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-bold text-gray-900 mb-6">
+                <span className="text-passport-orange">Speak Spanish</span><br />
+                <span className="italic text-passport-blue">like a native</span>
+              </h1>
+            </FadeIn>
 
-            <div className="flex flex-wrap justify-center gap-3 sm:gap-4 md:gap-6 mb-6 sm:mb-8 md:mb-12 text-sm text-gray-600">
-              <div className="flex items-center">
-                <Users className="w-4 h-4 mr-1 text-passport-orange" />
-                <strong className="text-gray-900">1,000+</strong> English speakers learning
-              </div>
-              <div className="flex items-center">
-                <Star className="w-4 h-4 mr-1 text-yellow-500" />
-                <strong className="text-gray-900">4.9</strong> average rating
-              </div>
-              <div className="flex items-center">
-                <Clock className="w-4 h-4 mr-1 text-passport-blue" />
-                <strong className="text-gray-900">40-minute</strong> classes
-              </div>
-            </div>
+            <FadeIn delay={0.1}>
+              <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-gray-700 mb-8 max-w-3xl mx-auto">
+                Personalized 1-on-1 classes with native Latin American instructors.
+                <span className="font-semibold"> Available 24/7, from anywhere.</span>
+              </p>
 
-            <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
-              <Button 
-                onClick={() => handleBookingClick('adult')}
-                className="bg-passport-orange hover:bg-orange-600 text-white px-8 py-4 text-lg font-semibold"
-                size="lg"
-              >
-                Book Free Class
-                <ArrowRight className="w-5 h-5 ml-2" />
-              </Button>
-              <Button 
-                onClick={() => scrollToSection('how-it-works')}
-                variant="outline" 
-                className="border-passport-orange text-passport-orange hover:bg-passport-orange hover:text-white px-8 py-4 text-lg font-semibold"
-                size="lg"
-              >
-                See How It Works
-              </Button>
-            </div>
+              <div className="flex flex-wrap justify-center gap-3 sm:gap-4 md:gap-6 mb-6 sm:mb-8 md:mb-12 text-sm text-gray-600">
+                <div className="flex items-center">
+                  <Users className="w-4 h-4 mr-1 text-passport-orange" />
+                  <strong className="text-gray-900">1,000+</strong> English speakers learning
+                </div>
+                <div className="flex items-center">
+                  <Star className="w-4 h-4 mr-1 text-yellow-500" />
+                  <strong className="text-gray-900">4.9</strong> average rating
+                </div>
+                <div className="flex items-center">
+                  <Clock className="w-4 h-4 mr-1 text-passport-blue" />
+                  <strong className="text-gray-900">40-minute</strong> classes
+                </div>
+              </div>
+            </FadeIn>
+
+            <FadeIn delay={0.2}>
+              <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
+                <Button
+                  onClick={() => handleBookingClick('adult')}
+                  className="bg-passport-orange hover:bg-orange-600 text-white px-8 py-4 text-lg font-semibold"
+                  size="lg"
+                >
+                  Book Free Class
+                  <ArrowRight className="w-5 h-5 ml-2" />
+                </Button>
+                <Button
+                  onClick={() => scrollToSection('how-it-works')}
+                  variant="outline"
+                  className="border-passport-orange text-passport-orange hover:bg-passport-orange hover:text-white px-8 py-4 text-lg font-semibold"
+                  size="lg"
+                >
+                  See How It Works
+                </Button>
+              </div>
+            </FadeIn>
           </div>
         </div>
       </section>
@@ -293,27 +299,29 @@ export default function SpanishSite() {
       <section id="how-it-works" className="py-8 md:py-12 bg-white">
         <div className="container mx-auto px-4">
           {/* Header */}
-          <div className="text-center mb-6 md:mb-8">
-            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
-              How It Works
-            </h2>
-            <p className="text-base sm:text-lg md:text-xl text-gray-600 max-w-3xl mx-auto">
-              Just 3 simple steps to start speaking Spanish with confidence
-            </p>
-          </div>
+          <FadeIn>
+            <div className="text-center mb-6 md:mb-8">
+              <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
+                How It Works
+              </h2>
+              <p className="text-base sm:text-lg md:text-xl text-gray-600 max-w-3xl mx-auto">
+                Just 3 simple steps to start speaking Spanish with confidence
+              </p>
+            </div>
+          </FadeIn>
 
           {/* Desktop: Horizontal Timeline */}
           <div className="hidden md:block max-w-6xl mx-auto">
             <div className="relative">
-              
+
               {/* Línea conectora horizontal con gradiente dinámico */}
               <div className="absolute top-1/2 left-0 right-0 h-1 bg-gradient-to-r from-blue-900 via-blue-500 to-orange-400 transform -translate-y-1/2 z-0 rounded-full opacity-70" style={{background: 'linear-gradient(to right, #0A4A6E 0%, #1C7BB1 50%, #F59E1C 100%)'}}></div>
-              
+
               {/* Grid de pasos */}
-              <div className="grid grid-cols-3 gap-8 relative z-10">
-                
+              <StaggerContainer className="grid grid-cols-3 gap-8 relative z-10">
+
                 {/* Paso 1 - Azul */}
-                <div className="text-center group">
+                <StaggerItem><div className="text-center group">
                   <div className="relative mb-8">
                     {/* Círculo principal con ícono */}
                     <div className="w-24 h-24 bg-gradient-to-br rounded-full flex items-center justify-center mx-auto relative group-hover:shadow-lg group-hover:-translate-y-1 transition-all duration-300 group-hover:shadow-blue-500/50" style={{background: 'linear-gradient(135deg, #0A4A6E 0%, #1C7BB1 100%)'}}>
@@ -332,10 +340,10 @@ export default function SpanishSite() {
                   <p className="text-gray-600 leading-relaxed">
                     Pick the time that works best for you. Available 24/7, even last minute bookings.
                   </p>
-                </div>
+                </div></StaggerItem>
 
                 {/* Paso 2 - Verde */}
-                <div className="text-center group">
+                <StaggerItem><div className="text-center group">
                   <div className="relative mb-8">
                     {/* Círculo principal con ícono */}
                     <div className="w-24 h-24 bg-gradient-to-br rounded-full flex items-center justify-center mx-auto relative group-hover:shadow-lg group-hover:-translate-y-1 transition-all duration-300 group-hover:shadow-cyan-400/50" style={{background: 'linear-gradient(135deg, #1C7BB1 0%, #3DB5E6 100%)'}}>
@@ -354,10 +362,10 @@ export default function SpanishSite() {
                   <p className="text-gray-600 leading-relaxed">
                     Join your class through Google Meet from any device. Your instructor will be waiting for you.
                   </p>
-                </div>
+                </div></StaggerItem>
 
                 {/* Paso 3 - Naranja */}
-                <div className="text-center group">
+                <StaggerItem><div className="text-center group">
                   <div className="relative mb-8">
                     {/* Círculo principal con ícono */}
                     <div className="w-24 h-24 bg-gradient-to-br rounded-full flex items-center justify-center mx-auto relative group-hover:shadow-lg group-hover:-translate-y-1 transition-all duration-300 group-hover:shadow-orange-400/50" style={{background: 'linear-gradient(135deg, #F59E1C 0%, #F9B949 100%)'}}>
@@ -376,9 +384,9 @@ export default function SpanishSite() {
                   <p className="text-gray-600 leading-relaxed">
                     Real conversation with instant feedback. Your progress is automatically tracked.
                   </p>
-                </div>
-                
-              </div>
+                </div></StaggerItem>
+
+              </StaggerContainer>
             </div>
           </div>
 
@@ -474,12 +482,15 @@ export default function SpanishSite() {
       {/* Features */}
       <section className="py-8 md:py-12 bg-gray-50">
         <div className="container mx-auto px-4">
-          <div className="text-center mb-6 md:mb-8">
-            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-              Why Choose Passport to Fluency?
-            </h2>
-          </div>
+          <FadeIn>
+            <div className="text-center mb-6 md:mb-8">
+              <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+                Why Choose Passport to Fluency?
+              </h2>
+            </div>
+          </FadeIn>
 
+          <FadeIn delay={0.1}>
           <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-6 md:gap-12 items-center">
             <div>
               <ul className="space-y-6">
@@ -569,19 +580,22 @@ export default function SpanishSite() {
               </div>
             </div>
           </div>
+          </FadeIn>
         </div>
       </section>
       {/* Booking Calendars */}
       <section id="booking-calendars" className="py-8 md:py-12 bg-white">
         <div className="container mx-auto px-4">
-          <div className="text-center mb-6 md:mb-8">
-            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-              Schedule Your Free Trial Class
-            </h2>
-            <p className="text-base sm:text-lg md:text-xl text-gray-600 max-w-3xl mx-auto">
-              Choose the program that best fits your needs. Same pricing, specialized teaching approach for each age group.
-            </p>
-          </div>
+          <FadeIn>
+            <div className="text-center mb-6 md:mb-8">
+              <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+                Schedule Your Free Trial Class
+              </h2>
+              <p className="text-base sm:text-lg md:text-xl text-gray-600 max-w-3xl mx-auto">
+                Choose the program that best fits your needs. Same pricing, specialized teaching approach for each age group.
+              </p>
+            </div>
+          </FadeIn>
 
           <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-4 md:gap-8 items-start">
             {/* Adult Calendar */}
@@ -600,7 +614,7 @@ export default function SpanishSite() {
                 </p>
               </div>
               <div className="flex-1 min-h-[600px] overflow-visible">
-                <HighLevelCalendar language="en" type="adult" className="bg-white scale-95 origin-top" />
+                <BookingCTA language="en" type="adult" />
               </div>
             </div>
 
@@ -620,7 +634,7 @@ export default function SpanishSite() {
                 </p>
               </div>
               <div className="flex-1 min-h-[600px] overflow-visible">
-                <HighLevelCalendar language="en" type="child" className="bg-white scale-95 origin-top" />
+                <BookingCTA language="en" type="child" />
               </div>
             </div>
           </div>
@@ -641,17 +655,19 @@ export default function SpanishSite() {
       {/* Plans & Pricing */}
       <section id="plans-pricing" className="py-8 md:py-12 bg-white">
         <div className="container mx-auto px-4">
-          <div className="text-center mb-6 md:mb-8">
-            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-              Find the Perfect Plan to Speak Spanish Confidently
-            </h2>
-            <p className="text-base sm:text-lg md:text-xl text-gray-600">
-              Personalized 1-on-1 coaching with native Latin American instructors. No contracts or fine print. Cancel anytime.
-            </p>
-          </div>
+          <FadeIn>
+            <div className="text-center mb-6 md:mb-8">
+              <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+                Find the Perfect Plan to Speak Spanish Confidently
+              </h2>
+              <p className="text-base sm:text-lg md:text-xl text-gray-600">
+                Personalized 1-on-1 coaching with native Latin American instructors. No contracts or fine print. Cancel anytime.
+              </p>
+            </div>
+          </FadeIn>
 
-          <div className="max-w-5xl mx-auto grid md:grid-cols-3 gap-6">
-            <Card className="border-2 hover:border-passport-orange transition-colors">
+          <StaggerContainer className="max-w-5xl mx-auto grid md:grid-cols-3 gap-6">
+            <StaggerItem><Card className="border-2 hover:border-passport-orange transition-colors">
               <CardContent className="p-6 text-center">
                 <h3 className="text-xl font-bold text-gray-900 mb-4">Starter Flow</h3>
                 <div className="text-3xl font-bold text-passport-orange mb-2">$119.96</div>
@@ -691,9 +707,9 @@ export default function SpanishSite() {
                   Get Started
                 </Button>
               </CardContent>
-            </Card>
+            </Card></StaggerItem>
 
-            <Card className="border-2 hover:border-passport-orange transition-colors">
+            <StaggerItem><Card className="border-2 hover:border-passport-orange transition-colors">
               <CardContent className="p-6 text-center">
                 <h3 className="text-xl font-bold text-gray-900 mb-4">Momentum Plan</h3>
                 <div className="text-3xl font-bold text-passport-orange mb-2">$219.99</div>
@@ -729,9 +745,9 @@ export default function SpanishSite() {
                   Choose This Plan
                 </Button>
               </CardContent>
-            </Card>
+            </Card></StaggerItem>
 
-            <Card className="border-2 border-passport-blue bg-blue-50 relative">
+            <StaggerItem><Card className="border-2 border-passport-blue bg-blue-50 relative">
               <div className="absolute -top-3 left-1/2 transform -translate-x-1/2">
                 <div className="bg-passport-blue text-white px-3 py-1 rounded-full text-xs font-semibold">
                   MOST POPULAR
@@ -772,23 +788,25 @@ export default function SpanishSite() {
                   Get Started
                 </Button>
               </CardContent>
-            </Card>
-          </div>
+            </Card></StaggerItem>
+          </StaggerContainer>
         </div>
       </section>
-      
+
 
       {/* Testimonials */}
       <section id="testimonials" className="py-8 md:py-12 bg-gray-50">
         <div className="container mx-auto px-4">
-          <div className="text-center mb-6 md:mb-8">
-            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-              What Our Students Say
-            </h2>
-          </div>
+          <FadeIn>
+            <div className="text-center mb-6 md:mb-8">
+              <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+                What Our Students Say
+              </h2>
+            </div>
+          </FadeIn>
 
-          <div className="max-w-6xl mx-auto grid md:grid-cols-3 gap-4 md:gap-8">
-            <Card className="bg-white">
+          <StaggerContainer className="max-w-6xl mx-auto grid md:grid-cols-3 gap-4 md:gap-8">
+            <StaggerItem><Card className="bg-white">
               <CardContent className="p-6">
                 <div className="flex items-center mb-4">
                   <img
@@ -816,9 +834,9 @@ export default function SpanishSite() {
                   "I decided to learn Spanish because most of my friends were from all over South America. When we would go out salsa dancing, everyone was speaking Spanish, and I wanted to join in! Passport2Fluency personalizes lessons for my specific needs!"
                 </p>
               </CardContent>
-            </Card>
+            </Card></StaggerItem>
 
-            <Card className="bg-white">
+            <StaggerItem><Card className="bg-white">
               <CardContent className="p-6">
                 <div className="flex items-center mb-4">
                   <img
@@ -852,9 +870,9 @@ export default function SpanishSite() {
                   "I wanted to improve my Spanish to communicate with my family members and for travel. I chose Passport2fluency because I needed something virtual. My wonderful instructor Valentina makes things clear and sets me up for success!"
                 </p>
               </CardContent>
-            </Card>
+            </Card></StaggerItem>
 
-            <Card className="bg-white">
+            <StaggerItem><Card className="bg-white">
               <CardContent className="p-6">
                 <div className="flex items-center mb-4">
                   <img
@@ -882,8 +900,8 @@ export default function SpanishSite() {
                   "As a parent with Argentine and Cuban heritage, it was important that my twins maintain a strong connection to their roots and learn Spanish fluently. The interactive lessons and culturally relevant content have truly captivated my kids' interest."
                 </p>
               </CardContent>
-            </Card>
-          </div>
+            </Card></StaggerItem>
+          </StaggerContainer>
         </div>
       </section>
       {/* Newsletter Section */}
@@ -895,12 +913,14 @@ export default function SpanishSite() {
       {/* Free Trial Section */}
       <section className="py-8 md:py-12 bg-passport-orange">
         <div className="container mx-auto px-4 text-center">
-          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-6">
-            Ready to speak Spanish with confidence?
-          </h2>
-          <p className="text-xl text-orange-100 mb-8 max-w-2xl mx-auto">
-            Join over 1,000 English speakers who are already improving their Spanish with us
-          </p>
+          <FadeIn>
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-6">
+              Ready to speak Spanish with confidence?
+            </h2>
+            <p className="text-xl text-orange-100 mb-8 max-w-2xl mx-auto">
+              Join over 1,000 English speakers who are already improving their Spanish with us
+            </p>
+          </FadeIn>
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center max-w-lg mx-auto">
             <Button 
               onClick={() => handleBookingClick('adult')}

@@ -1,6 +1,7 @@
 import { useState, useRef, useEffect } from "react";
 import { ChevronDown } from "lucide-react";
 import { Link } from "wouter";
+import { AnimatePresence, motion } from "framer-motion";
 
 interface NavigationDropdownProps {
   language: 'en' | 'es';
@@ -86,32 +87,38 @@ export default function NavigationDropdown({ language, currentPath }: Navigation
         <ChevronDown className="w-4 h-4" />
       </button>
 
-      {isOpen && (
-        <div 
-          className="absolute top-full left-0 mt-0 w-56 bg-white border border-gray-200 rounded-lg shadow-lg z-50"
-          onMouseEnter={handleMouseEnter}
-          onMouseLeave={handleMouseLeave}
-        >
-          <div className="py-2">
-            {dropdownItems.map((item, index) => (
-              <Link 
-                key={index}
-                href={item.href}
-                className={`block px-4 py-3 text-sm transition-colors ${
-                  currentPath && typeof currentPath === 'string' && currentPath === item.href
-                    ? language === 'en'
-                      ? 'text-passport-orange bg-orange-50 font-semibold'
-                      : 'text-passport-blue bg-blue-50 font-semibold'
-                    : 'text-gray-700 hover:bg-gray-50 hover:text-passport-blue'
-                }`}
-                onClick={() => setIsOpen(false)}
-              >
-                {item.label}
-              </Link>
-            ))}
-          </div>
-        </div>
-      )}
+      <AnimatePresence>
+        {isOpen && (
+          <motion.div
+            initial={{ opacity: 0, y: -8, scale: 0.96 }}
+            animate={{ opacity: 1, y: 0, scale: 1 }}
+            exit={{ opacity: 0, y: -8, scale: 0.96 }}
+            transition={{ duration: 0.15, ease: "easeOut" }}
+            className="absolute top-full left-0 mt-0 w-56 bg-white border border-gray-200 rounded-lg shadow-lg z-50"
+            onMouseEnter={handleMouseEnter}
+            onMouseLeave={handleMouseLeave}
+          >
+            <div className="py-2">
+              {dropdownItems.map((item, index) => (
+                <Link
+                  key={index}
+                  href={item.href}
+                  className={`block px-4 py-3 text-sm transition-colors ${
+                    currentPath && typeof currentPath === 'string' && currentPath === item.href
+                      ? language === 'en'
+                        ? 'text-passport-orange bg-orange-50 font-semibold'
+                        : 'text-passport-blue bg-blue-50 font-semibold'
+                      : 'text-gray-700 hover:bg-gray-50 hover:text-passport-blue'
+                  }`}
+                  onClick={() => setIsOpen(false)}
+                >
+                  {item.label}
+                </Link>
+              ))}
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </div>
   );
 }

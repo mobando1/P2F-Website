@@ -1,5 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { Check } from "lucide-react";
+import { FadeIn, StaggerContainer, StaggerItem } from "@/components/motion";
+import { analytics } from "@/lib/analytics";
 
 interface PricingSectionProps {
   t: (key: string) => string;
@@ -67,68 +69,70 @@ export default function PricingSection({ t, onPlanSelect, currency }: PricingSec
     <section id="planes" className="py-20 bg-passport-light">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
-          <h2 className="text-4xl font-bold font-poppins text-passport-gray mb-4 animate-fade-in">
-            {t('pricing.title')}
-          </h2>
+          <FadeIn>
+            <h2 className="text-4xl font-bold font-poppins text-passport-gray mb-4">
+              {t('pricing.title')}
+            </h2>
+          </FadeIn>
         </div>
-        
-        <div className="grid md:grid-cols-3 gap-4 sm:gap-6 md:gap-8">
-          {plans.map((plan, index) => (
-            <div 
-              key={plan.id}
-              className={`bg-white p-8 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 border animate-fade-in ${
-                plan.popular ? 'border-2 border-passport-orange relative transform scale-105' : 'border-gray-200'
-              }`}
-              style={{ animationDelay: `${index * 100}ms` }}
-            >
-              {plan.popular && (
-                <div className="absolute -top-4 left-1/2 transform -translate-x-1/2 passport-orange text-white px-6 py-2 rounded-full text-sm font-semibold">
-                  {plan.popular}
-                </div>
-              )}
-              
-              <div className="text-center">
-                <h3 className="text-xl font-semibold text-passport-gray mb-2">
-                  {plan.frequency}
-                </h3>
-                <div className="mb-4">
-                  <span className="text-4xl font-bold text-passport-blue">
-                    {plan.price}
-                  </span>
-                  <span className="text-gray-600 ml-2">
-                    {plan.period}
-                  </span>
-                </div>
-                <div className="text-lg text-passport-orange font-semibold mb-6">
-                  {plan.perClass}
-                </div>
-                <p className="text-gray-600 mb-6">
-                  {plan.description}
-                </p>
-              </div>
-              
-              <ul className="space-y-3 mb-8">
-                {plan.features.map((feature, idx) => (
-                  <li key={idx} className="flex items-center text-gray-700">
-                    <Check className="text-green-500 mr-3 flex-shrink-0" size={16} />
-                    <span>{feature}</span>
-                  </li>
-                ))}
-              </ul>
-              
-              <Button 
-                onClick={() => onPlanSelect(plan.id)}
-                className={`w-full py-3 rounded-lg font-semibold transition-colors ${
-                  plan.popular 
-                    ? 'passport-orange text-white hover:bg-orange-600'
-                    : 'passport-blue text-white hover:bg-blue-700'
+
+        <StaggerContainer className="grid md:grid-cols-3 gap-4 sm:gap-6 md:gap-8">
+          {plans.map((plan) => (
+            <StaggerItem key={plan.id}>
+              <div
+                className={`bg-white p-8 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 border ${
+                  plan.popular ? 'border-2 border-passport-orange relative transform scale-105' : 'border-gray-200'
                 }`}
               >
-                {plan.cta}
-              </Button>
-            </div>
+                {plan.popular && (
+                  <div className="absolute -top-4 left-1/2 transform -translate-x-1/2 passport-orange text-white px-6 py-2 rounded-full text-sm font-semibold">
+                    {plan.popular}
+                  </div>
+                )}
+
+                <div className="text-center">
+                  <h3 className="text-xl font-semibold text-passport-gray mb-2">
+                    {plan.frequency}
+                  </h3>
+                  <div className="mb-4">
+                    <span className="text-4xl font-bold text-passport-blue">
+                      {plan.price}
+                    </span>
+                    <span className="text-gray-600 ml-2">
+                      {plan.period}
+                    </span>
+                  </div>
+                  <div className="text-lg text-passport-orange font-semibold mb-6">
+                    {plan.perClass}
+                  </div>
+                  <p className="text-gray-600 mb-6">
+                    {plan.description}
+                  </p>
+                </div>
+
+                <ul className="space-y-3 mb-8">
+                  {plan.features.map((feature, idx) => (
+                    <li key={idx} className="flex items-center text-gray-700">
+                      <Check className="text-green-500 mr-3 flex-shrink-0" size={16} />
+                      <span>{feature}</span>
+                    </li>
+                  ))}
+                </ul>
+
+                <Button
+                  onClick={() => { analytics.pricingPlanClicked(plan.id, currency === '€' ? 'es' : 'en'); onPlanSelect(plan.id); }}
+                  className={`w-full py-3 rounded-lg font-semibold transition-colors ${
+                    plan.popular
+                      ? 'passport-orange text-white hover:bg-orange-600'
+                      : 'passport-blue text-white hover:bg-blue-700'
+                  }`}
+                >
+                  {plan.cta}
+                </Button>
+              </div>
+            </StaggerItem>
           ))}
-        </div>
+        </StaggerContainer>
       </div>
     </section>
   );

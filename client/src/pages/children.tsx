@@ -8,7 +8,10 @@ import {
 } from "@/components/ui/sheet";
 import { CheckCircle, Star, Menu } from "lucide-react";
 import NavigationDropdown from "@/components/navigation-dropdown";
-import HighLevelCalendar from "@/components/highlevel-calendar";
+import BookingCTA from "@/components/booking-cta";
+import BookingForm from "@/components/booking-form";
+import { useTranslation } from "@/lib/translations";
+import { FadeIn, StaggerContainer, StaggerItem } from "@/components/motion";
 import passportLogo from "@assets/a1c5a1_9514ede9e3124d7a9adf78f5dcf07f28~mv2_1755803448396.png";
 import calendarIcon from "@assets/generated_images/Calendar_icon_white_background_1a7f669e.png";
 import rebeccaPhoto from "@assets/WhatsApp Image Jul 4 2023 from Passport2Fluency (1)_1756923954354.jpeg";
@@ -26,6 +29,7 @@ interface ChildrenProps {
 export default function Children({ language }: ChildrenProps) {
   const [showCalendar, setShowCalendar] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const { t } = useTranslation(language);
 
   const handleBookingClick = () => {
     const bookingSection = document.getElementById('booking');
@@ -166,11 +170,11 @@ export default function Children({ language }: ChildrenProps) {
                 onClick={() => window.location.href = language === 'en' ? '/en' : '/es'}
                 variant="outline" 
                 size="sm"
-                className={`border-passport-${language === 'en' ? 'blue' : 'orange'} text-passport-${language === 'en' ? 'blue' : 'orange'} hover:bg-passport-${language === 'en' ? 'blue' : 'orange'} hover:text-white`}
+                className={language === 'en' ? 'border-passport-blue text-passport-blue hover:bg-passport-blue hover:text-white' : 'border-passport-orange text-passport-orange hover:bg-passport-orange hover:text-white'}
               >
                 {language === 'en' ? '🇺🇸 Learn English' : '🇪🇸 Aprende Español'}
               </Button>
-              
+
               {/* Mobile Menu Button */}
               <div className="md:hidden">
                 <Sheet open={isMobileMenuOpen} onOpenChange={setIsMobileMenuOpen}>
@@ -248,7 +252,7 @@ export default function Children({ language }: ChildrenProps) {
                         }}
                         variant="outline" 
                         size="sm"
-                        className={`border-passport-${language === 'en' ? 'blue' : 'orange'} text-passport-${language === 'en' ? 'blue' : 'orange'} hover:bg-passport-${language === 'en' ? 'blue' : 'orange'} hover:text-white mt-4`}
+                        className={language === 'en' ? 'border-passport-blue text-passport-blue hover:bg-passport-blue hover:text-white mt-4' : 'border-passport-orange text-passport-orange hover:bg-passport-orange hover:text-white mt-4'}
                       >
                         {language === 'en' ? '🇺🇸 Learn English' : '🇪🇸 Aprende Español'}
                       </Button>
@@ -264,14 +268,16 @@ export default function Children({ language }: ChildrenProps) {
       {/* Hero Section */}
       <section className={`py-20 pb-32 bg-gradient-to-b from-${colorScheme === 'orange' ? 'orange' : 'blue'}-50/80 via-${colorScheme === 'orange' ? 'orange' : 'blue'}-30/60 via-white/40 to-transparent relative`} style={{ zIndex: 10 }}>
         <div className="container mx-auto px-4">
-          <div className="text-center mb-16">
-            <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-              {content.title}
-            </h1>
-            <p className="text-base sm:text-lg md:text-xl text-gray-600 max-w-3xl mx-auto">
-              {content.subtitle}
-            </p>
-          </div>
+          <FadeIn>
+            <div className="text-center mb-16">
+              <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+                {content.title}
+              </h1>
+              <p className="text-base sm:text-lg md:text-xl text-gray-600 max-w-3xl mx-auto">
+                {content.subtitle}
+              </p>
+            </div>
+          </FadeIn>
         </div>
         
         <div className="container mx-auto px-4">
@@ -296,7 +302,7 @@ export default function Children({ language }: ChildrenProps) {
                 </p>
               </div>
 
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 md:gap-8 mb-8">
+              <StaggerContainer className="grid grid-cols-1 sm:grid-cols-2 gap-4 md:gap-8 mb-8">
                 {content.features.map((feature, index) => {
                   // Map each feature to its corresponding cartoon icon
                   const getFeatureIcon = (title: string) => {
@@ -313,10 +319,9 @@ export default function Children({ language }: ChildrenProps) {
                   };
 
                   return (
-                    <div 
-                      key={index} 
-                      className="text-center animate-fade-in-up"
-                      style={{ animationDelay: `${index * 150}ms` }}
+                    <StaggerItem
+                      key={index}
+                      className="text-center"
                     >
                       <div className="w-20 h-20 mx-auto mb-4 transform hover:scale-110 transition-transform duration-300">
                         <div className="w-full h-full bg-white rounded-full shadow-lg flex items-center justify-center">
@@ -330,14 +335,14 @@ export default function Children({ language }: ChildrenProps) {
                       </div>
                       <h4 className="font-bold text-gray-900 text-base leading-tight mb-3">{feature.title}</h4>
                       <p className="text-gray-600 text-sm leading-relaxed">{feature.description}</p>
-                    </div>
+                    </StaggerItem>
                   );
                 })}
-              </div>
+              </StaggerContainer>
 
               <Button 
                 onClick={handleBookingClick}
-                className={`bg-passport-${colorScheme === 'orange' ? 'orange' : 'blue'} hover:bg-${colorScheme === 'orange' ? 'orange' : 'blue'}-600 text-white px-8 py-4 text-lg font-semibold`}
+                className={colorScheme === 'orange' ? 'bg-passport-orange hover:bg-orange-600 text-white px-8 py-4 text-lg font-semibold' : 'bg-passport-blue hover:bg-blue-600 text-white px-8 py-4 text-lg font-semibold'}
                 size="lg"
               >
                 <Star className="w-5 h-5 mr-2" />
@@ -396,59 +401,49 @@ export default function Children({ language }: ChildrenProps) {
       {/* Calendar Booking Section */}
       <section id="booking" className="py-20 pt-16 bg-white/80 relative" style={{ zIndex: 10 }}>
         <div className="container mx-auto px-4">
-          <div className="text-center mb-12">
-            <div className="flex items-center justify-center mb-6">
-              <div className="w-20 h-20 animate-bounce">
-                <img
-                  src={calendarIcon}
-                  alt="Calendario Animado"
-                  className="w-full h-full object-contain"
-                  loading="lazy"
-                />
+          <FadeIn>
+            <div className="text-center mb-12">
+              <div className="flex items-center justify-center mb-6">
+                <div className="w-20 h-20 animate-bounce">
+                  <img
+                    src={calendarIcon}
+                    alt="Calendario Animado"
+                    className="w-full h-full object-contain"
+                    loading="lazy"
+                  />
+                </div>
               </div>
+              <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+                {language === 'en'
+                  ? 'Schedule Your Child\'s Free Spanish Class'
+                  : 'Agenda la Clase Gratuita de Inglés para tu Hijo'
+                }
+              </h2>
+              <p className="text-base sm:text-lg md:text-xl text-gray-600 max-w-3xl mx-auto">
+                {language === 'en'
+                  ? 'Book a 40-minute trial session with our specialized children\'s instructors. No commitment required.'
+                  : 'Reserva una sesión de prueba de 40 minutos con nuestros instructores especializados en niños. Sin compromiso requerido.'
+                }
+              </p>
             </div>
-            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-              {language === 'en'
-                ? 'Schedule Your Child\'s Free Spanish Class'
-                : 'Agenda la Clase Gratuita de Inglés para tu Hijo'
-              }
-            </h2>
-            <p className="text-base sm:text-lg md:text-xl text-gray-600 max-w-3xl mx-auto">
-              {language === 'en'
-                ? 'Book a 40-minute trial session with our specialized children\'s instructors. No commitment required.'
-                : 'Reserva una sesión de prueba de 40 minutos con nuestros instructores especializados en niños. Sin compromiso requerido.'
-              }
-            </p>
-          </div>
+          </FadeIn>
 
-          <div className="max-w-4xl mx-auto">
-            <div className="bg-white rounded-2xl shadow-lg p-8">
-              <HighLevelCalendar 
-                type="child" 
-                language={language}
-              />
+          <FadeIn delay={0.2}>
+            <div className="max-w-4xl mx-auto">
+              <BookingCTA language={language} type="child" />
             </div>
-          </div>
+          </FadeIn>
         </div>
       </section>
 
-      {/* Calendar Modal */}
+      {/* Booking Modal */}
       {showCalendar && (
-        <div className="fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center p-4">
-          <div className="bg-white rounded-lg max-w-4xl w-full max-h-[90vh] overflow-auto relative">
-            <button 
-              onClick={() => setShowCalendar(false)}
-              className="absolute top-4 right-4 text-gray-500 hover:text-gray-700 z-10"
-            >
-              ✕
-            </button>
-            <HighLevelCalendar 
-              type="child" 
-              language={language}
-              className="p-6"
-            />
-          </div>
-        </div>
+        <BookingForm
+          t={t}
+          language={language}
+          defaultClassType={language === 'es' ? 'english_children' : 'spanish_children'}
+          onClose={() => setShowCalendar(false)}
+        />
       )}
 
       {/* Footer */}

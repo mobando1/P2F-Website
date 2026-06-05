@@ -2,6 +2,7 @@ import type { Express } from "express";
 import { createServer, type Server } from "http";
 import { storage } from "./storage";
 import { insertBookingSchema, insertContactSchema } from "@shared/schema";
+import { forwardLeadToPortal } from "./lib/portal";
 import { z } from "zod";
 
 export async function registerRoutes(app: Express): Promise<Server> {
@@ -10,10 +11,23 @@ export async function registerRoutes(app: Express): Promise<Server> {
     try {
       const bookingData = insertBookingSchema.parse(req.body);
       const booking = await storage.createBooking(bookingData);
-      
-      // TODO: Send confirmation email here
+
       console.log(`New booking created: ${booking.name} - ${booking.email}`);
-      
+
+      // Forward the lead to the Portal CRM (creates a lead + notifies info@/mateo@).
+      // Non-blocking: a Portal outage never fails the booking — we keep the local copy.
+      forwardLeadToPortal({
+        name: booking.name,
+        email: booking.email,
+        phone: booking.phone || undefined,
+        language: booking.language as "english" | "spanish",
+        studentType: booking.studentType as "adult" | "child",
+        preferredDate: booking.preferredDate || undefined,
+        preferredTime: booking.preferredTime || undefined,
+        message: booking.message || undefined,
+        source: "website_booking",
+      }).catch((err) => console.error("Error forwarding booking lead to Portal:", err));
+
       res.json({ success: true, booking });
     } catch (error) {
       console.error("Error creating booking:", error);
@@ -87,26 +101,27 @@ export async function registerRoutes(app: Express): Promise<Server> {
   // Newsletter subscription endpoint
   app.post("/api/newsletter", async (req, res) => {
     try {
-      const { email, name, language, source } = req.body;
-      
-      if (!email || !name) {
-        return res.status(400).json({ error: "Email and name are required" });
+      const { email, name, phone, language, source } = req.body;
+
+      if (!email) {
+        return res.status(400).json({ error: "Email is required" });
       }
 
-      // TODO: Replace with actual HighLevel API integration
-      // Example HighLevel webhook call:
-      // const response = await fetch('https://hooks.leadconnectorhq.com/hook/YOUR_WEBHOOK_ID', {
-      //   method: 'POST',
-      //   headers: { 'Content-Type': 'application/json' },
-      //   body: JSON.stringify({ email, name, language, source })
-      // });
+      console.log(`Newsletter/lead subscription: ${name || "(no name)"} (${email}) - Source: ${source}`);
 
-      console.log(`Newsletter subscription: ${name} (${email}) - Language: ${language}`);
-      
-      // Simulate success response
-      res.json({ 
-        success: true, 
-        message: "Successfully subscribed to newsletter" 
+      // Forward to the Portal CRM (subscribes to newsletter + records the lead).
+      const forwarded = await forwardLeadToPortal({
+        name: name || undefined,
+        email,
+        phone: phone || undefined,
+        message: source === "discount_popup" ? "Discount popup signup" : "Newsletter signup",
+        source: source === "discount_popup" ? "discount_popup" : "newsletter",
+      });
+
+      res.json({
+        success: true,
+        forwarded,
+        message: "Successfully subscribed to newsletter",
       });
     } catch (error) {
       console.error("Error subscribing to newsletter:", error);

@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Mail, CheckCircle, AlertCircle } from "lucide-react";
+import { analytics } from "@/lib/analytics";
 
 interface NewsletterSignupProps {
   language: 'en' | 'es';
@@ -63,6 +64,7 @@ export default function NewsletterSignup({ language, className = "" }: Newslette
       });
 
       if (response.ok) {
+        analytics.newsletterSignup(language);
         setStatus('success');
         setMessage(t.successMessage);
         setEmail("");
@@ -91,61 +93,45 @@ export default function NewsletterSignup({ language, className = "" }: Newslette
           {t.subtitle}
         </p>
 
-        {/* Use real HighLevel forms for both languages */}
-        {language === 'en' ? (
-          <div className="min-h-[300px] md:min-h-[400px]">
-            <div
-              dangerouslySetInnerHTML={{
-                __html: `
-                  <iframe
-                    src="https://api.leadconnectorhq.com/widget/form/IT3EmBJlzLa0VUEN4IiS"
-                    style="width:100%;height:400px;border:none;border-radius:8px"
-                    id="inline-IT3EmBJlzLa0VUEN4IiS_${Date.now()}" 
-                    data-layout="{'id':'INLINE'}"
-                    data-trigger-type="alwaysShow"
-                    data-trigger-value=""
-                    data-activation-type="alwaysActivated"
-                    data-activation-value=""
-                    data-deactivation-type="neverDeactivate"
-                    data-deactivation-value=""
-                    data-form-name="Newsletter subscription"
-                    data-height="400"
-                    data-layout-iframe-id="inline-IT3EmBJlzLa0VUEN4IiS"
-                    data-form-id="IT3EmBJlzLa0VUEN4IiS"
-                    title="Newsletter subscription"
-                  ></iframe>
-                  <script src="https://link.msgsndr.com/js/form_embed.js"></script>
-                `
-              }}
-            />
+        {status === 'success' ? (
+          <div className="flex items-center justify-center gap-2 text-green-600 bg-green-50 rounded-lg p-4">
+            <CheckCircle className="w-5 h-5 shrink-0" />
+            <span className="text-sm font-medium">{message}</span>
           </div>
         ) : (
-          <div className="min-h-[300px] md:min-h-[400px]">
-            <div
-              dangerouslySetInnerHTML={{
-                __html: `
-                  <iframe
-                    src="https://api.leadconnectorhq.com/widget/form/VsFcVGunIocpad9n8R2u"
-                    style="width:100%;height:400px;border:none;border-radius:8px"
-                    id="inline-VsFcVGunIocpad9n8R2u_${Date.now()}" 
-                    data-layout="{'id':'INLINE'}"
-                    data-trigger-type="alwaysShow"
-                    data-trigger-value=""
-                    data-activation-type="alwaysActivated"
-                    data-activation-value=""
-                    data-deactivation-type="neverDeactivate"
-                    data-deactivation-value=""
-                    data-form-name="Newsletter subscription - CLASES DE INGLES"
-                    data-height="400"
-                    data-layout-iframe-id="inline-VsFcVGunIocpad9n8R2u"
-                    data-form-id="VsFcVGunIocpad9n8R2u"
-                    title="Newsletter subscription - CLASES DE INGLES"
-                  ></iframe>
-                  <script src="https://link.msgsndr.com/js/form_embed.js"></script>
-                `
-              }}
+          <form onSubmit={handleSubmit} className="space-y-3 text-left">
+            <Input
+              type="text"
+              required
+              value={name}
+              onChange={(e) => setName(e.target.value)}
+              placeholder={t.namePlaceholder}
             />
-          </div>
+            <Input
+              type="email"
+              required
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              placeholder={t.emailPlaceholder}
+            />
+
+            {status === 'error' && (
+              <div className="flex items-center gap-2 text-red-600 text-sm">
+                <AlertCircle className="w-4 h-4 shrink-0" />
+                <span>{message}</span>
+              </div>
+            )}
+
+            <Button
+              type="submit"
+              disabled={status === 'loading'}
+              className="w-full passport-blue hover:bg-blue-700 text-white py-6 rounded-xl"
+            >
+              {status === 'loading' ? t.buttonLoading : t.button}
+            </Button>
+
+            <p className="text-xs text-gray-500 text-center">{t.privacyText}</p>
+          </form>
         )}
       </div>
     </div>

@@ -3,7 +3,9 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { CheckCircle, Users, Building, Star } from "lucide-react";
 import NavigationDropdown from "@/components/navigation-dropdown";
-import HighLevelCalendar from "@/components/highlevel-calendar";
+import BookingForm from "@/components/booking-form";
+import { useTranslation } from "@/lib/translations";
+import { FadeIn, StaggerContainer, StaggerItem } from "@/components/motion";
 import passportLogo from "@assets/a1c5a1_9514ede9e3124d7a9adf78f5dcf07f28~mv2_1755803448396.png";
 import briefcaseIcon from "@assets/generated_images/Serious_brown_business_briefcase_5cc96a9a.png";
 import michaelPhoto from "@assets/generated_images/Michael_Thompson_executive_headshot_ab0afc4c.png";
@@ -15,6 +17,7 @@ interface BusinessProps {
 
 export default function Business({ language }: BusinessProps) {
   const [showCalendar, setShowCalendar] = useState(false);
+  const { t } = useTranslation(language);
 
   const handleBookingClick = () => {
     setShowCalendar(true);
@@ -101,25 +104,27 @@ export default function Business({ language }: BusinessProps) {
       {/* Hero Section */}
       <section className="py-20 bg-gray-50">
         <div className="container mx-auto px-4">
-          <div className="text-center mb-16">
-            <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-              {content.title}
-            </h1>
-            <p className="text-base sm:text-lg md:text-xl text-gray-600 max-w-3xl mx-auto">
-              {content.subtitle}
-            </p>
-          </div>
+          <FadeIn>
+            <div className="text-center mb-16">
+              <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+                {content.title}
+              </h1>
+              <p className="text-base sm:text-lg md:text-xl text-gray-600 max-w-3xl mx-auto">
+                {content.subtitle}
+              </p>
+            </div>
+          </FadeIn>
 
           <div className="max-w-6xl mx-auto">
             {/* Main Value Proposition */}
             <div className="bg-white rounded-2xl p-8 shadow-lg mb-12">
               <div className="grid md:grid-cols-2 gap-8 items-center">
-                <div>
+                <FadeIn direction="left">
                   <div className="w-24 h-24 flex items-center justify-center mb-6 overflow-hidden">
                     <img
                       src={briefcaseIcon}
                       alt="Professional Business Briefcase"
-                      className="w-full h-full object-contain animate-slide-in-left"
+                      className="w-full h-full object-contain"
                       loading="lazy"
                     />
                   </div>
@@ -129,70 +134,79 @@ export default function Business({ language }: BusinessProps) {
                   <p className="text-lg text-gray-700 mb-6">
                     {content.description}
                   </p>
-                </div>
-                <div className="bg-gradient-to-br from-passport-blue to-blue-600 rounded-xl p-6 text-white">
-                  <h4 className="text-xl font-semibold mb-4">
-                    {language === 'en' ? 'Popular Industries:' : 'Industrias Populares:'}
-                  </h4>
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-sm">
-                    {industries.map((industry, index) => (
-                      <div key={index}>• {industry}</div>
-                    ))}
+                </FadeIn>
+                <FadeIn direction="up" delay={0.2}>
+                  <div className="bg-gradient-to-br from-passport-blue to-blue-600 rounded-xl p-6 text-white">
+                    <h4 className="text-xl font-semibold mb-4">
+                      {language === 'en' ? 'Popular Industries:' : 'Industrias Populares:'}
+                    </h4>
+                    <StaggerContainer className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-sm">
+                      {industries.map((industry, index) => (
+                        <StaggerItem key={index}>
+                          <div>• {industry}</div>
+                        </StaggerItem>
+                      ))}
+                    </StaggerContainer>
                   </div>
-                </div>
+                </FadeIn>
               </div>
             </div>
 
             {/* Program Options */}
-            <div className="grid md:grid-cols-2 gap-8 mb-12">
-              <Card className="border-2 hover:border-passport-blue transition-colors">
-                <CardContent className="p-6">
-                  <div className="text-center mb-6">
-                    <Users className="w-12 h-12 text-passport-blue mx-auto mb-4" />
-                    <h3 className="text-xl font-bold text-gray-900 mb-2">
-                      {language === 'en' ? 'Individual Executive Coaching' : 'Coaching Ejecutivo Individual'}
-                    </h3>
-                    <p className="text-sm text-gray-600">
-                      {language === 'en' 
-                        ? 'One-on-one Spanish classes for your executives and leaders' 
-                        : 'Clases de inglés uno-a-uno para tus ejecutivos y líderes'
-                      }
-                    </p>
-                  </div>
-                  <Button 
-                    onClick={handleBookingClick}
-                    className="w-full bg-passport-blue hover:bg-blue-700 text-white"
-                  >
-                    {language === 'en' ? 'Start Executive Program' : 'Comenzar Programa Ejecutivo'}
-                  </Button>
-                </CardContent>
-              </Card>
+            <StaggerContainer className="grid md:grid-cols-2 gap-8 mb-12">
+              <StaggerItem>
+                <Card className="border-2 hover:border-passport-blue transition-colors">
+                  <CardContent className="p-6">
+                    <div className="text-center mb-6">
+                      <Users className="w-12 h-12 text-passport-blue mx-auto mb-4" />
+                      <h3 className="text-xl font-bold text-gray-900 mb-2">
+                        {language === 'en' ? 'Individual Executive Coaching' : 'Coaching Ejecutivo Individual'}
+                      </h3>
+                      <p className="text-sm text-gray-600">
+                        {language === 'en'
+                          ? 'One-on-one Spanish classes for your executives and leaders'
+                          : 'Clases de inglés uno-a-uno para tus ejecutivos y líderes'
+                        }
+                      </p>
+                    </div>
+                    <Button
+                      onClick={handleBookingClick}
+                      className="w-full bg-passport-blue hover:bg-blue-700 text-white"
+                    >
+                      {language === 'en' ? 'Start Executive Program' : 'Comenzar Programa Ejecutivo'}
+                    </Button>
+                  </CardContent>
+                </Card>
+              </StaggerItem>
 
-              <Card className="border-2 hover:border-passport-orange transition-colors">
-                <CardContent className="p-6">
-                  <div className="text-center mb-6">
-                    <Building className="w-12 h-12 text-passport-orange mx-auto mb-4" />
-                    <h3 className="text-xl font-bold text-gray-900 mb-2">
-                      {language === 'en' ? 'Corporate Team Training' : 'Capacitación Corporativa de Equipos'}
-                    </h3>
-                    <p className="text-sm text-gray-600">
-                      {language === 'en' 
-                        ? 'Group Spanish classes for your entire team or department' 
-                        : 'Clases grupales de inglés para todo tu equipo o departamento'
-                      }
-                    </p>
-                  </div>
-                  <Button 
-                    onClick={handleBookingClick}
-                    className="w-full bg-passport-orange hover:bg-orange-600 text-white"
-                  >
-                    {language === 'en' ? 'Get Corporate Quote' : 'Obtener Cotización Corporativa'}
-                  </Button>
-                </CardContent>
-              </Card>
-            </div>
+              <StaggerItem>
+                <Card className="border-2 hover:border-passport-orange transition-colors">
+                  <CardContent className="p-6">
+                    <div className="text-center mb-6">
+                      <Building className="w-12 h-12 text-passport-orange mx-auto mb-4" />
+                      <h3 className="text-xl font-bold text-gray-900 mb-2">
+                        {language === 'en' ? 'Corporate Team Training' : 'Capacitación Corporativa de Equipos'}
+                      </h3>
+                      <p className="text-sm text-gray-600">
+                        {language === 'en'
+                          ? 'Group Spanish classes for your entire team or department'
+                          : 'Clases grupales de inglés para todo tu equipo o departamento'
+                        }
+                      </p>
+                    </div>
+                    <Button
+                      onClick={handleBookingClick}
+                      className="w-full bg-passport-orange hover:bg-orange-600 text-white"
+                    >
+                      {language === 'en' ? 'Get Corporate Quote' : 'Obtener Cotización Corporativa'}
+                    </Button>
+                  </CardContent>
+                </Card>
+              </StaggerItem>
+            </StaggerContainer>
 
             {/* Success Story */}
+            <FadeIn>
             <div className="bg-white rounded-2xl p-8 shadow-lg">
               <div className="text-center mb-8">
                 <h3 className="text-2xl font-bold text-gray-900 mb-4">
@@ -255,27 +269,19 @@ export default function Business({ language }: BusinessProps) {
                 </div>
               </div>
             </div>
+            </FadeIn>
           </div>
         </div>
       </section>
 
-      {/* Calendar Modal */}
+      {/* Booking Modal */}
       {showCalendar && (
-        <div className="fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center p-4">
-          <div className="bg-white rounded-lg max-w-4xl w-full max-h-[90vh] overflow-auto relative">
-            <button 
-              onClick={() => setShowCalendar(false)}
-              className="absolute top-4 right-4 text-gray-500 hover:text-gray-700 z-10"
-            >
-              ✕
-            </button>
-            <HighLevelCalendar 
-              type="adult" 
-              language={language}
-              className="p-6"
-            />
-          </div>
-        </div>
+        <BookingForm
+          t={t}
+          language={language}
+          defaultClassType={language === 'es' ? 'english_adults' : 'spanish_adults'}
+          onClose={() => setShowCalendar(false)}
+        />
       )}
 
       {/* Footer */}

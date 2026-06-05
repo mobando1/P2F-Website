@@ -1,7 +1,9 @@
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { X, Gift, Timer, CheckCircle } from "lucide-react";
+import { X, Gift, CheckCircle } from "lucide-react";
+import { motion } from "framer-motion";
+import { analytics } from "@/lib/analytics";
 
 interface DiscountPopupProps {
   language: 'en' | 'es';
@@ -10,58 +12,73 @@ interface DiscountPopupProps {
 }
 
 export default function DiscountPopup({ language, onClose, onSubscribe }: DiscountPopupProps) {
+  const [name, setName] = useState("");
   const [email, setEmail] = useState("");
-  // Removed timer functionality as requested
+  const [phone, setPhone] = useState("");
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
+
+  useEffect(() => {
+    analytics.discountPopupShown(language);
+  }, [language]);
 
   const texts = {
     en: {
       title: "🎉 Special Offer!",
       subtitle: "Get 10% OFF your first month",
       description: "Join thousands learning English with native instructors!",
-      timer: "Offer expires in:",
-      emailPlaceholder: "Enter your email",
+      namePlaceholder: "Your name",
+      emailPlaceholder: "Your email",
+      phonePlaceholder: "Your phone number",
       ctaButton: "Claim 10% Discount",
+      submitting: "Sending...",
       noThanks: "No thanks",
       successTitle: "Discount Secured! 🎊",
-      successMessage: "Check your email for the discount code and booking instructions.",
-      features: [
-        "Native American instructors",
-        "1-on-1 personalized classes",
-        "Flexible scheduling 24/7"
-      ]
+      successMessage: "We'll contact you shortly with your discount code and booking details.",
     },
     es: {
       title: "🎉 ¡Oferta Especial!",
       subtitle: "Obtén 10% de DESCUENTO en tu primer mes",
-      description: "Únete a miles aprendiendo inglés con instructores nativos!",
-      timer: "La oferta expira en:",
-      emailPlaceholder: "Ingresa tu email",
+      description: "¡Únete a miles aprendiendo inglés con instructores nativos!",
+      namePlaceholder: "Tu nombre",
+      emailPlaceholder: "Tu email",
+      phonePlaceholder: "Tu número de teléfono",
       ctaButton: "Reclamar 10% Descuento",
+      submitting: "Enviando...",
       noThanks: "No gracias",
       successTitle: "¡Descuento Asegurado! 🎊",
-      successMessage: "Revisa tu email para el código de descuento e instrucciones de reserva.",
-      features: [
-        "Instructores nativos americanos",
-        "Clases personalizadas 1-a-1",
-        "Horarios flexibles 24/7"
-      ]
+      successMessage: "Te contactaremos pronto con tu código de descuento e instrucciones de reserva.",
     }
   };
 
   const t = texts[language];
 
-  // Timer removed as requested
+  const handleClose = () => {
+    analytics.discountPopupClosed(language);
+    onClose();
+  };
 
-  // Timer formatting removed
-
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (!email) return;
-    
+    if (!email || !phone || isSubmitting) return;
+
+    setIsSubmitting(true);
+    try {
+      await fetch('/api/newsletter', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email, name, phone, language, source: 'discount_popup' }),
+      });
+    } catch (error) {
+      console.error('Discount popup submission error:', error);
+    } finally {
+      setIsSubmitting(false);
+    }
+
+    analytics.discountPopupSubmitted(language);
     onSubscribe(email);
     setIsSubmitted(true);
-    
+
     // Close popup after showing success message
     setTimeout(() => {
       onClose();
@@ -71,7 +88,12 @@ export default function DiscountPopup({ language, onClose, onSubscribe }: Discou
   if (isSubmitted) {
     return (
       <div className="fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center p-4">
-        <div className="bg-white rounded-2xl max-w-md w-full p-8 text-center relative animate-in fade-in zoom-in duration-300">
+        <motion.div
+          initial={{ opacity: 0, scale: 0.92 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.3, ease: "easeOut" }}
+          className="bg-white rounded-2xl max-w-md w-full p-8 text-center relative"
+        >
           <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
             <CheckCircle className="w-8 h-8 text-green-600" />
           </div>
@@ -81,16 +103,21 @@ export default function DiscountPopup({ language, onClose, onSubscribe }: Discou
           <p className="text-gray-600">
             {t.successMessage}
           </p>
-        </div>
+        </motion.div>
       </div>
     );
   }
 
   return (
     <div className="fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center p-4">
-      <div className="bg-white rounded-2xl max-w-lg w-full p-6 relative animate-in fade-in zoom-in duration-300 max-h-[90vh] overflow-y-auto">
+      <motion.div
+        initial={{ opacity: 0, scale: 0.92 }}
+        animate={{ opacity: 1, scale: 1 }}
+        transition={{ duration: 0.3, ease: "easeOut" }}
+        className="bg-white rounded-2xl max-w-lg w-full p-6 relative max-h-[90vh] overflow-y-auto"
+      >
         <button
-          onClick={onClose}
+          onClick={handleClose}
           className="absolute top-4 right-4 text-gray-400 hover:text-gray-600 transition-colors"
         >
           <X className="w-6 h-6" />
@@ -100,86 +127,59 @@ export default function DiscountPopup({ language, onClose, onSubscribe }: Discou
           <div className="w-16 h-16 bg-gradient-to-r from-passport-blue to-passport-orange rounded-full flex items-center justify-center mx-auto mb-4">
             <Gift className="w-8 h-8 text-white" />
           </div>
-          
+
           <h3 className="text-2xl font-bold bg-gradient-to-r from-passport-blue to-passport-orange bg-clip-text text-transparent mb-2">
             {t.title}
           </h3>
-          
+
           <p className="text-lg font-semibold text-passport-orange mb-2">
             {t.subtitle}
           </p>
-          
+
           <p className="text-gray-600 text-sm">
             {t.description}
           </p>
         </div>
 
-        {/* Timer removed as requested */}
-        {/* HighLevel form integration for discount popup */}
-        <div className="space-y-4">
-          <div className="min-h-[280px] sm:min-h-[350px] -mx-2 -mb-2">
-            {language === 'es' ? (
-              <div 
-                dangerouslySetInnerHTML={{
-                  __html: `
-                    <iframe
-                      src="https://api.leadconnectorhq.com/widget/form/4jKIDLnqJmvyS6yhYdly"
-                      style="width:100%;height:100%;min-height:280px;border:none;border-radius:12px"
-                      id="inline-4jKIDLnqJmvyS6yhYdly" 
-                      data-layout="{'id':'INLINE'}"
-                      data-trigger-type="alwaysShow"
-                      data-trigger-value=""
-                      data-activation-type="alwaysActivated"
-                      data-activation-value=""
-                      data-deactivation-type="neverDeactivate"
-                      data-deactivation-value=""
-                      data-form-name="Newsletter subscription - POP UP - CLASES DE INGLES"
-                      data-height="350"
-                      data-layout-iframe-id="inline-4jKIDLnqJmvyS6yhYdly"
-                      data-form-id="4jKIDLnqJmvyS6yhYdly"
-                      title="Newsletter subscription - POP UP - CLASES DE INGLES">
-                    </iframe>
-                    <script src="https://link.msgsndr.com/js/form_embed.js"></script>
-                  `
-                }}
-              />
-            ) : (
-              <div 
-                dangerouslySetInnerHTML={{
-                  __html: `
-                    <iframe
-                      src="https://api.leadconnectorhq.com/widget/form/FTuj7n9Kp5GYdlbLyyI7"
-                      style="width:100%;height:100%;min-height:280px;border:none;border-radius:12px"
-                      id="inline-FTuj7n9Kp5GYdlbLyyI7" 
-                      data-layout="{'id':'INLINE'}"
-                      data-trigger-type="alwaysShow"
-                      data-trigger-value=""
-                      data-activation-type="alwaysActivated"
-                      data-activation-value=""
-                      data-deactivation-type="neverDeactivate"
-                      data-deactivation-value=""
-                      data-form-name="Newsletter subscription - POP UP"
-                      data-height="350"
-                      data-layout-iframe-id="inline-FTuj7n9Kp5GYdlbLyyI7"
-                      data-form-id="FTuj7n9Kp5GYdlbLyyI7"
-                      title="Newsletter subscription - POP UP">
-                    </iframe>
-                    <script src="https://link.msgsndr.com/js/form_embed.js"></script>
-                  `
-                }}
-              />
-            )}
-          </div>
-          
+        <form onSubmit={handleSubmit} className="space-y-3">
+          <Input
+            type="text"
+            value={name}
+            onChange={(e) => setName(e.target.value)}
+            placeholder={t.namePlaceholder}
+          />
+          <Input
+            type="email"
+            required
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            placeholder={t.emailPlaceholder}
+          />
+          <Input
+            type="tel"
+            required
+            value={phone}
+            onChange={(e) => setPhone(e.target.value)}
+            placeholder={t.phonePlaceholder}
+          />
+
+          <Button
+            type="submit"
+            disabled={isSubmitting}
+            className="w-full passport-orange hover:bg-orange-600 text-white text-lg py-6 rounded-xl"
+          >
+            {isSubmitting ? t.submitting : t.ctaButton}
+          </Button>
+
           <button
             type="button"
-            onClick={onClose}
-            className="w-full text-gray-500 hover:text-gray-700 text-sm py-3 transition-colors"
+            onClick={handleClose}
+            className="w-full text-gray-500 hover:text-gray-700 text-sm py-2 transition-colors"
           >
             {t.noThanks}
           </button>
-        </div>
-      </div>
+        </form>
+      </motion.div>
     </div>
   );
 }

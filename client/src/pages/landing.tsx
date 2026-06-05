@@ -1,7 +1,11 @@
 import { useLocation } from "wouter";
 import { useState, useEffect } from "react";
+import { AnimatePresence, motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
-import { Globe, Star, Users, Clock, ArrowRight, CheckCircle, ChevronDown, BookOpen, Headphones, Award, TrendingUp, Play, Zap, Target, Shield, HelpCircle, Plus, Minus, X } from "lucide-react";
+import { Input } from "@/components/ui/input";
+import { FadeIn, StaggerContainer, StaggerItem } from "@/components/motion";
+import { Globe, Star, Users, ArrowRight, CheckCircle, ChevronDown, Plus, Minus, X } from "lucide-react";
+import { analytics } from "@/lib/analytics";
 import passportLogo from "@assets/a1c5a1_9514ede9e3124d7a9adf78f5dcf07f28~mv2_1755803448396.png";
 import newLearningImage from "@assets/generated_images/Student_learning_with_online_tutor_5c3a43c2.png";
 import corporateTeamImage from "@assets/generated_images/Corporate_team_video_conference_9293db31.png";
@@ -42,11 +46,21 @@ const FAQItem = ({ question, answer }: { question: string; answer: string }) => 
           )}
         </div>
       </button>
-      {isOpen && (
-        <div className="px-6 pb-6">
-          <p className="text-gray-600 leading-relaxed">{answer}</p>
-        </div>
-      )}
+      <AnimatePresence>
+        {isOpen && (
+          <motion.div
+            initial={{ height: 0, opacity: 0 }}
+            animate={{ height: "auto", opacity: 1 }}
+            exit={{ height: 0, opacity: 0 }}
+            transition={{ duration: 0.25 }}
+            className="overflow-hidden"
+          >
+            <div className="px-6 pb-6">
+              <p className="text-gray-600 leading-relaxed">{answer}</p>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </div>
   );
 };
@@ -141,36 +155,45 @@ const MobileCTA = ({
     }
   };
   
-  if (!isVisible) return null;
-  
   return (
-    <div className="lg:hidden fixed bottom-0 left-0 right-0 z-50 p-4" style={{
-      background: 'linear-gradient(135deg, #0A4A6E 0%, #F59E1C 100%)'
-    }}>
-      <div className="flex gap-3">
-        <Button 
-          onClick={() => handleClick('spanish', '/es')}
-          className="flex-1 py-4 text-lg font-bold rounded-full border-0 bg-white transition-all duration-300 text-passport-blue"
-          data-testid="mobile-cta-learn-spanish"
+    <AnimatePresence>
+      {isVisible && (
+        <motion.div
+          initial={{ y: 100, opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
+          exit={{ y: 100, opacity: 0 }}
+          transition={{ type: "spring", damping: 25, stiffness: 200 }}
+          className="lg:hidden fixed bottom-0 left-0 right-0 z-50 p-4"
+          style={{
+            background: 'linear-gradient(135deg, #0A4A6E 0%, #F59E1C 100%)'
+          }}
         >
-          <span className="flex items-center justify-center gap-2">
-            <span>🇪🇸</span>
-            <span>Learn Spanish</span>
-          </span>
-        </Button>
-        
-        <Button 
-          onClick={() => handleClick('english', '/en')}
-          className="flex-1 py-4 text-lg font-bold rounded-full border-0 bg-white transition-all duration-300 text-passport-blue"
-          data-testid="mobile-cta-aprende-ingles"
-        >
-          <span className="flex items-center justify-center gap-2">
-            <span>🇺🇸</span>
-            <span>Aprende Inglés</span>
-          </span>
-        </Button>
-      </div>
-    </div>
+          <div className="flex gap-3">
+            <Button
+              onClick={() => handleClick('spanish', '/es')}
+              className="flex-1 py-4 text-lg font-bold rounded-full border-0 bg-white transition-all duration-300 text-passport-blue"
+              data-testid="mobile-cta-learn-spanish"
+            >
+              <span className="flex items-center justify-center gap-2">
+                <span>🇪🇸</span>
+                <span>Learn Spanish</span>
+              </span>
+            </Button>
+
+            <Button
+              onClick={() => handleClick('english', '/en')}
+              className="flex-1 py-4 text-lg font-bold rounded-full border-0 bg-white transition-all duration-300 text-passport-blue"
+              data-testid="mobile-cta-aprende-ingles"
+            >
+              <span className="flex items-center justify-center gap-2">
+                <span>🇺🇸</span>
+                <span>Aprende Inglés</span>
+              </span>
+            </Button>
+          </div>
+        </motion.div>
+      )}
+    </AnimatePresence>
   );
 };
 
@@ -189,28 +212,15 @@ const EmailPopup = ({
   onClose?: () => void;
 }) => {
   const [isVisible, setIsVisible] = useState(false);
-  const [isClosing, setIsClosing] = useState(false);
+  const [name, setName] = useState('');
+  const [email, setEmail] = useState('');
+  const [phone, setPhone] = useState('');
+  const [submitting, setSubmitting] = useState(false);
+  const [submitted, setSubmitted] = useState(false);
 
   // Inicializar popup cuando se cumplen las condiciones
   useEffect(() => {
     if (showInitial || showOnLanguageChange) {
-      // Asegurar que el script esté disponible sin afectar el estado
-      const ensureScriptLoaded = () => {
-        const existingScript = document.querySelector('script[src="https://link.msgsndr.com/js/form_embed.js"]');
-        if (!existingScript) {
-          const script = document.createElement('script');
-          script.src = 'https://link.msgsndr.com/js/form_embed.js';
-          script.async = true;
-          script.onload = () => {
-            console.log('HighLevel form script loaded');
-          };
-          document.body.appendChild(script);
-        }
-      };
-
-      // Cargar script inmediatamente
-      ensureScriptLoaded();
-      
       // Mostrar popup después de 7 segundos
       const timer = setTimeout(() => {
         setIsVisible(true);
@@ -221,30 +231,50 @@ const EmailPopup = ({
   }, [showInitial, showOnLanguageChange]);
 
   const handleClose = () => {
-    setIsClosing(true);
-    setTimeout(() => {
-      setIsVisible(false);
-      setIsClosing(false);
-      if (onClose) onClose();
-    }, 500);
+    setIsVisible(false);
+    if (onClose) onClose();
   };
-
-  // No renderizar nada hasta que esté completamente listo
-  if (!isVisible) return null;
 
   // Determinar el contenido del popup según el idioma actual de la página
   const isEnglishLang = currentLang === 'en';
-  
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (submitting) return;
+    setSubmitting(true);
+    try {
+      await fetch('/api/newsletter', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          email,
+          name: name || undefined,
+          phone,
+          language: currentLang,
+          source: 'discount_popup',
+        }),
+      });
+      setSubmitted(true);
+      setTimeout(() => {
+        handleClose();
+      }, 3000);
+    } catch (error) {
+      console.error('Error submitting discount popup lead:', error);
+    } finally {
+      setSubmitting(false);
+    }
+  };
+
   // Contenido adaptado al idioma actual de la página
   const popupContent = {
-    title: isEnglishLang 
-      ? "🎯 Special Offer - 10% OFF!" 
+    title: isEnglishLang
+      ? "🎯 Special Offer - 10% OFF!"
       : "🎯 ¡Oferta Especial - 10% de Descuento!",
     subtitle: isEnglishLang
       ? "Get 10% discount on your first month of any plan!"
       : "¡Obtén 10% de descuento en tu primer mes de cualquier plan!",
     description: showOnLanguageChange
-      ? (isEnglishLang 
+      ? (isEnglishLang
           ? "Perfect timing! Since you're interested in this language, here's a special offer just for you!"
           : "¡Momento perfecto! Como te interesa este idioma, ¡aquí tienes una oferta especial solo para ti!")
       : (isEnglishLang
@@ -253,100 +283,116 @@ const EmailPopup = ({
   };
 
   return (
-    <div className={`fixed inset-0 z-50 flex items-center justify-center p-4 ${
-      isClosing ? 'animate-out fade-out zoom-out-95 duration-500' : 'animate-in fade-in zoom-in-95 duration-700'
-    }`}>
-      {/* Overlay */}
-      <div 
-        className={`absolute inset-0 bg-black ${
-          isClosing ? 'opacity-0' : 'opacity-50'
-        } transition-opacity duration-700`}
-        onClick={handleClose}
-      />
-      
-      {/* Popup Modal */}
-      <div className="bg-white rounded-3xl shadow-2xl max-w-md w-full mx-4 relative z-10 overflow-hidden"
-           style={{ maxHeight: '90vh' }}>
-          
-          {/* Header con gradiente de marca */}
-          <div className="relative p-6 text-center text-white"
-               style={{
-                 background: 'linear-gradient(135deg, #0A4A6E 0%, #F59E1C 100%)'
-               }}>
-            {/* Botón cerrar */}
-            <button
-              onClick={handleClose}
-              className="absolute top-4 right-4 text-white hover:text-gray-200 transition-colors"
-              data-testid="popup-close-button"
-            >
-              <X className="w-6 h-6" />
-            </button>
-            
-            <h2 className="text-2xl font-bold mb-2">{popupContent.title}</h2>
-            <p className="text-lg opacity-90">{popupContent.subtitle}</p>
-          </div>
+    <AnimatePresence>
+      {isVisible && (
+        <motion.div
+          initial={{ opacity: 0, scale: 0.95 }}
+          animate={{ opacity: 1, scale: 1 }}
+          exit={{ opacity: 0, scale: 0.95 }}
+          transition={{ duration: 0.3 }}
+          className="fixed inset-0 z-50 flex items-center justify-center p-4"
+        >
+          {/* Overlay */}
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 0.5 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.3 }}
+            className="absolute inset-0 bg-black"
+            onClick={handleClose}
+          />
 
-          {/* Contenido del popup */}
-          <div className="p-6 pb-0">
-            <p className="text-gray-600 text-center mb-4 leading-relaxed">
-              {popupContent.description}
-            </p>
-            
-            {/* Iframe del formulario */}
-            <div className="w-full h-60 rounded-2xl overflow-hidden">
-              {showOnLanguageChange && isEnglishLang ? (
-                // Formulario para clases de español (cuando cambian a inglés)
-                <iframe
-                  src="https://api.leadconnectorhq.com/widget/form/r72pdx393rz9MNYsoTjZ"
-                  style={{
-                    width: '100%',
-                    height: '100%',
-                    border: 'none',
-                    borderRadius: '20px'
-                  }}
-                  id="inline-r72pdx393rz9MNYsoTjZ"
-                  data-layout="{'id':'INLINE'}"
-                  data-trigger-type="alwaysShow"
-                  data-trigger-value=""
-                  data-activation-type="alwaysActivated"
-                  data-activation-value=""
-                  data-deactivation-type="neverDeactivate"
-                  data-deactivation-value=""
-                  data-form-name="Newsletter subscription - POP UP - CLASES DE ESPAÑOL - LANDING"
-                  data-height="220"
-                  data-layout-iframe-id="inline-r72pdx393rz9MNYsoTjZ"
-                  data-form-id="r72pdx393rz9MNYsoTjZ"
-                  title="Newsletter subscription - POP UP - CLASES DE ESPAÑOL - LANDING"
-                />
-              ) : (
-                // Formulario por defecto para clases de inglés
-                <iframe
-                  src="https://api.leadconnectorhq.com/widget/form/kE3wnjGXhaeQvy1S6FPd"
-                  style={{
-                    width: '100%',
-                    height: '100%',
-                    border: 'none',
-                    borderRadius: '20px'
-                  }}
-                  id="inline-kE3wnjGXhaeQvy1S6FPd"
-                  data-layout="{'id':'INLINE'}"
-                  data-trigger-type="alwaysShow"
-                  data-trigger-value=""
-                  data-activation-type="alwaysActivated"
-                  data-activation-value=""
-                  data-deactivation-type="neverDeactivate"
-                  data-deactivation-value=""
-                  data-form-name="Newsletter subscription - POP UP - CLASES DE INGLES - Copy"
-                  data-height="220"
-                  data-layout-iframe-id="inline-kE3wnjGXhaeQvy1S6FPd"
-                  data-form-id="kE3wnjGXhaeQvy1S6FPd"
-                  title="Newsletter subscription - POP UP - CLASES DE INGLES - Copy"
-                />
-              )}
+          {/* Popup Modal */}
+          <div className="bg-white rounded-3xl shadow-2xl max-w-md w-full mx-4 relative z-10 overflow-hidden"
+               style={{ maxHeight: '90vh' }}>
+
+              {/* Header con gradiente de marca */}
+              <div className="relative p-6 text-center text-white"
+                   style={{
+                     background: 'linear-gradient(135deg, #0A4A6E 0%, #F59E1C 100%)'
+                   }}>
+                {/* Botón cerrar */}
+                <button
+                  onClick={handleClose}
+                  className="absolute top-4 right-4 text-white hover:text-gray-200 transition-colors"
+                  data-testid="popup-close-button"
+                >
+                  <X className="w-6 h-6" />
+                </button>
+
+                <h2 className="text-2xl font-bold mb-2">{popupContent.title}</h2>
+                <p className="text-lg opacity-90">{popupContent.subtitle}</p>
+              </div>
+
+              {/* Contenido del popup */}
+              <div className="p-6 pb-0">
+                <p className="text-gray-600 text-center mb-4 leading-relaxed">
+                  {popupContent.description}
+                </p>
+
+                {/* Formulario nativo de captura de leads */}
+                <div className="w-full rounded-2xl">
+                  {submitted ? (
+                    <div className="flex flex-col items-center justify-center text-center py-8 px-4">
+                      <CheckCircle className="w-12 h-12 text-green-500 mb-3" />
+                      <p className="text-lg font-semibold text-passport-blue">
+                        {isEnglishLang
+                          ? "Done! We'll contact you soon."
+                          : "¡Listo! Te contactaremos pronto."}
+                      </p>
+                    </div>
+                  ) : (
+                    <form onSubmit={handleSubmit} className="space-y-3">
+                      <Input
+                        type="text"
+                        value={name}
+                        onChange={(e) => setName(e.target.value)}
+                        placeholder={isEnglishLang ? "Name (optional)" : "Nombre (opcional)"}
+                        aria-label={isEnglishLang ? "Name" : "Nombre"}
+                        className="rounded-xl"
+                        data-testid="popup-input-name"
+                      />
+                      <Input
+                        type="email"
+                        required
+                        value={email}
+                        onChange={(e) => setEmail(e.target.value)}
+                        placeholder={isEnglishLang ? "Email" : "Correo electrónico"}
+                        aria-label={isEnglishLang ? "Email" : "Correo electrónico"}
+                        className="rounded-xl"
+                        data-testid="popup-input-email"
+                      />
+                      <Input
+                        type="tel"
+                        required
+                        value={phone}
+                        onChange={(e) => setPhone(e.target.value)}
+                        placeholder={isEnglishLang ? "Phone" : "Teléfono"}
+                        aria-label={isEnglishLang ? "Phone" : "Teléfono"}
+                        className="rounded-xl"
+                        data-testid="popup-input-phone"
+                      />
+                      <Button
+                        type="submit"
+                        disabled={submitting}
+                        className="w-full py-3 text-lg font-bold rounded-full border-0 text-white"
+                        style={{
+                          background: 'linear-gradient(135deg, #0A4A6E 0%, #F59E1C 100%)'
+                        }}
+                        data-testid="popup-submit-button"
+                      >
+                        {submitting
+                          ? (isEnglishLang ? "Sending..." : "Enviando...")
+                          : (isEnglishLang ? "Get my 10% OFF" : "Quiero mi 10% de descuento")}
+                      </Button>
+                    </form>
+                  )}
+                </div>
+              </div>
             </div>
-          </div>
-        </div>
-    </div>
+        </motion.div>
+      )}
+    </AnimatePresence>
   );
 };
 
@@ -373,6 +419,7 @@ export default function Landing() {
 
   // Función para manejar la selección de idioma y navegar
   const handleLanguageSelection = (language: 'spanish' | 'english', route: string) => {
+    analytics.languageSelected(language);
     setSelectedLanguage(language);
     navigate(route);
   };
@@ -547,7 +594,7 @@ export default function Landing() {
         <div className="grid lg:grid-cols-2 gap-12 items-center min-h-[calc(100vh-200px)]">
           
           {/* Left Side - Hero Text */}
-          <div className="space-y-8 animate-fade-in order-1 lg:order-1">
+          <FadeIn direction="none" className="space-y-8 order-1 lg:order-1">
             <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-black leading-tight mb-8">
               <span className="text-passport-blue">{t.heroTitle} </span>
               <span className="italic text-4xl sm:text-5xl md:text-6xl lg:text-8xl text-passport-orange">{t.heroTitleItalic}</span>
@@ -621,10 +668,10 @@ export default function Landing() {
               <p className="text-sm text-gray-600 mb-2">{t.scrollIndicator}</p>
               <ChevronDown className="w-6 h-6 mx-auto text-passport-blue" />
             </div>
-          </div>
+          </FadeIn>
 
           {/* Right Side - Improved Visual Design with Corporate Elements */}
-          <div className="flex justify-center lg:justify-end order-2 lg:order-2 mt-8 lg:mt-0">
+          <FadeIn direction="right" delay={0.2} className="flex justify-center lg:justify-end order-2 lg:order-2 mt-8 lg:mt-0">
             <div className="relative">
               {/* Passport Corporate Image as floating background element */}
               <div className="absolute -top-16 -left-12 opacity-10 z-0 hidden md:block">
@@ -663,7 +710,7 @@ export default function Landing() {
                 
               </div>
             </div>
-          </div>
+          </FadeIn>
         </div>
       </div>
 
@@ -671,43 +718,43 @@ export default function Landing() {
       <div className="bg-white py-4 md:py-6 mt-2 md:mt-0">
         <div className="container mx-auto px-6">
           <div className="flex justify-center items-center">
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 md:gap-8 lg:gap-12 text-center max-w-5xl">
+            <StaggerContainer className="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 md:gap-8 lg:gap-12 text-center max-w-5xl">
               {/* Stat 1 */}
-              <div className="flex flex-col items-center p-3 md:p-4 rounded-2xl hover:shadow-lg transition-all duration-300">
+              <StaggerItem className="flex flex-col items-center p-3 md:p-4 rounded-2xl hover:shadow-lg transition-all duration-300">
                 <div className="w-6 h-6 md:w-7 md:h-7 rounded-full flex items-center justify-center mb-3 md:mb-4" style={{background: 'linear-gradient(135deg, #0A4A6E, #1C7BB1)'}}>
                   <Users className="w-3 h-3 md:w-3.5 md:h-3.5 text-white" />
                 </div>
                 <div className="text-xl md:text-2xl lg:text-3xl font-black mb-2 text-passport-blue">500+</div>
                 <div className="text-xs md:text-xs text-gray-600 font-medium">{t.stat1}</div>
-              </div>
-              
+              </StaggerItem>
+
               {/* Stat 2 */}
-              <div className="flex flex-col items-center p-3 md:p-4 rounded-2xl hover:shadow-lg transition-all duration-300">
+              <StaggerItem className="flex flex-col items-center p-3 md:p-4 rounded-2xl hover:shadow-lg transition-all duration-300">
                 <div className="w-6 h-6 md:w-7 md:h-7 rounded-full flex items-center justify-center mb-3 md:mb-4" style={{background: 'linear-gradient(135deg, #F59E1C, #fbbf24)'}}>
                   <CheckCircle className="w-3 h-3 md:w-3.5 md:h-3.5 text-white" />
                 </div>
                 <div className="text-xl md:text-2xl lg:text-3xl font-black mb-2 text-passport-orange">100K+</div>
                 <div className="text-xs md:text-xs text-gray-600 font-medium">{t.stat2}</div>
-              </div>
-              
+              </StaggerItem>
+
               {/* Stat 3 */}
-              <div className="flex flex-col items-center p-3 md:p-4 rounded-2xl hover:shadow-lg transition-all duration-300">
+              <StaggerItem className="flex flex-col items-center p-3 md:p-4 rounded-2xl hover:shadow-lg transition-all duration-300">
                 <div className="w-6 h-6 md:w-7 md:h-7 rounded-full flex items-center justify-center mb-3 md:mb-4" style={{background: 'linear-gradient(135deg, #0A4A6E, #1C7BB1)'}}>
                   <Globe className="w-3 h-3 md:w-3.5 md:h-3.5 text-white" />
                 </div>
                 <div className="text-xl md:text-2xl lg:text-3xl font-black mb-2 text-passport-blue">EN-ES</div>
                 <div className="text-xs md:text-xs text-gray-600 font-medium">{t.stat3}</div>
-              </div>
-              
+              </StaggerItem>
+
               {/* Stat 4 */}
-              <div className="flex flex-col items-center p-3 md:p-4 rounded-2xl hover:shadow-lg transition-all duration-300">
+              <StaggerItem className="flex flex-col items-center p-3 md:p-4 rounded-2xl hover:shadow-lg transition-all duration-300">
                 <div className="w-6 h-6 md:w-7 md:h-7 rounded-full flex items-center justify-center mb-3 md:mb-4" style={{background: 'linear-gradient(135deg, #F59E1C, #fbbf24)'}}>
                   <Star className="w-3 h-3 md:w-3.5 md:h-3.5 text-white fill-current" />
                 </div>
                 <div className="text-xl md:text-2xl lg:text-3xl font-black mb-2 text-passport-orange">4.9</div>
                 <div className="text-xs md:text-xs text-gray-600 font-medium">{t.stat4}</div>
-              </div>
-            </div>
+              </StaggerItem>
+            </StaggerContainer>
           </div>
         </div>
       </div>
@@ -717,15 +764,15 @@ export default function Landing() {
       {/* Sección 2: Cómo funciona */}
       <div className="py-8 md:py-12 bg-gray-50">
         <div className="container mx-auto px-6">
-          <div className="text-center mb-6 md:mb-8">
+          <FadeIn className="text-center mb-6 md:mb-8">
             <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-black mb-6 text-passport-blue">
               {t.howItWorksTitle}
             </h2>
             <p className="text-base sm:text-lg md:text-xl text-gray-600 max-w-2xl mx-auto">
               {t.howItWorksSubtitle}
             </p>
-          </div>
-          
+          </FadeIn>
+
           {/* Timeline Desktop */}
           <div className="hidden md:block relative">
             {/* Línea ondulada */}
@@ -734,9 +781,9 @@ export default function Landing() {
               borderRadius: '10px'
             }}></div>
             
-            <div className="grid grid-cols-3 gap-8 relative z-10">
+            <StaggerContainer className="grid grid-cols-3 gap-8 relative z-10">
               {/* Paso 1 */}
-              <div className="text-center">
+              <StaggerItem className="text-center">
                 <div className="relative inline-block mb-6">
                   <div className="w-20 h-20 mx-auto rounded-full flex items-center justify-center bg-white shadow-lg" style={{
                     background: 'linear-gradient(135deg, #0A4A6E 0%, #1C7BB1 100%)'
@@ -749,10 +796,10 @@ export default function Landing() {
                 </div>
                 <h3 className="text-2xl font-bold mb-4 text-passport-blue">{t.step1Title}</h3>
                 <p className="text-gray-600">{t.step1Desc}</p>
-              </div>
-              
+              </StaggerItem>
+
               {/* Paso 2 */}
-              <div className="text-center">
+              <StaggerItem className="text-center">
                 <div className="relative inline-block mb-6">
                   <div className="w-20 h-20 mx-auto rounded-full flex items-center justify-center bg-white shadow-lg" style={{
                     background: 'linear-gradient(135deg, #1C7BB1 0%, #F59E1C 100%)'
@@ -765,10 +812,10 @@ export default function Landing() {
                 </div>
                 <h3 className="text-2xl font-bold mb-4 text-passport-blue">{t.step2Title}</h3>
                 <p className="text-gray-600">{t.step2Desc}</p>
-              </div>
-              
+              </StaggerItem>
+
               {/* Paso 3 */}
-              <div className="text-center">
+              <StaggerItem className="text-center">
                 <div className="relative inline-block mb-6">
                   <div className="w-20 h-20 mx-auto rounded-full flex items-center justify-center bg-white shadow-lg" style={{
                     background: 'linear-gradient(135deg, #F59E1C 0%, #fbbf24 100%)'
@@ -781,8 +828,8 @@ export default function Landing() {
                 </div>
                 <h3 className="text-2xl font-bold mb-4 text-passport-blue">{t.step3Title}</h3>
                 <p className="text-gray-600">{t.step3Desc}</p>
-              </div>
-            </div>
+              </StaggerItem>
+            </StaggerContainer>
           </div>
           
           {/* Timeline Mobile - Vertical */}
@@ -828,17 +875,17 @@ export default function Landing() {
       {/* Sección 3: Prueba social - Reviews */}
       <div className="py-8 md:py-12 bg-white">
         <div className="container mx-auto px-6">
-          <div className="text-center mb-6 md:mb-8">
+          <FadeIn className="text-center mb-6 md:mb-8">
             <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-black mb-6 text-passport-blue">
               {t.testimonialsTitle}
             </h2>
             <p className="text-base sm:text-lg md:text-xl text-gray-600 max-w-2xl mx-auto">
               {t.testimonialsSubtitle}
             </p>
-          </div>
+          </FadeIn>
 
           {/* Grid de testimonios */}
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
+          <StaggerContainer className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
             {[
               {
                 name: "María González",
@@ -889,7 +936,7 @@ export default function Landing() {
                 image: michaelPhoto
               }
             ].map((testimonial, index) => (
-              <div key={index} className="bg-gray-50 rounded-2xl p-6 hover:shadow-lg transition-all duration-300">
+              <StaggerItem key={index} className="bg-gray-50 rounded-2xl p-6 hover:shadow-lg transition-all duration-300">
                 <div className="flex items-center mb-4">
                   <img
                     src={testimonial.image}
@@ -911,9 +958,9 @@ export default function Landing() {
                   </div>
                 </div>
                 <p className="text-gray-700 leading-relaxed">{testimonial.text}</p>
-              </div>
+              </StaggerItem>
             ))}
-          </div>
+          </StaggerContainer>
         </div>
       </div>
 
@@ -922,7 +969,7 @@ export default function Landing() {
         <div className="container mx-auto px-6">
           <div className="grid lg:grid-cols-2 gap-20 items-center">
             {/* Contenido izquierdo */}
-            <div className="max-w-xl">
+            <FadeIn direction="left" className="max-w-xl">
               {/* Badge corporativo */}
               <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-blue-50 mb-6">
                 <div className="w-2 h-2 rounded-full" style={{backgroundColor: '#0A4A6E'}}></div>
@@ -977,10 +1024,10 @@ export default function Landing() {
                   {t.businessCta}
                 </Button>
               </div>
-            </div>
+            </FadeIn>
 
             {/* Visual complementario mejorado con elementos corporativos */}
-            <div className="flex justify-center lg:justify-end">
+            <FadeIn direction="right" delay={0.2} className="flex justify-center lg:justify-end">
               <div className="relative">
                 {/* Laptop corporate image as background element */}
                 <div className="absolute -top-8 -left-8 opacity-8 z-0">
@@ -1026,7 +1073,7 @@ export default function Landing() {
                   </div>
                 </div>
               </div>
-            </div>
+            </FadeIn>
           </div>
         </div>
       </div>
@@ -1054,7 +1101,7 @@ export default function Landing() {
         </div>
         
         <div className="container mx-auto px-6 relative z-10">
-          <div className="text-center max-w-4xl mx-auto">
+          <FadeIn className="text-center max-w-4xl mx-auto">
             <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-6xl font-black text-white mb-8">
               {t.finalCtaTitle}
             </h2>
@@ -1106,14 +1153,14 @@ export default function Landing() {
                 <span>{t.incentive3}</span>
               </div>
             </div>
-          </div>
+          </FadeIn>
         </div>
       </div>
-      
+
       {/* Footer simple */}
       <div className="bg-white py-4 md:py-6 border-t border-gray-100">
         <div className="container mx-auto px-6">
-          <div className="text-center">
+          <FadeIn className="text-center">
             <div className="flex justify-center mb-6">
               <img src={passportLogo} alt="Passport to Fluency" className="h-12" loading="lazy" />
             </div>
@@ -1123,10 +1170,10 @@ export default function Landing() {
               <a href="#" className="hover:text-gray-700 transition-colors">{t.footerPrivacy}</a>
               <a href="#" className="hover:text-gray-700 transition-colors">{t.footerSupport}</a>
             </div>
-          </div>
+          </FadeIn>
         </div>
       </div>
-      
+
       {/* CTA móvil fijo */}
       <MobileCTA onLanguageSelect={handleLanguageSelection} />
       

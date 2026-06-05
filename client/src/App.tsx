@@ -1,9 +1,10 @@
-import { lazy, Suspense } from "react";
-import { Switch, Route } from "wouter";
+import { lazy, Suspense, useEffect } from "react";
+import { Switch, Route, useLocation } from "wouter";
 import { queryClient } from "./lib/queryClient";
 import { QueryClientProvider } from "@tanstack/react-query";
 import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
+import { AnimatePresence, motion } from "framer-motion";
 import NotFound from "@/pages/not-found";
 
 const Landing = lazy(() => import("@/pages/landing"));
@@ -26,37 +27,53 @@ function PageLoader() {
 }
 
 function Router() {
+  const [location] = useLocation();
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [location]);
+
   return (
     <Suspense fallback={<PageLoader />}>
-      <Switch>
-        <Route path="/" component={Landing} />
-        <Route path="/es" component={SpanishSite} />
-        <Route path="/en" component={EnglishSite} />
+      <AnimatePresence mode="wait">
+        <motion.div
+          key={location}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          transition={{ duration: 0.25 }}
+        >
+          <Switch>
+            <Route path="/" component={Landing} />
+            <Route path="/es" component={SpanishSite} />
+            <Route path="/en" component={EnglishSite} />
 
-        {/* Spanish site pages (English speakers learning Spanish) */}
-        <Route path="/es/pricing" component={() => <Pricing language="en" />} />
-        <Route path="/es/children" component={() => <Children language="en" />} />
-        <Route path="/es/adults" component={() => <Adults language="en" />} />
-        <Route path="/es/business" component={() => <Business language="en" />} />
-        <Route path="/es/team" component={() => <Team language="en" />} />
-        <Route path="/es/blog" component={BlogMain} />
-        <Route path="/es/blog/:id" component={BlogPost} />
+            {/* Spanish site pages (English speakers learning Spanish) */}
+            <Route path="/es/pricing" component={() => <Pricing language="en" />} />
+            <Route path="/es/children" component={() => <Children language="en" />} />
+            <Route path="/es/adults" component={() => <Adults language="en" />} />
+            <Route path="/es/business" component={() => <Business language="en" />} />
+            <Route path="/es/team" component={() => <Team language="en" />} />
+            <Route path="/es/blog" component={BlogMain} />
+            <Route path="/es/blog/:id" component={BlogPost} />
 
-        {/* English site pages (Spanish speakers learning English) */}
-        <Route path="/en/pricing" component={() => <Pricing language="es" />} />
-        <Route path="/en/children" component={() => <Children language="es" />} />
-        <Route path="/en/adults" component={() => <Adults language="es" />} />
-        <Route path="/en/business" component={() => <Business language="es" />} />
-        <Route path="/en/team" component={() => <Team language="es" />} />
-        <Route path="/en/blog" component={BlogMain} />
-        <Route path="/en/blog/:id" component={BlogPost} />
+            {/* English site pages (Spanish speakers learning English) */}
+            <Route path="/en/pricing" component={() => <Pricing language="es" />} />
+            <Route path="/en/children" component={() => <Children language="es" />} />
+            <Route path="/en/adults" component={() => <Adults language="es" />} />
+            <Route path="/en/business" component={() => <Business language="es" />} />
+            <Route path="/en/team" component={() => <Team language="es" />} />
+            <Route path="/en/blog" component={BlogMain} />
+            <Route path="/en/blog/:id" component={BlogPost} />
 
-        {/* Keep general blog routes for direct access */}
-        <Route path="/blog" component={BlogMain} />
-        <Route path="/blog/:id" component={BlogPost} />
+            {/* Keep general blog routes for direct access */}
+            <Route path="/blog" component={BlogMain} />
+            <Route path="/blog/:id" component={BlogPost} />
 
-        <Route component={NotFound} />
-      </Switch>
+            <Route component={NotFound} />
+          </Switch>
+        </motion.div>
+      </AnimatePresence>
     </Suspense>
   );
 }

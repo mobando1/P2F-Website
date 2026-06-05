@@ -1,3 +1,5 @@
+import { FadeIn, StaggerContainer, StaggerItem } from "@/components/motion";
+
 interface TestimonialsSectionProps {
   t: (key: string) => string;
   language: 'es' | 'en';
@@ -48,36 +50,36 @@ export default function TestimonialsSection({ t, language }: TestimonialsSection
     <section id="testimonios" className="py-20 bg-passport-light">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
-          <h2 className="text-4xl font-bold font-poppins text-passport-gray mb-4 animate-fade-in">
-            {t('testimonials.title')}
-          </h2>
+          <FadeIn>
+            <h2 className="text-4xl font-bold font-poppins text-passport-gray mb-4">
+              {t('testimonials.title')}
+            </h2>
+          </FadeIn>
         </div>
-        
-        <div className="grid md:grid-cols-3 gap-8">
+
+        <StaggerContainer className="grid md:grid-cols-3 gap-8">
           {testimonials.map((testimonial, index) => (
-            <div 
-              key={index}
-              className="bg-white p-8 rounded-2xl shadow-lg hover:shadow-xl transition-shadow duration-300 animate-fade-in"
-              style={{ animationDelay: `${index * 100}ms` }}
-            >
-              <img
-                src={testimonial.image}
-                alt={`${testimonial.name} testimonial`}
-                className="w-20 h-20 rounded-full mx-auto mb-6 object-cover"
-                loading="lazy"
-              />
-              <h3 className="text-lg font-semibold text-passport-gray mb-2 text-center">
-                {testimonial.name}
-              </h3>
-              <p className="text-sm text-gray-500 mb-4 text-center">
-                {testimonial.location}
-              </p>
-              <p className="text-gray-600 italic text-center leading-relaxed">
-                "{testimonial.content}"
-              </p>
-            </div>
+            <StaggerItem key={index}>
+              <div className="bg-white p-8 rounded-2xl shadow-lg hover:shadow-xl transition-shadow duration-300">
+                <img
+                  src={testimonial.image}
+                  alt={`${testimonial.name} testimonial`}
+                  className="w-20 h-20 rounded-full mx-auto mb-6 object-cover"
+                  loading="lazy"
+                />
+                <h3 className="text-lg font-semibold text-passport-gray mb-2 text-center">
+                  {testimonial.name}
+                </h3>
+                <p className="text-sm text-gray-500 mb-4 text-center">
+                  {testimonial.location}
+                </p>
+                <p className="text-gray-600 italic text-center leading-relaxed">
+                  "{testimonial.content}"
+                </p>
+              </div>
+            </StaggerItem>
           ))}
-        </div>
+        </StaggerContainer>
       </div>
     </section>
   );

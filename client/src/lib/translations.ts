@@ -125,7 +125,17 @@ export const translations = {
       discoveryClassChildren: "Clase de Descubrimiento para Niños",
       selectDateTime: "Seleccionar Fecha y Hora",
       availableTimes: "Horarios Disponibles:",
-      confirmBooking: "Confirmar Reserva"
+      confirmBooking: "Reservar mi Clase Gratis",
+      heading: "Reserva tu Clase Gratis",
+      subheading: "Déjanos tus datos y te contactaremos para confirmar tu clase.",
+      selectClassType: "¿Qué clase te interesa?",
+      preferredOptional: "Día y hora preferidos (opcional)",
+      classTypes: {
+        english_adults: "Inglés para adultos",
+        english_children: "Inglés para niños",
+        spanish_adults: "Español para adultos",
+        spanish_children: "Español para niños"
+      }
     },
     // Form
     form: {
@@ -268,7 +278,17 @@ export const translations = {
       discoveryClassChildren: "Discovery Class for Children",
       selectDateTime: "Select Date & Time",
       availableTimes: "Available Times:",
-      confirmBooking: "Confirm Booking"
+      confirmBooking: "Book My Free Class",
+      heading: "Book Your Free Class",
+      subheading: "Leave us your details and we'll contact you to confirm your class.",
+      selectClassType: "Which class are you interested in?",
+      preferredOptional: "Preferred day & time (optional)",
+      classTypes: {
+        english_adults: "English for adults",
+        english_children: "English for kids",
+        spanish_adults: "Spanish for adults",
+        spanish_children: "Spanish for kids"
+      }
     },
     // Form
     form: {

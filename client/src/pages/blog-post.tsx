@@ -1,6 +1,7 @@
 import { Link, useParams } from 'wouter';
 import { Calendar, Clock, ArrowLeft, ArrowRight, Share2, Users, Star, Globe } from 'lucide-react';
 import { Button } from "@/components/ui/button";
+import { FadeIn } from "@/components/motion";
 import passportLogo from '@assets/a1c5a1_9514ede9e3124d7a9adf78f5dcf07f28~mv2_1755803448396.png';
 import childrenLearningImage from '@assets/generated_images/Cartoon_children_learning_Spanish_perfect_spelling_24b4101c.png';
 import familyHeritageImage from '@assets/generated_images/Family_cultural_heritage_connection_4f727054.png';
@@ -702,6 +703,7 @@ export default function BlogPost() {
       </header>
 
       {/* Article Content */}
+      <FadeIn direction="none">
       <article className="py-8 md:py-12">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto">
@@ -797,6 +799,7 @@ export default function BlogPost() {
           </div>
         </div>
       </article>
+      </FadeIn>
     </div>
   );
 }

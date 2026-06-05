@@ -1,6 +1,7 @@
 import { Link } from 'wouter';
 import { Calendar, Clock, ArrowRight, Users, Star, Globe, Languages } from 'lucide-react';
 import { Button } from "@/components/ui/button";
+import { FadeIn, StaggerContainer, StaggerItem } from "@/components/motion";
 import passportLogo from '@assets/a1c5a1_9514ede9e3124d7a9adf78f5dcf07f28~mv2_1755803448396.png';
 import childrenLearningImage from '@assets/generated_images/Cartoon_children_learning_Spanish_perfect_spelling_24b4101c.png';
 import familyHeritageImage from '@assets/generated_images/Family_cultural_heritage_connection_4f727054.png';
@@ -194,21 +195,23 @@ export default function BlogMain() {
         </div>
 
         <div className="container mx-auto px-4 relative z-10">
-          <div className="max-w-4xl mx-auto text-center">
-            <div className="inline-flex items-center bg-passport-blue/10 text-passport-blue rounded-full px-4 py-2 text-sm mb-6">
-              <Calendar className="w-4 h-4 mr-2" />
-              Language Learning Insights
+          <FadeIn>
+            <div className="max-w-4xl mx-auto text-center">
+              <div className="inline-flex items-center bg-passport-blue/10 text-passport-blue rounded-full px-4 py-2 text-sm mb-6">
+                <Calendar className="w-4 h-4 mr-2" />
+                Language Learning Insights
+              </div>
+
+              <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-6xl font-bold text-gray-900 mb-6">
+                <span className="text-passport-blue">Language Learning</span><br />
+                <span className="italic text-passport-orange">Blog</span>
+              </h1>
+
+              <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-gray-700 mb-8 max-w-3xl mx-auto">
+                Expert tips, cultural insights, and proven strategies to accelerate your language learning journey.
+              </p>
             </div>
-            
-            <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-6xl font-bold text-gray-900 mb-6">
-              <span className="text-passport-blue">Language Learning</span><br />
-              <span className="italic text-passport-orange">Blog</span>
-            </h1>
-            
-            <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-gray-700 mb-8 max-w-3xl mx-auto">
-              Expert tips, cultural insights, and proven strategies to accelerate your language learning journey.
-            </p>
-          </div>
+          </FadeIn>
         </div>
       </section>
 
@@ -219,7 +222,8 @@ export default function BlogMain() {
             
             {/* Featured Post */}
             {blogPosts.filter(post => post.featured).map(post => (
-              <div key={post.id} className="mb-16">
+              <FadeIn key={post.id}>
+              <div className="mb-16">
                 <div className="bg-gradient-to-r from-passport-blue/5 to-passport-orange/5 rounded-2xl p-8 md:p-12">
                   <div className="grid lg:grid-cols-2 gap-8 items-center">
                     <div>
@@ -272,6 +276,7 @@ export default function BlogMain() {
                   </div>
                 </div>
               </div>
+              </FadeIn>
             ))}
 
             {/* More Articles Section */}
@@ -280,9 +285,10 @@ export default function BlogMain() {
                 More Language Learning Articles
               </h3>
               
-              <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+              <StaggerContainer className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
                 {blogPosts.filter(post => !post.featured).map(post => (
-                  <div key={post.id} className="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow">
+                  <StaggerItem key={post.id}>
+                  <div className="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow">
                     <img
                       src={post.image}
                       alt={post.title}
@@ -325,11 +331,13 @@ export default function BlogMain() {
                       </div>
                     </div>
                   </div>
+                  </StaggerItem>
                 ))}
-              </div>
+              </StaggerContainer>
             </div>
 
             {/* Call to Action */}
+            <FadeIn>
             <div className="bg-gray-50 rounded-2xl p-8 md:p-12 text-center">
               <h3 className="text-2xl md:text-3xl font-bold text-gray-900 mb-4">
                 Ready to Start Your Language Learning Journey?
@@ -353,6 +361,7 @@ export default function BlogMain() {
                 </Link>
               </div>
             </div>
+            </FadeIn>
           </div>
         </div>
       </section>
