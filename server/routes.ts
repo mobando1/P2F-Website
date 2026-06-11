@@ -2,7 +2,7 @@ import type { Express } from "express";
 import { createServer, type Server } from "http";
 import { storage } from "./storage";
 import { insertBookingSchema, insertContactSchema } from "@shared/schema";
-import { forwardLeadToPortal } from "./lib/portal";
+import { forwardLeadToPortal, portalGet, portalPost } from "./lib/portal";
 import { z } from "zod";
 
 export async function registerRoutes(app: Express): Promise<Server> {
@@ -130,6 +130,23 @@ export async function registerRoutes(app: Express): Promise<Server> {
         error: "Failed to subscribe to newsletter" 
       });
     }
+  });
+
+  // ===== Phase 2: real-time availability + trial booking (proxied to the Portal) =====
+
+  // Aggregated availability for a class type. Browser -> website server -> Portal (avoids CORS).
+  app.get("/api/availability", async (req, res) => {
+    const { classType, language, audience, date, startDate, days } = req.query;
+    const result = await portalGet("/api/public/availability", {
+      classType, language, audience, date, startDate, days,
+    });
+    res.status(result.status).json(result.body);
+  });
+
+  // Auto-book a free trial class with an available coach.
+  app.post("/api/trial-bookings", async (req, res) => {
+    const result = await portalPost("/api/public/trial-bookings", req.body);
+    res.status(result.status).json(result.body);
   });
 
   const httpServer = createServer(app);
