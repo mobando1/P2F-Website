@@ -251,7 +251,7 @@ const EmailPopup = ({
           name: name || undefined,
           phone,
           language: currentLang,
-          source: 'discount_popup',
+          source: 'sample_plan_request',
         }),
       });
       setSubmitted(true);
@@ -278,7 +278,7 @@ const EmailPopup = ({
           ? "Perfect timing! Since you're interested in this language, here's a special offer just for you!"
           : "¡Momento perfecto! Como te interesa este idioma, ¡aquí tienes una oferta especial solo para ti!")
       : (isEnglishLang
-          ? "Join thousands of students who are already learning with native instructors. Limited time offer!"
+          ? "Join thousands of students already learning with a dedicated bilingual coach. Limited time offer!"
           : "Únete a miles de estudiantes que ya están aprendiendo con instructores nativos. ¡Oferta por tiempo limitado!")
   };
 
@@ -495,8 +495,8 @@ export default function Landing() {
       finalCtaTitle: "¡Tu pasaporte a la fluidez te está esperando!",
       finalCtaSubtitle: "Miles de estudiantes ya transformaron su vida profesional y personal.",
       finalCtaBold: "Tú puedes ser el siguiente.",
-      incentive1: "Primera clase GRATIS",
-      incentive2: "Profesores nativos certificados",
+      incentive1: "Diagnóstico gratis + tu plan",
+      incentive2: "Coaches bilingües dedicados",
       incentive3: "Garantía de progreso 30 días",
       footerRights: "© 2024 Passport2Fluency. Todos los derechos reservados.",
       footerTerms: "Términos y Condiciones",
@@ -506,7 +506,7 @@ export default function Landing() {
     en: {
       heroTitle: "Speak like a",
       heroTitleItalic: "native",
-      heroSubtitle: "Personalized 1-on-1 classes with native instructors",
+      heroSubtitle: "Personalized 1-on-1 classes with a dedicated bilingual coach",
       selectLanguageTitle: "Select the language you want to learn:",
       selectLanguageSubtitle: "↓ Choose your next step towards fluency ↓",
       scrollIndicator: "Scroll ↓ to see how it works",
@@ -1017,6 +1017,7 @@ export default function Landing() {
               {/* Botón CTA */}
               <div className="flex justify-start">
                 <Button 
+                  onClick={() => navigate(currentLang === 'es' ? '/en/business' : '/es/business')}
                   className="px-8 py-4 text-lg font-semibold rounded-xl text-white border-0 transition-all duration-300 hover:shadow-lg"
                   style={{background: '#0A4A6E'}}
                   data-testid="business-book-demo"

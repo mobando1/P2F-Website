@@ -12,6 +12,12 @@ export async function registerRoutes(app: Express): Promise<Server> {
       const bookingData = insertBookingSchema.parse(req.body);
       const booking = await storage.createBooking(bookingData);
 
+      // `insertBookingSchema` is a plain z.object, so it SILENTLY STRIPS unknown
+      // keys — the intake answers would vanish without a single error. Read them
+      // off the raw body instead and forward them alongside.
+      const intake =
+        req.body?.intake && typeof req.body.intake === "object" ? req.body.intake : undefined;
+
       console.log(`New booking created: ${booking.name} - ${booking.email}`);
 
       // Forward the lead to the Portal CRM (creates a lead + notifies info@/mateo@).
@@ -25,6 +31,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
         preferredDate: booking.preferredDate || undefined,
         preferredTime: booking.preferredTime || undefined,
         message: booking.message || undefined,
+        intake,
         source: "website_booking",
       }).catch((err) => console.error("Error forwarding booking lead to Portal:", err));
 

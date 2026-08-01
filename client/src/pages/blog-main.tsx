@@ -343,7 +343,7 @@ export default function BlogMain() {
                 Ready to Start Your Language Learning Journey?
               </h3>
               <p className="text-lg text-gray-600 mb-8 max-w-2xl mx-auto">
-                Join thousands of students who are already speaking Spanish or English confidently with our native instructors.
+                Join thousands of students already speaking Spanish or English confidently with a dedicated bilingual coach.
               </p>
               
               <div className="flex flex-col sm:flex-row gap-4 justify-center">

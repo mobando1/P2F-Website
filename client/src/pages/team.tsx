@@ -24,7 +24,7 @@ export default function Team({ language }: TeamProps) {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const content = language === 'en' ? {
     title: "Meet Your Spanish Coaches",
-    subtitle: "Learn from experienced native instructors from across Latin America who are passionate about sharing their language and culture.",
+    subtitle: "Native Spanish speakers from across Latin America who learned English as adults too — so they can explain it in English the second you need it.",
     instructors: [
       {
         name: "Carolina Perilla",
@@ -59,7 +59,7 @@ export default function Team({ language }: TeamProps) {
     ],
     whyDifferent: "Why Our Instructors Make the Difference",
     stats: [
-      { value: "100%", label: "Native Speakers" },
+      { value: "100%", label: "Native Spanish Speakers" },
       { value: "5+ years", label: "Teaching Experience" },
       { value: "8 Countries", label: "Latin American Representation" }
     ],
@@ -73,7 +73,7 @@ export default function Team({ language }: TeamProps) {
     }
   } : {
     title: "Conoce a Tus Instructores de Inglés",
-    subtitle: "Aprende con instructores nativos americanos experimentados que son apasionados por compartir su idioma y cultura.",
+    subtitle: "Coaches latinos bilingües que aprendieron inglés siendo adultos, igual que tú. Saben dónde se traba un hispanohablante porque se trabaron ahí mismo.",
     instructors: [
       {
         name: "Carolina Perilla",
@@ -102,15 +102,15 @@ export default function Team({ language }: TeamProps) {
       {
         name: "Johanna Pacheco",
         role: "Experta en Inmersión Cultural • Colombia",
-        description: "Graduada en Antropología especializada en cultura americana. Ayuda a estudiantes a entender dialectos regionales y costumbres estadounidenses.",
+        description: "Graduada en Antropología, especializada en comunicación intercultural. Ayuda a estudiantes a entender dialectos regionales y códigos culturales.",
         credentials: "🌎 Experta Cultural • 📖 B.A. Antropología Universidad Nacional"
       }
     ],
     whyDifferent: "Por Qué Nuestros Instructores Hacen la Diferencia",
     stats: [
-      { value: "100%", label: "Hablantes Nativos" },
+      { value: "100%", label: "Coaches Bilingües" },
       { value: "5+ años", label: "Experiencia Docente" }, 
-      { value: "50 Estados", label: "Representación Americana" }
+      { value: "100%", label: "Latinoamérica" }
     ],
     nav: {
       home: "Inicio",

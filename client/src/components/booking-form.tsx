@@ -8,6 +8,15 @@ import { useToast } from "@/hooks/use-toast";
 import { apiRequest } from "@/lib/queryClient";
 import { analytics } from "@/lib/analytics";
 import { User, Baby, X, Check, CalendarCheck, Loader2 } from "lucide-react";
+import {
+  EMPTY_INTAKE,
+  INTAKE_VERSION,
+  buildIntakeSummary,
+  getIntakeCopy,
+  isIntakeComplete,
+  type IntakeAnswers,
+  type IntakeAudience,
+} from "@/content/intake";
 
 export type ClassType =
   | "english_adults"
@@ -31,6 +40,7 @@ const CLASS_ORDER: ClassType[] = [
 
 interface BookingFormProps {
   t: (key: string) => string;
+  /** UI language, NOT the language being taught. 'es' is passed on the /en page. */
   language: "es" | "en";
   defaultClassType?: ClassType;
   onClose: () => void;
@@ -52,17 +62,34 @@ export default function BookingForm({ t, language, defaultClassType, onClose }: 
     defaultClassType ?? (isEs ? "english_adults" : "spanish_adults");
 
   const [classType, setClassType] = useState<ClassType>(initialClassType);
+  const [showClassPicker, setShowClassPicker] = useState(false);
   const [selectedDay, setSelectedDay] = useState<string | null>(null);
   const [selectedSlot, setSelectedSlot] = useState<string | null>(null);
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
   const [message, setMessage] = useState("");
+  const [intake, setIntake] = useState<IntakeAnswers>(EMPTY_INTAKE);
+  const [consent, setConsent] = useState(false);
+  const [attempted, setAttempted] = useState(false);
   const [submitting, setSubmitting] = useState(false);
   const [done, setDone] = useState<null | { booked: boolean; whenIso?: string; tutorName?: string }>(null);
 
   const { toast } = useToast();
   const queryClient = useQueryClient();
+
+  // The page's own language decides which offer is on sale. Showing all four
+  // class types let a visitor on /en (Spanish speakers learning English) book a
+  // SPANISH class with a Spanish coach — a wrong-language booking on a page
+  // that sells English. Restrict to the two audiences of this offer.
+  const learningLanguage = isEs ? "english" : "spanish";
+  const visibleTypes = useMemo(
+    () => CLASS_ORDER.filter((ct) => CLASS_MAP[ct].language === learningLanguage),
+    [learningLanguage],
+  );
+
+  const audience: IntakeAudience = CLASS_MAP[classType].studentType;
+  const intakeCopy = getIntakeCopy(locale, audience);
 
   // Real availability for the selected class type (browser -> website server -> Portal)
   const { data, isLoading, isError, refetch } = useQuery<{ success: boolean; days?: { date: string; slots: Slot[] }[] }>({
@@ -127,22 +154,75 @@ export default function BookingForm({ t, language, defaultClassType, onClose }: 
 
   const contactValid = name.trim().length >= 2 && /\S+@\S+\.\S+/.test(email) && phone.trim().length >= 5;
 
+  // Do NOT gate on `calendarMode && selectedSlot`: when the Portal is down,
+  // calendarMode is false and there is never a selectedSlot, so the questions
+  // would vanish on exactly the path where the coach most needs them.
+  const showIntake = calendarMode ? !!selectedSlot : true;
+  const intakeValid = isIntakeComplete(intake);
+  const canSubmit =
+    contactValid && intakeValid && consent && (!calendarMode || !!selectedSlot);
+
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
-    if (!contactValid || submitting) return;
+    setAttempted(true);
+    if (!canSubmit || submitting) return;
 
     setSubmitting(true);
     try {
+      const intakeSummary = buildIntakeSummary(intake, locale, audience);
+
       if (calendarMode && selectedSlot) {
-        // Auto-book a real trial class
-        const res = await fetch("/api/trial-bookings", {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ name, email, phone, classType, startAt: selectedSlot, timeZone: visitorTz, lang: language }),
-        });
-        const body = await res.json().catch(() => null);
+        const base = {
+          name,
+          email,
+          phone,
+          classType,
+          startAt: selectedSlot,
+          timeZone: visitorTz,
+          lang: language,
+        };
+        const enriched = {
+          ...base,
+          intake: {
+            version: INTAKE_VERSION,
+            goalCategory: intake.goalCategory,
+            goal: intake.goal.trim(),
+            selfLevel: intake.selfLevel,
+            blocker: intake.blocker,
+            locale,
+            audience,
+          },
+          intakeSummary,
+          consent: {
+            recording: true as const,
+            policyVersion: "v2-2026-08",
+            acceptedAt: new Date().toISOString(),
+            userAgent: typeof navigator !== "undefined" ? navigator.userAgent : undefined,
+          },
+        };
+
+        const postTrial = (body: unknown) =>
+          fetch("/api/trial-bookings", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(body),
+          });
+
+        let res = await postTrial(enriched);
+        let body = await res.json().catch(() => null);
+
+        // If the Portal validates strictly and rejects the new fields, retry with
+        // exactly today's payload. Scoped to 400 only, so it can't mask a real
+        // validation failure on name/email — and it means the repositioning can
+        // never take bookings offline while the Portal catches up.
+        if (!res.ok && res.status === 400) {
+          console.warn("[booking] Portal rejected intake fields; retrying without them");
+          res = await postTrial(base);
+          body = await res.json().catch(() => null);
+        }
+
         if (res.ok && body?.success) {
-          analytics.bookingSubmitted(language, CLASS_MAP[classType].studentType);
+          analytics.bookingSubmitted(language, audience);
           setDone({ booked: true, whenIso: body.scheduledAt || selectedSlot, tutorName: body.tutorName });
           return;
         }
@@ -161,14 +241,16 @@ export default function BookingForm({ t, language, defaultClassType, onClose }: 
         throw new Error(body?.message || "booking failed");
       }
 
-      // Fallback: capture as a lead request (team will confirm)
-      const { language: learningLanguage, studentType } = CLASS_MAP[classType];
+      // Fallback: capture as a lead request (team will confirm).
+      // `insertBookingSchema` silently strips unknown keys, so the answers are
+      // folded into `message`, which does flow through to the Portal.
+      const { language: leadLanguage, studentType } = CLASS_MAP[classType];
       await apiRequest("POST", "/api/bookings", {
         name,
         email,
         phone,
-        message,
-        language: learningLanguage,
+        message: [message.trim(), intakeSummary].filter(Boolean).join("\n\n"),
+        language: leadLanguage,
         studentType,
         preferredDate: "",
         preferredTime: "",
@@ -202,20 +284,20 @@ export default function BookingForm({ t, language, defaultClassType, onClose }: 
             {done.booked ? (
               <>
                 <h3 className="text-2xl font-bold text-passport-gray">
-                  {isEs ? "¡Clase agendada!" : "Class booked!"}
+                  {isEs ? "¡Diagnóstico agendado!" : "Diagnostic booked!"}
                 </h3>
                 <p className="text-gray-600">
                   {done.whenIso && (
                     <span className="block font-medium text-passport-gray mb-1">{fmtFullWhen(done.whenIso)}</span>
                   )}
                   {done.tutorName && (
-                    <span className="block text-sm">{isEs ? "Profe: " : "Coach: "}{done.tutorName}</span>
+                    <span className="block text-sm">{isEs ? "Coach: " : "Coach: "}{done.tutorName}</span>
                   )}
                 </p>
                 <p className="text-gray-600 text-sm">
                   {isEs
-                    ? "Te enviamos el link de la clase a tu correo. ¡Nos vemos!"
-                    : "We sent the class link to your email. See you there!"}
+                    ? "Te enviamos el link de la clase a tu correo. Tu coach va a leer tus respuestas antes de la sesión."
+                    : "We sent the class link to your email. Your coach will read your answers before the session."}
                 </p>
               </>
             ) : (
@@ -225,8 +307,8 @@ export default function BookingForm({ t, language, defaultClassType, onClose }: 
                 </h3>
                 <p className="text-gray-600 text-sm">
                   {isEs
-                    ? "Te contactaremos pronto para confirmar tu clase gratuita."
-                    : "We will contact you soon to confirm your free trial class."}
+                    ? "Te contactamos para agendar tu diagnóstico y armar tu plan."
+                    : "We'll be in touch to schedule your diagnostic and build your plan."}
                 </p>
               </>
             )}
@@ -238,6 +320,18 @@ export default function BookingForm({ t, language, defaultClassType, onClose }: 
       </div>
     );
   }
+
+  const chip = (selected: boolean) =>
+    `rounded-lg border-2 p-3 text-left text-sm font-medium transition-colors ${
+      selected
+        ? "border-passport-blue bg-blue-50 text-passport-blue"
+        : "border-gray-200 text-gray-700 hover:border-passport-blue"
+    }`;
+
+  const missing = (empty: boolean) =>
+    attempted && empty ? (
+      <p className="text-xs text-red-600 mt-1">{intakeCopy.missingHint}</p>
+    ) : null;
 
   return (
     <div className="fixed inset-0 bg-black/50 flex items-center justify-center p-4 z-50">
@@ -256,31 +350,48 @@ export default function BookingForm({ t, language, defaultClassType, onClose }: 
         </CardHeader>
 
         <CardContent className="space-y-6">
-          {/* Step 1 — class type */}
+          {/* Step 1 — class type. Confirmed, not chosen: every call site passes a
+              defaultClassType, so this is a correction affordance, not a menu. */}
           <div>
-            <h4 className="font-semibold text-passport-gray mb-3">{t("booking.selectClassType")}</h4>
-            <div className="grid grid-cols-2 gap-3">
-              {CLASS_ORDER.map((ct) => {
-                const isSelected = classType === ct;
-                const isChild = CLASS_MAP[ct].studentType === "child";
-                return (
-                  <button
-                    key={ct}
-                    type="button"
-                    onClick={() => setClassType(ct)}
-                    className={`flex items-center gap-2 rounded-lg border-2 p-3 text-left text-sm font-medium transition-colors ${
-                      isSelected
-                        ? "border-passport-blue bg-blue-50 text-passport-blue"
-                        : "border-gray-200 text-gray-700 hover:border-passport-blue"
-                    }`}
-                  >
-                    {isChild ? <Baby size={18} className="shrink-0" /> : <User size={18} className="shrink-0" />}
-                    <span className="flex-1">{t(`booking.classTypes.${ct}`)}</span>
-                    {isSelected && <Check size={16} className="shrink-0" />}
-                  </button>
-                );
-              })}
+            <div className="flex items-center justify-between gap-3 flex-wrap">
+              <p className="text-sm">
+                <span className="text-gray-500">{isEs ? "Diagnóstico · " : "Diagnostic · "}</span>
+                <span className="font-semibold text-passport-gray">
+                  {t(`booking.classTypes.${classType}`)}
+                </span>
+              </p>
+              <button
+                type="button"
+                onClick={() => setShowClassPicker((v) => !v)}
+                className="text-sm text-passport-blue hover:underline"
+              >
+                {isEs ? "cambiar" : "change"}
+              </button>
             </div>
+
+            {showClassPicker && (
+              <div className="grid grid-cols-2 gap-3 mt-3">
+                {visibleTypes.map((ct) => {
+                  const isSelected = classType === ct;
+                  const isChild = CLASS_MAP[ct].studentType === "child";
+                  return (
+                    <button
+                      key={ct}
+                      type="button"
+                      onClick={() => {
+                        setClassType(ct);
+                        setShowClassPicker(false);
+                      }}
+                      className={`flex items-center gap-2 ${chip(isSelected)}`}
+                    >
+                      {isChild ? <Baby size={18} className="shrink-0" /> : <User size={18} className="shrink-0" />}
+                      <span className="flex-1">{t(`booking.classTypes.${ct}`)}</span>
+                      {isSelected && <Check size={16} className="shrink-0" />}
+                    </button>
+                  );
+                })}
+              </div>
+            )}
           </div>
 
           {/* Step 2 — pick a real slot (or fallback message) */}
@@ -338,20 +449,135 @@ export default function BookingForm({ t, language, defaultClassType, onClose }: 
             ) : (
               <div className="rounded-lg bg-amber-50 border border-amber-200 p-4 text-sm text-amber-800">
                 {isEs
-                  ? "No hay horarios en línea por ahora. Déjanos tus datos y te contactamos para agendar tu clase gratis."
-                  : "No online times right now. Leave your details and we'll reach out to schedule your free class."}
+                  ? "No hay horarios en línea por ahora. Déjanos tus datos y te contactamos para agendar tu diagnóstico gratis."
+                  : "No online times right now. Leave your details and we'll reach out to schedule your free diagnostic."}
               </div>
             )}
           </div>
 
-          {/* Step 3 — contact details */}
-          <form onSubmit={handleSubmit} className="space-y-3">
-            <Input placeholder={t("form.name")} value={name} onChange={(e) => setName(e.target.value)} required />
-            <Input type="email" placeholder={t("form.email")} value={email} onChange={(e) => setEmail(e.target.value)} required />
-            <Input type="tel" placeholder={t("form.phone")} value={phone} onChange={(e) => setPhone(e.target.value)} required />
-            {!calendarMode && (
-              <Textarea placeholder={t("form.message")} rows={3} value={message} onChange={(e) => setMessage(e.target.value)} />
+          <form onSubmit={handleSubmit} className="space-y-6">
+            {/* Step 3 — the questions the coach reads before the class */}
+            {showIntake && (
+              <div className="rounded-lg border border-gray-200 bg-gray-50 p-4 space-y-5">
+                <div>
+                  <h4 className="font-semibold text-passport-gray">{intakeCopy.heading}</h4>
+                  <p className="text-xs text-gray-500 mt-0.5">{intakeCopy.subheading}</p>
+                </div>
+
+                {/* Q1 — what they need it for */}
+                <div>
+                  <label className="block text-sm font-medium text-passport-gray mb-1">
+                    {intakeCopy.goalCategoryLabel}
+                  </label>
+                  <p className="text-xs text-gray-500 mb-2">{intakeCopy.goalCategoryHelper}</p>
+                  <div className="grid grid-cols-2 gap-2">
+                    {intakeCopy.goalCategoryOptions.map((opt) => (
+                      <button
+                        key={opt.value}
+                        type="button"
+                        onClick={() => setIntake((s) => ({ ...s, goalCategory: opt.value }))}
+                        className={chip(intake.goalCategory === opt.value)}
+                      >
+                        {opt.label}
+                      </button>
+                    ))}
+                  </div>
+                  {missing(!intake.goalCategory)}
+                </div>
+
+                {/* Q2 — their "why", in their own words. Quoted verbatim in the
+                    plan and the delivery email, so it is never normalized. */}
+                <div>
+                  <label className="block text-sm font-medium text-passport-gray mb-1">
+                    {intakeCopy.goalLabel}
+                  </label>
+                  <p className="text-xs text-gray-500 mb-2">{intakeCopy.goalHelper}</p>
+                  <Input
+                    value={intake.goal}
+                    maxLength={140}
+                    placeholder={intakeCopy.goalPlaceholder}
+                    onChange={(e) => setIntake((s) => ({ ...s, goal: e.target.value }))}
+                  />
+                  {missing(intake.goal.trim().length < 5)}
+                </div>
+
+                {/* Q3 — self-assessed level */}
+                <div>
+                  <label className="block text-sm font-medium text-passport-gray mb-1">
+                    {intakeCopy.selfLevelLabel}
+                  </label>
+                  <p className="text-xs text-gray-500 mb-2">{intakeCopy.selfLevelHelper}</p>
+                  <div className="grid gap-2">
+                    {intakeCopy.selfLevelOptions.map((opt) => (
+                      <button
+                        key={opt.value}
+                        type="button"
+                        onClick={() => setIntake((s) => ({ ...s, selfLevel: opt.value }))}
+                        className={chip(intake.selfLevel === opt.value)}
+                      >
+                        {opt.label}
+                      </button>
+                    ))}
+                  </div>
+                  {missing(!intake.selfLevel)}
+                </div>
+
+                {/* Q4 — optional: never the field that blocks a booking */}
+                <div>
+                  <label className="block text-sm font-medium text-passport-gray mb-1">
+                    {intakeCopy.blockerLabel}{" "}
+                    <span className="font-normal text-gray-400">({intakeCopy.optionalTag})</span>
+                  </label>
+                  <p className="text-xs text-gray-500 mb-2">{intakeCopy.blockerHelper}</p>
+                  <div className="grid grid-cols-2 gap-2">
+                    {intakeCopy.blockerOptions.map((opt) => (
+                      <button
+                        key={opt.value}
+                        type="button"
+                        onClick={() =>
+                          setIntake((s) => ({ ...s, blocker: s.blocker === opt.value ? "" : opt.value }))
+                        }
+                        className={chip(intake.blocker === opt.value)}
+                      >
+                        {opt.label}
+                      </button>
+                    ))}
+                  </div>
+                </div>
+              </div>
             )}
+
+            {/* Step 4 — contact details */}
+            <div className="space-y-3">
+              <Input placeholder={t("form.name")} value={name} onChange={(e) => setName(e.target.value)} required />
+              <Input type="email" placeholder={t("form.email")} value={email} onChange={(e) => setEmail(e.target.value)} required />
+              <Input type="tel" placeholder={t("form.phone")} value={phone} onChange={(e) => setPhone(e.target.value)} required />
+              {!calendarMode && (
+                <Textarea placeholder={t("form.message")} rows={3} value={message} onChange={(e) => setMessage(e.target.value)} />
+              )}
+
+              {/* Recording consent. Google Meet's in-call announcement is a
+                  notification, not an auditable record — this is the record. */}
+              <label className="flex items-start gap-2 text-sm text-gray-600 cursor-pointer">
+                <input
+                  type="checkbox"
+                  checked={consent}
+                  onChange={(e) => setConsent(e.target.checked)}
+                  className="mt-1 shrink-0"
+                />
+                <span>
+                  {intakeCopy.consentLabel}
+                  {audience === "child" && (
+                    <span className="block text-xs text-gray-400 mt-0.5">
+                      {intakeCopy.consentGuardianNote}
+                    </span>
+                  )}
+                </span>
+              </label>
+              {attempted && !consent && (
+                <p className="text-xs text-red-600">{intakeCopy.missingHint}</p>
+              )}
+            </div>
 
             <div className="flex gap-3 pt-2">
               <Button type="button" variant="outline" onClick={onClose} className="flex-1">
@@ -359,14 +585,12 @@ export default function BookingForm({ t, language, defaultClassType, onClose }: 
               </Button>
               <Button
                 type="submit"
-                disabled={submitting || !contactValid || (calendarMode && !selectedSlot)}
+                disabled={submitting || !canSubmit}
                 className="flex-1 passport-orange hover:bg-orange-600 text-white"
               >
                 {submitting
                   ? isEs ? "Procesando..." : "Processing..."
-                  : calendarMode
-                    ? isEs ? "Confirmar reserva" : "Confirm booking"
-                    : t("booking.confirmBooking")}
+                  : t("booking.confirmBooking")}
               </Button>
             </div>
           </form>
