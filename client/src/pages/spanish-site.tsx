@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { useSeo } from "@/hooks/use-seo";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import {
@@ -36,6 +37,12 @@ import {
 } from "lucide-react";
 
 export default function SpanishSite() {
+  useSeo({
+    title: "Learn Spanish Online with Native Instructors | Passport to Fluency",
+    description:
+      "Learn Spanish with native Latin American instructors at Passport to Fluency (Passport2Fluency). Personalized 1-on-1 online classes for adults, kids & businesses. Book your free trial.",
+    path: "/es",
+  });
   // Removed modal state - now using integrated calendars
   const [showDiscountPopup, setShowDiscountPopup] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);

@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { useSeo } from "@/hooks/use-seo";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import {
@@ -36,6 +37,12 @@ import {
 } from "lucide-react";
 
 export default function EnglishSite() {
+  useSeo({
+    title: "Aprende Inglés Online con Profesores Nativos | Passport to Fluency",
+    description:
+      "Aprende inglés con profesores nativos en Passport to Fluency (Passport2Fluency). Clases personalizadas 1-a-1 online para adultos, niños y empresas. Reserva tu clase de prueba gratis.",
+    path: "/en",
+  });
   // Removed modal state - now using integrated calendars
   const [showDiscountPopup, setShowDiscountPopup] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);

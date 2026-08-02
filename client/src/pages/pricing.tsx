@@ -1,4 +1,5 @@
 import { Button } from "@/components/ui/button";
+import { useSeo } from "@/hooks/use-seo";
 import { Card, CardContent } from "@/components/ui/card";
 import { CheckCircle } from "lucide-react";
 import NavigationDropdown from "@/components/navigation-dropdown";
@@ -12,6 +13,22 @@ interface PricingProps {
 }
 
 export default function Pricing({ language }: PricingProps) {
+  // language: 'en' = Spanish learning site (/es), 'es' = English learning site (/en)
+  useSeo(
+    language === 'en'
+      ? {
+          title: "Spanish Class Pricing & Plans | Passport to Fluency",
+          description:
+            "Simple, flexible pricing for 1-on-1 Spanish classes with native instructors. No contracts, cancel anytime. See plans and start with a free trial at Passport to Fluency.",
+          path: "/es/pricing",
+        }
+      : {
+          title: "Precios y Planes de Clases de Inglés | Passport to Fluency",
+          description:
+            "Precios simples y flexibles para clases de inglés 1-a-1 con profesores nativos. Sin contratos, cancela cuando quieras. Mira los planes y empieza con una clase gratis.",
+          path: "/en/pricing",
+        }
+  );
 
   // Stripe payment links by language and plan
   const getPaymentLink = (plan: number) => {

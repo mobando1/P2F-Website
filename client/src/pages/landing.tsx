@@ -1,5 +1,6 @@
 import { useLocation } from "wouter";
 import { useState, useEffect } from "react";
+import { useSeo } from "@/hooks/use-seo";
 import { AnimatePresence, motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -397,6 +398,12 @@ const EmailPopup = ({
 };
 
 export default function Landing() {
+  useSeo({
+    title: "Passport to Fluency (Passport2Fluency) | Learn Spanish & English with Native Instructors",
+    description:
+      "Passport to Fluency (Passport2Fluency) — learn Spanish or English with native instructors. Personalized 1-on-1 online classes for adults, children, and businesses. Book your free trial class today!",
+    path: "/",
+  });
   const [, navigate] = useLocation();
   const [detectedLanguage, setDetectedLanguage] = useState<string | null>(null);
   const [selectedLanguage, setSelectedLanguage] = useState<'spanish' | 'english' | null>(null);
