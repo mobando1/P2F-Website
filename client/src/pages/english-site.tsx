@@ -27,13 +27,19 @@ import carlosPhoto from "@assets/generated_images/Carlos_Mendoza_profile_photo_e
 import anaPhoto from "@assets/generated_images/Ana_Rodriguez_profile_photo_f1c9b450.png";
 import { useLocation, Link } from "wouter";
 import NavigationDropdown from "@/components/navigation-dropdown";
+import HowItWorksTimeline from "@/components/how-it-works-timeline";
+import PlanPreview from "@/components/plan-preview";
+import PricingCards from "@/components/pricing-cards";
+import { offerEnglish as c } from "@/content/offer";
 import { FadeIn, StaggerContainer, StaggerItem } from "@/components/motion";
 import {
-  Globe, Star, Users, Clock, ArrowRight, Calendar,
-  Headphones, VideoIcon, CheckCircle, MessageCircle,
-  Facebook, Instagram, Linkedin, Youtube, Mail, Phone, Building,
-  Gamepad2, Briefcase, Stethoscope, Home, TrendingUp, Scale, Menu
+  Globe, Star, Users, Clock, ArrowRight, ClipboardCheck,
+  CheckCircle,
+  Facebook, Instagram, Linkedin, Youtube, Mail, Building, Menu
 } from "lucide-react";
+
+/** Renamed from `booking-calendars` when the trial became a diagnostic. */
+const DIAGNOSTIC_ANCHOR = "diagnostico";
 
 export default function EnglishSite() {
   // Removed modal state - now using integrated calendars
@@ -41,11 +47,8 @@ export default function EnglishSite() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [, navigate] = useLocation();
 
-  // Show discount popup after 7 seconds or on scroll for English learners
+  // Show the sample-plan popup after 7 seconds or on scroll.
   useEffect(() => {
-    // Clear any previous popup state for testing
-    localStorage.removeItem('discountPopupShown');
-    
     const timer = setTimeout(() => {
       if (!localStorage.getItem('discountPopupShown')) {
         setShowDiscountPopup(true);
@@ -73,14 +76,13 @@ export default function EnglishSite() {
   };
 
   const handleBookingClick = (type: 'adult' | 'child' = 'adult') => {
-    const calendarSection = document.querySelector('#booking-calendars');
+    const calendarSection = document.querySelector(`#${DIAGNOSTIC_ANCHOR}`);
     if (calendarSection) {
       calendarSection.scrollIntoView({ behavior: 'smooth' });
     }
   };
 
   const handleDiscountSubscribe = (email: string) => {
-    // TODO: Integrate with newsletter provider
     localStorage.setItem('discountPopupShown', 'true');
   };
 
@@ -237,253 +239,102 @@ export default function EnglishSite() {
             <div className="mb-8">
               <div className="inline-flex items-center bg-blue-100 text-blue-800 rounded-full px-4 py-2 text-sm mb-6">
                 <Globe className="w-4 h-4 mr-2" />
-                Para hispanohablantes que quieren dominar el inglés
+                {c.hero.badge}
               </div>
             </div>
-            
+
             <FadeIn>
-              <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-bold text-gray-900 mb-6">
-                <span className="text-passport-blue">Habla Inglés</span><br />
-                <span className="italic text-passport-orange">como un nativo</span>
+              <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-bold text-gray-900 leading-[1.1] tracking-tight mb-8">
+                <span className="text-passport-blue">{c.hero.h1Line1}</span><br />
+                <span className="italic text-passport-orange">{c.hero.h1Line2}</span>
               </h1>
             </FadeIn>
 
             <FadeIn delay={0.1}>
-              <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-gray-700 mb-8 max-w-3xl mx-auto">
-                Clases personalizadas 1-a-1 con instructores nativos americanos.
-                <span className="font-semibold"> Disponible 24/7, desde cualquier lugar.</span>
+              <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-gray-700 leading-relaxed mb-10 max-w-2xl mx-auto">
+                {c.hero.sub}
+                <span className="font-semibold">{c.hero.subBold}</span>
               </p>
 
-              <div className="flex flex-wrap justify-center gap-3 sm:gap-4 md:gap-6 mb-6 sm:mb-8 md:mb-12 text-sm text-gray-600">
+              <div className="flex flex-wrap justify-center gap-4 sm:gap-6 md:gap-8 mb-10 md:mb-12 text-sm text-gray-600">
                 <div className="flex items-center">
-                  <Users className="w-4 h-4 mr-1 text-passport-blue" />
-                  <strong className="text-gray-900">1,000+</strong> estudiantes latinos
+                  <ClipboardCheck className="w-4 h-4 mr-1 text-passport-blue" />
+                  {c.hero.trust[0].label}<strong className="text-gray-900">{c.hero.trust[0].strong}</strong>{c.hero.trust[0].after}
                 </div>
                 <div className="flex items-center">
-                  <Star className="w-4 h-4 mr-1 text-yellow-500" />
-                  <strong className="text-gray-900">4.9</strong> calificación promedio
+                  <Users className="w-4 h-4 mr-1 text-passport-blue" />
+                  {c.hero.trust[1].label}<strong className="text-gray-900">{c.hero.trust[1].strong}</strong>{c.hero.trust[1].after}
                 </div>
                 <div className="flex items-center">
                   <Clock className="w-4 h-4 mr-1 text-passport-orange" />
-                  Clases de <strong className="text-gray-900">40 minutos</strong>
+                  {c.hero.trust[2].label}<strong className="text-gray-900">{c.hero.trust[2].strong}</strong>{c.hero.trust[2].after}
                 </div>
               </div>
             </FadeIn>
 
             <FadeIn delay={0.2}>
-              <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
+              <div className="flex flex-col sm:flex-row gap-4 justify-center mb-4">
                 <Button
                   onClick={() => handleBookingClick('adult')}
                   className="bg-passport-blue hover:bg-blue-700 text-white px-8 py-4 text-lg font-semibold"
                   size="lg"
                 >
-                  Reservar Clase Gratis
+                  {c.hero.ctaPrimary}
                   <ArrowRight className="w-5 h-5 ml-2" />
                 </Button>
                 <Button
-                  onClick={() => scrollToSection('como-funciona')}
+                  onClick={() => scrollToSection('tu-plan')}
                   variant="outline"
                   className="border-passport-blue text-passport-blue hover:bg-passport-blue hover:text-white px-8 py-4 text-lg font-semibold"
                   size="lg"
                 >
-                  Ver Cómo Funciona
+                  {c.hero.ctaSecondary}
                 </Button>
               </div>
+              {/* The only place on the page that mentions cost. Deliberately
+                  small and below the fold of the decision. */}
+              <p className="text-sm text-gray-500">{c.hero.ctaNote}</p>
             </FadeIn>
           </div>
         </div>
       </section>
-      {/* Cómo Funciona - Timeline Visual */}
-      <section id="como-funciona" className="py-8 md:py-12 bg-white">
+      {/* Banda de posicionamiento — la ruptura de categoría, con casa propia */}
+      <div className="border-y border-gray-100 bg-white py-6">
         <div className="container mx-auto px-4">
-          {/* Header */}
+          <p className="text-center text-xl md:text-2xl max-w-4xl mx-auto">
+            <span className="font-bold text-passport-blue">{c.positioning.bold}</span>
+            <span className="text-gray-700">{c.positioning.rest}</span>
+          </p>
+        </div>
+      </div>
+
+      {/* Cómo Funciona - Timeline Visual */}
+      <section id="como-funciona" className="py-16 md:py-24 bg-white">
+        <div className="container mx-auto px-4">
           <FadeIn>
-            <div className="text-center mb-6 md:mb-8">
-              <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
-                Cómo Funciona
+            <div className="text-center mb-12 md:mb-16">
+              <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 leading-[1.15] tracking-tight mb-5">
+                {c.howItWorks.title}
               </h2>
               <p className="text-base sm:text-lg md:text-xl text-gray-600 max-w-3xl mx-auto">
-                Solo 3 pasos simples para empezar a hablar inglés con confianza
+                {c.howItWorks.subtitle}
               </p>
             </div>
           </FadeIn>
 
-          {/* Desktop: Horizontal Timeline */}
-          <div className="hidden md:block max-w-6xl mx-auto">
-            <div className="relative">
-
-              {/* Línea conectora horizontal con gradiente dinámico */}
-              <div className="absolute top-1/2 left-0 right-0 h-1 bg-gradient-to-r from-blue-900 via-blue-500 to-orange-400 transform -translate-y-1/2 z-0 rounded-full opacity-70" style={{background: 'linear-gradient(to right, #0A4A6E 0%, #1C7BB1 50%, #F59E1C 100%)'}}></div>
-
-              {/* Grid de pasos */}
-              <StaggerContainer className="grid grid-cols-3 gap-8 relative z-10">
-
-                {/* Paso 1 - Azul */}
-                <StaggerItem><div className="text-center group">
-                  <div className="relative mb-8">
-                    {/* Círculo principal con ícono */}
-                    <div className="w-24 h-24 bg-gradient-to-br rounded-full flex items-center justify-center mx-auto relative group-hover:shadow-lg group-hover:-translate-y-1 transition-all duration-300 group-hover:shadow-blue-500/50" style={{background: 'linear-gradient(135deg, #0A4A6E 0%, #1C7BB1 100%)'}}>
-                      <Calendar className="w-10 h-10 text-white group-hover:scale-110 transition-transform duration-200" />
-                      
-                      {/* Badge numérico en esquina superior derecha */}
-                      <div className="absolute -top-2 -right-2 w-8 h-8 rounded-full flex items-center justify-center transition-colors duration-200" style={{background: 'linear-gradient(135deg, #083344 0%, #0A4A6E 100%)'}}>
-                        <span className="text-white font-bold text-sm">1</span>
-                      </div>
-                    </div>
-                  </div>
-                  
-                  <h3 className="text-xl font-bold text-gray-900 mb-3">
-                    Agenda tu clase
-                  </h3>
-                  <p className="text-gray-600 leading-relaxed">
-                    Elige el horario que mejor te convenga. Disponible 24/7, incluso de último momento.
-                  </p>
-                </div></StaggerItem>
-
-                {/* Paso 2 - Verde */}
-                <StaggerItem><div className="text-center group">
-                  <div className="relative mb-8">
-                    {/* Círculo principal con ícono */}
-                    <div className="w-24 h-24 bg-gradient-to-br rounded-full flex items-center justify-center mx-auto relative group-hover:shadow-lg group-hover:-translate-y-1 transition-all duration-300 group-hover:shadow-cyan-400/50" style={{background: 'linear-gradient(135deg, #1C7BB1 0%, #3DB5E6 100%)'}}>
-                      <VideoIcon className="w-10 h-10 text-white group-hover:scale-110 transition-transform duration-200" />
-                      
-                      {/* Badge numérico en esquina superior derecha */}
-                      <div className="absolute -top-2 -right-2 w-8 h-8 rounded-full flex items-center justify-center transition-colors duration-200" style={{background: 'linear-gradient(135deg, #155e8a 0%, #1C7BB1 100%)'}}>
-                        <span className="text-white font-bold text-sm">2</span>
-                      </div>
-                    </div>
-                  </div>
-                  
-                  <h3 className="text-xl font-bold text-gray-900 mb-3">
-                    Conecta por video
-                  </h3>
-                  <p className="text-gray-600 leading-relaxed">
-                    Únete a tu clase por Google Meet desde cualquier dispositivo. Tu instructor te estará esperando.
-                  </p>
-                </div></StaggerItem>
-
-                {/* Paso 3 - Naranja */}
-                <StaggerItem><div className="text-center group">
-                  <div className="relative mb-8">
-                    {/* Círculo principal con ícono */}
-                    <div className="w-24 h-24 bg-gradient-to-br rounded-full flex items-center justify-center mx-auto relative group-hover:shadow-lg group-hover:-translate-y-1 transition-all duration-300 group-hover:shadow-orange-400/50" style={{background: 'linear-gradient(135deg, #F59E1C 0%, #F9B949 100%)'}}>
-                      <MessageCircle className="w-10 h-10 text-white group-hover:scale-110 transition-transform duration-200" />
-                      
-                      {/* Badge numérico en esquina superior derecha */}
-                      <div className="absolute -top-2 -right-2 w-8 h-8 rounded-full flex items-center justify-center transition-colors duration-200" style={{background: 'linear-gradient(135deg, #ea580c 0%, #F59E1C 100%)'}}>
-                        <span className="text-white font-bold text-sm">3</span>
-                      </div>
-                    </div>
-                  </div>
-                  
-                  <h3 className="text-xl font-bold text-gray-900 mb-3">
-                    Practica y mejora
-                  </h3>
-                  <p className="text-gray-600 leading-relaxed">
-                    Conversación real con retroalimentación instantánea. Tu progreso se guarda automáticamente.
-                  </p>
-                </div></StaggerItem>
-
-              </StaggerContainer>
-            </div>
-          </div>
-
-          {/* Mobile: Timeline Vertical */}
-          <div className="md:hidden max-w-lg mx-auto">
-            <div className="relative">
-              
-              {/* Línea vertical recta con gradiente */}
-              <div className="absolute left-6 top-0 bottom-0 w-1 bg-gradient-to-b rounded-full opacity-70" style={{background: 'linear-gradient(to bottom, #0A4A6E 0%, #1C7BB1 50%, #F59E1C 100%)'}}></div>
-              
-              <div className="space-y-12">
-                
-                {/* Paso 1 - Azul */}
-                <div className="flex items-start gap-6 group">
-                  {/* Círculo con timeline */}
-                  <div className="relative flex-shrink-0">
-                    <div className="w-12 h-12 rounded-full flex items-center justify-center relative group-hover:shadow-lg transition-all duration-300 group-hover:shadow-blue-500/50" style={{background: 'linear-gradient(135deg, #0A4A6E 0%, #1C7BB1 100%)'}}>
-                      <Calendar className="w-6 h-6 text-white group-hover:scale-110 transition-transform duration-200" />
-                      
-                      {/* Badge numérico */}
-                      <div className="absolute -top-1 -right-1 w-6 h-6 rounded-full flex items-center justify-center transition-colors duration-200" style={{background: 'linear-gradient(135deg, #083344 0%, #0A4A6E 100%)'}}>
-                        <span className="text-white font-bold text-xs">1</span>
-                      </div>
-                    </div>
-                  </div>
-                  
-                  {/* Contenido */}
-                  <div className="flex-1 pt-1">
-                    <h3 className="text-lg font-bold text-gray-900 mb-2">
-                      Agenda tu clase
-                    </h3>
-                    <p className="text-gray-600 leading-relaxed">
-                      Elige el horario que mejor te convenga. Disponible 24/7, incluso de último momento.
-                    </p>
-                  </div>
-                </div>
-
-                {/* Paso 2 - Verde */}
-                <div className="flex items-start gap-6 group">
-                  {/* Círculo con timeline */}
-                  <div className="relative flex-shrink-0">
-                    <div className="w-12 h-12 rounded-full flex items-center justify-center relative group-hover:shadow-lg transition-all duration-300 group-hover:shadow-cyan-400/50" style={{background: 'linear-gradient(135deg, #1C7BB1 0%, #3DB5E6 100%)'}}>
-                      <VideoIcon className="w-6 h-6 text-white group-hover:scale-110 transition-transform duration-200" />
-                      
-                      {/* Badge numérico */}
-                      <div className="absolute -top-1 -right-1 w-6 h-6 rounded-full flex items-center justify-center transition-colors duration-200" style={{background: 'linear-gradient(135deg, #155e8a 0%, #1C7BB1 100%)'}}>
-                        <span className="text-white font-bold text-xs">2</span>
-                      </div>
-                    </div>
-                  </div>
-                  
-                  {/* Contenido */}
-                  <div className="flex-1 pt-1">
-                    <h3 className="text-lg font-bold text-gray-900 mb-2">
-                      Conecta por video
-                    </h3>
-                    <p className="text-gray-600 leading-relaxed">
-                      Únete a tu clase por Google Meet desde cualquier dispositivo. Tu instructor te estará esperando.
-                    </p>
-                  </div>
-                </div>
-
-                {/* Paso 3 - Naranja */}
-                <div className="flex items-start gap-6 group">
-                  {/* Círculo con timeline */}
-                  <div className="relative flex-shrink-0">
-                    <div className="w-12 h-12 rounded-full flex items-center justify-center relative group-hover:shadow-lg transition-all duration-300 group-hover:shadow-orange-400/50" style={{background: 'linear-gradient(135deg, #F59E1C 0%, #F9B949 100%)'}}>
-                      <MessageCircle className="w-6 h-6 text-white group-hover:scale-110 transition-transform duration-200" />
-                      
-                      {/* Badge numérico */}
-                      <div className="absolute -top-1 -right-1 w-6 h-6 rounded-full flex items-center justify-center transition-colors duration-200" style={{background: 'linear-gradient(135deg, #ea580c 0%, #F59E1C 100%)'}}>
-                        <span className="text-white font-bold text-xs">3</span>
-                      </div>
-                    </div>
-                  </div>
-                  
-                  {/* Contenido */}
-                  <div className="flex-1 pt-1">
-                    <h3 className="text-lg font-bold text-gray-900 mb-2">
-                      Practica y mejora
-                    </h3>
-                    <p className="text-gray-600 leading-relaxed">
-                      Conversación real con retroalimentación instantánea. Tu progreso se guarda automáticamente.
-                    </p>
-                  </div>
-                </div>
-                
-              </div>
-            </div>
-          </div>
+          <HowItWorksTimeline steps={c.howItWorks.steps} />
         </div>
       </section>
+
+      {/* Qué hay dentro de tu Plan de Vuelo — la sección que hace creíble la promesa */}
+      <PlanPreview content={c.planPreview} accent="blue" id="tu-plan" />
       {/* Features */}
-      <section className="py-8 md:py-12 bg-gray-50">
+      <section className="py-16 md:py-24 bg-gray-50">
         <div className="container mx-auto px-4">
           <FadeIn>
-            <div className="text-center mb-6 md:mb-8">
-              <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-                ¿Por qué elegir Passport to Fluency?
+            <div className="text-center mb-12 md:mb-16">
+              <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 leading-[1.2] tracking-tight mb-5">
+                {c.whyUs.title}
               </h2>
             </div>
           </FadeIn>
@@ -492,88 +343,45 @@ export default function EnglishSite() {
           <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-6 md:gap-12 items-center">
             <div>
               <ul className="space-y-6">
-                <li className="flex items-start">
-                  <CheckCircle className="w-6 h-6 text-green-500 mr-4 mt-1 flex-shrink-0" />
-                  <div>
-                    <h3 className="text-lg font-semibold text-gray-900 mb-2">
-                      Instructores nativos americanos
-                    </h3>
-                    <p className="text-gray-600">
-                      Todos nuestros profesores son hablantes nativos de inglés de Estados Unidos, con experiencia enseñando a latinos.
-                    </p>
-                  </div>
-                </li>
-                <li className="flex items-start">
-                  <CheckCircle className="w-6 h-6 text-green-500 mr-4 mt-1 flex-shrink-0" />
-                  <div>
-                    <h3 className="text-lg font-semibold text-gray-900 mb-2">
-                      Horarios súper flexibles
-                    </h3>
-                    <p className="text-gray-600">
-                      Agenda clases cuando quieras, incluso 15 minutos antes. Disponible 24/7 para adaptarse a tu vida ocupada.
-                    </p>
-                  </div>
-                </li>
-                <li className="flex items-start">
-                  <CheckCircle className="w-6 h-6 text-green-500 mr-4 mt-1 flex-shrink-0" />
-                  <div>
-                    <h3 className="text-lg font-semibold text-gray-900 mb-2">
-                      Método personalizado
-                    </h3>
-                    <p className="text-gray-600">
-                      Cada clase se adapta a tu nivel y objetivos. Enfoque práctico en conversación real del día a día.
-                    </p>
-                  </div>
-                </li>
-                <li className="flex items-start">
-                  <CheckCircle className="w-6 h-6 text-green-500 mr-4 mt-1 flex-shrink-0" />
-                  <div>
-                    <h3 className="text-lg font-semibold text-gray-900 mb-2">
-                      Progreso garantizado
-                    </h3>
-                    <p className="text-gray-600">
-                      95% de nuestros estudiantes mejoran su fluidez en las primeras 4 semanas o te devolvemos tu dinero.
-                    </p>
-                  </div>
-                </li>
+                {c.whyUs.bullets.map((b) => (
+                  <li key={b.title} className="flex items-start">
+                    <CheckCircle className="w-6 h-6 text-green-500 mr-4 mt-1 flex-shrink-0" />
+                    <div>
+                      <h3 className="text-lg font-semibold text-gray-900 mb-2">{b.title}</h3>
+                      <p className="text-gray-600">{b.body}</p>
+                    </div>
+                  </li>
+                ))}
               </ul>
             </div>
             <div className="space-y-6">
               <div className="bg-white rounded-2xl p-8 shadow-lg">
                 <h3 className="text-2xl font-bold text-gray-900 mb-4 text-center">
-                  Prueba tu primera clase gratis
+                  {c.whyUs.card.title}
                 </h3>
-                <p className="text-gray-600 mb-6 text-center">
-                  Elige entre nuestros programas especializados
-                </p>
+                <p className="text-gray-600 mb-6 text-center">{c.whyUs.card.subtitle}</p>
                 <div className="grid gap-4">
-                  <Link href="#booking-calendars" className="block">
-                    <div className="p-4 border-2 border-passport-blue rounded-lg bg-blue-50 hover:bg-blue-100 transition-colors cursor-pointer">
-                      <div className="flex items-center mb-2">
-                        <Users className="w-5 h-5 text-passport-blue mr-2" />
-                        <h4 className="font-semibold text-gray-900">Clases para Adultos</h4>
-                      </div>
-                      <p className="text-sm text-gray-600 mb-3">Conversación profesional y inglés de negocios</p>
-                    </div>
-                  </Link>
-                  <Link href="#ingles-para-ninos" className="block">
-                    <div className="p-4 border-2 border-passport-blue rounded-lg bg-blue-50 hover:bg-blue-100 transition-colors cursor-pointer">
-                      <div className="flex items-center mb-2">
-                        <Star className="w-5 h-5 text-passport-blue mr-2" />
-                        <h4 className="font-semibold text-gray-900">Clases para Niños</h4>
-                      </div>
-                      <p className="text-sm text-gray-600 mb-3">Aprendizaje divertido e interactivo para niños</p>
-                    </div>
-                  </Link>
-                  <Link href="#programas-empresariales" className="block">
-                    <div className="p-4 border-2 border-passport-orange rounded-lg bg-orange-50 hover:bg-orange-100 transition-colors cursor-pointer">
-                      <div className="flex items-center mb-2">
-                        <Building className="w-5 h-5 text-passport-orange mr-2" />
-                        <h4 className="font-semibold text-gray-900">Inglés para Empresas</h4>
-                      </div>
-                      <p className="text-sm text-gray-600 mb-3">Inglés profesional para equipos corporativos</p>
-                    </div>
-                  </Link>
+                  {c.whyUs.card.tiles.map((tile, i) => {
+                    const Icon = [Users, Star, Building][i] ?? Users;
+                    const orange = tile.accent === "orange";
+                    return (
+                      <Link key={tile.title} href={tile.href} className="block">
+                        <div
+                          className={`p-4 border-2 rounded-lg transition-colors cursor-pointer ${
+                            orange
+                              ? "border-passport-orange bg-orange-50 hover:bg-orange-100"
+                              : "border-passport-blue bg-blue-50 hover:bg-blue-100"
+                          }`}
+                        >
+                          <div className="flex items-center mb-2">
+                            <Icon className={`w-5 h-5 mr-2 ${orange ? "text-passport-orange" : "text-passport-blue"}`} />
+                            <h4 className="font-semibold text-gray-900">{tile.title}</h4>
+                          </div>
+                          <p className="text-sm text-gray-600">{tile.body}</p>
+                        </div>
+                      </Link>
+                    );
+                  })}
                 </div>
               </div>
             </div>
@@ -581,22 +389,24 @@ export default function EnglishSite() {
           </FadeIn>
         </div>
       </section>
-      {/* Booking Calendars */}
-      <section id="booking-calendars" className="py-8 md:py-12 bg-white">
+      {/* Diagnóstico — antes "Booking Calendars" */}
+      {/* Legacy anchor: ads and emails still point at #booking-calendars. */}
+      <span id="booking-calendars" aria-hidden="true" />
+      <section id={DIAGNOSTIC_ANCHOR} className="py-16 md:py-24 bg-white">
         <div className="container mx-auto px-4">
           <FadeIn>
-            <div className="text-center mb-6 md:mb-8">
-              <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-                Agenda tu Clase de Prueba Gratuita
+            <div className="text-center mb-12 md:mb-16">
+              <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 leading-[1.2] tracking-tight mb-5">
+                {c.diagnostic.title}
               </h2>
               <p className="text-base sm:text-lg md:text-xl text-gray-600 max-w-3xl mx-auto">
-                Elige el programa que mejor se adapte a tus necesidades. Mismo precio, enfoque de enseñanza especializado para cada grupo de edad.
+                {c.diagnostic.subtitle}
               </p>
             </div>
           </FadeIn>
 
           <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-6 md:gap-12 items-start">
-            {/* Adult Calendar */}
+            {/* Adultos */}
             <div className="bg-gray-50 rounded-2xl p-8 h-full flex flex-col">
               <div className="text-center mb-6 min-h-[160px] flex flex-col justify-between">
                 <div>
@@ -604,19 +414,17 @@ export default function EnglishSite() {
                     <Users className="w-8 h-8 text-white" />
                   </div>
                   <h3 className="text-2xl font-bold text-gray-900 mb-2 min-h-[64px] flex items-center justify-center">
-                    Clases de Inglés para Adultos
+                    {c.diagnostic.cards[0].title}
                   </h3>
                 </div>
-                <p className="text-gray-600">
-                  Conversación profesional, inglés de negocios e inmersión cultural
-                </p>
+                <p className="text-gray-600">{c.diagnostic.cards[0].body}</p>
               </div>
               <div className="flex-1">
                 <BookingCTA language="es" type="adult" />
               </div>
             </div>
 
-            {/* Kids Calendar */}
+            {/* Niños */}
             <div className="bg-gray-50 rounded-2xl p-8 h-full flex flex-col">
               <div className="text-center mb-6 min-h-[160px] flex flex-col justify-between">
                 <div>
@@ -624,12 +432,10 @@ export default function EnglishSite() {
                     <Star className="w-8 h-8 text-white" />
                   </div>
                   <h3 className="text-2xl font-bold text-gray-900 mb-2 min-h-[64px] flex items-center justify-center">
-                    Clases de Inglés para Niños
+                    {c.diagnostic.cards[1].title}
                   </h3>
                 </div>
-                <p className="text-gray-600">
-                  Aprendizaje divertido e interactivo diseñado específicamente para niños de 5-17 años
-                </p>
+                <p className="text-gray-600">{c.diagnostic.cards[1].body}</p>
               </div>
               <div className="flex-1">
                 <BookingCTA language="es" type="child" />
@@ -641,163 +447,24 @@ export default function EnglishSite() {
             <div className="bg-green-50 border border-green-200 rounded-lg p-6 max-w-2xl mx-auto">
               <div className="flex items-center justify-center mb-3">
                 <CheckCircle className="w-6 h-6 text-green-500 mr-2" />
-                <span className="font-semibold text-green-800">Prueba 100% Sin Riesgo</span>
+                <span className="font-semibold text-green-800">{c.diagnostic.risk.badge}</span>
               </div>
-              <p className="text-green-700">
-                Sin pago requerido • Conoce a tu instructor primero • Cancela en cualquier momento
-              </p>
+              <p className="text-green-700">{c.diagnostic.risk.line}</p>
             </div>
           </div>
         </div>
       </section>
-      {/* Planes y Precios */}
-      <section id="planes-precios" className="py-8 md:py-12 bg-white">
-        <div className="container mx-auto px-4">
-          <FadeIn>
-            <div className="text-center mb-6 md:mb-8">
-              <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-                Encuentra el Plan Perfecto para Hablar Inglés con Confianza
-              </h2>
-              <p className="text-base sm:text-lg md:text-xl text-gray-600">
-                Clases personalizadas 1-a-1 con instructores nativos americanos. Sin contratos ni letras pequeñas. Cancela cuando quieras.
-              </p>
-            </div>
-          </FadeIn>
-
-          <StaggerContainer className="max-w-5xl mx-auto grid md:grid-cols-3 gap-6">
-            <StaggerItem><Card className="border-2 hover:border-passport-blue transition-colors">
-              <CardContent className="p-6 text-center">
-                <h3 className="text-xl font-bold text-gray-900 mb-4">Starter Flow</h3>
-                <div className="text-3xl font-bold text-passport-blue mb-2">$119.96</div>
-                <div className="text-gray-600 mb-1">por mes</div>
-                <div className="text-sm text-gray-500 mb-6">$29.99 por clase</div>
-                <p className="text-sm text-gray-600 mb-6">Perfecto para mantener progreso constante con instructores nativos</p>
-                <ul className="text-left space-y-2 mb-8 text-sm">
-                  <li className="flex items-center">
-                    <CheckCircle className="w-4 h-4 text-green-500 mr-2" />
-                    1 clase por semana (4 al mes)
-                  </li>
-                  <li className="flex items-center">
-                    <CheckCircle className="w-4 h-4 text-green-500 mr-2" />
-                    Sesiones privadas 1-a-1 (40 min)
-                  </li>
-                  <li className="flex items-center">
-                    <CheckCircle className="w-4 h-4 text-green-500 mr-2" />
-                    Instructores nativos americanos
-                  </li>
-                  <li className="flex items-center">
-                    <CheckCircle className="w-4 h-4 text-green-500 mr-2" />
-                    100% virtual - ahorra tiempo
-                  </li>
-                  <li className="flex items-center">
-                    <CheckCircle className="w-4 h-4 text-green-500 mr-2" />
-                    Horarios flexibles 24/7
-                  </li>
-                  <li className="flex items-center">
-                    <CheckCircle className="w-4 h-4 text-green-500 mr-2" />
-                    Sin contrato - Cancela cuando quieras
-                  </li>
-                </ul>
-                <Button 
-                  onClick={() => window.open('https://buy.stripe.com/fZu5kE2Gw8zV2g49Cues004', '_blank')}
-                  className="w-full bg-passport-blue hover:bg-blue-700 text-white py-2 font-semibold"
-                >
-                  Empezar Ahora
-                </Button>
-              </CardContent>
-            </Card></StaggerItem>
-
-            <StaggerItem><Card className="border-2 hover:border-passport-blue transition-colors">
-              <CardContent className="p-6 text-center">
-                <h3 className="text-xl font-bold text-gray-900 mb-4">Momentum Plan</h3>
-                <div className="text-3xl font-bold text-passport-blue mb-2">$219.99</div>
-                <div className="text-gray-600 mb-1">por mes</div>
-                <div className="text-sm text-gray-500 mb-6">$27.50 por clase</div>
-                <p className="text-sm text-gray-600 mb-6">Ideal para mejora rápida y práctica constante de conversación</p>
-                <ul className="text-left space-y-2 mb-8 text-sm">
-                  <li className="flex items-center">
-                    <CheckCircle className="w-4 h-4 text-green-500 mr-2" />
-                    2 clases por semana (8 al mes)
-                  </li>
-                  <li className="flex items-center">
-                    <CheckCircle className="w-4 h-4 text-green-500 mr-2" />
-                    Sesiones privadas 1-a-1 (40 min)
-                  </li>
-                  <li className="flex items-center">
-                    <CheckCircle className="w-4 h-4 text-green-500 mr-2" />
-                    Horarios flexibles
-                  </li>
-                  <li className="flex items-center">
-                    <CheckCircle className="w-4 h-4 text-green-500 mr-2" />
-                    Cancela cuando quieras
-                  </li>
-                  <li className="flex items-center">
-                    <CheckCircle className="w-4 h-4 text-green-500 mr-2" />
-                    Soporte del instructor
-                  </li>
-                </ul>
-                <Button 
-                  onClick={() => window.open('https://buy.stripe.com/eVq28s80Qg2n2g401Ues002', '_blank')}
-                  className="w-full bg-passport-blue hover:bg-blue-700 text-white py-2 font-semibold"
-                >
-                  Elegir Este Plan
-                </Button>
-              </CardContent>
-            </Card></StaggerItem>
-
-            <StaggerItem><Card className="border-2 border-passport-orange bg-orange-50 relative">
-              <div className="absolute -top-3 left-1/2 transform -translate-x-1/2">
-                <div className="bg-passport-orange text-white px-3 py-1 rounded-full text-xs font-semibold">
-                  MÁS POPULAR
-                </div>
-              </div>
-              <CardContent className="p-6 text-center">
-                <h3 className="text-xl font-bold text-gray-900 mb-4">Fluency Boost</h3>
-                <div className="text-3xl font-bold text-passport-orange mb-2">$299.99</div>
-                <div className="text-gray-600 mb-1">por mes</div>
-                <div className="text-sm text-gray-500 mb-6">$24.99 por clase</div>
-                <p className="text-sm text-gray-600 mb-6">Para estudiantes serios que quieren máximos resultados e inmersión cultural</p>
-                <ul className="text-left space-y-2 mb-8 text-sm">
-                  <li className="flex items-center">
-                    <CheckCircle className="w-4 h-4 text-green-500 mr-2" />
-                    3 clases por semana (12 al mes)
-                  </li>
-                  <li className="flex items-center">
-                    <CheckCircle className="w-4 h-4 text-green-500 mr-2" />
-                    Sesiones privadas 1-a-1 (40 min)
-                  </li>
-                  <li className="flex items-center">
-                    <CheckCircle className="w-4 h-4 text-green-500 mr-2" />
-                    Horarios flexibles
-                  </li>
-                  <li className="flex items-center">
-                    <CheckCircle className="w-4 h-4 text-green-500 mr-2" />
-                    Cancela cuando quieras
-                  </li>
-                  <li className="flex items-center">
-                    <CheckCircle className="w-4 h-4 text-green-500 mr-2" />
-                    Soporte del instructor
-                  </li>
-                </ul>
-                <Button 
-                  onClick={() => window.open('https://buy.stripe.com/00w28s2Gw3fB1c0eWOes003', '_blank')}
-                  className="w-full bg-passport-orange hover:bg-orange-600 text-white py-2 font-semibold"
-                >
-                  Empezar Ahora
-                </Button>
-              </CardContent>
-            </Card></StaggerItem>
-          </StaggerContainer>
-        </div>
-      </section>
       {/* Testimonials */}
-      <section id="testimonios" className="py-8 md:py-12 bg-gray-50">
+      <section id="testimonios" className="py-16 md:py-24 bg-gray-50">
         <div className="container mx-auto px-4">
           <FadeIn>
-            <div className="text-center mb-6 md:mb-8">
-              <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-                Lo que dicen nuestros estudiantes
+            <div className="text-center mb-12 md:mb-16">
+              <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 leading-[1.2] tracking-tight mb-5">
+                {c.testimonials.title}
               </h2>
+              <p className="text-base sm:text-lg text-gray-600 max-w-2xl mx-auto">
+                {c.testimonials.subtitle}
+              </p>
             </div>
           </FadeIn>
 
@@ -894,43 +561,52 @@ export default function EnglishSite() {
           </StaggerContainer>
         </div>
       </section>
+      {/* Planes y Precios */}
+      <PricingCards
+        offerId="english"
+        content={c.pricing}
+        diagnosticAnchor={DIAGNOSTIC_ANCHOR}
+        id="planes-precios"
+      />
       {/* Newsletter Section */}
-      <section className="py-8 md:py-12 bg-white">
+      <section className="py-16 md:py-24 bg-white">
         <div className="container mx-auto px-4">
           <NewsletterSignup language="es" className="max-w-2xl mx-auto" />
         </div>
       </section>
-      {/* Free Trial Section */}
-      <section className="py-8 md:py-12 bg-passport-blue">
+      {/* CTA final */}
+      <section className="py-16 md:py-24 bg-passport-blue">
         <div className="container mx-auto px-4 text-center">
           <FadeIn>
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-6">
-              ¿Listo para hablar inglés con confianza?
+              {c.finalCta.title}
             </h2>
             <p className="text-xl text-blue-100 mb-8 max-w-2xl mx-auto">
-              Únete a más de 1,000 latinos que ya están mejorando su inglés con nosotros
+              {c.finalCta.subtitle}
             </p>
           </FadeIn>
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center max-w-lg mx-auto">
-            <Button 
+            <Button
               onClick={() => handleBookingClick('adult')}
               className="bg-white text-passport-blue hover:bg-gray-100 px-8 py-4 text-lg font-semibold w-full sm:w-auto"
               size="lg"
             >
               <Users className="w-5 h-5 mr-2" />
-              Clases para Adultos
+              {c.finalCta.btnAdult}
             </Button>
-            <Button 
+            <Button
               onClick={() => handleBookingClick('child')}
               className="bg-white text-passport-blue hover:bg-gray-100 px-8 py-4 text-lg font-semibold w-full sm:w-auto"
               size="lg"
             >
               <Star className="w-5 h-5 mr-2" />
-              Clases para Niños
+              {c.finalCta.btnChild}
             </Button>
           </div>
-          <p className="text-blue-100 mt-4 text-sm">
-            Mismo precio excelente, enfoque de enseñanza especializada
+          {/* La objeción de las clases grupales, respondida de frente. */}
+          <p className="text-blue-100 mt-6 text-base max-w-2xl mx-auto">
+            <span className="font-semibold text-white">{c.finalCta.objection.bold}</span>
+            {c.finalCta.objection.rest}
           </p>
         </div>
       </section>
@@ -940,28 +616,24 @@ export default function EnglishSite() {
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-8">
             <div>
               <img src={passportLogo} alt="Passport to Fluency" className="h-10 brightness-0 invert mb-4" loading="lazy" />
-              <p className="text-gray-400">
-                Aprende inglés con instructores nativos americanos, 24/7.
-              </p>
+              <p className="text-gray-400">{c.footer.tagline}</p>
             </div>
             <div>
-              <h3 className="font-semibold text-lg mb-4">Enlaces</h3>
+              <h3 className="font-semibold text-lg mb-4">{c.footer.quickLinks}</h3>
               <ul className="space-y-2 text-gray-400">
-                <li><button onClick={() => scrollToSection('como-funciona')} className="hover:text-white transition-colors">Cómo Funciona</button></li>
-                <li><button onClick={() => scrollToSection('precios')} className="hover:text-white transition-colors">Precios</button></li>
-                <li><button onClick={() => scrollToSection('testimonios')} className="hover:text-white transition-colors">Testimonios</button></li>
+                <li><button onClick={() => scrollToSection('como-funciona')} className="hover:text-white transition-colors">{c.footer.linkHowItWorks}</button></li>
+                <li><button onClick={() => scrollToSection('tu-plan')} className="hover:text-white transition-colors">{c.planName}</button></li>
+                <li><button onClick={() => scrollToSection('planes-precios')} className="hover:text-white transition-colors">{c.footer.linkPricing}</button></li>
+                <li><button onClick={() => scrollToSection(DIAGNOSTIC_ANCHOR)} className="hover:text-white transition-colors">{c.footer.linkDiagnostic}</button></li>
+                <li><button onClick={() => scrollToSection('testimonios')} className="hover:text-white transition-colors">{c.footer.linkTestimonials}</button></li>
               </ul>
             </div>
             <div>
-              <h3 className="font-semibold text-lg mb-4">Contacto</h3>
+              <h3 className="font-semibold text-lg mb-4">{c.footer.contact}</h3>
               <ul className="space-y-2 text-gray-400">
                 <li className="flex items-center">
                   <Mail className="w-4 h-4 mr-2" />
                   info@passporttofluency.com
-                </li>
-                <li className="flex items-center">
-                  <Phone className="w-4 h-4 mr-2" />
-                  +1 (555) 123-4567
                 </li>
               </ul>
             </div>
@@ -976,7 +648,7 @@ export default function EnglishSite() {
             </div>
           </div>
           <div className="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
-            <p>© 2025 Passport2Fluency. Todos los derechos reservados.</p>
+            <p>{c.footer.copyright}</p>
           </div>
         </div>
       </footer>

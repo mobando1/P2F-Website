@@ -22,32 +22,36 @@ export default function DiscountPopup({ language, onClose, onSubscribe }: Discou
     analytics.discountPopupShown(language);
   }, [language]);
 
+  // Repurposed from a 10%-off popup. A discount at seven seconds says "I'm
+  // selling you" at exactly the moment the new message says "I'm diagnosing
+  // you" — so the same component now captures the email against a real sample
+  // of the deliverable instead.
   const texts = {
     en: {
-      title: "🎉 Special Offer!",
-      subtitle: "Get 10% OFF your first month",
-      description: "Join thousands learning English with native instructors!",
+      title: "📄 See a real Flight Plan",
+      subtitle: "The plan we send after a diagnostic class",
+      description: "We'll email you a full sample so you know exactly what you're getting — before you book anything.",
       namePlaceholder: "Your name",
       emailPlaceholder: "Your email",
       phonePlaceholder: "Your phone number",
-      ctaButton: "Claim 10% Discount",
+      ctaButton: "Send me a sample plan",
       submitting: "Sending...",
       noThanks: "No thanks",
-      successTitle: "Discount Secured! 🎊",
-      successMessage: "We'll contact you shortly with your discount code and booking details.",
+      successTitle: "On its way 📬",
+      successMessage: "Check your inbox — we're sending you a complete sample Flight Plan.",
     },
     es: {
-      title: "🎉 ¡Oferta Especial!",
-      subtitle: "Obtén 10% de DESCUENTO en tu primer mes",
-      description: "¡Únete a miles aprendiendo inglés con instructores nativos!",
+      title: "📄 Mira un Plan de Vuelo real",
+      subtitle: "El plan que mandamos después de una clase de diagnóstico",
+      description: "Te enviamos un ejemplo completo por correo para que sepas exactamente qué recibes — antes de agendar nada.",
       namePlaceholder: "Tu nombre",
       emailPlaceholder: "Tu email",
       phonePlaceholder: "Tu número de teléfono",
-      ctaButton: "Reclamar 10% Descuento",
+      ctaButton: "Mándenme un plan de ejemplo",
       submitting: "Enviando...",
       noThanks: "No gracias",
-      successTitle: "¡Descuento Asegurado! 🎊",
-      successMessage: "Te contactaremos pronto con tu código de descuento e instrucciones de reserva.",
+      successTitle: "Va en camino 📬",
+      successMessage: "Revisa tu correo — te estamos mandando un Plan de Vuelo de ejemplo completo.",
     }
   };
 
@@ -67,7 +71,7 @@ export default function DiscountPopup({ language, onClose, onSubscribe }: Discou
       await fetch('/api/newsletter', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ email, name, phone, language, source: 'discount_popup' }),
+        body: JSON.stringify({ email, name, phone, language, source: 'sample_plan_request' }),
       });
     } catch (error) {
       console.error('Discount popup submission error:', error);

@@ -24,8 +24,16 @@ export default function BookingCTA({ language, type, className = "" }: BookingCT
 
   const bullets =
     language === "es"
-      ? ["Clase de prueba gratis", "Sin tarjeta de crédito", "Te contactamos para confirmar"]
-      : ["Free trial class", "No credit card required", "We contact you to confirm"];
+      ? [
+          "Clase de diagnóstico de 50 minutos",
+          "Sin costo y sin tarjeta",
+          "Tu Plan de Vuelo en 72 horas",
+        ]
+      : [
+          "50-minute diagnostic class",
+          "No cost, no card",
+          "Your Flight Plan within 72 hours",
+        ];
 
   return (
     <div className={`bg-white rounded-2xl shadow-lg p-8 text-center ${className}`}>

@@ -62,6 +62,8 @@ export interface LeadPayload {
   preferredDate?: string;
   preferredTime?: string;
   message?: string;
+  /** Qualification answers from the booking form. Shape owned by content/intake.ts. */
+  intake?: Record<string, unknown>;
   source: string;
 }
 

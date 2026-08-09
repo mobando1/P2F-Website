@@ -67,7 +67,7 @@ export default function Adults({ language }: AdultsProps) {
     
     programFeatures: "What You'll Get",
     features: [
-      "40-minute private sessions with native instructors",
+      "50-minute private sessions with your dedicated coach",
       "Customized lesson plans based on your goals",
       "Real-world conversation practice",
       "Business Spanish and professional vocabulary",
@@ -93,13 +93,13 @@ export default function Adults({ language }: AdultsProps) {
     // English site content (Spanish speakers learning English)
     title: "Programa de Inglés para Adultos",
     subtitle: "Domina el inglés con coaching personalizado 1-a-1 diseñado específicamente para estudiantes adultos",
-    description: "Nuestro programa de inglés para adultos está diseñado para profesionales ocupados, estudiantes y cualquier persona que busque lograr fluidez a través de métodos conversacionales probados con instructores nativos americanos.",
+    description: "Nuestro programa de inglés para adultos está diseñado para profesionales ocupados, estudiantes y cualquier persona que busque lograr fluidez a través de métodos conversacionales probados con coaches latinos bilingües.",
     
     whyUs: "¿Por Qué Elegir Nuestro Programa de Inglés para Adultos?",
     benefits: [
       {
         title: "Instructores Nativos Americanos",
-        description: "Aprende inglés auténtico con instructores de Estados Unidos y Canadá",
+        description: "Aprende inglés real con coaches que ya hicieron el mismo camino que tú",
         icon: Globe
       },
       {
@@ -131,7 +131,7 @@ export default function Adults({ language }: AdultsProps) {
     
     programFeatures: "Lo Que Obtienes",
     features: [
-      "Sesiones privadas de 40 minutos con instructores nativos",
+      "Sesiones privadas de 50 minutos con tu coach asignado",
       "Planes de lección personalizados basados en tus objetivos",
       "Práctica de conversación del mundo real",
       "Inglés de negocios y vocabulario profesional",
@@ -245,7 +245,7 @@ export default function Adults({ language }: AdultsProps) {
                 size="lg"
               >
                 <Play className="w-5 h-5 mr-2" />
-                {language === 'en' ? 'Start Free Class' : 'Comenzar Clase Gratuita'}
+                {language === 'en' ? 'Book Diagnostic' : 'Agendar mi diagnóstico'}
               </Button>
             </div>
           </FadeIn>
@@ -340,8 +340,8 @@ export default function Adults({ language }: AdultsProps) {
               <Clock className="w-4 h-4 mr-2" />
               <span>
                 {language === 'en'
-                  ? '40-minute discovery session • Available 24/7 • No credit card required'
-                  : 'Sesión de descubrimiento de 40 minutos • Disponible 24/7 • No se requiere tarjeta de crédito'
+                  ? '50-minute diagnostic class • Your plan within 72 hours • No credit card required'
+                  : 'Clase de diagnóstico de 50 minutos • Tu plan en 72 horas • Sin tarjeta de crédito'
                 }
               </span>
             </div>
@@ -360,7 +360,7 @@ export default function Adults({ language }: AdultsProps) {
             <p className="text-gray-400 mb-4">
               {language === 'en'
                 ? 'Learn Spanish with native Latin American instructors, 24/7.'
-                : 'Aprende inglés con instructores nativos americanos, 24/7.'
+                : 'Aprende inglés con coaches latinos bilingües, 24/7.'
               }
             </p>
             <div className="text-center text-gray-400">

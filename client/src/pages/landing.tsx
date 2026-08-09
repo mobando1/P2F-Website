@@ -251,7 +251,7 @@ const EmailPopup = ({
           name: name || undefined,
           phone,
           language: currentLang,
-          source: 'discount_popup',
+          source: 'sample_plan_request',
         }),
       });
       setSubmitted(true);
@@ -278,7 +278,7 @@ const EmailPopup = ({
           ? "Perfect timing! Since you're interested in this language, here's a special offer just for you!"
           : "¡Momento perfecto! Como te interesa este idioma, ¡aquí tienes una oferta especial solo para ti!")
       : (isEnglishLang
-          ? "Join thousands of students who are already learning with native instructors. Limited time offer!"
+          ? "Join thousands of students already learning with a dedicated bilingual coach. Limited time offer!"
           : "Únete a miles de estudiantes que ya están aprendiendo con instructores nativos. ¡Oferta por tiempo limitado!")
   };
 
@@ -449,9 +449,9 @@ export default function Landing() {
   // Traducciones del contenido
   const content = {
     es: {
-      heroTitle: "Habla como un",
-      heroTitleItalic: "nativo",
-      heroSubtitle: "Clases personalizadas 1-a-1 con instructores nativos",
+      heroTitle: "Primero diagnosticamos",
+      heroTitleItalic: "tu idioma",
+      heroSubtitle: "Una clase de 50 minutos con tu coach. De ahí sale tu Plan de Vuelo: qué te está frenando y la ruta para resolverlo.",
       selectLanguageTitle: "Selecciona el idioma que quieres aprender:",
       selectLanguageSubtitle: "↓ Elige tu próximo paso hacia la fluidez ↓",
       scrollIndicator: "Desliza ↓ para ver cómo funciona",
@@ -464,13 +464,13 @@ export default function Landing() {
       stat4: "calificación promedio",
       // Cómo funciona
       howItWorksTitle: "¿Cómo funciona?",
-      howItWorksSubtitle: "En 3 sencillos pasos estarás conversando como un nativo",
+      howItWorksSubtitle: "Tres pasos. El primero no cuesta nada.",
       step1Title: "Elige tu idioma",
-      step1Desc: "Selecciona el idioma que quieres aprender y tu nivel actual",
-      step2Title: "Conéctate por video",
-      step2Desc: "Programa tu clase y conéctate con un instructor nativo",
-      step3Title: "Practica y mejora",
-      step3Desc: "Recibe feedback en tiempo real y mejora tu fluidez",
+      step1Desc: "Inglés o español. Después te preguntamos por tu meta.",
+      step2Title: "Clase de diagnóstico",
+      step2Desc: "50 minutos con tu coach. Hablas tú; tu coach escucha y mide.",
+      step3Title: "Recibe tu Plan de Vuelo",
+      step3Desc: "Tu nivel real, tus áreas de enfoque y tu ruta. En 72 horas, en tu portal.",
       // Testimonios
       testimonialsTitle: "Lo que dicen nuestros estudiantes",
       testimonialsSubtitle: "Más de 1,000 estudiantes han transformado su fluidez con nosotros",
@@ -491,12 +491,12 @@ export default function Landing() {
       businessCta: "Conoce Programas Empresariales",
       // Secciones adicionales
       ctaReady: "¿Listo? Elige tu idioma",
-      ctaLike: "¿Te gusta el proceso? ¡Empezemos!",
+      ctaLike: "¿Te gusta el proceso? Empecemos.",
       finalCtaTitle: "¡Tu pasaporte a la fluidez te está esperando!",
       finalCtaSubtitle: "Miles de estudiantes ya transformaron su vida profesional y personal.",
       finalCtaBold: "Tú puedes ser el siguiente.",
-      incentive1: "Primera clase GRATIS",
-      incentive2: "Profesores nativos certificados",
+      incentive1: "Diagnóstico sin costo + tu plan",
+      incentive2: "Coaches bilingües dedicados",
       incentive3: "Garantía de progreso 30 días",
       footerRights: "© 2024 Passport2Fluency. Todos los derechos reservados.",
       footerTerms: "Términos y Condiciones",
@@ -504,9 +504,9 @@ export default function Landing() {
       footerSupport: "Soporte",
     },
     en: {
-      heroTitle: "Speak like a",
-      heroTitleItalic: "native",
-      heroSubtitle: "Personalized 1-on-1 classes with native instructors",
+      heroTitle: "We diagnose your",
+      heroTitleItalic: "language first",
+      heroSubtitle: "One 50-minute class with your coach. Out of it comes your Flight Plan: what\u2019s holding you back, and the route to fix it.",
       selectLanguageTitle: "Select the language you want to learn:",
       selectLanguageSubtitle: "↓ Choose your next step towards fluency ↓",
       scrollIndicator: "Scroll ↓ to see how it works",
@@ -519,13 +519,13 @@ export default function Landing() {
       stat4: "average rating",
       // Cómo funciona
       howItWorksTitle: "How it works?",
-      howItWorksSubtitle: "In 3 simple steps you'll be speaking like a native",
+      howItWorksSubtitle: "Three steps. The first one costs nothing.",
       step1Title: "Choose your language",
-      step1Desc: "Select the language you want to learn and your current level",
-      step2Title: "Connect by video",
-      step2Desc: "Schedule your class and connect with a native instructor",
-      step3Title: "Practice and improve",
-      step3Desc: "Receive real-time feedback and improve your fluency",
+      step1Desc: "English or Spanish. Then we ask about your goal.",
+      step2Title: "Diagnostic class",
+      step2Desc: "50 minutes with your coach. You talk; your coach listens and measures.",
+      step3Title: "Get your Flight Plan",
+      step3Desc: "Your real level, your focus areas and your route. Within 72 hours, in your portal.",
       // Testimonios
       testimonialsTitle: "What our students say",
       testimonialsSubtitle: "Over 1,000 students have transformed their fluency with us",
@@ -1017,6 +1017,7 @@ export default function Landing() {
               {/* Botón CTA */}
               <div className="flex justify-start">
                 <Button 
+                  onClick={() => navigate(currentLang === 'es' ? '/en/business' : '/es/business')}
                   className="px-8 py-4 text-lg font-semibold rounded-xl text-white border-0 transition-all duration-300 hover:shadow-lg"
                   style={{background: '#0A4A6E'}}
                   data-testid="business-book-demo"
