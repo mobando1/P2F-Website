@@ -62,7 +62,7 @@ export default function Children({ language }: ChildrenProps) {
         description: "Develop appreciation for Latin American cultures while building language skills and confidence."
       }
     ],
-    cta: "Book Free Diagnostic for Kids",
+    cta: "Book Diagnostic for Kids",
     testimonial: {
       text: "I'm incredibly thrilled with the language learning journey my twins have embarked on with Passport to Fluency. The interactive lessons, engaging activities, and culturally relevant content have truly captivated my kids' interest and enthusiasm. They are not only learning the language but also developing a deep appreciation for their cultural roots.",
       name: "Rebecca Unrath",
@@ -102,7 +102,7 @@ export default function Children({ language }: ChildrenProps) {
         description: "Desarrolla curiosidad por otras culturas mientras construye habilidades lingüísticas y confianza."
       }
     ],
-    cta: "Agendar Diagnóstico Gratis para Niños",
+    cta: "Agendar Diagnóstico para Niños",
     testimonial: {
       text: "Mis hijos estudian en una escuela bilingüe y yo no podía ayudarlos con sus tareas en inglés. Después de 6 meses con Passport2Fluency, ahora puedo ayudarlos y hasta leer cuentos en inglés. Las lecciones interactivas y actividades atractivas han capturado verdaderamente el interés y entusiasmo de mis hijos.",
       name: "Ana Rodríguez",
@@ -422,7 +422,7 @@ export default function Children({ language }: ChildrenProps) {
               <p className="text-base sm:text-lg md:text-xl text-gray-600 max-w-3xl mx-auto">
                 {language === 'en'
                   ? 'Book a 50-minute diagnostic class with a coach who specializes in kids. You get their plan within 72 hours, free.'
-                  : 'Reserva una clase de diagnóstico de 50 minutos con un coach especializado en niños. En 72 horas reciben su plan, gratis.'
+                  : 'Reserva una clase de diagnóstico de 50 minutos con un coach especializado en niños. En 72 horas reciben su plan.'
                 }
               </p>
             </div>

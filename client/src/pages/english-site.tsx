@@ -244,19 +244,19 @@ export default function EnglishSite() {
             </div>
 
             <FadeIn>
-              <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-bold text-gray-900 mb-6">
+              <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-bold text-gray-900 leading-[1.1] tracking-tight mb-8">
                 <span className="text-passport-blue">{c.hero.h1Line1}</span><br />
                 <span className="italic text-passport-orange">{c.hero.h1Line2}</span>
               </h1>
             </FadeIn>
 
             <FadeIn delay={0.1}>
-              <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-gray-700 mb-8 max-w-3xl mx-auto">
+              <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-gray-700 leading-relaxed mb-10 max-w-2xl mx-auto">
                 {c.hero.sub}
                 <span className="font-semibold">{c.hero.subBold}</span>
               </p>
 
-              <div className="flex flex-wrap justify-center gap-3 sm:gap-4 md:gap-6 mb-6 sm:mb-8 md:mb-12 text-sm text-gray-600">
+              <div className="flex flex-wrap justify-center gap-4 sm:gap-6 md:gap-8 mb-10 md:mb-12 text-sm text-gray-600">
                 <div className="flex items-center">
                   <ClipboardCheck className="w-4 h-4 mr-1 text-passport-blue" />
                   {c.hero.trust[0].label}<strong className="text-gray-900">{c.hero.trust[0].strong}</strong>{c.hero.trust[0].after}
@@ -273,7 +273,7 @@ export default function EnglishSite() {
             </FadeIn>
 
             <FadeIn delay={0.2}>
-              <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
+              <div className="flex flex-col sm:flex-row gap-4 justify-center mb-4">
                 <Button
                   onClick={() => handleBookingClick('adult')}
                   className="bg-passport-blue hover:bg-blue-700 text-white px-8 py-4 text-lg font-semibold"
@@ -291,6 +291,9 @@ export default function EnglishSite() {
                   {c.hero.ctaSecondary}
                 </Button>
               </div>
+              {/* The only place on the page that mentions cost. Deliberately
+                  small and below the fold of the decision. */}
+              <p className="text-sm text-gray-500">{c.hero.ctaNote}</p>
             </FadeIn>
           </div>
         </div>
@@ -306,11 +309,11 @@ export default function EnglishSite() {
       </div>
 
       {/* Cómo Funciona - Timeline Visual */}
-      <section id="como-funciona" className="py-8 md:py-12 bg-white">
+      <section id="como-funciona" className="py-16 md:py-24 bg-white">
         <div className="container mx-auto px-4">
           <FadeIn>
-            <div className="text-center mb-6 md:mb-8">
-              <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
+            <div className="text-center mb-12 md:mb-16">
+              <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 leading-[1.15] tracking-tight mb-5">
                 {c.howItWorks.title}
               </h2>
               <p className="text-base sm:text-lg md:text-xl text-gray-600 max-w-3xl mx-auto">
@@ -326,11 +329,11 @@ export default function EnglishSite() {
       {/* Qué hay dentro de tu Plan de Vuelo — la sección que hace creíble la promesa */}
       <PlanPreview content={c.planPreview} accent="blue" id="tu-plan" />
       {/* Features */}
-      <section className="py-8 md:py-12 bg-gray-50">
+      <section className="py-16 md:py-24 bg-gray-50">
         <div className="container mx-auto px-4">
           <FadeIn>
-            <div className="text-center mb-6 md:mb-8">
-              <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+            <div className="text-center mb-12 md:mb-16">
+              <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 leading-[1.2] tracking-tight mb-5">
                 {c.whyUs.title}
               </h2>
             </div>
@@ -389,11 +392,11 @@ export default function EnglishSite() {
       {/* Diagnóstico — antes "Booking Calendars" */}
       {/* Legacy anchor: ads and emails still point at #booking-calendars. */}
       <span id="booking-calendars" aria-hidden="true" />
-      <section id={DIAGNOSTIC_ANCHOR} className="py-8 md:py-12 bg-white">
+      <section id={DIAGNOSTIC_ANCHOR} className="py-16 md:py-24 bg-white">
         <div className="container mx-auto px-4">
           <FadeIn>
-            <div className="text-center mb-6 md:mb-8">
-              <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+            <div className="text-center mb-12 md:mb-16">
+              <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 leading-[1.2] tracking-tight mb-5">
                 {c.diagnostic.title}
               </h2>
               <p className="text-base sm:text-lg md:text-xl text-gray-600 max-w-3xl mx-auto">
@@ -452,11 +455,11 @@ export default function EnglishSite() {
         </div>
       </section>
       {/* Testimonials */}
-      <section id="testimonios" className="py-8 md:py-12 bg-gray-50">
+      <section id="testimonios" className="py-16 md:py-24 bg-gray-50">
         <div className="container mx-auto px-4">
           <FadeIn>
-            <div className="text-center mb-6 md:mb-8">
-              <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+            <div className="text-center mb-12 md:mb-16">
+              <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 leading-[1.2] tracking-tight mb-5">
                 {c.testimonials.title}
               </h2>
               <p className="text-base sm:text-lg text-gray-600 max-w-2xl mx-auto">
@@ -566,13 +569,13 @@ export default function EnglishSite() {
         id="planes-precios"
       />
       {/* Newsletter Section */}
-      <section className="py-8 md:py-12 bg-white">
+      <section className="py-16 md:py-24 bg-white">
         <div className="container mx-auto px-4">
           <NewsletterSignup language="es" className="max-w-2xl mx-auto" />
         </div>
       </section>
       {/* CTA final */}
-      <section className="py-8 md:py-12 bg-passport-blue">
+      <section className="py-16 md:py-24 bg-passport-blue">
         <div className="container mx-auto px-4 text-center">
           <FadeIn>
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-6">

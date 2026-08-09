@@ -245,7 +245,7 @@ export default function Adults({ language }: AdultsProps) {
                 size="lg"
               >
                 <Play className="w-5 h-5 mr-2" />
-                {language === 'en' ? 'Book Free Diagnostic' : 'Agendar Diagnóstico Gratis'}
+                {language === 'en' ? 'Book Diagnostic' : 'Agendar mi diagnóstico'}
               </Button>
             </div>
           </FadeIn>

@@ -53,6 +53,13 @@ export interface OfferCopy {
     trust: { label: string; strong: string; after?: string }[];
     ctaPrimary: string;
     ctaSecondary: string;
+    /**
+     * Small line under the buttons. This is the ONLY place the page says the
+     * diagnostic costs nothing. Repeating "free" across a page tells people
+     * the thing has no value — and the plan is supposed to be the valuable
+     * artifact here, not a giveaway.
+     */
+    ctaNote: string;
   };
 
   /** Thin full-width band under the hero carrying the category break. */
@@ -149,31 +156,33 @@ export const offerEnglish = {
 
   hero: {
     badge: "Inglés 1-a-1 para hispanohablantes",
-    h1Line1: "Tu plan de inglés,",
-    h1Line2: "gratis en 72 horas.",
-    sub: "Una clase de diagnóstico de 50 minutos con tu coach. En menos de 72 horas recibes tu Plan de Vuelo personalizado —",
-    subBold: " te inscribas o no.",
+    h1Line1: "Primero diagnosticamos",
+    h1Line2: "tu inglés.",
+    sub: "Una clase de 50 minutos con tu coach. De ahí sale tu Plan de Vuelo:",
+    subBold: " qué te está frenando exactamente y la ruta para resolverlo.",
+    // Credibility, not offer terms. The terms live in ctaNote.
     trust: [
-      { label: "Tu plan en ", strong: "72 horas", after: ", gratis" },
       { label: "", strong: "1,000+", after: " estudiantes latinos" },
-      { label: "Clases de ", strong: "50 minutos" },
+      { label: "", strong: "4.9", after: " calificación promedio" },
+      { label: "Coaches ", strong: "latinos bilingües" },
     ],
-    ctaPrimary: "Agendar Diagnóstico Gratis",
-    ctaSecondary: "Ver Qué Incluye Tu Plan",
+    ctaPrimary: "Agendar mi diagnóstico",
+    ctaSecondary: "Ver qué incluye",
+    ctaNote: "Sin costo · Sin tarjeta · 50 minutos",
   },
 
   positioning: {
     bold: "No vendemos clases de inglés.",
-    rest: " Construimos el plan que te lleva a hablarlo — y el diagnóstico es gratis.",
+    rest: " Diagnosticamos el tuyo y construimos el plan que te lleva a hablarlo.",
   },
 
   howItWorks: {
     title: "Cómo Funciona",
-    subtitle: "De una clase gratis a un plan escrito para ti. Cuatro pasos, cero tarjeta de crédito.",
+    subtitle: "De una conversación de 50 minutos a un plan escrito para ti.",
     steps: [
       {
         title: "Agenda tu clase de diagnóstico",
-        body: "Elige el horario que te sirva. Es gratis y no pedimos tarjeta.",
+        body: "Elige el horario que te sirva. No pedimos tarjeta.",
       },
       {
         title: "Cuéntanos tu meta en 3 preguntas",
@@ -226,27 +235,28 @@ export const offerEnglish = {
       updated: "Actualizado hace 2 días",
       levelsLabel: "Tu nivel hoy",
       levels: [
-        { label: "Escucha", value: 55 },
-        { label: "Habla", value: 35 },
-        { label: "Vocabulario", value: 55 },
-        { label: "Confianza", value: 30 },
+        { label: "Fluidez", value: 50 },
+        { label: "Comprensión", value: 70 },
+        { label: "Vocabulario", value: 60 },
+        { label: "Gramática", value: 40 },
+        { label: "Confianza", value: 40 },
       ],
       goalLabel: "Tu meta",
       goalQuote: "Quiero liderar la reunión de los lunes sin escribir todo antes.",
       focusLabel: "Tus áreas de enfoque",
       focusChips: [
-        { chip: "Pasado simple", why: "Lo necesitas para reportar avances" },
-        { chip: "Conectores", why: "Para encadenar ideas sin pausas largas" },
-        { chip: "Escucha rápida", why: "Tu jefe habla rápido y no repite" },
+        { chip: "Pasado simple automático", why: "La reunión del lunes es todo en pasado" },
+        { chip: "Conectores", why: "Para encadenar ideas sin volver atrás" },
+        { chip: "Responder en caliente", why: "Lo que no puedes preparar antes" },
       ],
       weeksLabel: "Tu ruta",
       weeks: [
-        { week: "Semana 1", focus: "Abrir la reunión" },
-        { week: "Semana 2", focus: "Reportar avances" },
-        { week: "Semana 3", focus: "Responder preguntas" },
-        { week: "Semana 4", focus: "Reunión completa" },
+        { week: "Semanas 1-2", focus: "Abrir la reunión" },
+        { week: "Semanas 3-4", focus: "Reportar avances" },
+        { week: "Semanas 5-8", focus: "Responder en caliente" },
+        { week: "Semanas 9-12", focus: "La reunión completa" },
       ],
-      recommendation: "Recomendación: 2 clases por semana durante 4 meses.",
+      recommendation: "Recomendación: 2 clases por semana durante 12 semanas.",
     },
   },
 
@@ -320,7 +330,7 @@ export const offerEnglish = {
     title: "Tu plan te dice cuántas clases necesitas",
     subtitle:
       "Lo que cambia es que ya no adivinas: tu Plan de Vuelo recomienda la frecuencia según tu meta y el tiempo real que tienes. Sin contratos. Cancelas cuando quieras.",
-    transitionLine: "Tu plan es gratis. Recorrerlo contigo es lo que cuesta.",
+    transitionLine: "El plan no se cobra. Recorrerlo contigo es lo que cuesta.",
     forkCta: "¿No sabes cuál te toca? Empieza por el diagnóstico",
   },
 
@@ -370,31 +380,32 @@ export const offerSpanish = {
 
   hero: {
     badge: "1-on-1 Spanish for English speakers",
-    h1Line1: "Your Spanish plan,",
-    h1Line2: "free in 72 hours.",
-    sub: "One 50-minute diagnostic class with your coach. In under 72 hours you get your personalized Flight Plan —",
-    subBold: " whether you enroll or not.",
+    h1Line1: "We diagnose your",
+    h1Line2: "Spanish first.",
+    sub: "One 50-minute class with your coach. Out of it comes your Flight Plan:",
+    subBold: " exactly what's holding you back, and the route to fix it.",
     trust: [
-      { label: "Your plan in ", strong: "72 hours", after: ", free" },
       { label: "", strong: "1,000+", after: " students learning" },
-      { label: "", strong: "50-minute", after: " classes" },
+      { label: "", strong: "4.9", after: " average rating" },
+      { label: "", strong: "Native", after: " Latin American coaches" },
     ],
-    ctaPrimary: "Book My Free Diagnostic",
-    ctaSecondary: "See What's In Your Plan",
+    ctaPrimary: "Book my diagnostic",
+    ctaSecondary: "See what's included",
+    ctaNote: "No cost · No card · 50 minutes",
   },
 
   positioning: {
     bold: "We don't sell Spanish classes.",
-    rest: " We build the plan that gets you speaking — and the diagnosis is free.",
+    rest: " We diagnose yours, and build the plan that gets you speaking.",
   },
 
   howItWorks: {
     title: "How It Works",
-    subtitle: "From one free class to a plan written for you. Four steps, no credit card.",
+    subtitle: "From one 50-minute conversation to a plan written for you.",
     steps: [
       {
         title: "Book your diagnostic class",
-        body: "Pick a time that works. It's free and we don't ask for a card.",
+        body: "Pick a time that works. We don\u2019t ask for a card.",
       },
       {
         title: "Tell us your goal in 3 questions",
@@ -447,10 +458,11 @@ export const offerSpanish = {
       updated: "Updated 2 days ago",
       levelsLabel: "Your level today",
       levels: [
-        { label: "Listening", value: 50 },
-        { label: "Speaking", value: 35 },
+        { label: "Fluency", value: 50 },
+        { label: "Listening", value: 70 },
         { label: "Vocabulary", value: 60 },
-        { label: "Confidence", value: 30 },
+        { label: "Grammar", value: 40 },
+        { label: "Confidence", value: 40 },
       ],
       goalLabel: "Your goal",
       goalQuote: "I want to order dinner for the whole table in Bogotá without switching to English.",
@@ -541,7 +553,7 @@ export const offerSpanish = {
     title: "Your plan tells you how many classes you need",
     subtitle:
       "What changes is that you're no longer guessing: your Flight Plan recommends the frequency based on your goal and the time you actually have. No contracts. Cancel anytime.",
-    transitionLine: "The plan is free. Walking it with you is what costs.",
+    transitionLine: "The plan isn\u2019t what you pay for. Walking it with you is.",
     forkCta: "Not sure which one is yours? Start with the diagnostic",
   },
 

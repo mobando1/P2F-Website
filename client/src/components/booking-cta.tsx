@@ -25,13 +25,13 @@ export default function BookingCTA({ language, type, className = "" }: BookingCT
   const bullets =
     language === "es"
       ? [
-          "Clase de diagnóstico de 50 min, gratis",
-          "Sin tarjeta de crédito",
+          "Clase de diagnóstico de 50 minutos",
+          "Sin costo y sin tarjeta",
           "Tu Plan de Vuelo en 72 horas",
         ]
       : [
-          "Free 50-minute diagnostic class",
-          "No credit card required",
+          "50-minute diagnostic class",
+          "No cost, no card",
           "Your Flight Plan within 72 hours",
         ];
 

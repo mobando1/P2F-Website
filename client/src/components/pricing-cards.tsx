@@ -27,11 +27,11 @@ export default function PricingCards({ offerId, content, diagnosticAnchor, id }:
   const plans = PLANS[offerId];
 
   return (
-    <section id={id} className="py-8 md:py-12 bg-white">
+    <section id={id} className="py-16 md:py-24 bg-white">
       <div className="container mx-auto px-4">
         <FadeIn>
-          <div className="text-center mb-6 md:mb-8">
-            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+          <div className="text-center mb-12 md:mb-16">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 leading-[1.2] tracking-tight mb-5">
               {content.title}
             </h2>
             <p className="text-base sm:text-lg md:text-xl text-gray-600 max-w-3xl mx-auto">

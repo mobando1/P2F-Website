@@ -449,8 +449,8 @@ export default function BookingForm({ t, language, defaultClassType, onClose }: 
             ) : (
               <div className="rounded-lg bg-amber-50 border border-amber-200 p-4 text-sm text-amber-800">
                 {isEs
-                  ? "No hay horarios en línea por ahora. Déjanos tus datos y te contactamos para agendar tu diagnóstico gratis."
-                  : "No online times right now. Leave your details and we'll reach out to schedule your free diagnostic."}
+                  ? "No hay horarios en línea por ahora. Déjanos tus datos y te contactamos para agendar tu diagnóstico."
+                  : "No online times right now. Leave your details and we'll reach out to schedule your diagnostic."}
               </div>
             )}
           </div>

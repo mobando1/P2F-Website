@@ -32,7 +32,7 @@ export default function Pricing({ language }: PricingProps) {
     ? { home: "Home", pricing: "Plans & Pricing", team: "Team", blog: "Blog" }
     : { home: "Inicio", pricing: "Planes y Precios", team: "Equipo", blog: "Blog" };
 
-  const bookCta = isSpanishOffer ? "Book my free diagnostic" : "Agendar mi diagnóstico gratis";
+  const bookCta = isSpanishOffer ? "Book my diagnostic" : "Agendar mi diagnóstico";
 
   return (
     <div className="min-h-screen bg-white">

@@ -24,7 +24,7 @@ export const translations = {
   es: {
     booking: {
       heading: "Agenda tu Clase de Diagnóstico",
-      subheading: "50 minutos, gratis. Después te mandamos tu plan.",
+      subheading: "50 minutos con tu coach. Después te mandamos tu plan.",
       selectClassType: "¿Qué diagnóstico quieres?",
       confirmBooking: "Agendar mi diagnóstico",
       classTypes: {
@@ -45,7 +45,7 @@ export const translations = {
   en: {
     booking: {
       heading: "Book Your Diagnostic Class",
-      subheading: "50 minutes, free. Then we send you your plan.",
+      subheading: "50 minutes with your coach. Then we send you your plan.",
       selectClassType: "Which diagnostic do you want?",
       confirmBooking: "Book my diagnostic",
       classTypes: {
