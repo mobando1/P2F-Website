@@ -300,16 +300,6 @@ export default function SpanishSite() {
       </section>
       
       
-      {/* Positioning band — the category break, with a home of its own */}
-      <div className="border-y border-gray-100 bg-white py-6">
-        <div className="container mx-auto px-4">
-          <p className="text-center text-xl md:text-2xl max-w-4xl mx-auto">
-            <span className="font-bold text-passport-orange">{c.positioning.bold}</span>
-            <span className="text-gray-700">{c.positioning.rest}</span>
-          </p>
-        </div>
-      </div>
-
       {/* How it Works - Timeline Visual */}
       <section id="how-it-works" className="py-16 md:py-24 bg-white">
         <div className="container mx-auto px-4">

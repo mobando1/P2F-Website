@@ -13,10 +13,14 @@
  * │ writing `offer.en`, stop — you are about to wire it backwards.       │
  * └──────────────────────────────────────────────────────────────────────┘
  *
- * The positioning: we don't sell classes, we sell a personalized plan — the
- * "Plan de Vuelo" / "Flight Plan" — and the diagnosis is free. The first class
- * is a DIAGNOSTIC whose deliverable is that plan, delivered within 72 hours,
- * free, whether or not the student enrolls.
+ * The positioning: we diagnose the student's English before we teach it, and
+ * the diagnosis produces a named artifact — the "Plan de Vuelo" / "Flight
+ * Plan" — delivered within 72 hours at no cost, whether or not they enroll.
+ *
+ * Note the register: the page does NOT say "we don't sell classes" (we do —
+ * three subscription tiers are further down the same page) and it mentions
+ * cost exactly once, in small type under the CTA. Repeating "free" reads as a
+ * discount coupon and tells people the plan is worth nothing.
  *
  * Typed with `satisfies OfferCopy` so that adding a key to one locale and
  * forgetting the other is a compile error rather than silent drift.
@@ -62,8 +66,6 @@ export interface OfferCopy {
     ctaNote: string;
   };
 
-  /** Thin full-width band under the hero carrying the category break. */
-  positioning: { bold: string; rest: string };
 
   howItWorks: {
     title: string;
@@ -171,10 +173,6 @@ export const offerEnglish = {
     ctaNote: "Sin costo · Sin tarjeta · 50 minutos",
   },
 
-  positioning: {
-    bold: "No vendemos clases de inglés.",
-    rest: " Diagnosticamos el tuyo y construimos el plan que te lleva a hablarlo.",
-  },
 
   howItWorks: {
     title: "Cómo Funciona",
@@ -394,10 +392,6 @@ export const offerSpanish = {
     ctaNote: "No cost · No card · 50 minutes",
   },
 
-  positioning: {
-    bold: "We don't sell Spanish classes.",
-    rest: " We diagnose yours, and build the plan that gets you speaking.",
-  },
 
   howItWorks: {
     title: "How It Works",
